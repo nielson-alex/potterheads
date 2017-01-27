@@ -5,6 +5,8 @@
  */
 package potterheads;
 
+import byui.cit260.potterheads.model.Player;
+
 /**
  *
  * @author Alex test
@@ -16,7 +18,12 @@ public class Potterheads {
      * second test
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Player playerOne = new Player();
+        
+        playerOne.setName("Hermione Granger");
+        
+        String playerInfo = playerOne.toString();
+        System.out.println(playerInfo);
     }
     
 }
