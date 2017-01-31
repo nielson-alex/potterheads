@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @author alex
  */
 public class PuzzleScene implements Serializable {
-    private int numberOfObstancles;
+    private int numberOfObstacles;
     
     // constructor function
     public PuzzleScene() {
@@ -20,12 +20,12 @@ public class PuzzleScene implements Serializable {
     
     
     // getter and setter
-    public int getNumberOfObstancles() {
-        return numberOfObstancles;
+    public int getNumberOfObstacles() {
+        return numberOfObstacles;
     }
 
-    public void setNumberOfObstancles(int numberOfObstancles) {
-        this.numberOfObstancles = numberOfObstancles;
+    public void setNumberOfObstacles(int numberOfObstacles) {
+        this.numberOfObstacles = numberOfObstacles;
     }
     
     
@@ -33,7 +33,7 @@ public class PuzzleScene implements Serializable {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 59 * hash + this.numberOfObstancles;
+        hash = 59 * hash + this.numberOfObstacles;
         return hash;
     }
 
@@ -49,7 +49,7 @@ public class PuzzleScene implements Serializable {
             return false;
         }
         final PuzzleScene other = (PuzzleScene) obj;
-        if (this.numberOfObstancles != other.numberOfObstancles) {
+        if (this.numberOfObstacles != other.numberOfObstacles) {
             return false;
         }
         return true;
@@ -59,6 +59,6 @@ public class PuzzleScene implements Serializable {
     // toString
     @Override
     public String toString() {
-        return "PuzzleScene{" + "numberOfObstancles=" + numberOfObstancles + '}';
+        return "PuzzleScene{" + "numberOfObstacles=" + numberOfObstacles + '}';
     }
 }
