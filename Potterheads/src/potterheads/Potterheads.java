@@ -5,12 +5,19 @@
  */
 package potterheads;
 
-import byui.cit260.potterheads.model.DiagonAlley;
-import byui.cit260.potterheads.model.Item;
-import byui.cit260.potterheads.model.Player;
-import byui.cit260.potterheads.model.PuzzleScene;
 import byui.cit260.potterheads.model.Character;
-
+import byui.cit260.potterheads.model.CharacterScene;
+import byui.cit260.potterheads.model.DiagonAlley;
+import byui.cit260.potterheads.model.Game;
+import byui.cit260.potterheads.model.Item;
+import byui.cit260.potterheads.model.ItemScene;
+import byui.cit260.potterheads.model.Location;
+import byui.cit260.potterheads.model.Map;
+import byui.cit260.potterheads.model.Player;
+import byui.cit260.potterheads.model.Polyjuice;
+import byui.cit260.potterheads.model.PuzzleScene;
+import byui.cit260.potterheads.model.Quidditch;
+import byui.cit260.potterheads.model.Scene;
 /**
  *
  * @author Alex test
@@ -63,10 +70,9 @@ public class Potterheads {
         // puzzle scene class
         PuzzleScene chamberOfSecrets = new PuzzleScene();
         
-        chamberOfSecrets.setNumberOfObstancles(1);
+        chamberOfSecrets.setNumberOfObstacles(1);
         
-        String chamberOfSecretsInfo = chamberOfSecrets.toString();
-        System.out.println(chamberOfSecretsInfo);
+        System.out.println(chamberOfSecrets.toString());
         
         
         // character class
@@ -79,6 +85,47 @@ public class Potterheads {
         
         String dumbledoreInfo = dumbledore.toString();
         System.out.println(dumbledoreInfo);
-    }
     
+        
+        // game class - Allie Glaser
+        Game gameOne = new Game();
+        
+        gameOne.setNumberOfPlayers(3);
+       
+        System.out.println(gameOne.toString());
+    
+
+        // map class - Allie Glaser
+        Map mapOne = new Map();
+        
+        mapOne.setRowCount(30);
+        mapOne.setColumnCount(14);
+       
+        String mapInfo = mapOne.toString();
+        System.out.println(mapInfo);
+    
+
+        // polyjuice class - Allie Glaser
+        Polyjuice cauldronOne = new Polyjuice();
+        
+        cauldronOne.setWeight(3.2);
+        cauldronOne.setTime(2.34);
+        cauldronOne.setOunces(0.02);
+        
+        
+        String polyjuiceInfo = cauldronOne.toString();
+        System.out.println(polyjuiceInfo);
+
+
+        //quidditch class - Allie Glaser
+        Quidditch matchOne = new Quidditch();
+        
+        matchOne.setNimbusSpeed(15);
+        matchOne.setFireboltSpeed(4);
+        matchOne.setSnitchSpeed(7);
+        
+        
+        String quidditchInfo = matchOne.toString();
+        System.out.println(quidditchInfo);
+    }
 }
