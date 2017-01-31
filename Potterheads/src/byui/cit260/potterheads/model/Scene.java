@@ -1,3 +1,4 @@
+package byui.cit260.potterheads.model;
 
 import java.io.Serializable;
 import java.util.Objects;

@@ -1,25 +1,28 @@
-
-import java.io.Serializable;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package byui.cit260.potterheads.model;
+
+import java.io.Serializable;
 
 /**
  *
- * @author aleecrook
+ * @author alex
  */
-public class Location implements Serializable{
+public class Location implements Serializable {
     private int row;
     private int column;
     private boolean visited;
     private int amountRemaining;
-
+    
+    // constructor function
     public Location() {
     }
-
+    
+    
+    // getter and setter
     public int getRow() {
         return row;
     }
@@ -51,14 +54,16 @@ public class Location implements Serializable{
     public void setAmountRemaining(int amountRemaining) {
         this.amountRemaining = amountRemaining;
     }
-
+    
+    
+    // equals and hashcode
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 47 * hash + this.row;
-        hash = 47 * hash + this.column;
-        hash = 47 * hash + (this.visited ? 1 : 0);
-        hash = 47 * hash + this.amountRemaining;
+        int hash = 7;
+        hash = 61 * hash + this.row;
+        hash = 61 * hash + this.column;
+        hash = 61 * hash + (this.visited ? 1 : 0);
+        hash = 61 * hash + this.amountRemaining;
         return hash;
     }
 
@@ -88,20 +93,13 @@ public class Location implements Serializable{
         }
         return true;
     }
-
+    
+    
+    // toString()
     @Override
     public String toString() {
         return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", amountRemaining=" + amountRemaining + '}';
     }
     
-    
-    
-    
-    
-    
-  /*scene:description=string symbol=string
-    item scene: int
-    characterScene: int
-    */
     
 }

@@ -21,6 +21,7 @@ public class Character implements Serializable {
     // constructor function
     public Character() {
     }
+    
 
     
     

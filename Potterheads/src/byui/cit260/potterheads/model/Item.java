@@ -13,6 +13,7 @@ import java.util.Objects;
  * @author alex
  */
 public class Item implements Serializable {
+    private String description;
     private String inventoryType;
     private int quantity;
     
@@ -22,6 +23,14 @@ public class Item implements Serializable {
     
     
     // getter and setter
+    public String getDescription() {    
+        return description;
+    }
+
+    public void setDescription(String description) {    
+        this.description = description;
+    }
+
     public String getInventoryType() {
         return inventoryType;
     }
@@ -42,9 +51,10 @@ public class Item implements Serializable {
     // equals and hashcode
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 71 * hash + Objects.hashCode(this.inventoryType);
-        hash = 71 * hash + this.quantity;
+        int hash = 7;
+        hash = 29 * hash + Objects.hashCode(this.description);
+        hash = 29 * hash + Objects.hashCode(this.inventoryType);
+        hash = 29 * hash + this.quantity;
         return hash;
     }
 
@@ -63,6 +73,9 @@ public class Item implements Serializable {
         if (this.quantity != other.quantity) {
             return false;
         }
+        if (!Objects.equals(this.description, other.description)) {
+            return false;
+        }
         if (!Objects.equals(this.inventoryType, other.inventoryType)) {
             return false;
         }
@@ -70,9 +83,11 @@ public class Item implements Serializable {
     }
     
     
+    
     // toString
     @Override
     public String toString() {
-        return "Item{" + "inventoryType=" + inventoryType + ", quantity=" + quantity + '}';
+        return "Item{" + "description=" + description + ", inventoryType=" + inventoryType + ", quantity=" + quantity + '}';
     }
+    
 }

@@ -1,3 +1,4 @@
+package byui.cit260.potterheads.model;
 
 import java.io.Serializable;
 
@@ -55,3 +56,4 @@ public class ItemScene implements Serializable{
         return "ItemScene{" + "numberOfItems=" + numberOfItems + '}';
     }
 }
+
