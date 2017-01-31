@@ -11,6 +11,12 @@ import byui.cit260.potterheads.model.Player;
  *
  * @author Alex test
  */
+
+
+/* Alex: diagonalley, item, puzzle scene and character
+Glaser: game, polyjuice, quidditch, and map
+Reese: itemScene, location, scene, characterScene
+*/
 public class Potterheads {
 
     /**
