@@ -6,37 +6,34 @@
 package byui.cit260.potterheads.model;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 /**
  *
  * @author alex
  */
-public class Player implements Serializable {
-    private String name;
+public class PuzzleScene implements Serializable {
+    private int numberOfObstancles;
     
-    // constructor Function
-    public Player() {
-        
+    // constructor function
+    public PuzzleScene() {
     }
-      
     
-    // Getter and setter functions
-    public String getName() {
-        return name;
+    
+    // getter and setter
+    public int getNumberOfObstancles() {
+        return numberOfObstancles;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNumberOfObstancles(int numberOfObstancles) {
+        this.numberOfObstancles = numberOfObstancles;
     }
     
     
-
-    // equals() and hashcode
+    // equals and hashcode
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.name);
+        int hash = 5;
+        hash = 59 * hash + this.numberOfObstancles;
         return hash;
     }
 
@@ -51,19 +48,17 @@ public class Player implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Player other = (Player) obj;
-        if (!Objects.equals(this.name, other.name)) {
+        final PuzzleScene other = (PuzzleScene) obj;
+        if (this.numberOfObstancles != other.numberOfObstancles) {
             return false;
         }
         return true;
     }
     
     
-    // toString();
+    // toString
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + '}';
+        return "PuzzleScene{" + "numberOfObstancles=" + numberOfObstancles + '}';
     }
 }
-    
-
