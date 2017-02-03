@@ -98,8 +98,8 @@ public class Potterheads {
         // map class - Allie Glaser
         Map mapOne = new Map();
         
-        mapOne.setRowCount(30);
-        mapOne.setColumnCount(14);
+        mapOne.setRowCount(2);
+        mapOne.setColumnCount(4);
        
         String mapInfo = mapOne.toString();
         System.out.println(mapInfo);
