@@ -127,5 +127,46 @@ public class Potterheads {
         
         String quidditchInfo = matchOne.toString();
         System.out.println(quidditchInfo);
+        
+        
+        //location class-Alee Rees
+        Location greatHall = new Location();
+        
+        greatHall.setRow(3);
+        greatHall.setColumn(5);
+        greatHall.setVisited(true);
+        greatHall.setAmountRemaining(5);
+        
+        String locationInfo = greatHall.toString();
+        System.out.println(locationInfo);
+        
+        
+        //Scene Class-Alee Rees
+        Scene sceneOne = new Scene();
+        
+        sceneOne.setDescription("Classroom");
+        sceneOne.setDisplaySymbol("Use Spell");
+        
+        String sceneInfo = sceneOne.toString();
+        System.out.println(sceneInfo);
+        
+        
+        //CharacterScene Class-Alee Rees
+        CharacterScene characterOne = new CharacterScene();
+        
+        characterOne.setNumberOfCharacters(3);
+        
+        String characterInfo = characterOne.toString();
+        System.out.println(characterInfo);
+        
+        
+        
+        //ItemScene Class - Alee Rees
+        ItemScene itemOne = new ItemScene();
+        
+        itemOne.setNumberOfItems(2);
+        
+        String itemInfo = itemOne.toString();
+        System.out.println(itemInfo);
     }
 }
