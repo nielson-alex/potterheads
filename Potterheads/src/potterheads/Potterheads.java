@@ -60,7 +60,7 @@ public class Potterheads {
         
         diagonAlley.setDollars(100);
         diagonAlley.setCents(50);
-        diagonAlley.setGalleons((diagonAlley.getDollars() * (diagonAlley.getCents() * 0.01)) *0.735);
+        diagonAlley.setGalleons((diagonAlley.getDollars() * (diagonAlley.getCents() * 0.01)) * 0.735);
         
         
         String diagonAlleyInfo = diagonAlley.toString();
