@@ -15,7 +15,7 @@ public class Polyjuice implements Serializable {
     
     //class instance variables
     private double weight;
-    private double time;
+    private double timeTransformed;
     private double ounces;
 
     public Polyjuice() {
@@ -29,12 +29,12 @@ public class Polyjuice implements Serializable {
         this.weight = weight;
     }
 
-    public double getTime() {
-        return time;
+    public double getTimeTransformed() {
+        return timeTransformed;
     }
 
-    public void setTime(double time) {
-        this.time = time;
+    public void setTimeTransformed(double timeTransformed) {
+        this.timeTransformed = timeTransformed;
     }
 
     public double getOunces() {
@@ -49,7 +49,7 @@ public class Polyjuice implements Serializable {
     public int hashCode() {
         int hash = 3;
         hash = 37 * hash + (int) (Double.doubleToLongBits(this.weight) ^ (Double.doubleToLongBits(this.weight) >>> 32));
-        hash = 37 * hash + (int) (Double.doubleToLongBits(this.time) ^ (Double.doubleToLongBits(this.time) >>> 32));
+        hash = 37 * hash + (int) (Double.doubleToLongBits(this.timeTransformed) ^ (Double.doubleToLongBits(this.timeTransformed) >>> 32));
         hash = 37 * hash + (int) (Double.doubleToLongBits(this.ounces) ^ (Double.doubleToLongBits(this.ounces) >>> 32));
         return hash;
     }
@@ -69,7 +69,7 @@ public class Polyjuice implements Serializable {
         if (Double.doubleToLongBits(this.weight) != Double.doubleToLongBits(other.weight)) {
             return false;
         }
-        if (Double.doubleToLongBits(this.time) != Double.doubleToLongBits(other.time)) {
+        if (Double.doubleToLongBits(this.timeTransformed) != Double.doubleToLongBits(other.timeTransformed)) {
             return false;
         }
         if (Double.doubleToLongBits(this.ounces) != Double.doubleToLongBits(other.ounces)) {
@@ -80,7 +80,7 @@ public class Polyjuice implements Serializable {
 
     @Override
     public String toString() {
-        return "Polyjuice{" + "weight=" + weight + ", time=" + time + ", ounces=" + ounces + '}';
+        return "Polyjuice{" + "weight=" + weight + ", timeTransformed=" + timeTransformed + ", ounces=" + ounces + '}';
     }
     
 }

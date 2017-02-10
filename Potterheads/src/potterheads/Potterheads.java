@@ -58,10 +58,10 @@ public class Potterheads {
         // diagon alley class
         DiagonAlley diagonAlley = new DiagonAlley();
         
-        diagonAlley.setUsd(100);
-        diagonAlley.setUsdToGalleon(50);
-        diagonAlley.setGalleonToSickle(50);
-        diagonAlley.setSickleToKnut(50);
+        diagonAlley.setDollars(100);
+        diagonAlley.setCents(50);
+        diagonAlley.setGalleons((diagonAlley.getDollars() * (diagonAlley.getCents() * 0.01)) *0.735);
+        
         
         String diagonAlleyInfo = diagonAlley.toString();
         System.out.println(diagonAlleyInfo);
@@ -109,7 +109,7 @@ public class Potterheads {
         Polyjuice cauldronOne = new Polyjuice();
         
         cauldronOne.setWeight(3.2);
-        cauldronOne.setTime(2.34);
+        cauldronOne.setTimeTransformed(2.34);
         cauldronOne.setOunces(0.02);
         
         

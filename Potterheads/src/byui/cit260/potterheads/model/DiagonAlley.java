@@ -12,59 +12,51 @@ import java.io.Serializable;
  * @author alex
  */
 public class DiagonAlley implements Serializable {
-    private double usd;
-    private double usdToGalleon;
-    private double galleonToSickle;
-    private double sickleToKnut;
+    private double galleons;
+    private double dollars;
+    private double cents;
+
     
-    // constructor funciton
+    // constructor function
     public DiagonAlley() {
     }
     
     
+    
     // getter and setters
-
-    public double getUsd() {
-        return usd;
+    public double getGalleons() {
+        return galleons;
     }
 
-    public void setUsd(double usd) {
-        this.usd = usd;
+    public void setGalleons(double galleons) {
+        this.galleons = galleons;
     }
 
-    public double getUsdToGalleon() {
-        return usdToGalleon;
+    public double getDollars() {
+        return dollars;
     }
 
-    public void setUsdToGalleon(double usdToGalleon) {
-        this.usdToGalleon = usdToGalleon;
+    public void setDollars(double dollars) {
+        this.dollars = dollars;
     }
 
-    public double getGalleonToSickle() {
-        return galleonToSickle;
+    public double getCents() {
+        return cents;
     }
 
-    public void setGalleonToSickle(double galleonToSickle) {
-        this.galleonToSickle = galleonToSickle;
+    public void setCents(double cents) {
+        this.cents = cents;
     }
-
-    public double getSickleToKnut() {
-        return sickleToKnut;
-    }
-
-    public void setSickleToKnut(double sickleToKnut) {
-        this.sickleToKnut = sickleToKnut;
-    }
+    
     
     
     //equals and hashcode()
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 53 * hash + (int) (Double.doubleToLongBits(this.usd) ^ (Double.doubleToLongBits(this.usd) >>> 32));
-        hash = 53 * hash + (int) (Double.doubleToLongBits(this.usdToGalleon) ^ (Double.doubleToLongBits(this.usdToGalleon) >>> 32));
-        hash = 53 * hash + (int) (Double.doubleToLongBits(this.galleonToSickle) ^ (Double.doubleToLongBits(this.galleonToSickle) >>> 32));
-        hash = 53 * hash + (int) (Double.doubleToLongBits(this.sickleToKnut) ^ (Double.doubleToLongBits(this.sickleToKnut) >>> 32));
+        int hash = 3;
+        hash = 47 * hash + (int) (Double.doubleToLongBits(this.galleons) ^ (Double.doubleToLongBits(this.galleons) >>> 32));
+        hash = 47 * hash + (int) (Double.doubleToLongBits(this.dollars) ^ (Double.doubleToLongBits(this.dollars) >>> 32));
+        hash = 47 * hash + (int) (Double.doubleToLongBits(this.cents) ^ (Double.doubleToLongBits(this.cents) >>> 32));
         return hash;
     }
 
@@ -80,25 +72,25 @@ public class DiagonAlley implements Serializable {
             return false;
         }
         final DiagonAlley other = (DiagonAlley) obj;
-        if (Double.doubleToLongBits(this.usd) != Double.doubleToLongBits(other.usd)) {
+        if (Double.doubleToLongBits(this.galleons) != Double.doubleToLongBits(other.galleons)) {
             return false;
         }
-        if (Double.doubleToLongBits(this.usdToGalleon) != Double.doubleToLongBits(other.usdToGalleon)) {
+        if (Double.doubleToLongBits(this.dollars) != Double.doubleToLongBits(other.dollars)) {
             return false;
         }
-        if (Double.doubleToLongBits(this.galleonToSickle) != Double.doubleToLongBits(other.galleonToSickle)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.sickleToKnut) != Double.doubleToLongBits(other.sickleToKnut)) {
+        if (Double.doubleToLongBits(this.cents) != Double.doubleToLongBits(other.cents)) {
             return false;
         }
         return true;
     }
     
     
+    
     // toString()
     @Override
     public String toString() {
-        return "DiagonAlley{" + "usd=" + usd + ", usdToGalleon=" + usdToGalleon + ", galleonToSickle=" + galleonToSickle + ", sickleToKnut=" + sickleToKnut + '}';
+        return "DiagonAlley{" + "galleons=" + galleons + ", dollars=" + dollars + ", cents=" + cents + '}';
     }
+    
+    
 }
