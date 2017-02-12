@@ -13,6 +13,21 @@ import java.io.Serializable;
  */
 public class Quidditch implements Serializable {
     
+    public double calcQuidditch(double broom, double ride){
+        IF (broom != Nimbus || broom!=Firebolt || broom != Kitchen)THEN
+		RETURN -1
+	IF (ride != “yes” || ride!=”no”)THEN
+		RETURN-1
+            Nimbus=70;
+            Firebolt=100;
+            Kitchen= 60
+            Snitch=50	
+
+	Time=100 / ((broom – snitch) /3);
+	RETURN time
+
+    }
+    
     //class instance variables
     private double nimbusSpeed;
     private double fireboltSpeed;
@@ -82,5 +97,4 @@ public class Quidditch implements Serializable {
     public String toString() {
         return "Quidditch{" + "nimbusSpeed=" + nimbusSpeed + ", fireboltSpeed=" + fireboltSpeed + ", snitchSpeed=" + snitchSpeed + '}';
     }
-    
 }
