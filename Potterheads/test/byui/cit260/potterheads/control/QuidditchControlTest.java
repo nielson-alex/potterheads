@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package byui.cit260.potterheads.model;
+package byui.cit260.potterheads.control;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -12,9 +12,9 @@ import static org.junit.Assert.*;
  *
  * @author aleecrook
  */
-public class QuidditchTest {
+public class QuidditchControlTest {
     
-    public QuidditchTest() {
+    public QuidditchControlTest() {
     }
 
     /**
