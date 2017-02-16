@@ -50,7 +50,7 @@ public class DiagonAlleyControlTest {
          *************************/
         System.out.println("\tTest case #2");
         // (dollars + (cents * 0.01)) * 0.735
-        // input values for test case 1
+        // input values for test case 2
         dollars = 2.0;
         cents = 72.0;
         
@@ -68,7 +68,7 @@ public class DiagonAlleyControlTest {
          *************************/
         System.out.println("\tTest case #3");
 
-        // input values for test case 1
+        // input values for test case 3
         dollars = 900.0;
         cents = 12.0;
         
@@ -141,7 +141,7 @@ public class DiagonAlleyControlTest {
          *************************/
         System.out.println("\tTest case #7");
 
-        // input values for test case 6
+        // input values for test case 7
         dollars = 5.0;
         cents = 33.0;
         
