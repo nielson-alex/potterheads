@@ -15,16 +15,7 @@ import potterheads.Potterheads;
 public class GameControl {
     
     public static Player createPlayer(String name) {
-        
-        if (name == null) {
-            return null;
-        }
-        
-        Player player = new Player();
-        player.setName(name);
-        
-        Potterheads.setPlayer(player);
-        
-        return player;
+        System.out.println("\n*** ccreatePlayer() function called ***");
+        return new Player();
     }
 }

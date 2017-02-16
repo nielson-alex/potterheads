@@ -86,7 +86,7 @@ public class StartProgramView {
     private boolean doAction(String playersName) {
         if (playersName.length() < 2) {
             System.out.println("\nInvalid player name: "
-            + "The name must be greaer than one character in length.");
+            + "The name must be greater than one character in length.");
             return false;
         }
         
@@ -97,5 +97,13 @@ public class StartProgramView {
             System.out.println("\nError creating player.");
             return false;
         }
+        
+        // display next view
+        this.displayNextView(player);
+        return true;
+    }
+
+    private void displayNextView(Player player) {
+        System.out.println("\n*** displayNextView() called ***");
     }
 }
