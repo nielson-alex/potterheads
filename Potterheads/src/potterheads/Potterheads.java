@@ -18,6 +18,7 @@ import byui.cit260.potterheads.model.Polyjuice;
 import byui.cit260.potterheads.model.PuzzleScene;
 import byui.cit260.potterheads.model.Quidditch;
 import byui.cit260.potterheads.model.Scene;
+import byui.cit260.potterheads.view.StartProgramView;
 /**
  *
  * @author Alex test
@@ -35,138 +36,9 @@ public class Potterheads {
      * second test
      */
     public static void main(String[] args) {
-        // player class
-        Player playerOne = new Player();
-        
-        playerOne.setName("Hermione Granger");
-        
-        String playerInfo = playerOne.toString();
-        System.out.println(playerInfo);
-        
-        
-        // item class
-        Item wand = new Item();
-        
-        wand.setDescription("This is your wand, it has a dragon heartstring inside.");
-        wand.setInventoryType("Magic");
-        wand.setQuantity(1);
-        
-        String wandInfo = wand.toString();
-        System.out.println(wandInfo);
-        
-        
-        // diagon alley class
-        DiagonAlley diagonAlley = new DiagonAlley();
-        
-        diagonAlley.setDollars(100);
-        diagonAlley.setCents(50);
-        diagonAlley.setGalleons((diagonAlley.getDollars() * (diagonAlley.getCents() * 0.01)) * 0.735);
-        
-        
-        String diagonAlleyInfo = diagonAlley.toString();
-        System.out.println(diagonAlleyInfo);
-        
-        
-        // puzzle scene class
-        PuzzleScene chamberOfSecrets = new PuzzleScene();
-        
-        chamberOfSecrets.setNumberOfObstacles(1);
-        
-        System.out.println(chamberOfSecrets.toString());
-        
-        
-        // character class
-        Character dumbledore = new Character();
-        
-        dumbledore.setName("Albus Dumbledore");
-        dumbledore.setDescription("Wise old man wizard who runs the school.");
-        dumbledore.setNumberOfItems(2);
-        dumbledore.setCoordinates("HDM");
-        
-        String dumbledoreInfo = dumbledore.toString();
-        System.out.println(dumbledoreInfo);
-    
-        
-        // game class - Allie Glaser
-        Game gameOne = new Game();
-        
-        gameOne.setNumberOfPlayers(3);
        
-        System.out.println(gameOne.toString());
-    
-
-        // map class - Allie Glaser
-        Map mapOne = new Map();
-        
-        mapOne.setRowCount(2);
-        mapOne.setColumnCount(4);
-       
-        String mapInfo = mapOne.toString();
-        System.out.println(mapInfo);
-    
-
-        // polyjuice class - Allie Glaser
-        Polyjuice cauldronOne = new Polyjuice();
-        
-        cauldronOne.setWeight(3.2);
-        cauldronOne.setTimeTransformed(2.34);
-        cauldronOne.setOunces(0.02);
-        
-        
-        String polyjuiceInfo = cauldronOne.toString();
-        System.out.println(polyjuiceInfo);
-
-
-        //quidditch class - Allie Glaser
-        Quidditch matchOne = new Quidditch();
-        
-        matchOne.setNimbusSpeed(15);
-        matchOne.setFireboltSpeed(4);
-        matchOne.setSnitchSpeed(7);
-        
-        
-        String quidditchInfo = matchOne.toString();
-        System.out.println(quidditchInfo);
-        
-        
-        //location class-Alee Rees
-        Location greatHall = new Location();
-        
-        greatHall.setRow(3);
-        greatHall.setColumn(5);
-        greatHall.setVisited(true);
-        greatHall.setAmountRemaining(5);
-        
-        String locationInfo = greatHall.toString();
-        System.out.println(locationInfo);
-        
-        
-        //Scene Class-Alee Rees
-        Scene sceneOne = new Scene();
-        
-        sceneOne.setDescription("Classroom");
-        sceneOne.setDisplaySymbol("Use Spell");
-        
-        String sceneInfo = sceneOne.toString();
-        System.out.println(sceneInfo);
-        
-        
-        //CharacterScene Class-Alee Rees
-        CharacterScene characterOne = new CharacterScene();
-        
-        characterOne.setNumberOfCharacters(3);
-        
-        String characterInfo = characterOne.toString();
-        System.out.println(characterInfo);
-        
-        
-        
-        //ItemScene Class - Alee Rees
-        ItemScene itemOne = new ItemScene();
-        
-        itemOne.setNumberOfItems(2);
-        
-        String itemInfo = itemOne.toString();
-        System.out.println(itemInfo);
+        //create StartProgramViewORg and display the start program view
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.displayStartProgramView();
     }
 }
