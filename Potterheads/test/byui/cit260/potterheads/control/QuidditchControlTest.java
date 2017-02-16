@@ -5,6 +5,7 @@
  */
 package byui.cit260.potterheads.control;
 
+import byui.cit260.potterheads.model.Quidditch;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

@@ -36,9 +36,13 @@ public class Potterheads {
      * second test
      */
     public static void main(String[] args) {
-       
+        
         //create StartProgramViewORg and display the start program view
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.displayStartProgramView();
+    }
+
+    public static void setPlayer(Player player) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

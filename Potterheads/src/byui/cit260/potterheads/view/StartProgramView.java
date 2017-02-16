@@ -8,6 +8,10 @@
 */
 package byui.cit260.potterheads.view;
 
+import byui.cit260.potterheads.control.GameControl;
+import byui.cit260.potterheads.model.Player;
+import java.util.Scanner;
+
 /**
  *
  * @author Alexandra
@@ -40,8 +44,58 @@ public class StartProgramView {
     }
 
     public void displayStartProgramView() {
-               System.out.println("\n*** displayStartProgram() fuction called ***");
- 
-    }
+        
+        boolean done = false; // set flag to not done
+        do {
+            //prompt for and get playersName
+            String playersName = this.getPlayersName();
+            if (playersName.toUpperCase().equals("Q")) // user wants to quit
+                return;
+
+            //do requested action and display next view
+            done = this.doAction(playersName);
+
+        //while the view is not done
+
+
+        } while (!done);
+    }    
+
+    private String getPlayersName() {
+        Scanner keyboard = new Scanner(System.in); // get infile for keyboard 
+        String value =""; //value to be returned
+        boolean valid = false; // initialize to not valid
+        
+        while (!valid) { // loop while an invalid value is entered
+            System.out.println("\n" + this.promptMessage);
             
+            value = keyboard.nextLine(); // get next line typed on keyboard
+            value = value.trim(); // trim off leading and trailing blanks
+            
+            if (value.length() <1) { //value is blank
+                System.out.println("\nInvalid value: value cannot be blank");
+                continue;
+            }
+            
+            break; // end the loop
+        }
+        
+        return value; // return the value entered
+    }
+
+    private boolean doAction(String playersName) {
+        if (playersName.length() < 2) {
+            System.out.println("\nInvalid player name: "
+            + "The name must be greaer than one character in length.");
+            return false;
+        }
+        
+        // call createPlayer() control function
+        Player player = GameControl.createPlayer(playersName);
+        
+        if (player == null) { // if unsuccessful
+            System.out.println("\nError creating player.");
+            return false;
+        }
+    }
 }
