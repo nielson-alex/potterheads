@@ -96,11 +96,11 @@ public class HelpMenuView {
     }
 
     private void displayMovementControls() {
-        System.out.println("\n *** displayMovementControls function called ***");
+        System.out.println("\n *** open control instructions ***");
     }
 
     private void displayHints() {
-        System.out.println("\n *** displayHints function called ***");
+        System.out.println("\n *** open hints menu ***");
     }
 
 
