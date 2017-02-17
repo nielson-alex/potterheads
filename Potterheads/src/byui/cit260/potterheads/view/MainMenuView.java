@@ -96,7 +96,8 @@ public class MainMenuView {
     }
 
     private void displayHelpMenu() {
-        System.out.println("\n*** Help menu *** Try again");
+        HelpMenuView helpMenuView = new HelpMenuView();
+        helpMenuView.displayHelpMenuView();
         
     }
 
