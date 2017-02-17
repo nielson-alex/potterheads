@@ -11,20 +11,6 @@ package byui.cit260.potterheads.control;
  */
 public class QuidditchControl {
     public double calcKitchenBroomTime(double kitchenBroomSpeed, double timeOnBroom) {
-        // ((360 / 10) / 3) * 100 = 1200
-        // ((360 / 40) / 3) * 100 = 300
-        // ((60 / 10) / 3) * 100 = 200
-        // ((60 / 10) / 3) * 100 = 600
-        
-        // ((360 / 50) / 3) * 100 = 240
-        // ((360 / 90) / 3) * 100 = 133
-        // ((60 / 50) / 3) * 100 = 40
-        // ((60 / 90) / 3) * 100 = 22
-        
-        // ((360 / 100) / 3) * 100 = 120
-        // ((360 / 150) / 3) * 100 = 80
-        // ((60 / 100) / 3) * 100 = 20
-        // ((60 / 150) / 3) * 100 = 13.3
         if (kitchenBroomSpeed < 10) {
             return -1;
         }
