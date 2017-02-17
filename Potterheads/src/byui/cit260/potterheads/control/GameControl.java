@@ -13,7 +13,9 @@ import potterheads.Potterheads;
  * @author alex
  */
 public class GameControl {
-    
+    public static void createNewGame(Player player){
+        System.out.println("Create New Game Function");
+    }
     public static Player createPlayer(String name) {
         if(name == null) {
             return null;
