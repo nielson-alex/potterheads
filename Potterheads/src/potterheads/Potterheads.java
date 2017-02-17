@@ -31,6 +31,8 @@ Reese: itemScene, location, scene, characterScene
 */
 public class Potterheads {
 
+    private static Game currentGame = null;
+    private static Player player = null;
     /**
      * @param args the command line arguments
      * second test
@@ -40,9 +42,25 @@ public class Potterheads {
         //create StartProgramViewORg and display the start program view
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.displayStartProgramView();
+        
+        
+    }
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        Potterheads.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
     }
 
     public static void setPlayer(Player player) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Potterheads.player = player;
     }
+
+    
 }

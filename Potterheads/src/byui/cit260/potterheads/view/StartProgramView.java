@@ -104,6 +104,10 @@ public class StartProgramView {
     }
 
     private void displayNextView(Player player) {
-        System.out.println("\n*** displayNextView() called ***");
+        System.out.println("Welcome to the Game" + player.getName());
+        
+        MainMenuView mainMenuView = new MainMenuView();
+        mainMenuView.displayMainMenuView();
+        
     }
 }
