@@ -83,31 +83,37 @@ public class MainMenuView {
         return false;
         
     }
-
+     
+    // case "N"
     private void startNewGame() {
        GameControl.createNewGame(Potterheads.getPlayer());
        GameMenuView gameMenu = new GameMenuView();
        gameMenu.displayMenu();
     }
-
+    
+    // case "L"
     private void displayExistingGame() {
-        System.out.println("\n*** load a new game *** Try again");
+        System.out.println("\n*** load a new game ***");
         
     }
 
+    // case "H"
     private void displayHelpMenu() {
         HelpMenuView helpMenuView = new HelpMenuView();
         helpMenuView.displayHelpMenuView();
-        
     }
-
+    
+    // case "G"
+    private void displayGameMenu() {
+        System.out.println("\n*** open game menu ***");
+    }
+    
+    // "case "Q"
     private void quitGame() {
-        System.out.println("\n*** quit game *** Try again");
+        System.out.println("\n*** quit game ***");
        
     }
 
-    private void displayGameMenu() {
-        System.out.println("\n*** Game Menu *** Try again");
-    }
+    
     
 }
