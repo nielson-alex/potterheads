@@ -74,8 +74,7 @@ public class HelpMenuView {
                 this.displayHints();
                 break;
             case "Q":
-                MainMenuView mainMenuView = new MainMenuView();
-                mainMenuView.displayMainMenuView();
+                this.quitHelpMenu();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -101,6 +100,10 @@ public class HelpMenuView {
 
     private void displayHints() {
         System.out.println("\n *** displayHints function called ***");
+    }
+    
+    private void quitHelpMenu() {
+        System.out.println("\n *** quit the help menu ***");
     }
 
 
