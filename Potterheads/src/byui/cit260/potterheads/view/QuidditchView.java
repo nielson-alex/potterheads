@@ -5,25 +5,26 @@
  */
 package byui.cit260.potterheads.view;
 
+import byui.cit260.potterheads.control.QuidditchControl;
 import java.util.Scanner;
 
 /**
  *
- * @author aleecrook
+ * @author alex
  */
-public class GameMenuView {
+public class QuidditchView {
     private String menu;
     //private String promptMessage;
 
-    public GameMenuView() {
-        this.menu = "\nWe're still building our game. Select one of these " 
-                + "\noptions to test the views we're working on."
-                + "\nW - Quidditch Pitch"
-                + "\nQ - Quit";
-    
+    public QuidditchView() {
+        this.menu = "\n All right fool, pick a broom you want to ride.\n"
+                + "N - Nimbus 2000\n"
+                + "F - Firebolt\n"
+                + "K - Kitchen Broom\n"
+                + "Q - Quit";
     }
 
-    public void displayMenu() {
+    public void displayQuidditchView() {
         boolean done = false;
         do {
             String menuOption = this.getMenuOption();
@@ -62,11 +63,17 @@ public class GameMenuView {
         choice = choice.toUpperCase();
 
         switch (choice) {
-            case "W":
-                this.openQuidditchView();
+            case "N":
+                this.rideNimbus();
+                break;
+            case "F":
+                this.rideFirebolt();
+                break;
+            case "K":
+                this.rideKitchenBroom();
                 break;
             case "Q":
-                this.quitGameMenuView();
+                this.quitQuidditchView();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -76,15 +83,28 @@ public class GameMenuView {
 
     }
 
-    // case "W"
-    private void openQuidditchView() {
-        QuidditchView quidditchView = new QuidditchView();
-        quidditchView.displayQuidditchView();
+    // case "N"
+    private void rideNimbus() {
+        QuidditchControl quidditchControl = new QuidditchControl();
+        quidditchControl.calcNimbusTime(0, 0);
+    }
+    
+    // case "F"
+    private void rideFirebolt() {
+        QuidditchControl quidditchControl = new QuidditchControl();
+        quidditchControl.calcFireboltTime(0, 0);
+    }
+    
+// case "N"
+    private void rideKitchenBroom() {
+        QuidditchControl quidditchControl = new QuidditchControl();
+        quidditchControl.calcKitchenBroomTime(0, 0);
     }
     
 // "case "Q"
-    private void quitGameMenuView() {
+    private void quitQuidditchView() {
         System.out.println("\n*** quit game ***");
 
     }
+
 }

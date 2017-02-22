@@ -6,6 +6,7 @@
 package byui.cit260.potterheads.control;
 
 import byui.cit260.potterheads.model.Player;
+import byui.cit260.potterheads.view.GameMenuView;
 import potterheads.Potterheads;
 
 /**
@@ -13,9 +14,12 @@ import potterheads.Potterheads;
  * @author alex
  */
 public class GameControl {
+
     public static void createNewGame(Player player){
         System.out.println("");
+        
     }
+    
     public static Player createPlayer(String name) {
         if(name == null) {
             return null;
