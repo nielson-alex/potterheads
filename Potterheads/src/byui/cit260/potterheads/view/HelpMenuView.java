@@ -89,21 +89,25 @@ public class HelpMenuView {
 //        GameMenuView gameMenu = new GameMenuView();
 //        gameMenu.displayMenu();
 //    }
-
+    
+    // case "H"
     private void displayHowToPlay() {
-        System.out.println("\n *** open how to play menu ***");
+        System.out.println("\n *** displayHowToPlay() function called ***");
     }
 
+    // case "M"
     private void displayMovementControls() {
-        System.out.println("\n *** open control instructions ***");
-    }
-
-    private void displayHints() {
-        System.out.println("\n *** open hints menu ***");
+        System.out.println("\n *** displayMovementControls() function called ***");
     }
     
+    // case "S"
+    private void displayHints() {
+        System.out.println("\n *** displayHints() function called***");
+    }
+    
+    // case "Q"
     private void quitHelpMenu() {
-        System.out.println("\n *** quit the help menu ***");
+        System.out.println("\n *** quitHelpMenu() function called ***");
     }
 
 

@@ -93,7 +93,7 @@ public class MainMenuView {
     
     // case "L"
     private void displayExistingGame() {
-        System.out.println("\n*** load a new game ***");
+        System.out.println("\n*** displayExistingGame() function called ***");
         
     }
 
@@ -105,7 +105,7 @@ public class MainMenuView {
     
     // case "G"
     private void displayGameMenu() {
-        System.out.println("\n*** open game menu ***");
+        System.out.println("\n*** displayGameMenu() function called ***");
     }
     
     // "case "Q"
