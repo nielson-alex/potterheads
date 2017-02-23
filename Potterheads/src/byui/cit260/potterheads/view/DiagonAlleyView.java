@@ -4,15 +4,18 @@
  * and open the template in the editor.
  */
 package byui.cit260.potterheads.view;
+
 import java.util.Scanner;
 import byui.cit260.potterheads.control.DiagonAlleyControl;
+
 /**
  *
  * @author aleecrook
  */
 public class DiagonAlleyView {
+
     private String menu;
-    
+
     public DiagonAlleyView() {
         this.menu = "Select which location you would like to visit:\n\n"
                 + "A: The Leaky Cauldron\n"
@@ -22,32 +25,32 @@ public class DiagonAlleyView {
                 + "E: Flourish and Blotts\n"
                 + "Q: Back to Main Menu";
     }
-    
+
     private void printView() {
         System.out.println(this.getMenu());
     }
-    
+
     public void displayView() {
         boolean error = true;
         while (error) {
             error = false;
             this.printView();
             error = this.doAction(this.getChoice());
-        }   
+        }
     }
-    
+
     private String getChoice() {
-       Scanner input = new Scanner(System.in);
-       System.out.print("Choice: ");
-       String choice = input.nextLine();
-       choice = choice.toUpperCase();
-       return choice;
+        Scanner input = new Scanner(System.in);
+        System.out.print("Choice: ");
+        String choice = input.nextLine();
+        choice = choice.toUpperCase();
+        return choice;
     }
-    
+
     private boolean doAction(String choice) {
-       
+
         switch (choice) {
-            case "A": 
+            case "A":
                 //Leaky Cauldron
                 this.leakyCauldron();
                 break;
@@ -75,22 +78,22 @@ public class DiagonAlleyView {
                 System.out.println("That is not an option. Pick again.");
                 return true;
         }
-        
+
         return false;
-        
+
     }
-    
+
     private void leakyCauldron() {
         System.out.println("The aroma of Butterbeer fills your nostrils. You are in the Leaky Cauldron.");
     }
-    
+
     private void gringotts() {
-        
+
         System.out.println("You hear coins clinking. You are in Gringotts.");
         boolean error = true;
         while (error) {
             error = false;
-        
+
             System.out.println("A: Exchange Money\n"
                     + "Q: Exit Gringotts");
 
@@ -105,11 +108,11 @@ public class DiagonAlleyView {
                 error = true;
                 System.out.println("That is not an option. Pick again.");
             }
-            
+
         }
-      
+
     }
-    
+
     private void gringottsConversion() {
         DiagonAlleyControl control = new DiagonAlleyControl();
         Scanner input = new Scanner(System.in);
@@ -119,19 +122,19 @@ public class DiagonAlleyView {
         double cents = input.nextDouble();
         System.out.println(control.convertUsdToGalleons(dollars, cents));
     }
-    
+
     private void ollivanders() {
         System.out.println("The room is filled with boxes of wands. You are in Ollivanders.");
     }
-    
+
     private void knockturnAlley() {
         System.out.println("You are surrounded by dark, dusty shops. You are in Knockturn Alley.");
     }
-    
+
     private void flourishBlotts() {
         System.out.println("Books are stacked around the room. You are in Flourish and Blotts.");
     }
-    
+
     private String getMenu() {
         return this.menu;
     }

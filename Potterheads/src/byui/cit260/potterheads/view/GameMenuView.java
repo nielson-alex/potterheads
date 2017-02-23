@@ -20,6 +20,8 @@ public class GameMenuView {
     public GameMenuView() {
         this.menu = "\nWe're still building our game. Select one of these\n " 
                 + "options to test the views we're working on.\n\n"
+                + "D - Diagon Alley\n"
+                + "P - Polyjuice Potion\n"
                 + "W - Quidditch Pitch\n"
                 + "Q - Quit";
     }
@@ -63,6 +65,12 @@ public class GameMenuView {
         choice = choice.toUpperCase();
 
         switch (choice) {
+            case "D":
+                this.openDiagonAlleyView();
+                break;
+            case "P":
+                this.openPolyjuiceView();
+                break;
             case "W":
                 this.openQuidditchView();
                 break;
@@ -76,7 +84,18 @@ public class GameMenuView {
         return false;
 
     }
+    
+    // case "D"
+    private void openDiagonAlleyView() {
+        DiagonAlleyView diagonAlleyView = new DiagonAlleyView();
+        diagonAlleyView.displayView();
+    }
 
+    // case "P"
+    private void openPolyjuiceView() {
+        System.out.println("\n***openPolyjuiceView() function called***");
+    }
+    
     // case "W"
     private void openQuidditchView() {
         QuidditchView quidditchView = new QuidditchView();
@@ -88,4 +107,6 @@ public class GameMenuView {
         System.out.println("\n*** quit game ***");
 
     }
+
+    
 }

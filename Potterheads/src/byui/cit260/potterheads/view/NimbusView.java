@@ -95,6 +95,12 @@ public class NimbusView {
         QuidditchControl quidditchControl = new QuidditchControl();
         quidditchControl.calcNimbusTime(nimbusSpeedD, timeOnBroomD);
 
-        return false;
+        returnToScreen();
+
+        return true;
+    }
+
+    private void returnToScreen() {
+        return;
     }
 }
