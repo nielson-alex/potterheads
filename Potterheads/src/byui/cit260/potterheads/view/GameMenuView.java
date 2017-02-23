@@ -13,14 +13,15 @@ import java.util.Scanner;
  */
 public class GameMenuView {
     private String menu;
+    
+    
     //private String promptMessage;
 
     public GameMenuView() {
-        this.menu = "\nWe're still building our game. Select one of these " 
-                + "\noptions to test the views we're working on."
-                + "\nW - Quidditch Pitch"
-                + "\nQ - Quit";
-    
+        this.menu = "\nWe're still building our game. Select one of these\n " 
+                + "options to test the views we're working on.\n\n"
+                + "W - Quidditch Pitch\n"
+                + "Q - Quit";
     }
 
     public void displayMenu() {

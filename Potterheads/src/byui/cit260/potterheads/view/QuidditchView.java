@@ -13,11 +13,12 @@ import java.util.Scanner;
  * @author alex
  */
 public class QuidditchView {
+
     private String menu;
     //private String promptMessage;
 
     public QuidditchView() {
-        this.menu = "\n All right fool, pick a broom you want to ride.\n"
+        this.menu = "\nAll right fool, pick a broom you want to ride.\n\n"
                 + "N - Nimbus 2000\n"
                 + "F - Firebolt\n"
                 + "K - Kitchen Broom\n"
@@ -85,22 +86,22 @@ public class QuidditchView {
 
     // case "N"
     private void rideNimbus() {
-        QuidditchControl quidditchControl = new QuidditchControl();
-        quidditchControl.calcNimbusTime(0, 0);
+        NimbusView nimbusView = new NimbusView();
+        nimbusView.displayNimbusView();
     }
-    
+
     // case "F"
     private void rideFirebolt() {
         QuidditchControl quidditchControl = new QuidditchControl();
         quidditchControl.calcFireboltTime(0, 0);
     }
-    
+
 // case "N"
     private void rideKitchenBroom() {
         QuidditchControl quidditchControl = new QuidditchControl();
         quidditchControl.calcKitchenBroomTime(0, 0);
     }
-    
+
 // "case "Q"
     private void quitQuidditchView() {
         System.out.println("\n*** quit game ***");

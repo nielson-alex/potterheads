@@ -13,11 +13,10 @@ import java.util.Scanner;
  * @author Alex
  */
 public class QuidditchControl {
-    DecimalFormat df = new DecimalFormat("#.00");
-    
-    Scanner inFile;
-    
 
+    DecimalFormat df = new DecimalFormat("#.00");
+
+    Scanner inFile;
 
     public double calcKitchenBroomTime(double kitchenBroomSpeed, double timeOnBroom) {
         //prompt to enter amount of USD to convert to Euros
@@ -38,7 +37,7 @@ public class QuidditchControl {
 
         // create an input file for the console
         timeOnBroom = inFile.nextDouble();
-        
+
         if (kitchenBroomSpeed < 10) {
             return -1;
         }
@@ -58,10 +57,10 @@ public class QuidditchControl {
         double snitchSpeed = 50;
 
         double timeCatchingSnitchWithKitchenBroom = ((timeOnBroom / kitchenBroomSpeed) / 3) * 100;
-        
+
         System.out.println("\nIt took you " + df.format(timeCatchingSnitchWithKitchenBroom)
                 + " seconds to catch the snitch.");
-        
+
         return timeCatchingSnitchWithKitchenBroom;
 
         // ((50 / 55) / 3 ) * 100 = 30.3
@@ -69,22 +68,22 @@ public class QuidditchControl {
     }
 
     public double calcNimbusTime(double nimbusSpeed, double timeOnBroom) {
-        //prompt to enter amount of USD to convert to Euros
-        System.out.println("\nHow fast do you want to fly? Remember that the "
-                + "\nnimbus is a medium-speed broom. Try to keep it betwen 50 and 90 "
-                + "\nmiles per hour.");
-        
-        // create an input file for the console
-        inFile = new Scanner(System.in);
-        
-        // read the value of the next double typed into the console
-        nimbusSpeed = inFile.nextDouble();
-
-        System.out.println("\nHow long do you want to fly? You have between "
-                + "\none and three minutes to catch the Snitch.");
-
-        // create an input file for the console
-        timeOnBroom = inFile.nextDouble();
+//        //prompt to enter amount of USD to convert to Euros
+//        System.out.println("\nHow fast do you want to fly? Remember that the "
+//                + "\nnimbus is a medium-speed broom. Try to keep it betwen 50 and 90 "
+//                + "\nmiles per hour.");
+//        
+//        // create an input file for the console
+//        inFile = new Scanner(System.in);
+//        
+//        // read the value of the next double typed into the console
+//        nimbusSpeed = inFile.nextDouble();
+//
+//        System.out.println("\nHow long do you want to fly? You have between "
+//                + "\none and three minutes to catch the Snitch.");
+//
+//        // create an input file for the console
+//        timeOnBroom = inFile.nextDouble();
 
         if (nimbusSpeed < 50) {
             System.out.println("\nThat's too slow.");
