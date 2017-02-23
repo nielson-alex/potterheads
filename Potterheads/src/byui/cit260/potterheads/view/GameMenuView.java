@@ -18,7 +18,7 @@ public class GameMenuView {
     //private String promptMessage;
 
     public GameMenuView() {
-        this.menu = "\nWe're still building our game. Select one of these\n " 
+        this.menu = "\nWe're still building our game. Select one of these\n" 
                 + "options to test the views we're working on.\n\n"
                 + "D - Diagon Alley\n"
                 + "P - Polyjuice Potion\n"

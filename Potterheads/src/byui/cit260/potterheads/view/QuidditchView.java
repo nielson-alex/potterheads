@@ -92,14 +92,14 @@ public class QuidditchView {
 
     // case "F"
     private void rideFirebolt() {
-        QuidditchControl quidditchControl = new QuidditchControl();
-        quidditchControl.calcFireboltTime(0, 0);
+//        FireboltView fireboltView = new FireboltView();
+//        fireboltView.displayFireboltView();
     }
 
 // case "N"
     private void rideKitchenBroom() {
-        QuidditchControl quidditchControl = new QuidditchControl();
-        quidditchControl.calcKitchenBroomTime(0, 0);
+//        KitchenBroomView kitchenBroomView = new KitchenBroomView();
+//        kitchenBroomView.displayKitchenBroomView();
     }
 
 // "case "Q"
