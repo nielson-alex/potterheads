@@ -3,6 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+//define the problem
+//design a solution
+//develop the code
+//test the code
+//deploy the system
+
 package byui.cit260.potterheads.control;
 
 /**

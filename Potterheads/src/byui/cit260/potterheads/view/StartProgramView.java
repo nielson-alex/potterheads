@@ -98,7 +98,8 @@ public class StartProgramView {
             break; // end the loop
         }
 
-        return value; // return the value entered
+        return value;
+                 // return the value entered
     }
 
     private boolean doAction(String playersName) {
@@ -109,6 +110,11 @@ public class StartProgramView {
         }
 
         // call createPlayer() control function
+        
+//        player is a class instance of the Player class. player is then passed
+//        through the "displayNextView" function as a parameter that was 
+//        referenced.
+
         Player player = GameControl.createPlayer(playersName);
 
         if (player == null) { // if unsuccessful

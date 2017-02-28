@@ -8,12 +8,18 @@ package byui.cit260.potterheads.view;
 import byui.cit260.potterheads.control.QuidditchControl;
 import java.util.Scanner;
 
+// Step 4
+
 /**
  *
  * @author alex
  */
 public class QuidditchView {
-
+    
+//    // because the menu is defined within the QuidditchView class it can be
+//    called globally and be used by any function within the class without having 
+//    to be re-initialized or defined
+    
     private String menu;
     //private String promptMessage;
 

@@ -3,6 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+// step 2 Alex
+
 package byui.cit260.potterheads.view;
 
 import byui.cit260.potterheads.control.QuidditchControl;

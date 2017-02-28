@@ -12,13 +12,12 @@ import java.util.Scanner;
  * @author aleecrook
  */
 public class GameMenuView {
-    private String menu;
-    
-    
-    //private String promptMessage;
 
+    private String menu;
+
+    //private String promptMessage;
     public GameMenuView() {
-        this.menu = "\nWe're still building our game. Select one of these\n" 
+        this.menu = "\nWe're still building our game. Select one of these\n"
                 + "options to test the views we're working on.\n\n"
                 + "D - Diagon Alley\n"
                 + "P - Polyjuice Potion\n"
@@ -84,7 +83,7 @@ public class GameMenuView {
         return false;
 
     }
-    
+
     // case "D"
     private void openDiagonAlleyView() {
         DiagonAlleyView diagonAlleyView = new DiagonAlleyView();
@@ -95,18 +94,17 @@ public class GameMenuView {
     private void openPolyjuiceView() {
         System.out.println("\n***openPolyjuiceView() function called***");
     }
-    
+
     // case "W"
     private void openQuidditchView() {
         QuidditchView quidditchView = new QuidditchView();
         quidditchView.displayQuidditchView();
     }
-    
+
 // "case "Q"
     private void quitGameMenuView() {
         System.out.println("\n*** quit game ***");
 
     }
 
-    
 }

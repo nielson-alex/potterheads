@@ -86,17 +86,16 @@ public class QuidditchControl {
 //        timeOnBroom = inFile.nextDouble();
 
         if (nimbusSpeed < 50) {
-            System.out.println("\nThat's too slow.");
-
+            return -5;
         }
         if (nimbusSpeed > 90) {
-            System.out.println("\nToo fast");
+            return -6;
         }
         if (timeOnBroom < 60) {
-            System.out.println("\nYou need to ride at least a full minute.");
+            return -7;
         }
         if (timeOnBroom > 360) {
-            System.out.println("\nYou can't ride for that long.");
+            return -8;
         }
 
         double timeCatchingSnitchWithNimbus = ((timeOnBroom / nimbusSpeed) / 3) * 100;
