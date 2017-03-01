@@ -21,9 +21,9 @@ public class HelpMenuView {
     public HelpMenuView() {
         this.menu = "H - How to play\n"
                 + "M - Movement\n"
-                + "S - Stuck / Lost\n" 
+                + "S - Stuck / Lost\n"
                 + "Q - Quit";
-   }
+    }
 
     public void displayHelpMenuView() {
         boolean done = false;
@@ -89,7 +89,6 @@ public class HelpMenuView {
 //        GameMenuView gameMenu = new GameMenuView();
 //        gameMenu.displayMenu();
 //    }
-    
     // case "H"
     private void displayHowToPlay() {
         System.out.println("\n *** displayHowToPlay() function called ***");
@@ -99,16 +98,15 @@ public class HelpMenuView {
     private void displayMovementControls() {
         System.out.println("\n *** displayMovementControls() function called ***");
     }
-    
+
     // case "S"
     private void displayHints() {
         System.out.println("\n *** displayHints() function called***");
     }
-    
+
     // case "Q"
     private void quitHelpMenu() {
         System.out.println("\n *** quitHelpMenu() function called ***");
     }
-
 
 }

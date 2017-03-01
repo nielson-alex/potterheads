@@ -13,28 +13,32 @@ import java.util.Scanner;
  *
  * @author Alex
  */
-public class NimbusView {
+public class KitchenBroomView {
 
 //    private String menu;
 //    //private String promptMessage;
 //
-//    public NimbusView() {
-//        this.menu = "\nYou've chosen to ride the Nimbus 2000. This is a\n"
+//    public KitchenBroomView() {
+//        this.menu = "\nYou've chosen to ride the KitchenBroom 2000. This is a\n"
 //                + "medium-speed broom that can fly anywhere between 50 and 90\n"
 //                + "miles per hour. The goal is to try catch the golden snitch\n"
 //                + "in under 3 minutes. Good luck!\n\n"
 //                + "First, enter the speed you want to fly in miles per hour:\n\n"
 //                + "(press 'Q' to exit)";
 //    }
-    public void displayNimbusView() {
+    public void displayKitchenBroomView() {
         Scanner keyboard = new Scanner(System.in); // get infile for keyboard
         String response = "";
         boolean done = false;
 
         while (!done) {
-            System.out.println("\nYou've chosen to to fly the Nimbus 2000. This\n"
-                    + "is a medium-speed broom that can reach speeds from 50\n"
-                    + "to 90 miles per hour. The goal is try to catch the golden\n"
+            System.out.println("\nYou've chosen to to fly the kitchen broom.\n"
+                    + "Probabl not the wisest choice, considering that we're\n"
+                    + "pretty sure someone put that out on the quidditch pitch\n"
+                    + "as a joke and it's not intended for use in sports. Despite\n"
+                    + "not being a sport broom, it can still attain speeds ranging\n"
+                    + "from 10 to 40 miles per hour.\n"
+                    + "The goal is try to catch the golden\n"
                     + "snitch between 1 and 3 minutes. Good luck!\n\n"
                     + "(press 'C' to continue or 'Q' to to return to the previous "
                     + "screen");
@@ -55,34 +59,34 @@ public class NimbusView {
             break;
         }
 
-        String nimbusSpeed = this.getNimbusSpeed();
-        if (nimbusSpeed.toUpperCase().equals("Q")) {
+        String kitchenBroomSpeed = this.getKitchenBroomSpeed();
+        if (kitchenBroomSpeed.toUpperCase().equals("Q")) {
             return;
         }
 
         String timeOnBroom = this.getTimeOnBroom();
 
-        double nimbusSpeedD = Double.parseDouble(nimbusSpeed);
+        double kitchenBroomSpeedD = Double.parseDouble(kitchenBroomSpeed);
         double timeOnBroomD = Double.parseDouble(timeOnBroom);
 
-        done = this.doAction(nimbusSpeedD, timeOnBroomD);
+        done = this.doAction(kitchenBroomSpeedD, timeOnBroomD);
 
     }
 
-    private String getNimbusSpeed() {
+    private String getKitchenBroomSpeed() {
 
         Scanner keyboard = new Scanner(System.in); // get infile for keyboard 
-        String nimbusSpeed = ""; //value to be returned
+        String kitchenBroomSpeed = ""; //value to be returned
         boolean valid = false; // initialize to not valid
 
         while (!valid) { // loop while an invalid value is entered
             System.out.println("\nGreat! So enter the speed you want to fly in\n"
                     + "miles per hour: ");
 
-            nimbusSpeed = keyboard.nextLine(); // get next line typed on keyboard
-            nimbusSpeed = nimbusSpeed.trim(); // trim off leading and trailing blanks
+            kitchenBroomSpeed = keyboard.nextLine(); // get next line typed on keyboard
+            kitchenBroomSpeed = kitchenBroomSpeed.trim(); // trim off leading and trailing blanks
 
-            if (nimbusSpeed.length() < 1) { //value is blank
+            if (kitchenBroomSpeed.length() < 1) { //value is blank
                 System.out.println("\nInvalid value: value cannot be blank");
                 continue;
             }
@@ -90,7 +94,7 @@ public class NimbusView {
             break; // end the loop
         }
 
-        return nimbusSpeed; // return the value entered
+        return kitchenBroomSpeed; // return the value entered
     }
 
     private String getTimeOnBroom() {
@@ -116,9 +120,9 @@ public class NimbusView {
         return timeOnBroom; // return the value entered
     }
 
-    private boolean doAction(double nimbusSpeedD, double timeOnBroomD) {
+    private boolean doAction(double kitchenBroomSpeedD, double timeOnBroomD) {
         QuidditchControl quidditchControl = new QuidditchControl();
-        quidditchControl.calcNimbusTime(nimbusSpeedD, timeOnBroomD);
+        quidditchControl.calcKitchenBroomTime(kitchenBroomSpeedD, timeOnBroomD);
 
         returnToScreen();
 
@@ -149,7 +153,7 @@ public class NimbusView {
         if ("N".equals(response.toUpperCase())) {
             return;
         } else if ("Y".equals(response.toUpperCase())) {
-            this.displayNimbusView();
+            this.displayKitchenBroomView();
         } else {
             System.out.println("\nLook, we said pick 'y' or 'n', it's not that hard.");
         }

@@ -98,14 +98,14 @@ public class QuidditchView {
 
     // case "F"
     private void rideFirebolt() {
-//        FireboltView fireboltView = new FireboltView();
-//        fireboltView.displayFireboltView();
+        FireboltView fireboltView = new FireboltView();
+        fireboltView.displayFireboltView();
     }
 
 // case "N"
     private void rideKitchenBroom() {
-//        KitchenBroomView kitchenBroomView = new KitchenBroomView();
-//        kitchenBroomView.displayKitchenBroomView();
+        KitchenBroomView kitchenBroomView = new KitchenBroomView();
+        kitchenBroomView.displayKitchenBroomView();
     }
 
 // "case "Q"

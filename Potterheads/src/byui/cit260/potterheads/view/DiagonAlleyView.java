@@ -118,7 +118,7 @@ public class DiagonAlleyView {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter the number of dollars(ex. 5): ");
         double dollars = input.nextDouble();
-        System.out.print("Enter the number of cents(ex. 0.50): ");
+        System.out.print("Enter the number of cents with no decimal(ex. 45): ");
         double cents = input.nextDouble();
         System.out.println(control.convertUsdToGalleons(dollars, cents));
     }
