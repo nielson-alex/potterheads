@@ -24,7 +24,15 @@ public class QuidditchView {
     //private String promptMessage;
 
     public QuidditchView() {
-        this.menu = "\nAll right fool, pick a broom you want to ride.\n\n"
+        this.menu = "\nYou find yourself in the courtyard of the Hogwarts castle.\n"
+                + "You see a few students practicing their flying skills and milling\n"
+                + "about but the field is mostly deserted because the quidditch\n"
+                + "team is done with practice for the week.\n"
+                + "You see a rack of brooms against one wall of the courtyard. Upon\n"
+                + "close inspection you see that they're all either Nimbus 2000s\n"
+                + "or Firebolts. There's also a busted up kitchen broom lying\n"
+                + "on the ground\n"
+                + "Pick a broom you would like to fly:.\n\n"
                 + "N - Nimbus 2000\n"
                 + "F - Firebolt\n"
                 + "K - Kitchen Broom\n"
