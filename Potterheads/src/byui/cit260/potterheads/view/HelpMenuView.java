@@ -6,6 +6,7 @@
 package byui.cit260.potterheads.view;
 
 import byui.cit260.potterheads.control.GameControl;
+import byui.cit260.potterheads.view.ViewInterface.View;
 import java.util.Scanner;
 import potterheads.Potterheads;
 
@@ -13,54 +14,17 @@ import potterheads.Potterheads;
  *
  * @author aleecrook
  */
-public class HelpMenuView {
-
-    private String menu;
-    //private String promptMessage;
-
+public class HelpMenuView extends View {
+    
     public HelpMenuView() {
-        this.menu = "H - How to play\n"
+        super("H - How to play\n"
                 + "M - Movement\n"
                 + "S - Stuck / Lost\n"
-                + "Q - Quit";
+                + "Q - Quit");
     }
 
-    public void displayHelpMenuView() {
-        boolean done = false;
-        do {
-            String menuOption = this.getHelpMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) {
-                return;
-            }
-
-            done = this.doAction(menuOption);
-
-        } while (!done);
-    }
-
-    private String getHelpMenuOption() {
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard 
-        String value = ""; //value to be returned
-        boolean valid = false; // initialize to not valid
-
-        while (!valid) { // loop while an invalid value is entered
-            System.out.println("\n" + this.menu);
-
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-
-            if (value.length() < 1) { //value is blank
-                System.out.println("\nInvalid value: value cannot be blank");
-                continue;
-            }
-
-            break; // end the loop
-        }
-
-        return value; // return the value entered
-    }
-
-    boolean doAction(String choice) {
+    @Override
+    public boolean doAction(String choice) {
         choice = choice.toUpperCase();
 
         switch (choice) {
@@ -107,6 +71,11 @@ public class HelpMenuView {
     // case "Q"
     private void quitHelpMenu() {
         System.out.println("\n *** quitHelpMenu() function called ***");
+    }
+
+    @Override
+    public boolean doAction() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

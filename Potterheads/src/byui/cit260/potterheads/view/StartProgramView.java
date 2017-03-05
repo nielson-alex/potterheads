@@ -29,7 +29,7 @@ public class StartProgramView {
 
     private void displayBanner() {
         System.out.println(
-                  "\n_____________________________________________________________________________________________________________________________"        
+                "\n_____________________________________________________________________________________________________________________________"
                 + "\n   ,-.----.                                                                                                                 "
                 + "\n  \\    /  \\                ___      ___                         ,---,                                                     "
                 + "\n  |   :    \\             ,--.'|_  ,--.'|_                     ,--.' |                                ,---,                 "
@@ -45,7 +45,7 @@ public class StartProgramView {
                 + "\n  `---'.|                 ---`-'   ---`-'   \\   \\  /          `--''       \\   \\  / |  ,     .-./\\   \\  /    `--'---'  "
                 + "\n    `---`                                    `----'                        `----'   `--`---'     `----'                     "
                 + "\n_____________________________________________________________________________________________________________________________"
-                + "\n" 
+                + "\n"
                 + "\n"
                 + "\n                                               ***Welcome, Potterheads!***                                                  "
                 + "\n                                       This text-based game takes players throughout"
@@ -99,7 +99,7 @@ public class StartProgramView {
         }
 
         return value;
-                 // return the value entered
+        // return the value entered
     }
 
     private boolean doAction(String playersName) {
@@ -110,11 +110,9 @@ public class StartProgramView {
         }
 
         // call createPlayer() control function
-        
 //        player is a class instance of the Player class. player is then passed
 //        through the "displayNextView" function as a parameter that was 
 //        referenced.
-
         Player player = GameControl.createPlayer(playersName);
 
         if (player == null) { // if unsuccessful
@@ -131,7 +129,7 @@ public class StartProgramView {
         System.out.println("\nWelcome to the Game " + player.getName());
 
         MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.displayMainMenuView();
+        mainMenuView.display();
 
     }
 }

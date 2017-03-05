@@ -5,62 +5,26 @@
  */
 package byui.cit260.potterheads.view;
 
+import byui.cit260.potterheads.view.ViewInterface.View;
 import java.util.Scanner;
 
 /**
  *
  * @author aleecrook
  */
-public class GameMenuView {
+public class GameMenuView extends View {
 
-    private String menu;
-
-    //private String promptMessage;
     public GameMenuView() {
-        this.menu = "\nWe're still building our game. Select one of these\n"
+        super("\nWe're still building our game. Select one of these\n"
                 + "options to test the views we're working on.\n\n"
                 + "D - Diagon Alley\n"
                 + "P - Polyjuice Potion\n"
                 + "W - Quidditch Pitch\n"
-                + "Q - Quit";
+                + "Q - Quit");
     }
 
-    public void displayMenu() {
-        boolean done = false;
-        do {
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) {
-                return;
-            }
-
-            done = this.doAction(menuOption);
-
-        } while (!done);
-    }
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard 
-        String value = ""; //value to be returned
-        boolean valid = false; // initialize to not valid
-
-        while (!valid) { // loop while an invalid value is entered
-            System.out.println("\n" + this.menu);
-
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-
-            if (value.length() < 1) { //value is blank
-                System.out.println("\nInvalid value: value cannot be blank");
-                continue;
-            }
-
-            break; // end the loop
-        }
-
-        return value; // return the value entered
-    }
-
-    boolean doAction(String choice) {
+    @Override
+    public boolean doAction(String choice) {
         choice = choice.toUpperCase();
 
         switch (choice) {
@@ -98,13 +62,18 @@ public class GameMenuView {
     // case "W"
     private void openQuidditchView() {
         QuidditchView quidditchView = new QuidditchView();
-        quidditchView.displayQuidditchView();
+        quidditchView.display();
     }
 
 // "case "Q"
     private void quitGameMenuView() {
         System.out.println("\n*** quit game ***");
 
+    }
+
+    @Override
+    public boolean doAction() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

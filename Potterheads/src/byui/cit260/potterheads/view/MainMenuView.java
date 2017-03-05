@@ -7,64 +7,28 @@ package byui.cit260.potterheads.view;
 
 import java.util.Scanner;
 import byui.cit260.potterheads.control.GameControl;
+import byui.cit260.potterheads.view.ViewInterface.View;
 import potterheads.Potterheads;
 
 /**
  *
  * @author aleecrook
  */
-public class MainMenuView {
+public class MainMenuView extends View {
 
-    private String menu;
-
-    //private String promptMessage;
     public MainMenuView() {
-        this.menu = "N - New game\n"
+        super("N - New game\n"
                 + "L - Load existing game\n"
                 + "H - Help menu\n"
                 + "G - Gameplay menu\n"
-                + "Q - Quit";
+                + "Q - Quit");
     }
 
-    public void displayMainMenuView() {
-        boolean done = false;
-        do {
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) {
-                return;
-            }
+    @Override
+    public boolean doAction(String value) {
+        value = value.toUpperCase();
 
-            done = this.doAction(menuOption);
-
-        } while (!done);
-    }
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard 
-        String value = ""; //value to be returned
-        boolean valid = false; // initialize to not valid
-
-        while (!valid) { // loop while an invalid value is entered
-            System.out.println("\n" + this.menu);
-
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-
-            if (value.length() < 1) { //value is blank
-                System.out.println("\nInvalid value: value cannot be blank");
-                continue;
-            }
-
-            break; // end the loop
-        }
-
-        return value; // return the value entered
-    }
-
-    boolean doAction(String choice) {
-        choice = choice.toUpperCase();
-
-        switch (choice) {
+        switch (value) {
             case "N":
                 this.startNewGame();
                 break;
@@ -98,7 +62,7 @@ public class MainMenuView {
 //       
         GameControl.createNewGame(Potterheads.getPlayer());
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        gameMenu.display();
     }
 
     // case "L"
@@ -110,7 +74,7 @@ public class MainMenuView {
     // case "H"
     private void displayHelpMenu() {
         HelpMenuView helpMenuView = new HelpMenuView();
-        helpMenuView.displayHelpMenuView();
+        helpMenuView.display();
     }
 
     // case "G"
@@ -122,6 +86,11 @@ public class MainMenuView {
     private void quitGame() {
         System.out.println("\n*** quit game ***");
 
+    }
+
+    @Override
+    public boolean doAction() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

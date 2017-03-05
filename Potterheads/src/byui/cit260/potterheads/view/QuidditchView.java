@@ -6,25 +6,18 @@
 package byui.cit260.potterheads.view;
 
 import byui.cit260.potterheads.control.QuidditchControl;
+import byui.cit260.potterheads.view.ViewInterface.View;
 import java.util.Scanner;
 
 // Step 4
-
 /**
  *
  * @author alex
  */
-public class QuidditchView {
-    
-//    // because the menu is defined within the QuidditchView class it can be
-//    called globally and be used by any function within the class without having 
-//    to be re-initialized or defined
-    
-    private String menu;
-    //private String promptMessage;
+public class QuidditchView extends View {
 
     public QuidditchView() {
-        this.menu = "\nYou find yourself in the courtyard of the Hogwarts castle.\n"
+        super("\nYou find yourself in the courtyard of the Hogwarts castle.\n"
                 + "You see a few students practicing their flying skills and milling\n"
                 + "about but the field is mostly deserted because the quidditch\n"
                 + "team is done with practice for the week.\n"
@@ -36,45 +29,11 @@ public class QuidditchView {
                 + "N - Nimbus 2000\n"
                 + "F - Firebolt\n"
                 + "K - Kitchen Broom\n"
-                + "Q - Quit";
+                + "Q - Quit");
     }
 
-    public void displayQuidditchView() {
-        boolean done = false;
-        do {
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) {
-                return;
-            }
-
-            done = this.doAction(menuOption);
-
-        } while (!done);
-    }
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard 
-        String value = ""; //value to be returned
-        boolean valid = false; // initialize to not valid
-
-        while (!valid) { // loop while an invalid value is entered
-            System.out.println("\n" + this.menu);
-
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-
-            if (value.length() < 1) { //value is blank
-                System.out.println("\nInvalid value: value cannot be blank");
-                continue;
-            }
-
-            break; // end the loop
-        }
-
-        return value; // return the value entered
-    }
-
-    boolean doAction(String choice) {
+    @Override
+    public boolean doAction(String choice) {
         choice = choice.toUpperCase();
 
         switch (choice) {
@@ -120,6 +79,11 @@ public class QuidditchView {
     private void quitQuidditchView() {
         System.out.println("\n*** quit game ***");
 
+    }
+
+    @Override
+    public boolean doAction() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
