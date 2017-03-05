@@ -67,7 +67,9 @@ public class DiagonAlleyView extends View {
 
     private void gringotts() {
 
-        System.out.println("You hear coins clinking. You are in Gringotts.");
+        GringottsView gringottsView = new GringottsView();
+        gringottsView.display();
+        
 //        boolean error = true;
 //        while (error) {
 //            error = false;

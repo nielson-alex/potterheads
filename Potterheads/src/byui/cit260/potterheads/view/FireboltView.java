@@ -23,33 +23,34 @@ public class FireboltView extends View {
                 + "limit at 150 miles per hour.\n"
                 + "The goal is try to catch the golden\n"
                 + "snitch between 1 and 3 minutes. Good luck!\n\n"
-                + "(press 'C' twice to continue or 'Q' to quit)");
+                + "(press 'C' to continue or 'Q' to quit)");
     }
 
     @Override
     public boolean doAction(String value) {
         value = value.toUpperCase();
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
         boolean done = false;
+        double fireboltSpeedDouble = 0;
+        double timeOnBroomDouble = 0;
 
         while (!done) {
-            String pressC = "\n(press 'C' to continue or 'Q' to quit)";
-
-            value = keyboard.nextLine();
+            String pressC = "\n*** Please press 'C' to continue or 'Q' to quit***";
 
             if ("C".equals(value.toUpperCase())) {
-                break;
-            }
-            
-            else if(!("C".equals(value.toUpperCase())) && !("Q".equals(value.toUpperCase()))) {
+                this.calculateQuidditchControl(fireboltSpeedDouble, timeOnBroomDouble);
+            } else if (!("C".equals(value.toUpperCase())) && !("Q".equals(value.toUpperCase()))) {
                 System.out.println(pressC);
-                continue;
             } else if ("Q".equals(value.toUpperCase())) {
                 return true;
-            } 
+            }
             break;
         }
+        return false;
+    }
 
+    private boolean calculateQuidditchControl(double fireboltSpeedDouble, double timeOnBroomDouble) {
+        boolean done = false;
+        Scanner keyboard = new Scanner(System.in);
         String fireboltSpeed = "";
         String timeOnBroom = ""; //value to be returned
 
@@ -83,17 +84,11 @@ public class FireboltView extends View {
             break;
         }
 
-        double fireboltSpeedDouble = Double.parseDouble(fireboltSpeed);
-        double timeOnBroomDouble = Double.parseDouble(timeOnBroom);
+        fireboltSpeedDouble = Double.parseDouble(fireboltSpeed);
+        timeOnBroomDouble = Double.parseDouble(timeOnBroom);
 
-        this.calculateQuidditchControl(fireboltSpeedDouble, timeOnBroomDouble);
-
-        return false;
-    }
-
-    private boolean calculateQuidditchControl(double fireboltSpeedD, double timeOnBroomD) {
         QuidditchControl quidditchControl = new QuidditchControl();
-        quidditchControl.calcFireboltTime(fireboltSpeedD, timeOnBroomD);
+        quidditchControl.calcFireboltTime(fireboltSpeedDouble, timeOnBroomDouble);
 
         // return to previous view;
         return true;

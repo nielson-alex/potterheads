@@ -49,7 +49,7 @@ public class StartProgramView extends View {
                 + "                                       they are awarded “House Points” which are spent on                                     \n"
                 + "                                       mulligans and various items.                                                          \n"
                 + "*****************************************************************************************************************************\n\n"
-                + "Please enter your name:\n"
+                + "Please enter your name:"
         );
     }
 

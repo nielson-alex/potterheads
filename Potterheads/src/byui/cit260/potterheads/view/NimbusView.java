@@ -27,27 +27,28 @@ public class NimbusView extends View {
     @Override
     public boolean doAction(String value) {
         value = value.toUpperCase();
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
         boolean done = false;
-
-        if (!("C".equals(value.toUpperCase())) && !("Q".equals(value.toUpperCase()))) {
-            System.out.println("\n(press 'C' to continue or 'Q' to quit");
-        }
+        double nimbusSpeedDouble = 0;
+        double timeOnBroomDouble = 0;
 
         while (!done) {
-            String pressC = "\n(press 'C' to continue or 'Q' to quit)";
+            String pressC = "\n*** Please press 'C' to continue or 'Q' to quit***";
 
-            value = keyboard.nextLine();
-
-            if (!("C".equals(value.toUpperCase())) && !("Q".equals(value.toUpperCase()))) {
+            if ("C".equals(value.toUpperCase())) {
+                this.calculateQuidditchControl(nimbusSpeedDouble, timeOnBroomDouble);
+            } else if (!("C".equals(value.toUpperCase())) && !("Q".equals(value.toUpperCase()))) {
                 System.out.println(pressC);
-                continue;
             } else if ("Q".equals(value.toUpperCase())) {
                 return true;
             }
             break;
         }
+        return false;
+    }
 
+    private boolean calculateQuidditchControl(double nimbusSpeedDouble, double timeOnBroomDouble) {
+        boolean done = false;
+        Scanner keyboard = new Scanner(System.in);
         String nimbusSpeed = "";
         String timeOnBroom = ""; //value to be returned
 
@@ -81,17 +82,11 @@ public class NimbusView extends View {
             break;
         }
 
-        double nimbusSpeedDouble = Double.parseDouble(nimbusSpeed);
-        double timeOnBroomDouble = Double.parseDouble(timeOnBroom);
+        nimbusSpeedDouble = Double.parseDouble(nimbusSpeed);
+        timeOnBroomDouble = Double.parseDouble(timeOnBroom);
 
-        this.calculateQuidditchControl(nimbusSpeedDouble, timeOnBroomDouble);
-
-        return false;
-    }
-
-    private boolean calculateQuidditchControl(double nimbusSpeedD, double timeOnBroomD) {
         QuidditchControl quidditchControl = new QuidditchControl();
-        quidditchControl.calcNimbusTime(nimbusSpeedD, timeOnBroomD);
+        quidditchControl.calcNimbusTime(nimbusSpeedDouble, timeOnBroomDouble);
 
         // return to previous view;
         return true;

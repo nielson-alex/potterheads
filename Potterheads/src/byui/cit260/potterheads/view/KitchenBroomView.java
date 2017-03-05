@@ -30,27 +30,28 @@ public class KitchenBroomView extends View {
     @Override
     public boolean doAction(String value) {
         value = value.toUpperCase();
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
         boolean done = false;
-
-        if (!("C".equals(value.toUpperCase())) && !("Q".equals(value.toUpperCase()))) {
-            System.out.println("\n(press 'C' to continue or 'Q' to quit");
-        }
+        double kitchenBroomSpeedDouble = 0;
+        double timeOnBroomDouble = 0;
 
         while (!done) {
-            String pressC = "\n(press 'C' to continue or 'Q' to quit)";
+            String pressC = "\n*** Please press 'C' to continue or 'Q' to quit***";
 
-            value = keyboard.nextLine();
-
-            if (!("C".equals(value.toUpperCase())) && !("Q".equals(value.toUpperCase()))) {
+            if ("C".equals(value.toUpperCase())) {
+                this.calculateQuidditchControl(kitchenBroomSpeedDouble, timeOnBroomDouble);
+            } else if (!("C".equals(value.toUpperCase())) && !("Q".equals(value.toUpperCase()))) {
                 System.out.println(pressC);
-                continue;
             } else if ("Q".equals(value.toUpperCase())) {
                 return true;
             }
             break;
         }
+        return false;
+    }
 
+    private boolean calculateQuidditchControl(double kitchenBroomSpeedDouble, double timeOnBroomDouble) {
+        boolean done = false;
+        Scanner keyboard = new Scanner(System.in);
         String kitchenBroomSpeed = "";
         String timeOnBroom = ""; //value to be returned
 
@@ -84,17 +85,11 @@ public class KitchenBroomView extends View {
             break;
         }
 
-        double kitchenBroomSpeedDouble = Double.parseDouble(kitchenBroomSpeed);
-        double timeOnBroomDouble = Double.parseDouble(timeOnBroom);
+        kitchenBroomSpeedDouble = Double.parseDouble(kitchenBroomSpeed);
+        timeOnBroomDouble = Double.parseDouble(timeOnBroom);
 
-        this.calculateQuidditchControl(kitchenBroomSpeedDouble, timeOnBroomDouble);
-
-        return false;
-    }
-
-    private boolean calculateQuidditchControl(double kitchenBroomSpeedD, double timeOnBroomD) {
         QuidditchControl quidditchControl = new QuidditchControl();
-        quidditchControl.calcKitchenBroomTime(kitchenBroomSpeedD, timeOnBroomD);
+        quidditchControl.calcKitchenBroomTime(kitchenBroomSpeedDouble, timeOnBroomDouble);
 
         // return to previous view;
         return true;
