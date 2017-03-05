@@ -13,21 +13,21 @@ import java.util.Objects;
  * @author alex
  */
 public class Item implements Serializable {
+
     private String description;
     private String inventoryType;
     private int quantity;
-    
+
     // constructor function
     public Item() {
     }
-    
-    
+
     // getter and setter
-    public String getDescription() {    
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {    
+    public void setDescription(String description) {
         this.description = description;
     }
 
@@ -46,8 +46,7 @@ public class Item implements Serializable {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-    
-    
+
     // equals and hashcode
     @Override
     public int hashCode() {
@@ -81,13 +80,11 @@ public class Item implements Serializable {
         }
         return true;
     }
-    
-    
-    
+
     // toString
     @Override
     public String toString() {
         return "Item{" + "description=" + description + ", inventoryType=" + inventoryType + ", quantity=" + quantity + '}';
     }
-    
+
 }

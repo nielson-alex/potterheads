@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @author Alexandra
  */
 public class Polyjuice implements Serializable {
-    
+
     //class instance variables
     private double weight;
     private double timeTransformed;
@@ -20,7 +20,7 @@ public class Polyjuice implements Serializable {
 
     public Polyjuice() {
     }
-    
+
     public double getWeight() {
         return weight;
     }
@@ -82,6 +82,5 @@ public class Polyjuice implements Serializable {
     public String toString() {
         return "Polyjuice{" + "weight=" + weight + ", timeTransformed=" + timeTransformed + ", ounces=" + ounces + '}';
     }
-    
+
 }
-    

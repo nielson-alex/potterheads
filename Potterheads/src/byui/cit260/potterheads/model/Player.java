@@ -13,14 +13,14 @@ import java.util.Objects;
  * @author alex
  */
 public class Player implements Serializable {
+
     private String name;
-    
+
     // constructor Function
     public Player() {
-        
+
     }
-      
-    
+
     // Getter and setter functions
     public String getName() {
         return name;
@@ -29,8 +29,6 @@ public class Player implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    
-    
 
     // equals() and hashcode
     @Override
@@ -57,13 +55,10 @@ public class Player implements Serializable {
         }
         return true;
     }
-    
-    
+
     // toString();
     @Override
     public String toString() {
         return "Player{" + "name=" + name + '}';
     }
 }
-    
-

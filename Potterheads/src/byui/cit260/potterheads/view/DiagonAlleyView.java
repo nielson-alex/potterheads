@@ -12,44 +12,23 @@ import byui.cit260.potterheads.control.DiagonAlleyControl;
  *
  * @author aleecrook
  */
-public class DiagonAlleyView {
-
-    private String menu;
+public class DiagonAlleyView extends View {
 
     public DiagonAlleyView() {
-        this.menu = "Select which location you would like to visit:\n\n"
+        super("Select which location you would like to visit:\n\n"
                 + "A: The Leaky Cauldron\n"
                 + "B: Gringotts\n"
                 + "C: Ollivanders\n"
                 + "D: Knockturn Alley\n"
                 + "E: Flourish and Blotts\n"
-                + "Q: Back to Main Menu";
+                + "Q: Back to Main Menu");
     }
+    
+    @Override
+        public boolean doAction(String value) {
+        value = value.toUpperCase();
 
-    private void printView() {
-        System.out.println(this.getMenu());
-    }
-
-    public void displayView() {
-        boolean error = true;
-        while (error) {
-            error = false;
-            this.printView();
-            error = this.doAction(this.getChoice());
-        }
-    }
-
-    private String getChoice() {
-        Scanner input = new Scanner(System.in);
-        System.out.print("Choice: ");
-        String choice = input.nextLine();
-        choice = choice.toUpperCase();
-        return choice;
-    }
-
-    private boolean doAction(String choice) {
-
-        switch (choice) {
+        switch (value) {
             case "A":
                 //Leaky Cauldron
                 this.leakyCauldron();
@@ -76,7 +55,6 @@ public class DiagonAlleyView {
             default:
                 //Invalid Choice
                 System.out.println("That is not an option. Pick again.");
-                return true;
         }
 
         return false;
@@ -90,26 +68,26 @@ public class DiagonAlleyView {
     private void gringotts() {
 
         System.out.println("You hear coins clinking. You are in Gringotts.");
-        boolean error = true;
-        while (error) {
-            error = false;
-
-            System.out.println("A: Exchange Money\n"
-                    + "Q: Exit Gringotts");
-
-            String choice = this.getChoice();
-            if (choice.toUpperCase().equals("A")) {
-                //get conversion values
-                this.gringottsConversion();
-            } else if (choice.toUpperCase().equals("Q")) {
-                //Back to menu
-                System.out.println("Thanks for visiting Gringotts.");
-            } else {
-                error = true;
-                System.out.println("That is not an option. Pick again.");
-            }
-
-        }
+//        boolean error = true;
+//        while (error) {
+//            error = false;
+//
+//            System.out.println("A: Exchange Money\n"
+//                    + "Q: Exit Gringotts");
+//
+//            String choice = this.getChoice();
+//            if (choice.toUpperCase().equals("A")) {
+//                //get conversion values
+//                this.gringottsConversion();
+//            } else if (choice.toUpperCase().equals("Q")) {
+//                //Back to menu
+//                System.out.println("Thanks for visiting Gringotts.");
+//            } else {
+//                error = true;
+//                System.out.println("That is not an option. Pick again.");
+//            }
+//
+//        }
 
     }
 
@@ -133,9 +111,5 @@ public class DiagonAlleyView {
 
     private void flourishBlotts() {
         System.out.println("Books are stacked around the room. You are in Flourish and Blotts.");
-    }
-
-    private String getMenu() {
-        return this.menu;
     }
 }

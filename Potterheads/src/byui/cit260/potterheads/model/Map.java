@@ -19,7 +19,7 @@ public class Map implements Serializable {
 
     public Map() {
     }
-    
+
     public int getRowCount() {
         return rowCount;
     }
@@ -69,5 +69,5 @@ public class Map implements Serializable {
     public String toString() {
         return "Map{" + "rowCount=" + rowCount + ", columnCount=" + columnCount + '}';
     }
-        
+
 }

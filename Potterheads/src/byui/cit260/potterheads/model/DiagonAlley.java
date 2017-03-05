@@ -12,17 +12,15 @@ import java.io.Serializable;
  * @author alex
  */
 public class DiagonAlley implements Serializable {
+
     private double galleons;
     private double dollars;
     private double cents;
 
-    
     // constructor function
     public DiagonAlley() {
     }
-    
-    
-    
+
     // getter and setters
     public double getGalleons() {
         return galleons;
@@ -47,9 +45,7 @@ public class DiagonAlley implements Serializable {
     public void setCents(double cents) {
         this.cents = cents;
     }
-    
-    
-    
+
     //equals and hashcode()
     @Override
     public int hashCode() {
@@ -83,14 +79,11 @@ public class DiagonAlley implements Serializable {
         }
         return true;
     }
-    
-    
-    
+
     // toString()
     @Override
     public String toString() {
         return "DiagonAlley{" + "galleons=" + galleons + ", dollars=" + dollars + ", cents=" + cents + '}';
     }
-    
-    
+
 }

@@ -6,7 +6,6 @@
 package byui.cit260.potterheads.view;
 
 import byui.cit260.potterheads.control.GameControl;
-import byui.cit260.potterheads.view.ViewInterface.View;
 import java.util.Scanner;
 import potterheads.Potterheads;
 
@@ -15,7 +14,7 @@ import potterheads.Potterheads;
  * @author aleecrook
  */
 public class HelpMenuView extends View {
-    
+
     public HelpMenuView() {
         super("H - How to play\n"
                 + "M - Movement\n"
@@ -48,11 +47,6 @@ public class HelpMenuView extends View {
 
     }
 
-//    private void startNewGame() {
-//        GameControl.createNewGame(Potterheads.getPlayer());
-//        GameMenuView gameMenu = new GameMenuView();
-//        gameMenu.displayMenu();
-//    }
     // case "H"
     private void displayHowToPlay() {
         System.out.println("\n *** displayHowToPlay() function called ***");
@@ -72,10 +66,4 @@ public class HelpMenuView extends View {
     private void quitHelpMenu() {
         System.out.println("\n *** quitHelpMenu() function called ***");
     }
-
-    @Override
-    public boolean doAction() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }

@@ -13,13 +13,13 @@ import java.util.Objects;
  * @author Alexandra
  */
 public class Game implements Serializable {
-    
+
     //class instance variables
     private int numberOfPlayers;
 
     public Game() {
     }
-    
+
     public double getNumberOfPlayers() {
         return numberOfPlayers;
     }
@@ -57,6 +57,5 @@ public class Game implements Serializable {
     public String toString() {
         return "Game{" + "numberOfPlayers=" + numberOfPlayers + '}';
     }
-    
-    
+
 }

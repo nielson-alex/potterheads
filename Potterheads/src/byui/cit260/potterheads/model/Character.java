@@ -13,19 +13,16 @@ import java.util.Objects;
  * @author alex
  */
 public class Character implements Serializable {
+
     private String name;
     private String description;
     private int numberOfItems;
     private String coordinates;
-    
+
     // constructor function
     public Character() {
     }
-    
 
-    
-    
-    
     // getter and setter functions
     public String getName() {
         return name;
@@ -58,8 +55,7 @@ public class Character implements Serializable {
     public void setCoordinates(String coordinates) {
         this.coordinates = coordinates;
     }
-    
-    
+
     // equals and hashcode
     @Override
     public int hashCode() {
@@ -97,13 +93,11 @@ public class Character implements Serializable {
         }
         return true;
     }
-    
-    
+
     // toString()
     @Override
     public String toString() {
         return "Character{" + "name=" + name + ", description=" + description + ", numberOfItems=" + numberOfItems + ", coordinates=" + coordinates + '}';
     }
-    
-}
 
+}

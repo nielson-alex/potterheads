@@ -12,13 +12,13 @@ import java.io.Serializable;
  * @author alex
  */
 public class PuzzleScene implements Serializable {
+
     private int numberOfObstacles;
-    
+
     // constructor function
     public PuzzleScene() {
     }
-    
-    
+
     // getter and setter
     public int getNumberOfObstacles() {
         return numberOfObstacles;
@@ -27,8 +27,7 @@ public class PuzzleScene implements Serializable {
     public void setNumberOfObstacles(int numberOfObstacles) {
         this.numberOfObstacles = numberOfObstacles;
     }
-    
-    
+
     // equals and hashcode
     @Override
     public int hashCode() {
@@ -54,8 +53,7 @@ public class PuzzleScene implements Serializable {
         }
         return true;
     }
-    
-    
+
     // toString
     @Override
     public String toString() {

@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @author Alexandra
  */
 public class Quidditch implements Serializable {
-    
+
 //    public double calcQuidditch(double broom, double ride){
 //        IF (broom != Nimbus || broom!=Firebolt || broom != Kitchen)THEN
 //		RETURN -1
@@ -27,7 +27,6 @@ public class Quidditch implements Serializable {
 //	RETURN time
 //
 //    }
-    
     //class instance variables
     private double nimbusSpeed;
     private double fireboltSpeed;
@@ -38,9 +37,7 @@ public class Quidditch implements Serializable {
     // constructor function
     public Quidditch() {
     }
-    
-    
-    
+
     // getters and setters
     public double getNimbusSpeed() {
         return nimbusSpeed;
@@ -81,10 +78,8 @@ public class Quidditch implements Serializable {
     public void setSnitchSpeed(double snitchSpeed) {
         this.snitchSpeed = snitchSpeed;
     }
-    
-    
-    // equals and hashcode
 
+    // equals and hashcode
     @Override
     public int hashCode() {
         int hash = 3;
@@ -125,13 +120,11 @@ public class Quidditch implements Serializable {
         }
         return true;
     }
-    
-    
-    
+
     // toString
     @Override
     public String toString() {
         return "Quidditch{" + "nimbusSpeed=" + nimbusSpeed + ", fireboltSpeed=" + fireboltSpeed + ", kitchenBroomSpeed=" + kitchenBroomSpeed + ", timeOnBroom=" + timeOnBroom + ", snitchSpeed=" + snitchSpeed + '}';
     }
-    
+
 }

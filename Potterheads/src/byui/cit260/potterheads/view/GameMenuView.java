@@ -5,7 +5,6 @@
  */
 package byui.cit260.potterheads.view;
 
-import byui.cit260.potterheads.view.ViewInterface.View;
 import java.util.Scanner;
 
 /**
@@ -51,7 +50,7 @@ public class GameMenuView extends View {
     // case "D"
     private void openDiagonAlleyView() {
         DiagonAlleyView diagonAlleyView = new DiagonAlleyView();
-        diagonAlleyView.displayView();
+        diagonAlleyView.display();
     }
 
     // case "P"
@@ -69,11 +68,6 @@ public class GameMenuView extends View {
     private void quitGameMenuView() {
         System.out.println("\n*** quit game ***");
 
-    }
-
-    @Override
-    public boolean doAction() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

@@ -12,16 +12,16 @@ import java.io.Serializable;
  * @author alex
  */
 public class Location implements Serializable {
+
     private int row;
     private int column;
     private boolean visited;
     private int amountRemaining;
-    
+
     // constructor function
     public Location() {
     }
-    
-    
+
     // getter and setter
     public int getRow() {
         return row;
@@ -54,8 +54,7 @@ public class Location implements Serializable {
     public void setAmountRemaining(int amountRemaining) {
         this.amountRemaining = amountRemaining;
     }
-    
-    
+
     // equals and hashcode
     @Override
     public int hashCode() {
@@ -93,13 +92,11 @@ public class Location implements Serializable {
         }
         return true;
     }
-    
-    
+
     // toString()
     @Override
     public String toString() {
         return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", amountRemaining=" + amountRemaining + '}';
     }
-    
-    
+
 }

@@ -6,7 +6,6 @@
 package byui.cit260.potterheads.view;
 
 import byui.cit260.potterheads.control.QuidditchControl;
-import byui.cit260.potterheads.view.ViewInterface.View;
 import java.util.Scanner;
 
 // Step 4
@@ -60,30 +59,25 @@ public class QuidditchView extends View {
     // case "N"
     private void rideNimbus() {
         NimbusView nimbusView = new NimbusView();
-        nimbusView.displayNimbusView();
+        nimbusView.display();
     }
 
     // case "F"
     private void rideFirebolt() {
         FireboltView fireboltView = new FireboltView();
-        fireboltView.displayFireboltView();
+        fireboltView.display();
     }
 
 // case "N"
     private void rideKitchenBroom() {
         KitchenBroomView kitchenBroomView = new KitchenBroomView();
-        kitchenBroomView.displayKitchenBroomView();
+        kitchenBroomView.display();
     }
 
 // "case "Q"
     private void quitQuidditchView() {
         System.out.println("\n*** quit game ***");
 
-    }
-
-    @Override
-    public boolean doAction() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

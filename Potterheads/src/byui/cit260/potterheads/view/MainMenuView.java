@@ -7,7 +7,6 @@ package byui.cit260.potterheads.view;
 
 import java.util.Scanner;
 import byui.cit260.potterheads.control.GameControl;
-import byui.cit260.potterheads.view.ViewInterface.View;
 import potterheads.Potterheads;
 
 /**
@@ -17,7 +16,7 @@ import potterheads.Potterheads;
 public class MainMenuView extends View {
 
     public MainMenuView() {
-        super("N - New game\n"
+        super("\nN - New game\n"
                 + "L - Load existing game\n"
                 + "H - Help menu\n"
                 + "G - Gameplay menu\n"
@@ -86,11 +85,6 @@ public class MainMenuView extends View {
     private void quitGame() {
         System.out.println("\n*** quit game ***");
 
-    }
-
-    @Override
-    public boolean doAction() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

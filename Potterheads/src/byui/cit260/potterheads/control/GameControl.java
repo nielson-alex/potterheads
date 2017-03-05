@@ -15,19 +15,18 @@ import potterheads.Potterheads;
  */
 public class GameControl {
 
-    public static void createNewGame(Player player){
+    public static void createNewGame(Player player) {
         System.out.println("");
-        
+
     }
-    
+
     public static Player createPlayer(String name) {
-        if(name == null) {
+        if (name == null) {
             return null;
         }
         Player player = new Player();
         player.setName(name);
         Potterheads.setPlayer(player);
         return player;
-        }
     }
-   
+}

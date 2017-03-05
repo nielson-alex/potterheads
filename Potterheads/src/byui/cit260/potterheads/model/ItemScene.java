@@ -7,13 +7,13 @@ import java.io.Serializable;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author aleecrook
  */
-public class ItemScene implements Serializable{
-    private int numberOfItems; 
+public class ItemScene implements Serializable {
+
+    private int numberOfItems;
 
     public ItemScene() {
     }
@@ -56,4 +56,3 @@ public class ItemScene implements Serializable{
         return "ItemScene{" + "numberOfItems=" + numberOfItems + '}';
     }
 }
-

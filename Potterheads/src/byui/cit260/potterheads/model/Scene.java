@@ -8,12 +8,12 @@ import java.util.Objects;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author aleecrook
  */
-public class Scene implements Serializable{
+public class Scene implements Serializable {
+
     private String description;
     private String displaySymbol;
 
