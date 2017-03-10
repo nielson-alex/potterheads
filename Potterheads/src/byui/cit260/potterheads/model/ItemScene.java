@@ -1,6 +1,7 @@
 package byui.cit260.potterheads.model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,23 +14,31 @@ import java.io.Serializable;
  */
 public class ItemScene implements Serializable {
 
-    private int numberOfItems;
-
+    private Item [] items;
+    
+    
+    //constructor function
     public ItemScene() {
     }
 
-    public int getNumberOfItems() {
-        return numberOfItems;
+    
+    
+    //getter and setter
+    public Item[] getItems() {
+        return items;
     }
 
-    public void setNumberOfItems(int numberOfItems) {
-        this.numberOfItems = numberOfItems;
+    public void setItems(Item[] items) {
+        this.items = items;
     }
 
+    
+    
+    //hashcode and equals
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 47 * hash + this.numberOfItems;
+        int hash = 5;
+        hash = 47 * hash + Arrays.deepHashCode(this.items);
         return hash;
     }
 
@@ -45,14 +54,17 @@ public class ItemScene implements Serializable {
             return false;
         }
         final ItemScene other = (ItemScene) obj;
-        if (this.numberOfItems != other.numberOfItems) {
+        if (!Arrays.deepEquals(this.items, other.items)) {
             return false;
         }
         return true;
     }
 
+    
+    
+    //toString
     @Override
     public String toString() {
-        return "ItemScene{" + "numberOfItems=" + numberOfItems + '}';
+        return "ItemScene{" + "items=" + items + '}';
     }
 }

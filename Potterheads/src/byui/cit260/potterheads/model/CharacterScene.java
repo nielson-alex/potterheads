@@ -1,6 +1,7 @@
 package byui.cit260.potterheads.model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,24 +13,32 @@ import java.io.Serializable;
  * @author aleecrook
  */
 public class CharacterScene implements Serializable {
+    private Character[] characters;
 
-    private int numberOfCharacters;
-
+    
+    
+    //constructor function
     public CharacterScene() {
     }
 
-    public int getNumberOfCharacters() {
-        return numberOfCharacters;
+    
+    
+    //getter and setter
+    public Character[] getCharacters() {
+        return characters;
     }
 
-    public void setNumberOfCharacters(int numberOfCharacters) {
-        this.numberOfCharacters = numberOfCharacters;
+    public void setCharacters(Character[] characters) {
+        this.characters = characters;
     }
-
+    
+    
+    
+    //hashcode and equals
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 59 * hash + this.numberOfCharacters;
+        hash = 97 * hash + Arrays.deepHashCode(this.characters);
         return hash;
     }
 
@@ -45,14 +54,17 @@ public class CharacterScene implements Serializable {
             return false;
         }
         final CharacterScene other = (CharacterScene) obj;
-        if (this.numberOfCharacters != other.numberOfCharacters) {
+        if (!Arrays.deepEquals(this.characters, other.characters)) {
             return false;
         }
         return true;
     }
 
+    
+    
+    //toString
     @Override
     public String toString() {
-        return "CharacterScene{" + "numberOfCharacters=" + numberOfCharacters + '}';
+        return "CharacterScene{" + "characters=" + characters + '}';
     }
 }

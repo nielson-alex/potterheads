@@ -5,6 +5,7 @@
  */
 package byui.cit260.potterheads.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -12,92 +13,53 @@ import java.util.Objects;
  *
  * @author alex
  */
-public class Character implements Serializable {
+public enum Character implements Serializable {
+    
+        Dumbledore("He is the headmaster of Hogwarts.", null),
+        Snape("He is the potions professor.", null),
+        Hermione("She is the smartest student at Hogwarts", null),
+        Malfoy("Everyone says he's going to hell", null),
+        FredAndGeorge("Ron's older brothers. They're always getting into trouble.", null),
+        Harry("'The Boy Who Lived'. You've heard about the wizard but don't know much about him.", null),
+        Ron("Harry's best friend. No one really knows what he does.", null),
+        Neville("Everyone says he grew up to be hot.", null),
+        McGonagall("Is she a teacher?", null),
+        Lupin("Defense Against the Dark Arts teacher. Also a werewolf.", null);
 
-    private String name;
-    private String description;
-    private int numberOfItems;
-    private String coordinates;
+    private final String description;
+    private final Item item;
+    private final Point coordinates;
+    
+    
 
     // constructor function
-    public Character() {
-    }
-
-    // getter and setter functions
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    Character(String description, Item item) {
+        
+        this.description = description;
+        this.item = item;
+        coordinates = new Point(1,1);
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public Item getItem() {
+        return item;
     }
 
-    public int getNumberOfItems() {
-        return numberOfItems;
-    }
-
-    public void setNumberOfItems(int numberOfItems) {
-        this.numberOfItems = numberOfItems;
-    }
-
-    public String getCoordinates() {
+    public Point getCoordinates() {
         return coordinates;
     }
 
-    public void setCoordinates(String coordinates) {
-        this.coordinates = coordinates;
-    }
-
-    // equals and hashcode
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 23 * hash + Objects.hashCode(this.name);
-        hash = 23 * hash + Objects.hashCode(this.description);
-        hash = 23 * hash + this.numberOfItems;
-        hash = 23 * hash + Objects.hashCode(this.coordinates);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Character other = (Character) obj;
-        if (this.numberOfItems != other.numberOfItems) {
-            return false;
-        }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        if (!Objects.equals(this.coordinates, other.coordinates)) {
-            return false;
-        }
-        return true;
-    }
 
     // toString()
     @Override
     public String toString() {
-        return "Character{" + "name=" + name + ", description=" + description + ", numberOfItems=" + numberOfItems + ", coordinates=" + coordinates + '}';
+        return "Character{" + "name=" + //+ name +
+                 ", description=" + description + ", numberOfItems=" + item + ", coordinates=" + coordinates + '}';
     }
+    
+    
 
 }

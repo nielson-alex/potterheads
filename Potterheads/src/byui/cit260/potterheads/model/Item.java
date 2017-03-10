@@ -14,15 +14,23 @@ import java.util.Objects;
  */
 public class Item implements Serializable {
 
+    private String name;
     private String description;
     private String inventoryType;
-    private int quantity;
 
     // constructor function
     public Item() {
     }
+    
+    public String getName() {
+        return name;
+    }
 
     // getter and setter
+    public void setName(String name) {    
+        this.name = name;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -38,24 +46,18 @@ public class Item implements Serializable {
     public void setInventoryType(String inventoryType) {
         this.inventoryType = inventoryType;
     }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
+    
+    
     // equals and hashcode
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 29 * hash + Objects.hashCode(this.description);
-        hash = 29 * hash + Objects.hashCode(this.inventoryType);
-        hash = 29 * hash + this.quantity;
+        hash = 71 * hash + Objects.hashCode(this.name);
+        hash = 71 * hash + Objects.hashCode(this.description);
+        hash = 71 * hash + Objects.hashCode(this.inventoryType);
         return hash;
     }
+
 
     @Override
     public boolean equals(Object obj) {
@@ -69,7 +71,7 @@ public class Item implements Serializable {
             return false;
         }
         final Item other = (Item) obj;
-        if (this.quantity != other.quantity) {
+        if (!Objects.equals(this.name, other.name)) {
             return false;
         }
         if (!Objects.equals(this.description, other.description)) {
@@ -84,7 +86,8 @@ public class Item implements Serializable {
     // toString
     @Override
     public String toString() {
-        return "Item{" + "description=" + description + ", inventoryType=" + inventoryType + ", quantity=" + quantity + '}';
+        return "Item{" + "name=" + name + ", description=" + description + ", inventoryType=" + inventoryType + '}';
     }
+
 
 }
