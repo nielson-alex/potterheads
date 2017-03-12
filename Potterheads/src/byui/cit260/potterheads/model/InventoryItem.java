@@ -12,6 +12,8 @@ import java.util.Objects;
  * @author Alex
  */
 public class InventoryItem {
+    private String name;
+    private String description;
     private String inventoryType;
     private int quantityInStock;
 
@@ -23,7 +25,25 @@ public class InventoryItem {
     
     
     
+    
+    
     //getters and setters
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public String getInventoryType() {
         return inventoryType;
     }
@@ -39,18 +59,21 @@ public class InventoryItem {
     public void setQuantityInStock(int quantityInStock) {
         this.quantityInStock = quantityInStock;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 47 * hash + Objects.hashCode(this.name);
+        hash = 47 * hash + Objects.hashCode(this.description);
+        hash = 47 * hash + Objects.hashCode(this.inventoryType);
+        hash = 47 * hash + this.quantityInStock;
+        return hash;
+    }
+    
     
     
     
     //hashcode and equals
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 67 * hash + Objects.hashCode(this.inventoryType);
-        hash = 67 * hash + this.quantityInStock;
-        return hash;
-    }
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -66,21 +89,24 @@ public class InventoryItem {
         if (this.quantityInStock != other.quantityInStock) {
             return false;
         }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.description, other.description)) {
+            return false;
+        }
         if (!Objects.equals(this.inventoryType, other.inventoryType)) {
             return false;
         }
         return true;
     }
+
     
     
     
     // toString()
     @Override
     public String toString() {
-        return "InventoryItem{" + "inventoryType=" + inventoryType + ", quantityInStock=" + quantityInStock + '}';
+        return "InventoryItem{" + "name=" + name + ", description=" + description + ", inventoryType=" + inventoryType + ", quantityInStock=" + quantityInStock + '}';
     }
-    
-    
-    
-    
 }

@@ -9,7 +9,7 @@ import byui.cit260.potterheads.model.Character;
 import byui.cit260.potterheads.model.CharacterScene;
 import byui.cit260.potterheads.model.DiagonAlley;
 import byui.cit260.potterheads.model.Game;
-import byui.cit260.potterheads.model.Item;
+//import byui.cit260.potterheads.model.Item;
 import byui.cit260.potterheads.model.ItemScene;
 import byui.cit260.potterheads.model.Location;
 import byui.cit260.potterheads.model.Map;

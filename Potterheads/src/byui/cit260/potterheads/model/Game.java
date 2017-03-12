@@ -6,6 +6,7 @@
 package byui.cit260.potterheads.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -17,7 +18,7 @@ public class Game implements Serializable {
 
     //class instance variables
     private int numberOfPlayers;
-    private Item[] item;
+    private InventoryItem[] inventory;
     
     //Create cardinalities of One
     private DiagonAlley diagonAlley;
@@ -25,6 +26,9 @@ public class Game implements Serializable {
     private Quidditch quidditch;
     private Map map;
     private Player player;
+    
+    //Create cardinalities of many
+    ArrayList<Item> inventoryItems = new ArrayList<>();
 
     
     
@@ -38,7 +42,10 @@ public class Game implements Serializable {
     public Game() {
     }
 
-    public double getNumberOfPlayers() {
+    
+    
+    //getters and setters
+    public int getNumberOfPlayers() {
         return numberOfPlayers;
     }
 
@@ -46,12 +53,12 @@ public class Game implements Serializable {
         this.numberOfPlayers = numberOfPlayers;
     }
 
-    public Item[] getItem() {
-        return item;
+    public InventoryItem[] getInventory() {
+        return inventory;
     }
 
-    public void setItem(Item[] item) {
-        this.item = item;
+    public void setInventory(InventoryItem[] inventory) {
+        this.inventory = inventory;
     }
 
     public DiagonAlley getDiagonAlley() {
@@ -94,6 +101,14 @@ public class Game implements Serializable {
         this.player = player;
     }
 
+    public ArrayList<Item> getInventoryItems() {
+        return inventoryItems;
+    }
+
+    public void setInventoryItems(ArrayList<Item> inventoryItems) {
+        this.inventoryItems = inventoryItems;
+    }
+
     public Character[] getCharacter() {
         return character;
     }
@@ -101,21 +116,22 @@ public class Game implements Serializable {
     public void setCharacter(Character[] character) {
         this.character = character;
     }
+    
 
     
-    
-    //hashcode() and equals()
+    //equals and hashcode
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 13 * hash + this.numberOfPlayers;
-        hash = 13 * hash + Arrays.deepHashCode(this.item);
-        hash = 13 * hash + Objects.hashCode(this.diagonAlley);
-        hash = 13 * hash + Objects.hashCode(this.polyjuice);
-        hash = 13 * hash + Objects.hashCode(this.quidditch);
-        hash = 13 * hash + Objects.hashCode(this.map);
-        hash = 13 * hash + Objects.hashCode(this.player);
-        hash = 13 * hash + Arrays.deepHashCode(this.character);
+        int hash = 7;
+        hash = 71 * hash + this.numberOfPlayers;
+        hash = 71 * hash + Arrays.deepHashCode(this.inventory);
+        hash = 71 * hash + Objects.hashCode(this.diagonAlley);
+        hash = 71 * hash + Objects.hashCode(this.polyjuice);
+        hash = 71 * hash + Objects.hashCode(this.quidditch);
+        hash = 71 * hash + Objects.hashCode(this.map);
+        hash = 71 * hash + Objects.hashCode(this.player);
+        hash = 71 * hash + Objects.hashCode(this.inventoryItems);
+        hash = 71 * hash + Arrays.deepHashCode(this.character);
         return hash;
     }
 
@@ -134,7 +150,7 @@ public class Game implements Serializable {
         if (this.numberOfPlayers != other.numberOfPlayers) {
             return false;
         }
-        if (!Arrays.deepEquals(this.item, other.item)) {
+        if (!Arrays.deepEquals(this.inventory, other.inventory)) {
             return false;
         }
         if (!Objects.equals(this.diagonAlley, other.diagonAlley)) {
@@ -152,6 +168,9 @@ public class Game implements Serializable {
         if (!Objects.equals(this.player, other.player)) {
             return false;
         }
+        if (!Objects.equals(this.inventoryItems, other.inventoryItems)) {
+            return false;
+        }
         if (!Arrays.deepEquals(this.character, other.character)) {
             return false;
         }
@@ -160,9 +179,11 @@ public class Game implements Serializable {
 
     
     
-    
+    //toString()
     @Override
     public String toString() {
-        return "Game{" + "numberOfPlayers=" + numberOfPlayers + ", item=" + item + ", diagonAlley=" + diagonAlley + ", polyjuice=" + polyjuice + ", quidditch=" + quidditch + ", map=" + map + ", player=" + player + ", character=" + character + '}';
+        return "Game{" + "numberOfPlayers=" + numberOfPlayers + ", inventory=" + inventory + ", diagonAlley=" + diagonAlley + ", polyjuice=" + polyjuice + ", quidditch=" + quidditch + ", map=" + map + ", player=" + player + ", inventoryItems=" + inventoryItems + ", character=" + character + '}';
     }
+
+    
 }

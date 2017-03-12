@@ -53,13 +53,10 @@ public class MainMenuView extends View {
 
     // case "N"
     private void startNewGame() {
-
-//       int value = GameControl.createNewGame(Potterheads.getPlayer());
-//       if (value < 0) {
-//           System.out.println("Error -failed to create new game");
-//       }
-//       
+        //creaet a new game
         GameControl.createNewGame(Potterheads.getPlayer());
+        
+        //display game menu
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }

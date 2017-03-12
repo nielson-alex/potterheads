@@ -6,6 +6,7 @@
 package byui.cit260.potterheads.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,6 +18,14 @@ public class Location implements Serializable {
     private int column;
     private boolean visited;
     private int amountRemaining;
+    
+    //create cardinality of one
+    private Scene scene;
+    
+    //Create cardinality of many
+    ArrayList<Item> inventoryItems = new ArrayList<>();
+    ArrayList<Character> characters =new ArrayList<>();
+    ArrayList<Scene> scenes = new ArrayList<>();
 
     // constructor function
     public Location() {
@@ -54,6 +63,15 @@ public class Location implements Serializable {
     public void setAmountRemaining(int amountRemaining) {
         this.amountRemaining = amountRemaining;
     }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+    
 
     // equals and hashcode
     @Override

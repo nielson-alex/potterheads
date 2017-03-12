@@ -5,7 +5,10 @@
  */
 package byui.cit260.potterheads.view;
 
+import byui.cit260.potterheads.model.Game;
+import byui.cit260.potterheads.model.InventoryItem;
 import java.util.Scanner;
+import potterheads.Potterheads;
 
 /**
  *
@@ -19,6 +22,8 @@ public class GameMenuView extends View {
                 + "D - Diagon Alley\n"
                 + "P - Polyjuice Potion\n"
                 + "W - Quidditch Pitch\n"
+                + "I - View Inventory\n"
+                + "M - View Map\n"
                 + "Q - Quit");
     }
 
@@ -38,6 +43,12 @@ public class GameMenuView extends View {
                 break;
             case "Q":
                 this.quitGameMenuView();
+                break;
+            case "I":
+                this.viewInventory();
+                break;
+            case "M":
+                this.displayMap();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -68,6 +79,35 @@ public class GameMenuView extends View {
     private void quitGameMenuView() {
         System.out.println("\n*** quit game ***");
 
+    }
+
+    private void viewInventory() {
+        StringBuilder line;
+        
+        Game game = Potterheads.getCurrentGame();
+        InventoryItem[] inventory = game.getInventory();
+        
+        System.out.println("\n          List of Inventory Items");
+        line = new StringBuilder("                                          ");
+                line.insert(0, "DESCRIPTION");
+                line.insert(20, "IN STOCK");
+                System.out.println(line.toString());
+                
+                //for each inventory item
+                for (InventoryItem item : inventory) {
+                    line = new StringBuilder("                              ");
+                    line.insert(0, item.getDescription());
+                    line.insert(23, item.getQuantityInStock());
+                    
+                    //Display the line
+                    System.out.println(line.toString());
+                }
+                
+                
+    }
+
+    private void displayMap() {
+        System.out.println("***display map function called***");
     }
 
 }

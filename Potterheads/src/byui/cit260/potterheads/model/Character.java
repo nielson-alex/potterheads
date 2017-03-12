@@ -7,6 +7,7 @@ package byui.cit260.potterheads.model;
 
 import java.awt.Point;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -30,6 +31,8 @@ public enum Character implements Serializable {
     private final Item item;
     private final Point coordinates;
     
+    //Create cardinality of many
+    ArrayList<Item> inventoryItems = new ArrayList<>();
     
 
     // constructor function
