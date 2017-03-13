@@ -7,6 +7,7 @@ package byui.cit260.potterheads.view;
 
 import byui.cit260.potterheads.model.Game;
 import byui.cit260.potterheads.model.InventoryItem;
+import java.util.ArrayList;
 import java.util.Scanner;
 import potterheads.Potterheads;
 
@@ -15,6 +16,8 @@ import potterheads.Potterheads;
  * @author aleecrook
  */
 public class GameMenuView extends View {
+
+    public ArrayList<InventoryItem> inventoryItems;
 
     public GameMenuView() {
         super("\nWe're still building our game. Select one of these\n"
@@ -45,7 +48,7 @@ public class GameMenuView extends View {
                 this.quitGameMenuView();
                 break;
             case "I":
-                this.viewInventory();
+                this.viewInventory(inventoryItems);
                 break;
             case "M":
                 this.displayMap();
@@ -81,29 +84,29 @@ public class GameMenuView extends View {
 
     }
 
-    private void viewInventory() {
+    private void viewInventory(ArrayList<InventoryItem> inventoryItems) {
         StringBuilder line;
-        
+
         Game game = Potterheads.getCurrentGame();
-        InventoryItem[] inventory = game.getInventory();
-        
+//        InventoryItem[] inventory = game.getInventory();
+
+        ArrayList inventory = game.getInventoryItems();
+
         System.out.println("\n          List of Inventory Items");
-        line = new StringBuilder("                                          ");
-                line.insert(0, "DESCRIPTION");
-                line.insert(20, "IN STOCK");
-                System.out.println(line.toString());
-                
-                //for each inventory item
-                for (InventoryItem item : inventory) {
-                    line = new StringBuilder("                              ");
-                    line.insert(0, item.getDescription());
-                    line.insert(23, item.getQuantityInStock());
-                    
-                    //Display the line
-                    System.out.println(line.toString());
-                }
-                
-                
+        line = new StringBuilder("                                                              ");
+        line.insert(0, "DESCRIPTION");
+        line.insert(20, "IN STOCK");
+        System.out.println(line.toString());
+
+        //for each inventory item
+        for (InventoryItem inventoryItem : inventoryItems) {
+            line = new StringBuilder("                                                  ");
+            line.insert(0, inventoryItem.getName());
+            line.insert(23, inventoryItem.getQuantityInStock());
+
+            //Display the line
+            System.out.println(line.toString());
+        }
     }
 
     private void displayMap() {

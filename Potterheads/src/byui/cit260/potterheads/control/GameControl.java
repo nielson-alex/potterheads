@@ -15,6 +15,7 @@ import byui.cit260.potterheads.model.Player;
 import byui.cit260.potterheads.model.Scene;
 import byui.cit260.potterheads.model.Scene.SceneType;
 import byui.cit260.potterheads.view.GameMenuView;
+import java.util.ArrayList;
 import potterheads.Potterheads;
 
 /**
@@ -30,8 +31,8 @@ public class GameControl {
         game.setPlayer(player);
         
         //create the inventory list and save inthe game
-        InventoryItem[] inventoryList = GameControl.createInventoryList();
-        game.setInventory(inventoryList);
+        ArrayList<InventoryItem> inventoryList = GameControl.createInventoryList();
+        game.setInventoryItems(inventoryList);
         
         Map map = MapControl.createMap();
         game.setMap(map); //save map in game
@@ -51,103 +52,110 @@ public class GameControl {
         return player;
     }
     
-    public static InventoryItem[] createInventoryList() {
+    public static ArrayList<InventoryItem> createInventoryList() {
+        
+//        InventoryItem[] inventory = 
+//                new InventoryItem[13];
+        
         //create array(list) of inventory items
-        InventoryItem[] inventory = 
-                new InventoryItem[13];
+        ArrayList<InventoryItem> inventory = new ArrayList<InventoryItem>(10);
         
-        InventoryItem timeTurner = new InventoryItem();
-        timeTurner.setName("Time Turner");
-        timeTurner.setDescription("Lets you go back in time.");
-        timeTurner.setQuantityInStock(0);
-        timeTurner.setInventoryType("Tradeable");
-        inventory[Item.timeTurner.ordinal()] = timeTurner;
+        InventoryItem timeTurner = new InventoryItem("Time Turner", "Hermione goes back in time with this",
+        "Tradeabe", 0);
+//        InventoryItem timeTurner = new InventoryItem();
+//        timeTurner.setName("Time Turner");
+//        timeTurner.setDescription("Lets you go back in time.");
+//        timeTurner.setQuantityInStock(0);
+//        timeTurner.setInventoryType("Tradeable");
+//        inventory[Item.timeTurner.ordinal()] = timeTurner;
+        InventoryItem snitch = new InventoryItem("Golden Snitch", "You caught this",
+        "Tradeable", 0);
+//        InventoryItem snitch = new InventoryItem();
+//        snitch.setName("Golden Snitch");
+//        snitch.setDescription("You won this, good job");
+//        snitch.setQuantityInStock(0);
+//        snitch.setInventoryType("Tradeable");
+//        inventory[Item.snitch.ordinal()] = snitch;
+        InventoryItem maraudersMap = new InventoryItem("Marauder's Map", "You caught this",
+        "Tradeable", 0);
+//        InventoryItem maraudersMap = new InventoryItem();
+//        maraudersMap.setName("Marauder's Map");
+//        maraudersMap.setDescription("It's the Marauder's Map");
+//        maraudersMap.setQuantityInStock(0);
+//        maraudersMap.setInventoryType("Tradeable");
+//        inventory[Item.maraudersMap.ordinal()] = maraudersMap;
+//        
+//        InventoryItem invisibilityCloak = new InventoryItem();
+//        invisibilityCloak.setName("Invisibility Cloak");
+//        invisibilityCloak.setDescription("Harry uses this for illegal reasons");
+//        invisibilityCloak.setQuantityInStock(0);
+//        invisibilityCloak.setInventoryType("Tradeable");
+//        inventory[Item.invisibilityCloak.ordinal()] = invisibilityCloak;
+//        
+//        InventoryItem americanMoney = new InventoryItem();
+//        americanMoney.setName("American cash");
+//        americanMoney.setDescription("Why did Hagrid have this?");
+//        americanMoney.setQuantityInStock(0);
+//        americanMoney.setInventoryType("Tradeable");
+//        inventory[Item.americanMoney.ordinal()] = americanMoney;
+//        
+//        InventoryItem gillyweed = new InventoryItem();
+//        gillyweed.setName("Gilly Weed");
+//        gillyweed.setDescription("I don't even remember this from the books.");
+//        gillyweed.setQuantityInStock(0);
+//        gillyweed.setInventoryType("Tradeable");
+//        inventory[Item.gillyweed.ordinal()] = gillyweed;
+//        
+//        InventoryItem firecrackers = new InventoryItem();
+//        firecrackers.setName("Firecrackers");
+//        firecrackers.setDescription("Fred and George could do real damage with these.");
+//        firecrackers.setQuantityInStock(0);
+//        firecrackers.setInventoryType("Tradeable");
+//        inventory[Item.firecrackers.ordinal()] = firecrackers;
+//        
+//        InventoryItem replacementWand = new InventoryItem();
+//        replacementWand.setName("Replacement Wand");
+//        replacementWand.setDescription("Ron could use this.");
+//        replacementWand.setQuantityInStock(0);
+//        replacementWand.setInventoryType("Tradeable");
+//        inventory[Item.replacementWand.ordinal()] = replacementWand;
+//        
+//        InventoryItem expelliarmus = new InventoryItem();
+//        expelliarmus.setName("Expelliarmus");
+//        expelliarmus.setDescription("Disarms your enemy.");
+//        expelliarmus.setQuantityInStock(0);
+//        expelliarmus.setInventoryType("Spell");
+//        inventory[Item.expelliarmus.ordinal()] = expelliarmus;
+//        
+//        InventoryItem stupify = new InventoryItem();
+//        stupify.setName("Stupify");
+//        stupify.setDescription("Freezes your enemy.");
+//        stupify.setQuantityInStock(0);
+//        stupify.setInventoryType("Spell");
+//        inventory[Item.stupify.ordinal()] = stupify;
+//        
+//        InventoryItem sectumsempra = new InventoryItem();
+//        sectumsempra.setName("Sectumsempra");
+//        sectumsempra.setDescription("You can't use this but do it anyway.");
+//        sectumsempra.setQuantityInStock(0);
+//        sectumsempra.setInventoryType("Spell");
+//        inventory[Item.sectumsempra.ordinal()] = sectumsempra;
+//        
+//        InventoryItem petrificusTotalus = new InventoryItem();
+//        petrificusTotalus.setName("Petrifcus Totalus");
+//        petrificusTotalus.setDescription("It does something.");
+//        petrificusTotalus.setQuantityInStock(0);
+//        petrificusTotalus.setInventoryType("Spell");
+//        inventory[Item.petrificusTotalus.ordinal()] = petrificusTotalus;
+//        
+//        InventoryItem wingardiumLeviosa = new InventoryItem();
+//        wingardiumLeviosa.setName("Wingardium Leviosa");
+//        wingardiumLeviosa.setDescription("Makes things float.");
+//        wingardiumLeviosa.setQuantityInStock(0);
+//        wingardiumLeviosa.setInventoryType("Spell");
+//        inventory[Item.wingardiumLeviosa.ordinal()] = wingardiumLeviosa;
         
-        InventoryItem snitch = new InventoryItem();
-        snitch.setName("Golden Snitch");
-        snitch.setDescription("You won this, good job");
-        snitch.setQuantityInStock(0);
-        snitch.setInventoryType("Tradeable");
-        inventory[Item.snitch.ordinal()] = snitch;
-        
-        InventoryItem maraudersMap = new InventoryItem();
-        maraudersMap.setName("Marauder's Map");
-        maraudersMap.setDescription("It's the Marauder's Map");
-        maraudersMap.setQuantityInStock(0);
-        maraudersMap.setInventoryType("Tradeable");
-        inventory[Item.maraudersMap.ordinal()] = maraudersMap;
-        
-        InventoryItem invisibilityCloak = new InventoryItem();
-        invisibilityCloak.setName("Invisibility Cloak");
-        invisibilityCloak.setDescription("Harry uses this for illegal reasons");
-        invisibilityCloak.setQuantityInStock(0);
-        invisibilityCloak.setInventoryType("Tradeable");
-        inventory[Item.invisibilityCloak.ordinal()] = invisibilityCloak;
-        
-        InventoryItem americanMoney = new InventoryItem();
-        americanMoney.setName("American cash");
-        americanMoney.setDescription("Why did Hagrid have this?");
-        americanMoney.setQuantityInStock(0);
-        americanMoney.setInventoryType("Tradeable");
-        inventory[Item.americanMoney.ordinal()] = americanMoney;
-        
-        InventoryItem gillyweed = new InventoryItem();
-        gillyweed.setName("Gilly Weed");
-        gillyweed.setDescription("I don't even remember this from the books.");
-        gillyweed.setQuantityInStock(0);
-        gillyweed.setInventoryType("Tradeable");
-        inventory[Item.gillyweed.ordinal()] = gillyweed;
-        
-        InventoryItem firecrackers = new InventoryItem();
-        firecrackers.setName("Firecrackers");
-        firecrackers.setDescription("Fred and George could do real damage with these.");
-        firecrackers.setQuantityInStock(0);
-        firecrackers.setInventoryType("Tradeable");
-        inventory[Item.firecrackers.ordinal()] = firecrackers;
-        
-        InventoryItem replacementWand = new InventoryItem();
-        replacementWand.setName("Replacement Wand");
-        replacementWand.setDescription("Ron could use this.");
-        replacementWand.setQuantityInStock(0);
-        replacementWand.setInventoryType("Tradeable");
-        inventory[Item.replacementWand.ordinal()] = replacementWand;
-        
-        InventoryItem expelliarmus = new InventoryItem();
-        expelliarmus.setName("Expelliarmus");
-        expelliarmus.setDescription("Disarms your enemy.");
-        expelliarmus.setQuantityInStock(0);
-        expelliarmus.setInventoryType("Spell");
-        inventory[Item.expelliarmus.ordinal()] = expelliarmus;
-        
-        InventoryItem stupify = new InventoryItem();
-        stupify.setName("Stupify");
-        stupify.setDescription("Freezes your enemy.");
-        stupify.setQuantityInStock(0);
-        stupify.setInventoryType("Spell");
-        inventory[Item.americanMoney.ordinal()] = stupify;
-        
-        InventoryItem sectumsempra = new InventoryItem();
-        sectumsempra.setName("Sectumsempra");
-        sectumsempra.setDescription("You can't use this but do it anyway.");
-        sectumsempra.setQuantityInStock(0);
-        sectumsempra.setInventoryType("Spell");
-        inventory[Item.sectumsempra.ordinal()] = sectumsempra;
-        
-        InventoryItem petrificusTotalus = new InventoryItem();
-        petrificusTotalus.setName("Petrifcus Totalus");
-        petrificusTotalus.setDescription("It does something.");
-        petrificusTotalus.setQuantityInStock(0);
-        petrificusTotalus.setInventoryType("Spell");
-        inventory[Item.petrificusTotalus.ordinal()] = petrificusTotalus;
-        
-        InventoryItem wingardiumLeviosa = new InventoryItem();
-        wingardiumLeviosa.setName("Wingardium Leviosa");
-        wingardiumLeviosa.setDescription("Makes things float.");
-        wingardiumLeviosa.setQuantityInStock(0);
-        wingardiumLeviosa.setInventoryType("Spell");
-        inventory[Item.wingardiumLeviosa.ordinal()] = wingardiumLeviosa;
-        
-        return null;
+        return inventory;
     }
     
     private static Map createMap() {

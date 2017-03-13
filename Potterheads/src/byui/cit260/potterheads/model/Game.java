@@ -18,7 +18,7 @@ public class Game implements Serializable {
 
     //class instance variables
     private int numberOfPlayers;
-    private InventoryItem[] inventory;
+//    private InventoryItem[] inventory;
     
     //Create cardinalities of One
     private DiagonAlley diagonAlley;
@@ -28,7 +28,7 @@ public class Game implements Serializable {
     private Player player;
     
     //Create cardinalities of many
-    ArrayList<Item> inventoryItems = new ArrayList<>();
+    ArrayList<InventoryItem> inventoryItems = new ArrayList<>();
 
     
     
@@ -36,29 +36,15 @@ public class Game implements Serializable {
     //    private InventoryItems inventoryItems;
     private Character[] character;
 
-    
-    
-    
     public Game() {
     }
 
-    
-    
-    //getters and setters
     public int getNumberOfPlayers() {
         return numberOfPlayers;
     }
 
     public void setNumberOfPlayers(int numberOfPlayers) {
         this.numberOfPlayers = numberOfPlayers;
-    }
-
-    public InventoryItem[] getInventory() {
-        return inventory;
-    }
-
-    public void setInventory(InventoryItem[] inventory) {
-        this.inventory = inventory;
     }
 
     public DiagonAlley getDiagonAlley() {
@@ -101,11 +87,11 @@ public class Game implements Serializable {
         this.player = player;
     }
 
-    public ArrayList<Item> getInventoryItems() {
+    public ArrayList<InventoryItem> getInventoryItems() {
         return inventoryItems;
     }
 
-    public void setInventoryItems(ArrayList<Item> inventoryItems) {
+    public void setInventoryItems(ArrayList<InventoryItem> inventoryItems) {
         this.inventoryItems = inventoryItems;
     }
 
@@ -116,15 +102,11 @@ public class Game implements Serializable {
     public void setCharacter(Character[] character) {
         this.character = character;
     }
-    
 
-    
-    //equals and hashcode
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 71 * hash + this.numberOfPlayers;
-        hash = 71 * hash + Arrays.deepHashCode(this.inventory);
         hash = 71 * hash + Objects.hashCode(this.diagonAlley);
         hash = 71 * hash + Objects.hashCode(this.polyjuice);
         hash = 71 * hash + Objects.hashCode(this.quidditch);
@@ -148,9 +130,6 @@ public class Game implements Serializable {
         }
         final Game other = (Game) obj;
         if (this.numberOfPlayers != other.numberOfPlayers) {
-            return false;
-        }
-        if (!Arrays.deepEquals(this.inventory, other.inventory)) {
             return false;
         }
         if (!Objects.equals(this.diagonAlley, other.diagonAlley)) {
@@ -177,13 +156,8 @@ public class Game implements Serializable {
         return true;
     }
 
-    
-    
-    //toString()
     @Override
     public String toString() {
-        return "Game{" + "numberOfPlayers=" + numberOfPlayers + ", inventory=" + inventory + ", diagonAlley=" + diagonAlley + ", polyjuice=" + polyjuice + ", quidditch=" + quidditch + ", map=" + map + ", player=" + player + ", inventoryItems=" + inventoryItems + ", character=" + character + '}';
+        return "Game{" + "numberOfPlayers=" + numberOfPlayers + ", diagonAlley=" + diagonAlley + ", polyjuice=" + polyjuice + ", quidditch=" + quidditch + ", map=" + map + ", player=" + player + ", inventoryItems=" + inventoryItems + ", character=" + character + '}';
     }
-
-    
 }

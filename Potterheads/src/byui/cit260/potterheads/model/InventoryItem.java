@@ -23,6 +23,10 @@ public class InventoryItem {
     public InventoryItem() {
     }
     
+    public InventoryItem(String name, String description, String inventoryType, int quantityInStock) {
+        
+    }
+    
     
     
     
