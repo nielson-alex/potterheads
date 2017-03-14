@@ -5,7 +5,9 @@
  */
 package byui.cit260.potterheads.control;
 
+import byui.cit260.potterheads.model.Game;
 import byui.cit260.potterheads.model.Map;
+import potterheads.Potterheads;
 
 /**
  *
@@ -13,11 +15,8 @@ import byui.cit260.potterheads.model.Map;
  */
 public class MapControl {
     public static Map createMap() {
-        Map map = null;
-        
-        System.out.println("\n*** createMap() function called ***");
-        
-        return map;
+        Game game = Potterheads.getCurrentGame();
+        return game.getMap();
     }
 
     static void moveCharactersToStartingLocation(Map map) {

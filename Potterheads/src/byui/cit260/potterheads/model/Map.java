@@ -13,9 +13,9 @@ import java.util.Arrays;
  * @author Alexandra
  */
 public class Map implements Serializable {
-
-    public Map() {
-    }
+    
+//    public Map() {
+//    }
     
     public Map(int noOfRows, int noOfColumns) {
         if (noOfRows < 1 || noOfColumns < 1) {

@@ -39,8 +39,9 @@ public class GameControl {
         ArrayList<Spell> spellInventoryList = GameControl.createSpellList();
         game.setSpellInventory(spellInventoryList);
         
-        Map map = MapControl.createMap();
-        game.setMap(map); //save map in game
+        Map map = new Map(5, 5);
+        game.setMap(map);
+        GameControl.createMap();
 
         // move actors to starting position in the map
         MapControl.moveCharactersToStartingLocation(map);
@@ -201,8 +202,8 @@ public class GameControl {
 
     private static Map createMap() {
         //create the map
-        Map map = new Map(20, 20);
-
+        Map map = Potterheads.getCurrentGame().getMap();
+        
         //create the scenes for the game
         Scene[] scenes = createScenes();
 
@@ -219,34 +220,42 @@ public class GameControl {
         Scene startingScene = new Scene();
         startingScene.setDescription(
                 "***the description will go here***");
-        startingScene.setMapSymbol(" ST ");
+        startingScene.setMapSymbol("ST");
         startingScene.setBlocked(false);
         scenes[SceneType.start.ordinal()] = startingScene;
 
         Scene finishScene = new Scene();
         finishScene.setDescription(
                 "Congratulations, you beat the game.");
-        finishScene.setMapSymbol(" FN ");
+        finishScene.setMapSymbol("FN");
         finishScene.setBlocked(false);
         scenes[SceneType.finish.ordinal()] = finishScene;
 
         Scene puzzleScene = new Scene();
         puzzleScene.setDescription("***bad things happen here***");
-        puzzleScene.setMapSymbol(" PZ ");
+        puzzleScene.setMapSymbol("PZ");
         puzzleScene.setBlocked(false);
         scenes[SceneType.puzzle.ordinal()] = puzzleScene;
 
         Scene characterScene = new Scene();
         characterScene.setDescription("***These scenes have characters***");
-        characterScene.setMapSymbol(" CH ");
+        characterScene.setMapSymbol("CH");
         characterScene.setBlocked(false);
         scenes[SceneType.character.ordinal()] = characterScene;
 
         Scene itemScene = new Scene();
         itemScene.setDescription("***These scenes have items***");
-        itemScene.setMapSymbol(" IT ");
+        itemScene.setMapSymbol("IT");
         itemScene.setBlocked(false);
-        scenes[SceneType.character.ordinal()] = itemScene;
+        scenes[SceneType.item.ordinal()] = itemScene;
+        
+        Scene unknownScene = new Scene();
+        unknownScene.setDescription("***not yet defined***");
+        unknownScene.setMapSymbol("??");
+        unknownScene.setBlocked(false);
+        scenes[SceneType.unknown.ordinal()] = unknownScene;
+
+       
 
         return scenes;
     }
@@ -260,6 +269,26 @@ public class GameControl {
         locations[0][2].setScene(scenes[SceneType.puzzle.ordinal()]);
         locations[0][3].setScene(scenes[SceneType.item.ordinal()]);
         locations[0][4].setScene(scenes[SceneType.finish.ordinal()]);
+        locations[1][0].setScene(scenes[SceneType.unknown.ordinal()]);
+        locations[1][1].setScene(scenes[SceneType.unknown.ordinal()]);
+        locations[1][2].setScene(scenes[SceneType.unknown.ordinal()]);
+        locations[1][3].setScene(scenes[SceneType.unknown.ordinal()]);
+        locations[1][4].setScene(scenes[SceneType.unknown.ordinal()]);
+        locations[2][0].setScene(scenes[SceneType.unknown.ordinal()]);
+        locations[2][1].setScene(scenes[SceneType.unknown.ordinal()]);
+        locations[2][2].setScene(scenes[SceneType.unknown.ordinal()]);
+        locations[2][3].setScene(scenes[SceneType.unknown.ordinal()]);
+        locations[2][4].setScene(scenes[SceneType.unknown.ordinal()]);
+        locations[3][0].setScene(scenes[SceneType.unknown.ordinal()]);
+        locations[3][1].setScene(scenes[SceneType.unknown.ordinal()]);
+        locations[3][2].setScene(scenes[SceneType.unknown.ordinal()]);
+        locations[3][3].setScene(scenes[SceneType.unknown.ordinal()]);
+        locations[3][4].setScene(scenes[SceneType.unknown.ordinal()]);
+        locations[4][0].setScene(scenes[SceneType.unknown.ordinal()]);
+        locations[4][1].setScene(scenes[SceneType.unknown.ordinal()]);
+        locations[4][2].setScene(scenes[SceneType.unknown.ordinal()]);
+        locations[4][3].setScene(scenes[SceneType.unknown.ordinal()]);
+        locations[4][4].setScene(scenes[SceneType.unknown.ordinal()]);
     }
     
     public int getInventoryCount(){

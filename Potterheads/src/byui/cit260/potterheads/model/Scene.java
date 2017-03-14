@@ -23,7 +23,8 @@ public class Scene implements Serializable {
         finish,
         puzzle,
         character,
-        item;
+        item,
+        unknown;
     }
     
     //constructor function
