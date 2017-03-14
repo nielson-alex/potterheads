@@ -15,6 +15,7 @@ import byui.cit260.potterheads.model.Player;
 import byui.cit260.potterheads.model.Scene;
 import byui.cit260.potterheads.model.Scene.SceneType;
 import byui.cit260.potterheads.model.Spell;
+import byui.cit260.potterheads.model.Spell.SpellType;
 import byui.cit260.potterheads.view.GameMenuView;
 import java.util.ArrayList;
 import potterheads.Potterheads;
@@ -147,53 +148,24 @@ public class GameControl {
     }
     
     public static ArrayList<Spell> createSpellList() {
-         ArrayList<Spell> spellInventory = new ArrayList<Spell>(5);
-         
-         //    ----------SPELLS-----------
-          Spell expelliarmus = new Spell("Expelliarmus", "Disarms the enemy");
-          spellInventory.add(expelliarmus);
-//        InventoryItem expelliarmus = new InventoryItem();
-//        expelliarmus.setName("Expelliarmus");
-//        expelliarmus.setDescription("Disarms your enemy.");
-//        expelliarmus.setQuantityInStock(0);
-//        expelliarmus.setInventoryType("Spell");
-//        inventory[Item.expelliarmus.ordinal()] = expelliarmus;
-//        
-        Spell stupify = new Spell("Stupify", "Stuns the enemy");
+        potterheads.Potterheads.getPlayer().setSpells(new ArrayList<Spell>());
+        ArrayList<Spell> spellInventory = potterheads.Potterheads.getPlayer().getSpells();
+        
+        //    ----------SPELLS-----------
+        Spell expelliarmus = new Spell(SpellType.expelliarmus);
+        spellInventory.add(expelliarmus);
+        
+        Spell stupify = new Spell(SpellType.stupify);
         spellInventory.add(stupify);
-//        InventoryItem stupify = new InventoryItem();
-//        stupify.setName("Stupify");
-//        stupify.setDescription("Freezes your enemy.");
-//        stupify.setQuantityInStock(0);
-//        stupify.setInventoryType("Spell");
-//        inventory[Item.stupify.ordinal()] = stupify;
-//        
-          Spell sectumsempra = new Spell("Sectumsempra", "Slashes the enemy");
-          spellInventory.add(sectumsempra);
-//        InventoryItem sectumsempra = new InventoryItem();
-//        sectumsempra.setName("Sectumsempra");
-//        sectumsempra.setDescription("You can't use this but do it anyway.");
-//        sectumsempra.setQuantityInStock(0);
-//        sectumsempra.setInventoryType("Spell");
-//        inventory[Item.sectumsempra.ordinal()] = sectumsempra;        
 
-          Spell petrificusTotalus = new Spell("Petrificus Totalus", "Petrifies enemy");
-          spellInventory.add(petrificusTotalus);
-//        InventoryItem petrificusTotalus = new InventoryItem();
-//        petrificusTotalus.setName("Petrifcus Totalus");
-//        petrificusTotalus.setDescription("It does something.");
-//        petrificusTotalus.setQuantityInStock(0);
-//        petrificusTotalus.setInventoryType("Spell");
-//        inventory[Item.petrificusTotalus.ordinal()] = petrificusTotalus;
+        Spell sectumsempra = new Spell(SpellType.sectumsempra);
+        spellInventory.add(sectumsempra);
 
-          Spell wingardiumLeviosa = new Spell("Wingardiuim Leviosa", "Makes things float");
-          spellInventory.add(wingardiumLeviosa);
-//        InventoryItem wingardiumLeviosa = new InventoryItem();
-//        wingardiumLeviosa.setName("Wingardium Leviosa");
-//        wingardiumLeviosa.setDescription("Makes things float.");
-//        wingardiumLeviosa.setQuantityInStock(0);
-//        wingardiumLeviosa.setInventoryType("Spell");
-//        inventory[Item.wingardiumLeviosa.ordinal()] = wingardiumLeviosa;
+        Spell petrificusTotalus = new Spell(SpellType.petrificusTotalus);
+        spellInventory.add(petrificusTotalus);
+
+        Spell wingardiumLeviosa = new Spell(SpellType.wingardiumLeviosa);
+        spellInventory.add(wingardiumLeviosa);
         
         return spellInventory;
     }
