@@ -144,14 +144,50 @@ public class GameMenuView extends View {
     }
     
     private void displayMap() {
+        StringBuilder line;
+        
+        Map map = Potterheads.getCurrentGame().getMap();
+        Location[][] locations = map.getLocations();
+        
+        System.out.println("MAP");
+        
+        line = new StringBuilder();
+        StringBuilder hyphens = new StringBuilder();
+        line.append("  ");
+        hyphens.append("  ");
+        
+        for(int i = 1; i <= locations.length; i++) {
+            line.append(i);
+            line.append("    ");
+            hyphens.append("-----");
+        }
+       
+        System.out.println(line.toString());
+        System.out.println(hyphens.toString());
+        
+        for (int rowIndex = 0; rowIndex < locations.length; rowIndex++) {
+            line = new StringBuilder("");
+            line.append(rowIndex + 1);
+            
+            Location[] row = locations[rowIndex];
+            
+            for (Location column : row) {
+                line.append("| ");
+                line.append(column.getScene().getMapSymbol());
+                line.append(" ");
+            }
+            line.append("|");
+            System.out.println(line.toString());
+            System.out.println(hyphens.toString());
+        }
+        
+        
+        
 //        StringBuilder line;
 //        
 //        int[][] locations = Map.getLocations();
 //        
 //        for (Location)
         
-        
-        
-        System.out.println("\n***displayMap() function called***");
     }
 }
