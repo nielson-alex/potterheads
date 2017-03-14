@@ -28,7 +28,8 @@ public class Game implements Serializable {
     private Player player;
     
     //Create cardinalities of many
-    ArrayList<InventoryItem> inventoryItems = new ArrayList<>();
+    private ArrayList<InventoryItem> tradeableInventory = new ArrayList<>();
+    private ArrayList<Spell> spellInventory = new ArrayList<>();
 
     
     
@@ -87,12 +88,20 @@ public class Game implements Serializable {
         this.player = player;
     }
 
-    public ArrayList<InventoryItem> getInventoryItems() {
-        return inventoryItems;
+    public ArrayList<InventoryItem> getTradeableInventory() {
+        return tradeableInventory;
     }
 
-    public void setInventoryItems(ArrayList<InventoryItem> inventoryItems) {
-        this.inventoryItems = inventoryItems;
+    public void setTradeableInventory(ArrayList<InventoryItem> tradeableInventory) {
+        this.tradeableInventory = tradeableInventory;
+    }
+
+    public ArrayList<Spell> getSpellInventory() {
+        return spellInventory;
+    }
+
+    public void setSpellInventory(ArrayList<Spell> spellInventory) {
+        this.spellInventory = spellInventory;
     }
 
     public Character[] getCharacter() {
@@ -106,14 +115,15 @@ public class Game implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 71 * hash + this.numberOfPlayers;
-        hash = 71 * hash + Objects.hashCode(this.diagonAlley);
-        hash = 71 * hash + Objects.hashCode(this.polyjuice);
-        hash = 71 * hash + Objects.hashCode(this.quidditch);
-        hash = 71 * hash + Objects.hashCode(this.map);
-        hash = 71 * hash + Objects.hashCode(this.player);
-        hash = 71 * hash + Objects.hashCode(this.inventoryItems);
-        hash = 71 * hash + Arrays.deepHashCode(this.character);
+        hash = 67 * hash + this.numberOfPlayers;
+        hash = 67 * hash + Objects.hashCode(this.diagonAlley);
+        hash = 67 * hash + Objects.hashCode(this.polyjuice);
+        hash = 67 * hash + Objects.hashCode(this.quidditch);
+        hash = 67 * hash + Objects.hashCode(this.map);
+        hash = 67 * hash + Objects.hashCode(this.player);
+        hash = 67 * hash + Objects.hashCode(this.tradeableInventory);
+        hash = 67 * hash + Objects.hashCode(this.spellInventory);
+        hash = 67 * hash + Arrays.deepHashCode(this.character);
         return hash;
     }
 
@@ -147,7 +157,10 @@ public class Game implements Serializable {
         if (!Objects.equals(this.player, other.player)) {
             return false;
         }
-        if (!Objects.equals(this.inventoryItems, other.inventoryItems)) {
+        if (!Objects.equals(this.tradeableInventory, other.tradeableInventory)) {
+            return false;
+        }
+        if (!Objects.equals(this.spellInventory, other.spellInventory)) {
             return false;
         }
         if (!Arrays.deepEquals(this.character, other.character)) {
@@ -158,6 +171,8 @@ public class Game implements Serializable {
 
     @Override
     public String toString() {
-        return "Game{" + "numberOfPlayers=" + numberOfPlayers + ", diagonAlley=" + diagonAlley + ", polyjuice=" + polyjuice + ", quidditch=" + quidditch + ", map=" + map + ", player=" + player + ", inventoryItems=" + inventoryItems + ", character=" + character + '}';
+        return "Game{" + "numberOfPlayers=" + numberOfPlayers + ", diagonAlley=" + diagonAlley + ", polyjuice=" + polyjuice + ", quidditch=" + quidditch + ", map=" + map + ", player=" + player + ", tradeableInventory=" + tradeableInventory + ", spellInventory=" + spellInventory + ", character=" + character + '}';
     }
+
+    
 }

@@ -7,6 +7,9 @@ package byui.cit260.potterheads.view;
 
 import byui.cit260.potterheads.model.Game;
 import byui.cit260.potterheads.model.InventoryItem;
+import byui.cit260.potterheads.model.Location;
+import byui.cit260.potterheads.model.Map;
+import byui.cit260.potterheads.model.Spell;
 import java.util.ArrayList;
 import java.util.Scanner;
 import potterheads.Potterheads;
@@ -17,8 +20,6 @@ import potterheads.Potterheads;
  */
 public class GameMenuView extends View {
 
-    public ArrayList<InventoryItem> inventoryItems;
-
     public GameMenuView() {
         super("\nWe're still building our game. Select one of these\n"
                 + "options to test the views we're working on.\n\n"
@@ -26,6 +27,7 @@ public class GameMenuView extends View {
                 + "P - Polyjuice Potion\n"
                 + "W - Quidditch Pitch\n"
                 + "I - View Inventory\n"
+                + "S - Vies Spells\n"
                 + "M - View Map\n"
                 + "Q - Quit");
     }
@@ -48,7 +50,10 @@ public class GameMenuView extends View {
                 this.quitGameMenuView();
                 break;
             case "I":
-                this.viewInventory(inventoryItems);
+                this.viewInventory();
+                break;
+            case "S":
+                this.viewSpells();
                 break;
             case "M":
                 this.displayMap();
@@ -84,33 +89,69 @@ public class GameMenuView extends View {
 
     }
 
-    private void viewInventory(ArrayList<InventoryItem> inventoryItems) {
+    private void viewInventory() {
         StringBuilder line;
 
         Game game = Potterheads.getCurrentGame();
 //        InventoryItem[] inventory = game.getInventory();
 
-        ArrayList inventory = game.getInventoryItems();
+        ArrayList<InventoryItem> inventory = game.getTradeableInventory();
 
         System.out.println("\n          List of Inventory Items");
         line = new StringBuilder("                                                              ");
-        line.insert(0, "DESCRIPTION");
-        line.insert(20, "IN STOCK");
+        line.insert(0, "NAME");
+        line.insert(25, "DESCRIPTION");
+        line.insert(50, "TYPE");
+        line.insert(75, "QUANTITY");
         System.out.println(line.toString());
 
         //for each inventory item
-        for (InventoryItem inventoryItem : inventoryItems) {
+        for (InventoryItem tradeableInventory : inventory) {
             line = new StringBuilder("                                                  ");
-            line.insert(0, inventoryItem.getName());
-            line.insert(23, inventoryItem.getQuantityInStock());
+            line.insert(0, tradeableInventory.getName());
+            line.insert(25, tradeableInventory.getDescription());
+            line.insert(50, tradeableInventory.getInventoryType());
+            line.insert(75, tradeableInventory.getQuantityInStock());
 
             //Display the line
             System.out.println(line.toString());
         }
     }
+    
+    private void viewSpells() {
+        StringBuilder line;
 
-    private void displayMap() {
-        System.out.println("***display map function called***");
+        Game game = Potterheads.getCurrentGame();
+//        InventoryItem[] inventory = game.getInventory();
+
+        ArrayList<Spell> inventory = game.getSpellInventory();
+
+        System.out.println("\n          List of Spells Learned");
+        line = new StringBuilder("                                                              ");
+        line.insert(0, "NAME");
+        line.insert(25, "EFFECT");
+        System.out.println(line.toString());
+
+        //for each inventory item
+        for (Spell spellInventory : inventory) {
+            line = new StringBuilder("                                                  ");
+            line.insert(0, spellInventory.getName());
+            line.insert(25, spellInventory.getEffect());
+
+            //Display the line
+            System.out.println(line.toString());
+        }
     }
-
+    
+    private void displayMap() {
+//        StringBuilder line;
+//        
+//        int[][] locations = Map.getLocations();
+//        
+//        for (Location)
+        
+        
+        
+        System.out.println("\n***displayMap() function called***");
+    }
 }

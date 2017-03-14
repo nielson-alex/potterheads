@@ -24,7 +24,10 @@ public class InventoryItem {
     }
     
     public InventoryItem(String name, String description, String inventoryType, int quantityInStock) {
-        
+        this.name = name;
+        this.description = description;
+        this.inventoryType = inventoryType;
+        this.quantityInStock = quantityInStock;
     }
     
     

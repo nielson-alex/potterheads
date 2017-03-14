@@ -12,30 +12,39 @@ import java.util.Objects;
  * @author Alex
  */
 public class Spell {
-    public String hint;
+    private String name;
+    private String effect;
 
     //constructor function
     public Spell() {
     }
-
     
-    
-    //getter and setter
-    public String getHint() {
-        return hint;
+    public Spell(String name, String effect) {
+        this.name = name;
+        this.effect = effect;
     }
 
-    public void setHint(String hint) {
-        this.hint = hint;
+    public String getName() {
+        return name;
     }
 
-    
-    
-    //hashcode() and equals()
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEffect() {
+        return effect;
+    }
+
+    public void setEffect(String effect) {
+        this.effect = effect;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 79 * hash + Objects.hashCode(this.hint);
+        int hash = 5;
+        hash = 61 * hash + Objects.hashCode(this.name);
+        hash = 61 * hash + Objects.hashCode(this.effect);
         return hash;
     }
 
@@ -51,17 +60,17 @@ public class Spell {
             return false;
         }
         final Spell other = (Spell) obj;
-        if (!Objects.equals(this.hint, other.hint)) {
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.effect, other.effect)) {
             return false;
         }
         return true;
     }
 
-    
-    
-    //toString()
     @Override
     public String toString() {
-        return "Spell{" + "hint=" + hint + '}';
+        return "Spell{" + "name=" + name + ", effect=" + effect + '}';
     }
 }
