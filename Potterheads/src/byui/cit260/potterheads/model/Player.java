@@ -6,6 +6,7 @@
 package byui.cit260.potterheads.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -15,6 +16,7 @@ import java.util.Objects;
 public class Player implements Serializable {
 
     private String name;
+    private ArrayList<Spell> spells = new ArrayList<>();
 
     // constructor Function
     public Player() {
@@ -28,6 +30,38 @@ public class Player implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public ArrayList<Spell> getSpells() {
+        return this.spells;
+    }
+   
+    public void setSpells(ArrayList<Spell> spells) {
+        this.spells = spells;
+    }
+    
+    public boolean hasLearnedSpell(Spell.SpellType spellType) {
+        for(Spell spell : this.spells) {
+            if (spell.getType() == spellType) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean hasLearnedSpell(String userInput) {
+        if (userInput.equals("Expeliarmus")) {
+            return hasLearnedSpell(Spell.SpellType.expelliarmus);
+        }
+        if (userInput.equals("Stupify")) {
+            return hasLearnedSpell(Spell.SpellType.stupify);
+        }
+        if (userInput.equals("petrificusTotalus")) {
+            return hasLearnedSpell(Spell.SpellType.petrificusTotalus);
+        }
+//        ...
+        
+        return false;
     }
 
     // equals() and hashcode

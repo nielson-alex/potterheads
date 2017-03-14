@@ -5,10 +5,12 @@
  */
 package byui.cit260.potterheads.model;
 
+import byui.cit260.potterheads.model.Spell.SpellType;
 import java.awt.Point;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  *
@@ -33,6 +35,8 @@ public enum Character implements Serializable {
     
     //Create cardinality of many
     ArrayList<Item> inventoryItems = new ArrayList<>();
+    ArrayList<Spell> spells = new ArrayList<>();
+//    Set learnedSpells = new Set<SpellType>();
     
 
     // constructor function
@@ -51,6 +55,10 @@ public enum Character implements Serializable {
         return item;
     }
 
+    public ArrayList<Spell> getSpells() {
+        return this.spells;
+    }
+    
     public Point getCoordinates() {
         return coordinates;
     }

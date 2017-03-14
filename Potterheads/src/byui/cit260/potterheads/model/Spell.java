@@ -14,14 +14,54 @@ import java.util.Objects;
 public class Spell {
     private String name;
     private String effect;
+    private SpellType type;
 
+    public enum SpellType {
+        expelliarmus,
+        stupify,
+        sectumsempra,
+        petrificusTotalus,
+        wingardiumLeviosa;
+    }
+    
     //constructor function
     public Spell() {
     }
+
+    public Spell(SpellType spellType) {
+        this.type = spellType;
+        
+        switch(spellType) {
+            case expelliarmus:
+                this.name = "Expelliarmus";
+                this.effect = "Disarms the enemy";
+                break;
+            case stupify:
+                this.name = "Stupify";
+                this.effect = "Stuns the enemy";
+                break;
+            case petrificusTotalus:
+                this.name = "petrificusTotalus";
+                this.effect = "Slashes the enemy";
+                break;
+            case sectumsempra:
+                this.name = "Sectumsempra";
+                this.effect = "Does something";
+                break;
+            case wingardiumLeviosa:
+                this.name = "Wingardium Leviosa";
+                this.effect = "Makes objects float";
+                break;
+        }
+    }
     
-    public Spell(String name, String effect) {
-        this.name = name;
-        this.effect = effect;
+//    public Spell(String name, String effect) {
+//        this.name = name;
+//        this.effect = effect;
+//    }
+
+    public SpellType getType() {
+        return type;
     }
 
     public String getName() {
