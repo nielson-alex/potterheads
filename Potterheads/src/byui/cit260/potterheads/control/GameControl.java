@@ -18,6 +18,7 @@ import byui.cit260.potterheads.model.Spell;
 import byui.cit260.potterheads.view.GameMenuView;
 import java.util.ArrayList;
 import potterheads.Potterheads;
+import byui.cit260.potterheads.model.TradeableItem;
 
 /**
  *
@@ -259,5 +260,17 @@ public class GameControl {
         locations[0][2].setScene(scenes[SceneType.puzzle.ordinal()]);
         locations[0][3].setScene(scenes[SceneType.item.ordinal()]);
         locations[0][4].setScene(scenes[SceneType.finish.ordinal()]);
+    }
+    
+    public int getInventoryCount(){
+        Game game = new Game();
+        ArrayList<InventoryItem> inventory = game.getTradeableInventory();
+        int counter = 0;
+        for (InventoryItem i: inventory){
+            if(i != null){
+                counter++;
+            }
+        }
+        return counter;
     }
 }

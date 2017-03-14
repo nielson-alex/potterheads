@@ -13,6 +13,7 @@ import byui.cit260.potterheads.model.Spell;
 import java.util.ArrayList;
 import java.util.Scanner;
 import potterheads.Potterheads;
+import byui.cit260.potterheads.control.GameControl;
 
 /**
  *
@@ -116,6 +117,9 @@ public class GameMenuView extends View {
             //Display the line
             System.out.println(line.toString());
         }
+        
+        GameControl gameControl = new GameControl();
+        System.out.println("You have " + gameControl.getInventoryCount() + "/" + inventory.size() + " items.");
     }
     
     private void viewSpells() {
@@ -154,4 +158,5 @@ public class GameMenuView extends View {
         
         System.out.println("\n***displayMap() function called***");
     }
+    
 }
