@@ -27,13 +27,13 @@ public class GringottsView extends View {
         value = value.toUpperCase();
         boolean done = false;
         double dollarsDouble = 0;
-        double timeOnBroomDouble = 0;
+        double centsDouble = 0;
 
         while (!done) {
             String pressA = "\n*** press 'A' to exchange currency or 'Q' to quit ***";
 
             if ("A".equals(value.toUpperCase())) {
-                this.convertUsdToGalleons(dollarsDouble, dollarsDouble);
+                this.convertUsdToGalleons(dollarsDouble, centsDouble);
             } else if (!("A".equals(value.toUpperCase())) && !("Q".equals(value.toUpperCase()))) {
                 System.out.println(pressA);
             } else if ("Q".equals(value.toUpperCase())) {

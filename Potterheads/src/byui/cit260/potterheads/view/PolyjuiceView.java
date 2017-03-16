@@ -13,41 +13,79 @@ import java.util.Scanner;
 import byui.cit260.potterheads.control.PolyjuiceControl;
 public class PolyjuiceView extends View {
     
-    public PolyjuiceView(){
-        super("D - Calculate and Drink Potion\n"
-                + "Q - Back to Menu");
+    public PolyjuiceView() {
+        super("\nYou're in the potions laboratory where you have access to all of\n"
+                + "the potions. Would like to brew the polyjuice potion now?\n"
+                + "asks you if you would like to make any currency exchanges.\n\n"
+                + "(press 'C' to continue or 'Q' to go back");
     }
-    
+
     @Override
-    public boolean doAction(String choice) {
-        switch (choice) {
-            case "D":
-                this.calculateBrew();
-                break;
-            case "Q":
-                this.quitToMainMenu();
-                break;
-            default:
-                System.out.println("You didn't pick. Pick again.");
-                break;
+    public boolean doAction(String value) {
+        value = value.toUpperCase();
+        boolean done = false;
+        double weightDouble = 0;
+        double ozOfPotionDouble = 0;
+
+        while (!done) {
+            String pressC = "\n*** press 'C' to continue or 'Q' to go back ***";
+
+            if ("C".equals(value.toUpperCase())) {
+                this.calcTimeTransformed(weightDouble, ozOfPotionDouble);
+            } else if (!("C".equals(value.toUpperCase())) && !("Q".equals(value.toUpperCase()))) {
+                System.out.println(pressC);
+            } else if ("Q".equals(value.toUpperCase())) {
+                return true;
+            }
+            break;
         }
         return false;
     }
-    
-    private void calculateBrew() {
-       Scanner input = new Scanner(System.in);
-       System.out.println("You need to decide how much potion to drink:");
-       System.out.print("Enter your weight in pounds: ");
-       int weight = input.nextInt();
-       System.out.print("Enter the amount of time in minutes you want to be disguised: ");
-       int time = input.nextInt();
-       PolyjuiceControl control = new PolyjuiceControl();
-       double ounces = (weight * 2.2)*(time * .00072);
-       // #TODO: subtract ounces drank from total amount of ounces
-       System.out.println("You feel your skin start to bubble as you drink the potion.");
-       
-    }
-    private void quitToMainMenu() {
-        // #TODO: quit to main menu
+
+    private boolean calcTimeTransformed(double weightDouble, double ozOfPotionDouble) {
+        boolean done = false;
+        Scanner keyboard = new Scanner(System.in);
+        String weight = "";
+        String ozOfPotion = ""; //value to be returned
+
+        while (!done) {
+            System.out.println("\nFirst enter your weight:\n");
+
+            weight = keyboard.nextLine();
+
+            if (weight.length() < 1) {
+                System.out.println("\n*** Value cannot be blank ***");
+                continue;
+            } else if ("Q".equals(weight.toUpperCase())) {
+                return true;
+            }
+            break;
+        }
+
+        while (!done) {
+
+            System.out.println("\nNext enter the number of fluid ounces of polyjuice\n"
+                    + "potion you that you want to brew (remember that your flask\n"
+                    + "can only hold up 5 ounces of liquid):");
+
+            ozOfPotion = keyboard.nextLine();
+
+            if (ozOfPotion.length() < 1) {
+                System.out.println("\n*** Value cannot be blank ***");
+                continue;
+            } else if ("Q".equals(ozOfPotion.toUpperCase())) {
+                return true;
+            }
+            break;
+        }
+
+        weightDouble = Double.parseDouble(weight);
+        ozOfPotionDouble = Double.parseDouble(ozOfPotion);
+
+        PolyjuiceControl polyjuiceControl = new PolyjuiceControl();
+        polyjuiceControl.calcTimeTransformed(weightDouble, ozOfPotionDouble);
+
+        // return to previous view;
+        return true;
     }
 }

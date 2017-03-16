@@ -75,7 +75,8 @@ public class GameMenuView extends View {
 
     // case "P"
     private void openPolyjuiceView() {
-        System.out.println("\n***openPolyjuiceView() function called***");
+        PolyjuiceView polyjuiceView = new PolyjuiceView();
+        polyjuiceView.display();
     }
 
     // case "W"
