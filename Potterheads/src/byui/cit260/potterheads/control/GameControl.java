@@ -17,6 +17,7 @@ import byui.cit260.potterheads.model.Scene.SceneType;
 import byui.cit260.potterheads.model.Spell;
 import byui.cit260.potterheads.model.Spell.SpellType;
 import byui.cit260.potterheads.view.GameMenuView;
+import byui.cit260.potterheads.view.GetSpellView;
 import java.util.ArrayList;
 import potterheads.Potterheads;
 import byui.cit260.potterheads.model.TradeableItem;
@@ -149,24 +150,23 @@ public class GameControl {
     }
     
     public static ArrayList<Spell> createSpellList() {
-        potterheads.Potterheads.getPlayer().setSpells(new ArrayList<Spell>());
         ArrayList<Spell> spellInventory = potterheads.Potterheads.getPlayer().getSpells();
-        
-        //    ----------SPELLS-----------
-        Spell expelliarmus = new Spell(SpellType.expelliarmus);
-        spellInventory.add(expelliarmus);
-        
-        Spell stupify = new Spell(SpellType.stupify);
-        spellInventory.add(stupify);
-
-        Spell sectumsempra = new Spell(SpellType.sectumsempra);
-        spellInventory.add(sectumsempra);
-
-        Spell petrificusTotalus = new Spell(SpellType.petrificusTotalus);
-        spellInventory.add(petrificusTotalus);
-
-        Spell wingardiumLeviosa = new Spell(SpellType.wingardiumLeviosa);
-        spellInventory.add(wingardiumLeviosa);
+  
+//            ----------SPELLS-----------
+//        Spell expelliarmus = new Spell(SpellType.expelliarmus);
+//        spellInventory.add(expelliarmus);
+//        
+//        Spell stupify = new Spell(SpellType.stupify);
+//        spellInventory.add(stupify);
+//
+//        Spell sectumsempra = new Spell(SpellType.sectumsempra);
+//        spellInventory.add(sectumsempra);
+//
+//        Spell petrificusTotalus = new Spell(SpellType.petrificusTotalus);
+//        spellInventory.add(petrificusTotalus);
+//
+//        Spell wingardiumLeviosa = new Spell(SpellType.wingardiumLeviosa);
+//        spellInventory.add(wingardiumLeviosa);
         
         return spellInventory;
     }

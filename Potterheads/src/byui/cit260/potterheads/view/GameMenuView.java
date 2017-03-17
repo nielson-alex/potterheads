@@ -28,8 +28,9 @@ public class GameMenuView extends View {
                 + "P - Polyjuice Potion\n"
                 + "W - Quidditch Pitch\n"
                 + "I - View Inventory\n"
-                + "S - Vies Spells\n"
+                + "S - View Spells\n"
                 + "M - View Map\n"
+                + "G - Get Money\n"
                 + "Q - Quit");
     }
 
@@ -58,6 +59,9 @@ public class GameMenuView extends View {
                 break;
             case "M":
                 this.displayMap();
+                break;
+            case "G":
+                this.displayGetSpellView();
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -194,6 +198,11 @@ public class GameMenuView extends View {
 //        
 //        for (Location)
         
+    }
+
+    private void displayGetSpellView() {
+        GetSpellView getSpellView = new GetSpellView();
+        getSpellView.display();
     }
     
 }

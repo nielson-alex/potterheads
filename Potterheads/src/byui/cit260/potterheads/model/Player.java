@@ -16,11 +16,11 @@ import java.util.Objects;
 public class Player implements Serializable {
 
     private String name;
-    private ArrayList<Spell> spells = new ArrayList<>();
+    private ArrayList<Spell> spells;
 
     // constructor Function
     public Player() {
-
+        this.spells = new ArrayList<>();
     }
 
     // Getter and setter functions
@@ -35,11 +35,7 @@ public class Player implements Serializable {
     public ArrayList<Spell> getSpells() {
         return this.spells;
     }
-   
-    public void setSpells(ArrayList<Spell> spells) {
-        this.spells = spells;
-    }
-    
+
     public boolean hasLearnedSpell(Spell.SpellType spellType) {
         for(Spell spell : this.spells) {
             if (spell.getType() == spellType) {
