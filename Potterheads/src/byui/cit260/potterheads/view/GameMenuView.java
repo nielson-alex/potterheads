@@ -107,8 +107,7 @@ public class GameMenuView extends View {
         line = new StringBuilder("                                                              ");
         line.insert(0, "NAME");
         line.insert(25, "DESCRIPTION");
-        line.insert(50, "TYPE");
-        line.insert(75, "QUANTITY");
+        line.insert(50, "QUANTITY");
         System.out.println(line.toString());
 
         //for each inventory item
@@ -116,8 +115,7 @@ public class GameMenuView extends View {
             line = new StringBuilder("                                                  ");
             line.insert(0, tradeableInventory.getName());
             line.insert(25, tradeableInventory.getDescription());
-            line.insert(50, tradeableInventory.getInventoryType());
-            line.insert(75, tradeableInventory.getQuantityInStock());
+            line.insert(50, tradeableInventory.getQuantityInStock());
 
             //Display the line
             System.out.println(line.toString());

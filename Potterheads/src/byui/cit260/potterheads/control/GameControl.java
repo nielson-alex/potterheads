@@ -5,8 +5,10 @@
  */
 package byui.cit260.potterheads.control;
 
+import byui.cit260.potterheads.exceptions.MapControlException;
 import byui.cit260.potterheads.model.Game;
 import byui.cit260.potterheads.model.InventoryItem;
+import byui.cit260.potterheads.model.InventoryItem.InventoryItemType;
 import byui.cit260.potterheads.model.Item;
 //import byui.cit260.potterheads.model.InventoryItem.Item;
 import byui.cit260.potterheads.model.Location;
@@ -46,8 +48,11 @@ public class GameControl {
         GameControl.createMap();
 
         // move actors to starting position in the map
-        MapControl.moveCharactersToStartingLocation(map);
-
+        try {
+            MapControl.moveCharactersToStartingLocation(map);
+        } catch (MapControlException me) {
+            System.out.println(me.getMessage());
+        }
     }
 
     public static Player createPlayer(String name) {
@@ -63,88 +68,33 @@ public class GameControl {
     public static ArrayList<InventoryItem> createTradeableInventoryList() {
 //        InventoryItem[] inventory = 
 //                new InventoryItem[13];
-        //create array(list) of inventory items
-        ArrayList<InventoryItem> tradeableInventory = new ArrayList<InventoryItem>(8);
-
-        InventoryItem timeTurner = new InventoryItem("Time Turner", "Hermione goes back in time with this",
-                "Tradeable", 0);
-        tradeableInventory.add(timeTurner);
-//        InventoryItem timeTurner = new InventoryItem();
-//        timeTurner.setName("Time Turner");
-//        timeTurner.setDescription("Lets you go back in time.");
-//        timeTurner.setQuantityInStock(0);
-//        timeTurner.setInventoryType("Tradeable");
-//        inventory[Item.timeTurner.ordinal()] = timeTurner;
-
-        InventoryItem snitch = new InventoryItem("Golden Snitch", "You caught this",
-                "Tradeable", 0);
+        //create array(list) of inventory items        
+        ArrayList<InventoryItem> tradeableInventory = potterheads.Potterheads.getPlayer().getInventoryItems();
+  
+//            ----------SPELLS-----------
+        InventoryItem snitch = new InventoryItem(InventoryItemType.snitch);
         tradeableInventory.add(snitch);
-//        InventoryItem snitch = new InventoryItem();
-//        snitch.setName("Golden Snitch");
-//        snitch.setDescription("You won this, good job");
-//        snitch.setQuantityInStock(0);
-//        snitch.setInventoryType("Tradeable");
-//        inventory[Item.snitch.ordinal()] = snitch;
 
-        InventoryItem maraudersMap = new InventoryItem("Marauder's Map", "Lupin might want this back",
-                "Tradeable", 0);
+        InventoryItem timeTurner = new InventoryItem(InventoryItemType.timeTurner);
+        tradeableInventory.add(timeTurner);
+        
+        InventoryItem maraudersMap = new InventoryItem(InventoryItemType.maraudersMap);
         tradeableInventory.add(maraudersMap);
-//        InventoryItem maraudersMap = new InventoryItem();
-//        maraudersMap.setName("Marauder's Map");
-//        maraudersMap.setDescription("It's the Marauder's Map");
-//        maraudersMap.setQuantityInStock(0);
-//        maraudersMap.setInventoryType("Tradeable");
-//        inventory[Item.maraudersMap.ordinal()] = maraudersMap;
-
-        InventoryItem invisibilityCloak = new InventoryItem("Invisibility Cloak",
-                "Belongs to Harry", "Tradeable", 0);
+        
+        InventoryItem invisibilityCloak = new InventoryItem(InventoryItemType.invisibilityCloak);
         tradeableInventory.add(invisibilityCloak);
-//        InventoryItem invisibilityCloak = new InventoryItem();
-//        invisibilityCloak.setName("Invisibility Cloak");
-//        invisibilityCloak.setDescription("Harry uses this for illegal reasons");
-//        invisibilityCloak.setQuantityInStock(0);
-//        invisibilityCloak.setInventoryType("Tradeable");
-//        inventory[Item.invisibilityCloak.ordinal()] = invisibilityCloak;
-
-        InventoryItem americanMoney = new InventoryItem("American Money",
-                "Used to buy things.", "Tradeable", 0);
+        
+        InventoryItem americanMoney = new InventoryItem(InventoryItemType.americanMoney);
         tradeableInventory.add(americanMoney);
-//        InventoryItem americanMoney = new InventoryItem();
-//        americanMoney.setName("American cash");
-//        americanMoney.setDescription("Why did Hagrid have this?");
-//        americanMoney.setQuantityInStock(0);
-//        americanMoney.setInventoryType("Tradeable");
-//        inventory[Item.americanMoney.ordinal()] = americanMoney;
-
-        InventoryItem gillyweed = new InventoryItem("Gillyweed", "Snape might like this",
-                "Tradeable", 0);
+        
+        InventoryItem gillyweed = new InventoryItem(InventoryItemType.gillyweed);
         tradeableInventory.add(gillyweed);
-//        InventoryItem gillyweed = new InventoryItem();
-//        gillyweed.setName("Gilly Weed");
-//        gillyweed.setDescription("I don't even remember this from the books.");
-//        gillyweed.setQuantityInStock(0);
-//        gillyweed.setInventoryType("Tradeable");
-//        inventory[Item.gillyweed.ordinal()] = gillyweed;
-
-        InventoryItem firecrackers = new InventoryItem("Firecrackers",
-                "Fred and George would like these", "Tradeable", 0);
+        
+        InventoryItem firecrackers = new InventoryItem(InventoryItemType.firecrackers);
         tradeableInventory.add(firecrackers);
-//        InventoryItem firecrackers = new InventoryItem();
-//        firecrackers.setName("Firecrackers");
-//        firecrackers.setDescription("Fred and George could do real damage with these.");
-//        firecrackers.setQuantityInStock(0);
-//        firecrackers.setInventoryType("Tradeable");
-//        inventory[Item.firecrackers.ordinal()] = firecrackers;
-
-        InventoryItem replacementWand = new InventoryItem("Replacement Wand",
-                "Ron could use this", "Tradeable", 0);
+        
+        InventoryItem replacementWand = new InventoryItem(InventoryItemType.replacementWand);
         tradeableInventory.add(replacementWand);
-//        InventoryItem replacementWand = new InventoryItem();
-//        replacementWand.setName("Replacement Wand");
-//        replacementWand.setDescription("Ron could use this.");
-//        replacementWand.setQuantityInStock(0);
-//        replacementWand.setInventoryType("Tradeable");
-//        inventory[Item.replacementWand.ordinal()] = replacementWand;
 
         return tradeableInventory;
     }

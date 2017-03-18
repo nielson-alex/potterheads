@@ -14,20 +14,69 @@ import java.util.Objects;
 public class InventoryItem {
     private String name;
     private String description;
-    private String inventoryType;
     private int quantityInStock;
-
+    private InventoryItemType type;
     
+    public enum InventoryItemType {
+        snitch,
+        timeTurner,
+        maraudersMap,
+        invisibilityCloak,
+        americanMoney,
+        gillyweed,
+        firecrackers,
+        replacementWand;
+    }
     
     //constructor function
     public InventoryItem() {
     }
     
-    public InventoryItem(String name, String description, String inventoryType, int quantityInStock) {
-        this.name = name;
-        this.description = description;
-        this.inventoryType = inventoryType;
-        this.quantityInStock = quantityInStock;
+    public InventoryItem(InventoryItemType inventoryItemType) {
+        this.type = inventoryItemType;
+        
+        switch(inventoryItemType) {
+            case snitch:
+                this.name = "Expelliarmus";
+                this.description = "Disarms the enemy";
+                this.quantityInStock = 0;
+                break;
+            case timeTurner:
+                this.name = "Stupify";
+                this.description = "Stuns the enemy";
+                this.quantityInStock = 0;
+                break;
+            case maraudersMap:
+                this.name = "petrificusTotalus";
+                this.description = "Slashes the enemy";
+                this.quantityInStock = 0;
+                break;
+            case invisibilityCloak:
+                this.name = "Sectumsempra";
+                this.description = "Does something";
+                this.quantityInStock = 0;
+                break;
+            case americanMoney:
+                this.name = "Wingardium Leviosa";
+                this.description = "Makes objects float";
+                this.quantityInStock = 0;
+                break;
+            case gillyweed:
+                this.name = "Gillyweed";
+                this.description = "Neville gave this to you";
+                this.quantityInStock = 0;
+                break;
+            case firecrackers:
+                this.name = "Firecrackers";
+                this.description = "Fred and George would like these";
+                this.quantityInStock = 0;
+                break;
+            case replacementWand:
+                this.name = "Replacement Wand";
+                this.description = "Ron might need this";
+                this.quantityInStock = 0;
+                break;
+        }
     }
     
     
@@ -51,12 +100,12 @@ public class InventoryItem {
         this.description = description;
     }
 
-    public String getInventoryType() {
-        return inventoryType;
+    public InventoryItemType getType() {
+        return type;
     }
 
-    public void setInventoryType(String inventoryType) {
-        this.inventoryType = inventoryType;
+    public void setType(InventoryItemType type) {
+        this.type = type;
     }
 
     public int getQuantityInStock() {
@@ -72,7 +121,6 @@ public class InventoryItem {
         int hash = 7;
         hash = 47 * hash + Objects.hashCode(this.name);
         hash = 47 * hash + Objects.hashCode(this.description);
-        hash = 47 * hash + Objects.hashCode(this.inventoryType);
         hash = 47 * hash + this.quantityInStock;
         return hash;
     }
@@ -102,9 +150,6 @@ public class InventoryItem {
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
-        if (!Objects.equals(this.inventoryType, other.inventoryType)) {
-            return false;
-        }
         return true;
     }
 
@@ -114,6 +159,6 @@ public class InventoryItem {
     // toString()
     @Override
     public String toString() {
-        return "InventoryItem{" + "name=" + name + ", description=" + description + ", inventoryType=" + inventoryType + ", quantityInStock=" + quantityInStock + '}';
+        return "InventoryItem{" + "name=" + name + ", description=" + description + ", quantityInStock=" + quantityInStock + '}';
     }
 }

@@ -5,6 +5,7 @@
  */
 package byui.cit260.potterheads.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -16,11 +17,16 @@ import java.util.Objects;
 public class Player implements Serializable {
 
     private String name;
+    private Point coordinates;
     private ArrayList<Spell> spells;
+    private ArrayList<InventoryItem> inventoryItems;
 
     // constructor Function
     public Player() {
+        this.name = name;
         this.spells = new ArrayList<>();
+        this.inventoryItems = new ArrayList<>();
+        coordinates = new Point(1,1);
     }
 
     // Getter and setter functions
@@ -35,6 +41,11 @@ public class Player implements Serializable {
     public ArrayList<Spell> getSpells() {
         return this.spells;
     }
+    
+    public ArrayList<InventoryItem> getInventoryItems() {
+        return this.inventoryItems;
+    }
+   
 
     public boolean hasLearnedSpell(Spell.SpellType spellType) {
         for(Spell spell : this.spells) {
@@ -46,7 +57,7 @@ public class Player implements Serializable {
     }
 
     public boolean hasLearnedSpell(String userInput) {
-        if (userInput.equals("Expeliarmus")) {
+        if (userInput.equals("Expelliarmus")) {
             return hasLearnedSpell(Spell.SpellType.expelliarmus);
         }
         if (userInput.equals("Stupify")) {
@@ -90,5 +101,5 @@ public class Player implements Serializable {
     @Override
     public String toString() {
         return "Player{" + "name=" + name + '}';
-    }
+    } 
 }
