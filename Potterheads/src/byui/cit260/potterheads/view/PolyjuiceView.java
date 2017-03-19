@@ -11,8 +11,9 @@ package byui.cit260.potterheads.view;
  */
 import java.util.Scanner;
 import byui.cit260.potterheads.control.PolyjuiceControl;
+
 public class PolyjuiceView extends View {
-    
+
     public PolyjuiceView() {
         super("\nYou're in the potions laboratory where you have access to all of\n"
                 + "the potions. Would like to brew the polyjuice potion now?\n"
@@ -58,6 +59,14 @@ public class PolyjuiceView extends View {
                 continue;
             } else if ("Q".equals(weight.toUpperCase())) {
                 return true;
+            } else {
+                try {
+                    weightDouble = Double.parseDouble(weight);
+                } catch (NumberFormatException nf) {
+                    System.out.println("\nYou must enter a valid number." + "\n Try again "
+                            + "or press 'Q' to quit.");
+                    continue;
+                }
             }
             break;
         }
@@ -75,12 +84,17 @@ public class PolyjuiceView extends View {
                 continue;
             } else if ("Q".equals(ozOfPotion.toUpperCase())) {
                 return true;
+            } else {
+                try {
+                    ozOfPotionDouble = Double.parseDouble(ozOfPotion);
+                } catch (NumberFormatException nf) {
+                    System.out.println("\nYou must enter a valid number." + "\n Try again "
+                            + "or press 'Q' to quit.");
+                    continue;
+                }
             }
             break;
         }
-
-        weightDouble = Double.parseDouble(weight);
-        ozOfPotionDouble = Double.parseDouble(ozOfPotion);
 
         PolyjuiceControl polyjuiceControl = new PolyjuiceControl();
         polyjuiceControl.calcTimeTransformed(weightDouble, ozOfPotionDouble);

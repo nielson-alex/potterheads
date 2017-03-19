@@ -65,6 +65,14 @@ public class FireboltView extends View {
                 continue;
             } else if ("Q".equals(fireboltSpeed.toUpperCase())) {
                 return true;
+            } else {
+                try {
+                    fireboltSpeedDouble = Double.parseDouble(fireboltSpeed);
+                } catch (NumberFormatException nf) {
+                    System.out.println("\nYou must enter a valid number." + "\n Try again "
+                            + "or press 'Q' to quit.");
+                    continue;
+                }
             }
             break;
         }
@@ -80,12 +88,17 @@ public class FireboltView extends View {
                 continue;
             } else if ("Q".equals(timeOnBroom.toUpperCase())) {
                 return true;
+            } else {
+                try {
+                    timeOnBroomDouble = Double.parseDouble(timeOnBroom);
+                } catch (NumberFormatException nf) {
+                    System.out.println("\nYou must enter a valid number." + "\n Try again "
+                            + "or press 'Q' to quit.");
+                    continue;
+                }
             }
             break;
         }
-
-        fireboltSpeedDouble = Double.parseDouble(fireboltSpeed);
-        timeOnBroomDouble = Double.parseDouble(timeOnBroom);
 
         QuidditchControl quidditchControl = new QuidditchControl();
         quidditchControl.calcFireboltTime(fireboltSpeedDouble, timeOnBroomDouble);

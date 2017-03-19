@@ -38,12 +38,15 @@ public class Potterheads {
      * second test
      */
     public static void main(String[] args) {
-        
-        //create StartProgramViewORg and display the start program view
         StartProgramView startProgramView = new StartProgramView();
-        startProgramView.display();
-        
-        
+        try {
+            //create StartProgramViewORg and display the start program view
+            startProgramView.display();
+        } catch (Throwable te) {
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+            startProgramView.display();
+        }
     }
 
     public static Game getCurrentGame() {

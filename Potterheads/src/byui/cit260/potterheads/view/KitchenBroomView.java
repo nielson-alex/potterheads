@@ -66,6 +66,14 @@ public class KitchenBroomView extends View {
                 continue;
             } else if ("Q".equals(kitchenBroomSpeed.toUpperCase())) {
                 return true;
+            } else {
+                try {
+                    kitchenBroomSpeedDouble = Double.parseDouble(kitchenBroomSpeed);
+                } catch (NumberFormatException nf) {
+                    System.out.println("\nYou must enter a valid number." + "\n Try again "
+                            + "or press 'Q' to quit.");
+                    continue;
+                }
             }
             break;
         }
@@ -81,12 +89,18 @@ public class KitchenBroomView extends View {
                 continue;
             } else if ("Q".equals(timeOnBroom.toUpperCase())) {
                 return true;
+            } else {
+                try {
+                    timeOnBroomDouble = Double.parseDouble(timeOnBroom);
+                } catch (NumberFormatException nf) {
+                    System.out.println("\nYou must enter a valid number." + "\n Try again "
+                            + "or press 'Q' to quit.");
+                    continue;
+                }
+
             }
             break;
         }
-
-        kitchenBroomSpeedDouble = Double.parseDouble(kitchenBroomSpeed);
-        timeOnBroomDouble = Double.parseDouble(timeOnBroom);
 
         QuidditchControl quidditchControl = new QuidditchControl();
         quidditchControl.calcKitchenBroomTime(kitchenBroomSpeedDouble, timeOnBroomDouble);
