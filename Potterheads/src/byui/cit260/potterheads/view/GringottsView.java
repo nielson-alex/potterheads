@@ -6,7 +6,7 @@
 // step 2 Alex
 package byui.cit260.potterheads.view;
 
-import byui.cit260.potterheads.control.DiagonAlleyControl;
+import byui.cit260.potterheads.control.GringottsControl;
 import java.util.Scanner;
 
 /**
@@ -84,7 +84,7 @@ public class GringottsView extends View {
         dollarsDouble = Double.parseDouble(dollars);
         centsDouble = Double.parseDouble(cents);
 
-        DiagonAlleyControl diagonAlleyControl = new DiagonAlleyControl();
+        GringottsControl diagonAlleyControl = new GringottsControl();
         diagonAlleyControl.convertUsdToGalleons(dollarsDouble, centsDouble);
 
         // return to previous view;

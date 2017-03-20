@@ -7,6 +7,7 @@
 package byui.cit260.potterheads.view;
 
 import byui.cit260.potterheads.control.QuidditchControl;
+import byui.cit260.potterheads.exceptions.QuidditchControlException;
 import java.util.Scanner;
 
 /**
@@ -14,7 +15,6 @@ import java.util.Scanner;
  * @author Alex
  */
 public class FireboltView extends View {
-
     public FireboltView() {
         super("\nYou've chosen to to fly the Firebolt. This\n"
                 + "is a high performance broom that has a minimum speed of\n"
@@ -30,14 +30,17 @@ public class FireboltView extends View {
     public boolean doAction(String value) {
         value = value.toUpperCase();
         boolean done = false;
-        double fireboltSpeedDouble = 0;
-        double timeOnBroomDouble = 0;
+        
 
         while (!done) {
             String pressC = "\n*** Please press 'C' to continue or 'Q' to quit***";
 
             if ("C".equals(value.toUpperCase())) {
-                this.calculateQuidditchControl(fireboltSpeedDouble, timeOnBroomDouble);
+                try {
+                    this.getInputs();
+                } catch (QuidditchControlException ne) {
+                    System.out.println(ne.getMessage());
+                }
             } else if (!("C".equals(value.toUpperCase())) && !("Q".equals(value.toUpperCase()))) {
                 System.out.println(pressC);
             } else if ("Q".equals(value.toUpperCase())) {
@@ -48,11 +51,15 @@ public class FireboltView extends View {
         return false;
     }
 
-    private boolean calculateQuidditchControl(double fireboltSpeedDouble, double timeOnBroomDouble) {
+        public void getInputs()
+            throws QuidditchControlException {
         boolean done = false;
         Scanner keyboard = new Scanner(System.in);
+        
         String fireboltSpeed = "";
-        String timeOnBroom = ""; //value to be returned
+        double fireboltSpeedDouble = 0;
+        String timeOnBroom = "";
+        double timeOnBroomDouble = 0;
 
         while (!done) {
             System.out.println("\nFirst enter the speed you want to go in miles per"
@@ -60,11 +67,8 @@ public class FireboltView extends View {
 
             fireboltSpeed = keyboard.nextLine();
 
-            if (fireboltSpeed.length() < 1) {
-                System.out.println("\n*** Value cannot be blank ***");
-                continue;
-            } else if ("Q".equals(fireboltSpeed.toUpperCase())) {
-                return true;
+            if ("Q".equals(fireboltSpeed.toUpperCase())) {
+                return;
             } else {
                 try {
                     fireboltSpeedDouble = Double.parseDouble(fireboltSpeed);
@@ -78,19 +82,15 @@ public class FireboltView extends View {
         }
 
         while (!done) {
-
             System.out.println("\nNext enter the amount of time you want to fly in seconds.");
 
             timeOnBroom = keyboard.nextLine();
 
-            if (timeOnBroom.length() < 1) {
-                System.out.println("\n*** Value cannot be blank ***");
-                continue;
-            } else if ("Q".equals(timeOnBroom.toUpperCase())) {
-                return true;
+            if ("Q".equals(timeOnBroom.toUpperCase())) {
+                return;
             } else {
                 try {
-                    timeOnBroomDouble = Double.parseDouble(timeOnBroom);
+                   timeOnBroomDouble = Double.parseDouble(timeOnBroom);
                 } catch (NumberFormatException nf) {
                     System.out.println("\nYou must enter a valid number." + "\n Try again "
                             + "or press 'Q' to quit.");
@@ -98,8 +98,13 @@ public class FireboltView extends View {
                 }
             }
             break;
-        }
 
+        }
+        this.calculateQuidditchControl(fireboltSpeedDouble, timeOnBroomDouble);
+    }
+
+    private boolean calculateQuidditchControl(double fireboltSpeedDouble, double timeOnBroomDouble) 
+        throws QuidditchControlException {
         QuidditchControl quidditchControl = new QuidditchControl();
         quidditchControl.calcFireboltTime(fireboltSpeedDouble, timeOnBroomDouble);
 

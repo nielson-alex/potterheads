@@ -18,7 +18,7 @@ public class DiagonAlleyControlTest {
     }
 
     /**
-     * Test of convertUsdToGalleons method, of class DiagonAlleyControl.
+     * Test of convertUsdToGalleons method, of class GringottsControl.
      */
     @Test
     public void testConvertUsdToGalleons() {
@@ -36,7 +36,7 @@ public class DiagonAlleyControlTest {
         double expResult = 11.68; // expected output returned value
         
         // create instance of PolyjuiceControl class
-        DiagonAlleyControl instance = new DiagonAlleyControl();
+        GringottsControl instance = new GringottsControl();
         
         // call function to run test
         double result = instance.convertUsdToGalleons(dollars, cents);

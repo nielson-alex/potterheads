@@ -6,7 +6,7 @@
 package byui.cit260.potterheads.view;
 
 import java.util.Scanner;
-import byui.cit260.potterheads.control.DiagonAlleyControl;
+import byui.cit260.potterheads.control.GringottsControl;
 
 /**
  *
@@ -94,7 +94,7 @@ public class DiagonAlleyView extends View {
     }
 
     private void gringottsConversion() {
-        DiagonAlleyControl control = new DiagonAlleyControl();
+        GringottsControl control = new GringottsControl();
         Scanner input = new Scanner(System.in);
         System.out.print("Enter the number of dollars(ex. 5): ");
         double dollars = input.nextDouble();

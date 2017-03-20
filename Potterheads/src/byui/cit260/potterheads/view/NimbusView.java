@@ -7,6 +7,7 @@
 package byui.cit260.potterheads.view;
 
 import byui.cit260.potterheads.control.QuidditchControl;
+import byui.cit260.potterheads.exceptions.QuidditchControlException;
 import java.util.Scanner;
 
 /**
@@ -14,7 +15,6 @@ import java.util.Scanner;
  * @author Alex
  */
 public class NimbusView extends View {
-
     public NimbusView() {
         super("\nYou've chosen to to fly the Nimbus 2000. This\n"
                 + "is a medium-speed broom that can with a minimum speed of\n"
@@ -28,14 +28,17 @@ public class NimbusView extends View {
     public boolean doAction(String value) {
         value = value.toUpperCase();
         boolean done = false;
-        double nimbusSpeedDouble = 0;
-        double timeOnBroomDouble = 0;
+        
 
         while (!done) {
             String pressC = "\n*** Please press 'C' to continue or 'Q' to quit***";
 
             if ("C".equals(value.toUpperCase())) {
-                this.calculateQuidditchControl(nimbusSpeedDouble, timeOnBroomDouble);
+                try {
+                    this.getInputs();
+                } catch (QuidditchControlException ne) {
+                    System.out.println(ne.getMessage());
+                }
             } else if (!("C".equals(value.toUpperCase())) && !("Q".equals(value.toUpperCase()))) {
                 System.out.println(pressC);
             } else if ("Q".equals(value.toUpperCase())) {
@@ -46,11 +49,15 @@ public class NimbusView extends View {
         return false;
     }
 
-    private boolean calculateQuidditchControl(double nimbusSpeedDouble, double timeOnBroomDouble) {
+        public void getInputs()
+            throws QuidditchControlException {
         boolean done = false;
         Scanner keyboard = new Scanner(System.in);
+        
         String nimbusSpeed = "";
-        String timeOnBroom = ""; //value to be returned
+        double nimbusSpeedDouble = 0;
+        String timeOnBroom = "";
+        double timeOnBroomDouble = 0;
 
         while (!done) {
             System.out.println("\nFirst enter the speed you want to go in miles per"
@@ -58,11 +65,8 @@ public class NimbusView extends View {
 
             nimbusSpeed = keyboard.nextLine();
 
-            if (nimbusSpeed.length() < 1) {
-                System.out.println("\n*** Value cannot be blank ***");
-                continue;
-            } else if ("Q".equals(nimbusSpeed.toUpperCase())) {
-                return true;
+            if ("Q".equals(nimbusSpeed.toUpperCase())) {
+                return;
             } else {
                 try {
                     nimbusSpeedDouble = Double.parseDouble(nimbusSpeed);
@@ -76,19 +80,15 @@ public class NimbusView extends View {
         }
 
         while (!done) {
-
             System.out.println("\nNext enter the amount of time you want to fly in seconds.");
 
             timeOnBroom = keyboard.nextLine();
 
-            if (timeOnBroom.length() < 1) {
-                System.out.println("\n*** Value cannot be blank ***");
-                continue;
-            } else if ("Q".equals(timeOnBroom.toUpperCase())) {
-                return true;
+            if ("Q".equals(timeOnBroom.toUpperCase())) {
+                return;
             } else {
                 try {
-                    timeOnBroomDouble = Double.parseDouble(timeOnBroom);
+                   timeOnBroomDouble = Double.parseDouble(timeOnBroom);
                 } catch (NumberFormatException nf) {
                     System.out.println("\nYou must enter a valid number." + "\n Try again "
                             + "or press 'Q' to quit.");
@@ -96,8 +96,13 @@ public class NimbusView extends View {
                 }
             }
             break;
-        }
 
+        }
+        this.calculateQuidditchControl(nimbusSpeedDouble, timeOnBroomDouble);
+    }
+
+    private boolean calculateQuidditchControl(double nimbusSpeedDouble, double timeOnBroomDouble) 
+        throws QuidditchControlException {
         QuidditchControl quidditchControl = new QuidditchControl();
         quidditchControl.calcNimbusTime(nimbusSpeedDouble, timeOnBroomDouble);
 

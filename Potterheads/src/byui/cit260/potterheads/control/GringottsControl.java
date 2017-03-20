@@ -17,7 +17,7 @@ import java.util.Scanner;
  *
  * @author alex
  */
-public class DiagonAlleyControl {
+public class GringottsControl {
 
     DecimalFormat df = new DecimalFormat("#.00");
 
