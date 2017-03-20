@@ -55,12 +55,12 @@ public class MainMenuView extends View {
     private void startNewGame() {
         //creaet a new game
 //        try  {
-            
-            GameControl.createNewGame(Potterheads.getPlayer());
+
+        GameControl.createNewGame(Potterheads.getPlayer());
 //        } catch(Exception e) {
 //            System.out.println(e.getMessage());
 //        }
-        
+
         //display game menu
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();

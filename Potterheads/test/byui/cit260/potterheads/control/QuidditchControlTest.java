@@ -29,8 +29,7 @@ public class QuidditchControlTest {
 
         /**
          * ***********************
-         * Test Case #1
-         ************************
+         * Test Case #1 ***********************
          */
         System.out.println("\tTest case #1");
 
@@ -51,8 +50,7 @@ public class QuidditchControlTest {
 
         /**
          * ***********************
-         * Test Case #2
-         ************************
+         * Test Case #2 ***********************
          */
         System.out.println("\tTest case #2");
         // input values for test case 2
@@ -69,8 +67,7 @@ public class QuidditchControlTest {
 
         /**
          * ***********************
-         * Test Case #3
-         ************************
+         * Test Case #3 ***********************
          */
         System.out.println("\tTest case #3");
         // input values for test case 3
@@ -87,8 +84,7 @@ public class QuidditchControlTest {
 
         /**
          * ***********************
-         * Test Case #4
-         ************************
+         * Test Case #4 ***********************
          */
         System.out.println("\tTest case #4");
         // input values for test case 4
@@ -105,8 +101,7 @@ public class QuidditchControlTest {
 
         /**
          * ***********************
-         * Test Case #5
-         ************************
+         * Test Case #5 ***********************
          */
         System.out.println("\tTest case #5");
         // input values for test case 5
@@ -123,8 +118,7 @@ public class QuidditchControlTest {
 
         /**
          * ***********************
-         * Test Case #6
-         ************************
+         * Test Case #6 ***********************
          */
         System.out.println("\tTest case #6");
         // input values for test case 6
@@ -141,8 +135,7 @@ public class QuidditchControlTest {
 
         /**
          * ***********************
-         * Test Case #7
-         ************************
+         * Test Case #7 ***********************
          */
         System.out.println("\tTest case #7");
         // input values for test case 7
@@ -172,8 +165,7 @@ public class QuidditchControlTest {
 
         /**
          * ***********************
-         * Test Case #1
-         ************************
+         * Test Case #1 ***********************
          */
         System.out.println("\tTest case #1");
 
@@ -194,8 +186,7 @@ public class QuidditchControlTest {
 
         /**
          * ***********************
-         * Test Case #2
-         ************************
+         * Test Case #2 ***********************
          */
         System.out.println("\tTest case #2");
         // input values for test case 2
@@ -213,8 +204,7 @@ public class QuidditchControlTest {
 
         /**
          * ***********************
-         * Test Case #3
-         ************************
+         * Test Case #3 ***********************
          */
         System.out.println("\tTest case #3");
         // input values for test case 3
@@ -231,8 +221,7 @@ public class QuidditchControlTest {
 
         /**
          * ***********************
-         * Test Case #4
-         ************************
+         * Test Case #4 ***********************
          */
         System.out.println("\tTest case #4");
         // input values for test case 4
@@ -249,8 +238,7 @@ public class QuidditchControlTest {
 
         /**
          * ***********************
-         * Test Case #5
-         ************************
+         * Test Case #5 ***********************
          */
         System.out.println("\tTest case #5");
         // input values for test case 5
@@ -267,8 +255,7 @@ public class QuidditchControlTest {
 
         /**
          * ***********************
-         * Test Case #6
-         ************************
+         * Test Case #6 ***********************
          */
         System.out.println("\tTest case #6");
         // input values for test case 6
@@ -285,8 +272,7 @@ public class QuidditchControlTest {
 
         /**
          * ***********************
-         * Test Case #7
-         ************************
+         * Test Case #7 ***********************
          */
         System.out.println("\tTest case #7");
         // input values for test case 7
@@ -312,8 +298,7 @@ public class QuidditchControlTest {
 
         /**
          * ***********************
-         * Test Case #1
-         ************************
+         * Test Case #1 ***********************
          */
         System.out.println("\tTest case #1");
 
@@ -334,8 +319,7 @@ public class QuidditchControlTest {
 
         /**
          * ***********************
-         * Test Case #2
-         ************************
+         * Test Case #2 ***********************
          */
         System.out.println("\tTest case #2");
         // input values for test case 2
@@ -352,8 +336,7 @@ public class QuidditchControlTest {
 
         /**
          * ***********************
-         * Test Case #3
-         ************************
+         * Test Case #3 ***********************
          */
         System.out.println("\tTest case #3");
         // input values for test case 3
@@ -370,8 +353,7 @@ public class QuidditchControlTest {
 
         /**
          * ***********************
-         * Test Case #4
-         ************************
+         * Test Case #4 ***********************
          */
         System.out.println("\tTest case #4");
         // input values for test case 4
@@ -388,8 +370,7 @@ public class QuidditchControlTest {
 
         /**
          * ***********************
-         * Test Case #5
-         ************************
+         * Test Case #5 ***********************
          */
         System.out.println("\tTest case #5");
         // input values for test case 5
@@ -406,8 +387,7 @@ public class QuidditchControlTest {
 
         /**
          * ***********************
-         * Test Case #6
-         ************************
+         * Test Case #6 ***********************
          */
         System.out.println("\tTest case #6");
         // input values for test case 6
@@ -424,8 +404,7 @@ public class QuidditchControlTest {
 
         /**
          * ***********************
-         * Test Case #7
-         ************************
+         * Test Case #7 ***********************
          */
         System.out.println("\tTest case #7");
         // input values for test case 7

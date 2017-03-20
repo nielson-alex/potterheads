@@ -13,30 +13,29 @@ import java.util.Arrays;
  * @author Alexandra
  */
 public class Map implements Serializable {
-    
+
 //    public Map() {
 //    }
-    
     public Map(int noOfRows, int noOfColumns) {
         if (noOfRows < 1 || noOfColumns < 1) {
             System.out.println("The number of rows and columns must be > zero");
             return;
         }
-        
+
         this.noOfRows = noOfRows;
         this.noOfColumns = noOfColumns;
-        
+
         this.locations = new Location[noOfRows][noOfColumns];
-        
+
         for (int row = 0; row < noOfRows; row++) {
             for (int column = 0; column < noOfColumns; column++) {
-                
+
                 //create and initialize the new Location object instance
                 Location location = new Location();
                 location.setColumn(column);
                 location.setRow(row);
                 location.setVisited(false);
-                
+
                 //assign the Location object to the current position in the array
                 locations[row][column] = location;
             }
@@ -48,8 +47,6 @@ public class Map implements Serializable {
     private int noOfColumns;
     private Location[][] locations;
 
-    
-    
     //getters and setters
     public int getNoOfRows() {
         return noOfRows;
@@ -75,8 +72,6 @@ public class Map implements Serializable {
         this.locations = locations;
     }
 
-    
-    
     //equals and hashcode
     @Override
     public int hashCode() {
@@ -110,13 +105,11 @@ public class Map implements Serializable {
         }
         return true;
     }
-    
-    
+
     //toString
     @Override
     public String toString() {
         return "Map{" + "noOfRows=" + noOfRows + ", noOfColumns=" + noOfColumns + ", locations=" + locations + '}';
     }
-
 
 }

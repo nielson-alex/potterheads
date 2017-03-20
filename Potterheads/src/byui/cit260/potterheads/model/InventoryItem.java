@@ -12,11 +12,12 @@ import java.util.Objects;
  * @author Alex
  */
 public class InventoryItem {
+
     private String name;
     private String description;
     private int quantityInStock;
     private InventoryItemType type;
-    
+
     public enum InventoryItemType {
         snitch,
         timeTurner,
@@ -27,15 +28,15 @@ public class InventoryItem {
         firecrackers,
         replacementWand;
     }
-    
+
     //constructor function
     public InventoryItem() {
     }
-    
+
     public InventoryItem(InventoryItemType inventoryItemType) {
         this.type = inventoryItemType;
-        
-        switch(inventoryItemType) {
+
+        switch (inventoryItemType) {
             case snitch:
                 this.name = "Expelliarmus";
                 this.description = "Disarms the enemy";
@@ -78,11 +79,7 @@ public class InventoryItem {
                 break;
         }
     }
-    
-    
-    
-    
-    
+
     //getters and setters
     public String getName() {
         return name;
@@ -124,10 +121,7 @@ public class InventoryItem {
         hash = 47 * hash + this.quantityInStock;
         return hash;
     }
-    
-    
-    
-    
+
     //hashcode and equals
     @Override
     public boolean equals(Object obj) {
@@ -153,9 +147,6 @@ public class InventoryItem {
         return true;
     }
 
-    
-    
-    
     // toString()
     @Override
     public String toString() {

@@ -42,8 +42,8 @@ public class GringottsControl {
 
         double galleons = (dollars + (cents * .01)) * 0.735;
 
-        System.out.println("\nYou exchanged " + dollars + " dollars and " + cents + 
-                " cents for " + df.format(galleons) + " galleons.");
+        System.out.println("\nYou exchanged " + dollars + " dollars and " + cents
+                + " cents for " + df.format(galleons) + " galleons.");
 
         return galleons;
     }

@@ -20,40 +20,40 @@ public class QuidditchControl {
 
     Scanner inFile;
 
-    public double calcKitchenBroomTime(double kitchenBroomSpeed, double timeOnBroom)       
-        throws QuidditchControlException {
-        
-            if (kitchenBroomSpeed < 10) {
-                throw new QuidditchControlException("\nRemember, the speed has to be at least 10 miles per hour.");
-            }
+    public double calcKitchenBroomTime(double kitchenBroomSpeed, double timeOnBroom)
+            throws QuidditchControlException {
 
-            if (kitchenBroomSpeed > 40) {
-                throw new QuidditchControlException("\nThe kitchen broom's max speed is 40 mph.");
-            }
+        if (kitchenBroomSpeed < 10) {
+            throw new QuidditchControlException("\nRemember, the speed has to be at least 10 miles per hour.");
+        }
 
-            if (timeOnBroom < 60) {
-                throw new QuidditchControlException("\nYou must ride for at least one full minute.");
-            }
+        if (kitchenBroomSpeed > 40) {
+            throw new QuidditchControlException("\nThe kitchen broom's max speed is 40 mph.");
+        }
 
-            if (timeOnBroom > 360) {
-                throw new QuidditchControlException("\nYou can't ride for more than three minutes.");
-            }
+        if (timeOnBroom < 60) {
+            throw new QuidditchControlException("\nYou must ride for at least one full minute.");
+        }
 
-            double snitchSpeed = 50;
+        if (timeOnBroom > 360) {
+            throw new QuidditchControlException("\nYou can't ride for more than three minutes.");
+        }
 
-            double timeCatchingSnitchWithKitchenBroom = ((timeOnBroom / kitchenBroomSpeed) / 3) * 100;
+        double snitchSpeed = 50;
 
-            System.out.println("\nIt took you " + df.format(timeCatchingSnitchWithKitchenBroom)
-                    + " seconds to catch the snitch on the kitchen broom.");
+        double timeCatchingSnitchWithKitchenBroom = ((timeOnBroom / kitchenBroomSpeed) / 3) * 100;
 
-            return timeCatchingSnitchWithKitchenBroom;
+        System.out.println("\nIt took you " + df.format(timeCatchingSnitchWithKitchenBroom)
+                + " seconds to catch the snitch on the kitchen broom.");
+
+        return timeCatchingSnitchWithKitchenBroom;
 
         // ((50 / 55) / 3 ) * 100 = 30.3
         // ((50 / 89.9) / 3 ) * 100 = 18.54
     }
 
-    public double calcNimbusTime(double nimbusSpeed, double timeOnBroom) 
-        throws QuidditchControlException {
+    public double calcNimbusTime(double nimbusSpeed, double timeOnBroom)
+            throws QuidditchControlException {
 
         if (nimbusSpeed < 50) {
             throw new QuidditchControlException("\nThe Nimbus 2000's minimum speed is 50 mph.");
@@ -80,8 +80,8 @@ public class QuidditchControl {
     // ((50/90) / 3) * 100 = 18.52;
     // ((119.9) / 3) * 100 = 13.9
 
-    public double calcFireboltTime(double fireboltSpeed, double timeOnBroom) 
-        throws QuidditchControlException {
+    public double calcFireboltTime(double fireboltSpeed, double timeOnBroom)
+            throws QuidditchControlException {
         if (fireboltSpeed < 100) {
             throw new QuidditchControlException("\nThe Firebolt's minimum speed is 100 mph.");
         }

@@ -15,6 +15,7 @@ import java.util.Scanner;
  * @author Alex
  */
 public class FireboltView extends View {
+
     public FireboltView() {
         super("\nYou've chosen to to fly the Firebolt. This\n"
                 + "is a high performance broom that has a minimum speed of\n"
@@ -30,7 +31,6 @@ public class FireboltView extends View {
     public boolean doAction(String value) {
         value = value.toUpperCase();
         boolean done = false;
-        
 
         while (!done) {
             String pressC = "\n*** Please press 'C' to continue or 'Q' to quit***";
@@ -51,11 +51,11 @@ public class FireboltView extends View {
         return false;
     }
 
-        public void getInputs()
+    public void getInputs()
             throws QuidditchControlException {
         boolean done = false;
         Scanner keyboard = new Scanner(System.in);
-        
+
         String fireboltSpeed = "";
         double fireboltSpeedDouble = 0;
         String timeOnBroom = "";
@@ -90,7 +90,7 @@ public class FireboltView extends View {
                 return;
             } else {
                 try {
-                   timeOnBroomDouble = Double.parseDouble(timeOnBroom);
+                    timeOnBroomDouble = Double.parseDouble(timeOnBroom);
                 } catch (NumberFormatException nf) {
                     System.out.println("\nYou must enter a valid number." + "\n Try again "
                             + "or press 'Q' to quit.");
@@ -103,8 +103,8 @@ public class FireboltView extends View {
         this.calculateQuidditchControl(fireboltSpeedDouble, timeOnBroomDouble);
     }
 
-    private boolean calculateQuidditchControl(double fireboltSpeedDouble, double timeOnBroomDouble) 
-        throws QuidditchControlException {
+    private boolean calculateQuidditchControl(double fireboltSpeedDouble, double timeOnBroomDouble)
+            throws QuidditchControlException {
         QuidditchControl quidditchControl = new QuidditchControl();
         quidditchControl.calcFireboltTime(fireboltSpeedDouble, timeOnBroomDouble);
 

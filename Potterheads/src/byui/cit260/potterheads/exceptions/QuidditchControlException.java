@@ -10,7 +10,7 @@ package byui.cit260.potterheads.exceptions;
  * @author Alex
  */
 public class QuidditchControlException extends Exception {
-    
+
     public QuidditchControlException() {
     }
 
@@ -29,5 +29,5 @@ public class QuidditchControlException extends Exception {
     public QuidditchControlException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
-    
+
 }

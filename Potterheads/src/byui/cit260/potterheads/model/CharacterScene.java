@@ -13,16 +13,13 @@ import java.util.Arrays;
  * @author aleecrook
  */
 public class CharacterScene implements Serializable {
+
     private Character[] characters;
 
-    
-    
     //constructor function
     public CharacterScene() {
     }
 
-    
-    
     //getter and setter
     public Character[] getCharacters() {
         return characters;
@@ -31,9 +28,7 @@ public class CharacterScene implements Serializable {
     public void setCharacters(Character[] characters) {
         this.characters = characters;
     }
-    
-    
-    
+
     //hashcode and equals
     @Override
     public int hashCode() {
@@ -60,8 +55,6 @@ public class CharacterScene implements Serializable {
         return true;
     }
 
-    
-    
     //toString
     @Override
     public String toString() {

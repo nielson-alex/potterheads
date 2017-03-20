@@ -26,7 +26,7 @@ public class Player implements Serializable {
         this.name = name;
         this.spells = new ArrayList<>();
         this.inventoryItems = new ArrayList<>();
-        coordinates = new Point(1,1);
+        coordinates = new Point(1, 1);
     }
 
     // Getter and setter functions
@@ -41,14 +41,13 @@ public class Player implements Serializable {
     public ArrayList<Spell> getSpells() {
         return this.spells;
     }
-    
+
     public ArrayList<InventoryItem> getInventoryItems() {
         return this.inventoryItems;
     }
-   
 
     public boolean hasLearnedSpell(Spell.SpellType spellType) {
-        for(Spell spell : this.spells) {
+        for (Spell spell : this.spells) {
             if (spell.getType() == spellType) {
                 return true;
             }
@@ -67,7 +66,7 @@ public class Player implements Serializable {
             return hasLearnedSpell(Spell.SpellType.petrificusTotalus);
         }
 //        ...
-        
+
         return false;
     }
 
@@ -101,5 +100,5 @@ public class Player implements Serializable {
     @Override
     public String toString() {
         return "Player{" + "name=" + name + '}';
-    } 
+    }
 }

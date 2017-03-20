@@ -1,20 +1,20 @@
 package byui.cit260.potterheads.model;
 
 public enum Item {
-        timeTurner,
-        snitch,
-        maraudersMap,
-        invisibilityCloak,
-        americanMoney,
-        gillyweed,
-        firecrackers,
-        replacementWand,
-        expelliarmus,
-        stupify,
-        sectumsempra,
-        petrificusTotalus,
-        wingardiumLeviosa;
-    }
+    timeTurner,
+    snitch,
+    maraudersMap,
+    invisibilityCloak,
+    americanMoney,
+    gillyweed,
+    firecrackers,
+    replacementWand,
+    expelliarmus,
+    stupify,
+    sectumsempra,
+    petrificusTotalus,
+    wingardiumLeviosa;
+}
 ///*
 // * To change this license header, choose License Headers in Project Properties.
 // * To change this template file, choose Tools | Templates

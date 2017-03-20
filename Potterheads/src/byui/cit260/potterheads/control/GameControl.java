@@ -39,10 +39,10 @@ public class GameControl {
         //create the inventory list and save inthe game
         ArrayList<InventoryItem> tradeableInventoryList = GameControl.createTradeableInventoryList();
         game.setTradeableInventory(tradeableInventoryList);
-        
+
         ArrayList<Spell> spellInventoryList = GameControl.createSpellList();
         game.setSpellInventory(spellInventoryList);
-        
+
         Map map = new Map(5, 5);
         game.setMap(map);
         GameControl.createMap();
@@ -70,38 +70,38 @@ public class GameControl {
 //                new InventoryItem[13];
         //create array(list) of inventory items        
         ArrayList<InventoryItem> tradeableInventory = potterheads.Potterheads.getPlayer().getInventoryItems();
-  
+
 //            ----------SPELLS-----------
         InventoryItem snitch = new InventoryItem(InventoryItemType.snitch);
         tradeableInventory.add(snitch);
 
         InventoryItem timeTurner = new InventoryItem(InventoryItemType.timeTurner);
         tradeableInventory.add(timeTurner);
-        
+
         InventoryItem maraudersMap = new InventoryItem(InventoryItemType.maraudersMap);
         tradeableInventory.add(maraudersMap);
-        
+
         InventoryItem invisibilityCloak = new InventoryItem(InventoryItemType.invisibilityCloak);
         tradeableInventory.add(invisibilityCloak);
-        
+
         InventoryItem americanMoney = new InventoryItem(InventoryItemType.americanMoney);
         tradeableInventory.add(americanMoney);
-        
+
         InventoryItem gillyweed = new InventoryItem(InventoryItemType.gillyweed);
         tradeableInventory.add(gillyweed);
-        
+
         InventoryItem firecrackers = new InventoryItem(InventoryItemType.firecrackers);
         tradeableInventory.add(firecrackers);
-        
+
         InventoryItem replacementWand = new InventoryItem(InventoryItemType.replacementWand);
         tradeableInventory.add(replacementWand);
 
         return tradeableInventory;
     }
-    
+
     public static ArrayList<Spell> createSpellList() {
         ArrayList<Spell> spellInventory = potterheads.Potterheads.getPlayer().getSpells();
-  
+
 //            ----------SPELLS-----------
 //        Spell expelliarmus = new Spell(SpellType.expelliarmus);
 //        spellInventory.add(expelliarmus);
@@ -117,15 +117,13 @@ public class GameControl {
 //
 //        Spell wingardiumLeviosa = new Spell(SpellType.wingardiumLeviosa);
 //        spellInventory.add(wingardiumLeviosa);
-        
         return spellInventory;
     }
-
 
     private static Map createMap() {
         //create the map
         Map map = Potterheads.getCurrentGame().getMap();
-        
+
         //create the scenes for the game
         Scene[] scenes = createScenes();
 
@@ -170,14 +168,12 @@ public class GameControl {
         itemScene.setMapSymbol("IT");
         itemScene.setBlocked(false);
         scenes[SceneType.item.ordinal()] = itemScene;
-        
+
         Scene unknownScene = new Scene();
         unknownScene.setDescription("***not yet defined***");
         unknownScene.setMapSymbol("??");
         unknownScene.setBlocked(false);
         scenes[SceneType.unknown.ordinal()] = unknownScene;
-
-       
 
         return scenes;
     }
@@ -212,13 +208,13 @@ public class GameControl {
         locations[4][3].setScene(scenes[SceneType.unknown.ordinal()]);
         locations[4][4].setScene(scenes[SceneType.unknown.ordinal()]);
     }
-    
-    public int getInventoryCount(){
+
+    public int getInventoryCount() {
         Game game = new Game();
         ArrayList<InventoryItem> inventory = game.getTradeableInventory();
         int counter = 0;
-        for (InventoryItem i: inventory){
-            if(i != null){
+        for (InventoryItem i : inventory) {
+            if (i != null) {
                 counter++;
             }
         }

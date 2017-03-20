@@ -23,9 +23,9 @@ public class DiagonAlleyView extends View {
                 + "E: Flourish and Blotts\n"
                 + "Q: Back to Main Menu");
     }
-    
+
     @Override
-        public boolean doAction(String value) {
+    public boolean doAction(String value) {
         value = value.toUpperCase();
 
         switch (value) {
@@ -69,7 +69,7 @@ public class DiagonAlleyView extends View {
 
         GringottsView gringottsView = new GringottsView();
         gringottsView.display();
-        
+
 //        boolean error = true;
 //        while (error) {
 //            error = false;
@@ -90,7 +90,6 @@ public class DiagonAlleyView extends View {
 //            }
 //
 //        }
-
     }
 
     private void gringottsConversion() {

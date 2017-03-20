@@ -14,16 +14,12 @@ import byui.cit260.potterheads.model.Spell.SpellType;
 import java.util.ArrayList;
 import potterheads.Potterheads;
 
-
-
-
-
 /**
  *
  * @author Alex
  */
 public class GetSpellView extends View {
-    
+
     public GetSpellView() {
         super("\nPress 'E' to add Expelliarmus or 'S' for Stupify");
     }
@@ -42,6 +38,3 @@ public class GetSpellView extends View {
         return true;
     }
 }
-
-    
-

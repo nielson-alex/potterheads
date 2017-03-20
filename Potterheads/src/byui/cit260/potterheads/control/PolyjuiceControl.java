@@ -13,7 +13,7 @@ import java.util.Scanner;
  * @author alex
  */
 public class PolyjuiceControl {
-    
+
     DecimalFormat df = new DecimalFormat("#.00");
 
     Scanner inFile;
@@ -37,11 +37,11 @@ public class PolyjuiceControl {
         }
 
         double timeTransformed = (ozOfPotion * weight) / 60;
-        
-        System.out.println("\nYou exchanged have brewed enough polyjuice potion to\n" 
+
+        System.out.println("\nYou exchanged have brewed enough polyjuice potion to\n"
                 + "remain transformed for " + df.format(timeTransformed)
                 + " minutes.");
-        
+
         return timeTransformed;
 
     }

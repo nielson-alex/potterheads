@@ -17,7 +17,7 @@ public class Scene implements Serializable {
     private boolean blocked;
     private String description;
     private String mapSymbol;
-    
+
     public enum SceneType {
         start,
         finish,
@@ -26,7 +26,7 @@ public class Scene implements Serializable {
         item,
         unknown;
     }
-    
+
     //constructor function
     public Scene() {
     }
@@ -56,8 +56,6 @@ public class Scene implements Serializable {
         this.mapSymbol = mapSymbol;
     }
 
-    
-    
     //equals and hashcode
     @Override
     public int hashCode() {
@@ -92,13 +90,10 @@ public class Scene implements Serializable {
         return true;
     }
 
-    
-    
     //toString
     @Override
     public String toString() {
         return "Scene{" + "blocked=" + blocked + ", description=" + description + ", mapSymbol=" + mapSymbol + '}';
     }
-    
-    
+
 }

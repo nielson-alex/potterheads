@@ -12,14 +12,13 @@ import java.util.Objects;
  * @author Alex
  */
 public class TradeableItem {
+
     public String appealToCharacter;
 
     //constructor function
     public TradeableItem() {
     }
 
-    
-    
     //getter and setter
     public String getAppealToCharacter() {
         return appealToCharacter;
@@ -29,8 +28,6 @@ public class TradeableItem {
         this.appealToCharacter = appealToCharacter;
     }
 
-    
-    
     //hashcode and equals
     @Override
     public int hashCode() {
@@ -57,8 +54,6 @@ public class TradeableItem {
         return true;
     }
 
-    
-    
     //toString
     @Override
     public String toString() {

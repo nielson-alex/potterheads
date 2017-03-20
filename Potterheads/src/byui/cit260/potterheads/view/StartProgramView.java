@@ -21,7 +21,7 @@ public class StartProgramView extends View {
     private String promptMessage;
 
     public StartProgramView() {
-        super ("\n_____________________________________________________________________________________________________________________________ \n"
+        super("\n_____________________________________________________________________________________________________________________________ \n"
                 + "   ,-.----.                                                                                                                  \n"
                 + "  \\    /  \\                ___      ___                         ,---,                                                      \n"
                 + "  |   :    \\             ,--.'|_  ,--.'|_                     ,--.' |                                ,---,                  \n"
@@ -53,7 +53,6 @@ public class StartProgramView extends View {
         );
     }
 
-    
     @Override
     public boolean doAction(String value) {
         if (value.length() < 3) {
@@ -62,10 +61,6 @@ public class StartProgramView extends View {
             return false;
         }
 
-        // call createPlayer() control function
-//        player is a class instance of the Player class. player is then passed
-//        through the "displayNextView" function as a parameter that was 
-//        referenced.
         Player player = GameControl.createPlayer(value);
 
         if (player == null) { // if unsuccessful

@@ -19,20 +19,18 @@ public class Game implements Serializable {
     //class instance variables
     private int numberOfPlayers;
 //    private InventoryItem[] inventory;
-    
+
     //Create cardinalities of One
     private DiagonAlley diagonAlley;
     private Polyjuice polyjuice;
     private Quidditch quidditch;
     private Map map;
     private Player player;
-    
+
     //Create cardinalities of many
     private ArrayList<InventoryItem> tradeableInventory = new ArrayList<>();
     private ArrayList<Spell> spellInventory = new ArrayList<>();
 
-    
-    
     //Create cardinalities of many
     //    private InventoryItems inventoryItems;
     private Character[] character;
@@ -174,5 +172,4 @@ public class Game implements Serializable {
         return "Game{" + "numberOfPlayers=" + numberOfPlayers + ", diagonAlley=" + diagonAlley + ", polyjuice=" + polyjuice + ", quidditch=" + quidditch + ", map=" + map + ", player=" + player + ", tradeableInventory=" + tradeableInventory + ", spellInventory=" + spellInventory + ", character=" + character + '}';
     }
 
-    
 }

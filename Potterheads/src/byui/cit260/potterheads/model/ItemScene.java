@@ -14,15 +14,12 @@ import java.util.Arrays;
  */
 public class ItemScene implements Serializable {
 
-    private Item [] items;
-    
-    
+    private Item[] items;
+
     //constructor function
     public ItemScene() {
     }
 
-    
-    
     //getter and setter
     public Item[] getItems() {
         return items;
@@ -32,8 +29,6 @@ public class ItemScene implements Serializable {
         this.items = items;
     }
 
-    
-    
     //hashcode and equals
     @Override
     public int hashCode() {
@@ -60,8 +55,6 @@ public class ItemScene implements Serializable {
         return true;
     }
 
-    
-    
     //toString
     @Override
     public String toString() {

@@ -18,13 +18,13 @@ public class Location implements Serializable {
     private int column;
     private boolean visited;
     private int amountRemaining;
-    
+
     //create cardinality of one
     private Scene scene;
-    
+
     //Create cardinality of many
     ArrayList<Item> inventoryItems = new ArrayList<>();
-    ArrayList<Character> characters =new ArrayList<>();
+    ArrayList<Character> characters = new ArrayList<>();
     ArrayList<Scene> scenes = new ArrayList<>();
 
     // constructor function
@@ -71,7 +71,6 @@ public class Location implements Serializable {
     public void setScene(Scene scene) {
         this.scene = scene;
     }
-    
 
     // equals and hashcode
     @Override

@@ -12,6 +12,7 @@ import java.util.Objects;
  * @author Alex
  */
 public class Spell {
+
     private String name;
     private String effect;
     private SpellType type;
@@ -23,15 +24,15 @@ public class Spell {
         petrificusTotalus,
         wingardiumLeviosa;
     }
-    
+
     //constructor function
     public Spell() {
     }
 
     public Spell(SpellType spellType) {
         this.type = spellType;
-        
-        switch(spellType) {
+
+        switch (spellType) {
             case expelliarmus:
                 this.name = "Expelliarmus";
                 this.effect = "Disarms the enemy";
@@ -54,12 +55,11 @@ public class Spell {
                 break;
         }
     }
-    
+
 //    public Spell(String name, String effect) {
 //        this.name = name;
 //        this.effect = effect;
 //    }
-
     public SpellType getType() {
         return type;
     }

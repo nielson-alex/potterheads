@@ -15,6 +15,7 @@ import java.util.Scanner;
  * @author Alex
  */
 public class NimbusView extends View {
+
     public NimbusView() {
         super("\nYou've chosen to to fly the Nimbus 2000. This\n"
                 + "is a medium-speed broom that can with a minimum speed of\n"
@@ -28,7 +29,6 @@ public class NimbusView extends View {
     public boolean doAction(String value) {
         value = value.toUpperCase();
         boolean done = false;
-        
 
         while (!done) {
             String pressC = "\n*** Please press 'C' to continue or 'Q' to quit***";
@@ -49,11 +49,11 @@ public class NimbusView extends View {
         return false;
     }
 
-        public void getInputs()
+    public void getInputs()
             throws QuidditchControlException {
         boolean done = false;
         Scanner keyboard = new Scanner(System.in);
-        
+
         String nimbusSpeed = "";
         double nimbusSpeedDouble = 0;
         String timeOnBroom = "";
@@ -88,7 +88,7 @@ public class NimbusView extends View {
                 return;
             } else {
                 try {
-                   timeOnBroomDouble = Double.parseDouble(timeOnBroom);
+                    timeOnBroomDouble = Double.parseDouble(timeOnBroom);
                 } catch (NumberFormatException nf) {
                     System.out.println("\nYou must enter a valid number." + "\n Try again "
                             + "or press 'Q' to quit.");
@@ -101,8 +101,8 @@ public class NimbusView extends View {
         this.calculateQuidditchControl(nimbusSpeedDouble, timeOnBroomDouble);
     }
 
-    private boolean calculateQuidditchControl(double nimbusSpeedDouble, double timeOnBroomDouble) 
-        throws QuidditchControlException {
+    private boolean calculateQuidditchControl(double nimbusSpeedDouble, double timeOnBroomDouble)
+            throws QuidditchControlException {
         QuidditchControl quidditchControl = new QuidditchControl();
         quidditchControl.calcNimbusTime(nimbusSpeedDouble, timeOnBroomDouble);
 
