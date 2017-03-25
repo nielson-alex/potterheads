@@ -6,6 +6,7 @@
 package byui.cit260.potterheads.view;
 
 import byui.cit260.potterheads.control.GameControl;
+import java.io.PrintWriter;
 import java.util.Scanner;
 import potterheads.Potterheads;
 
@@ -14,6 +15,7 @@ import potterheads.Potterheads;
  * @author aleecrook
  */
 public class HelpMenuView extends View {
+    protected final PrintWriter console = Potterheads.getOutFile();
 
     public HelpMenuView() {
         super("H - How to play\n"
@@ -40,7 +42,7 @@ public class HelpMenuView extends View {
                 this.quitHelpMenu();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), "you must enter a value.");
                 break;
         }
         return false;
@@ -49,21 +51,21 @@ public class HelpMenuView extends View {
 
     // case "H"
     private void displayHowToPlay() {
-        System.out.println("\n *** displayHowToPlay() function called ***");
+        this.console.println("\n *** displayHowToPlay() function called ***");
     }
 
     // case "M"
     private void displayMovementControls() {
-        System.out.println("\n *** displayMovementControls() function called ***");
+        this.console.println("\n *** displayMovementControls() function called ***");
     }
 
     // case "S"
     private void displayHints() {
-        System.out.println("\n *** displayHints() function called***");
+        this.console.println("\n *** displayHints() function called***");
     }
 
     // case "Q"
     private void quitHelpMenu() {
-        System.out.println("\n *** quitHelpMenu() function called ***");
+        this.console.println("\n *** quitHelpMenu() function called ***");
     }
 }

@@ -6,7 +6,9 @@
 package byui.cit260.potterheads.view;
 
 import byui.cit260.potterheads.control.QuidditchControl;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import potterheads.Potterheads;
 
 // Step 4
 /**
@@ -14,6 +16,8 @@ import java.util.Scanner;
  * @author alex
  */
 public class QuidditchView extends View {
+
+    protected final PrintWriter console = Potterheads.getOutFile();
 
     public QuidditchView() {
         super("\nYou find yourself in the courtyard of the Hogwarts castle.\n"
@@ -46,10 +50,10 @@ public class QuidditchView extends View {
                 this.rideKitchenBroom();
                 break;
             case "Q":
-                this.quitQuidditchView();
-                break;
+                return true;
+//                break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), "you must enter a value.");
                 break;
         }
         return false;
@@ -75,9 +79,8 @@ public class QuidditchView extends View {
     }
 
 // "case "Q"
-    private void quitQuidditchView() {
-        System.out.println("\n*** quit game ***");
-
-    }
+//    private void quitQuidditchView() {
+//        return;
+//    }
 
 }

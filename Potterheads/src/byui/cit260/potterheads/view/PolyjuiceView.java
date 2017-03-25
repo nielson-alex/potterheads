@@ -11,8 +11,11 @@ package byui.cit260.potterheads.view;
  */
 import java.util.Scanner;
 import byui.cit260.potterheads.control.PolyjuiceControl;
+import java.io.PrintWriter;
+import potterheads.Potterheads;
 
 public class PolyjuiceView extends View {
+    protected final PrintWriter console = Potterheads.getOutFile();
 
     public PolyjuiceView() {
         super("\nYou're in the potions laboratory where you have access to all of\n"
@@ -34,7 +37,7 @@ public class PolyjuiceView extends View {
             if ("C".equals(value.toUpperCase())) {
                 this.calcTimeTransformed(weightDouble, ozOfPotionDouble);
             } else if (!("C".equals(value.toUpperCase())) && !("Q".equals(value.toUpperCase()))) {
-                System.out.println(pressC);
+                this.console.println(pressC);
             } else if ("Q".equals(value.toUpperCase())) {
                 return true;
             }
@@ -50,12 +53,12 @@ public class PolyjuiceView extends View {
         String ozOfPotion = ""; //value to be returned
 
         while (!done) {
-            System.out.println("\nFirst enter your weight:\n");
+            this.console.println("\nFirst enter your weight:\n");
 
             weight = keyboard.nextLine();
 
             if (weight.length() < 1) {
-                System.out.println("\n*** Value cannot be blank ***");
+                ErrorView.display(this.getClass().getName(), "you must enter a value.");
                 continue;
             } else if ("Q".equals(weight.toUpperCase())) {
                 return true;
@@ -63,8 +66,7 @@ public class PolyjuiceView extends View {
                 try {
                     weightDouble = Double.parseDouble(weight);
                 } catch (NumberFormatException nf) {
-                    System.out.println("\nYou must enter a valid number." + "\n Try again "
-                            + "or press 'Q' to quit.");
+                    ErrorView.display(this.getClass().getName(), "you must enter a value.");
                     continue;
                 }
             }
@@ -73,14 +75,14 @@ public class PolyjuiceView extends View {
 
         while (!done) {
 
-            System.out.println("\nNext enter the number of fluid ounces of polyjuice\n"
+            this.console.println("\nNext enter the number of fluid ounces of polyjuice\n"
                     + "potion you that you want to brew (remember that your flask\n"
                     + "can only hold up 5 ounces of liquid):");
 
             ozOfPotion = keyboard.nextLine();
 
             if (ozOfPotion.length() < 1) {
-                System.out.println("\n*** Value cannot be blank ***");
+                ErrorView.display(this.getClass().getName(), "you must enter a value.");
                 continue;
             } else if ("Q".equals(ozOfPotion.toUpperCase())) {
                 return true;
@@ -88,8 +90,7 @@ public class PolyjuiceView extends View {
                 try {
                     ozOfPotionDouble = Double.parseDouble(ozOfPotion);
                 } catch (NumberFormatException nf) {
-                    System.out.println("\nYou must enter a valid number." + "\n Try again "
-                            + "or press 'Q' to quit.");
+                    ErrorView.display(this.getClass().getName(), "you must enter a value.");
                     continue;
                 }
             }

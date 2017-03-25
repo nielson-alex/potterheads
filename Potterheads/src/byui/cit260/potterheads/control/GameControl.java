@@ -5,6 +5,7 @@
  */
 package byui.cit260.potterheads.control;
 
+import byui.cit260.potterheads.exceptions.GameControlException;
 import byui.cit260.potterheads.exceptions.MapControlException;
 import byui.cit260.potterheads.model.Game;
 import byui.cit260.potterheads.model.InventoryItem;
@@ -23,6 +24,10 @@ import byui.cit260.potterheads.view.GetSpellView;
 import java.util.ArrayList;
 import potterheads.Potterheads;
 import byui.cit260.potterheads.model.TradeableItem;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 /**
  *
@@ -54,6 +59,33 @@ public class GameControl {
             System.out.println(me.getMessage());
         }
     }
+    
+    public static void saveGame(Game game, String filepath) 
+            throws GameControlException {
+        try (FileOutputStream fops = new FileOutputStream(filepath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(game);
+        } catch (Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+    }
+    
+    public static void getSavedGame(String filepath) 
+            throws GameControlException {
+        Game game = null;
+        
+        try (FileInputStream fips = new FileInputStream(filepath)) {
+            ObjectInputStream input = new ObjectInputStream(fips);
+            
+            game = (Game) input.readObject();
+        } catch (Exception e) {
+            throw new GameControlException(e.getMessage());
+            }
+        
+        Potterheads.setCurrentGame(game);
+        }
+    
 
     public static Player createPlayer(String name) {
         if (name == null) {

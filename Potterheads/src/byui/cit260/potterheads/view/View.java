@@ -5,7 +5,10 @@
  */
 package byui.cit260.potterheads.view;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import potterheads.Potterheads;
 
 /**
  *
@@ -13,47 +16,51 @@ import java.util.Scanner;
  */
 public abstract class View implements ViewInterface {
 
-    protected String displayMessage;
+    protected String message;
+    // week 12 team assignment p. 11
+
+    protected final BufferedReader keyboard = Potterheads.getInFile();
+    protected final PrintWriter console = Potterheads.getOutFile();
 
     public View() {
     }
 
     public View(String message) {
-        this.displayMessage = message;
+        this.message = message;
     }
 
     @Override
     public void display() {
+        String value;
         boolean done = false;
         do {
-            String value = this.getInput();
-            if (value.toUpperCase().equals("Q")) {
-                return;
-            }
-
+            this.console.println(this.message);
+            value = this.getInput();
             done = this.doAction(value);
-
         } while (!done);
     }
 
     @Override
     public String getInput() {
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard 
+
         boolean valid = false; //value to be returned
         String value = null; // initialize to not valid
 
-        while (!valid) { // loop while an invalid value is entered
-            System.out.println("\n" + this.displayMessage);
+        try {
+            while (!valid) { // loop while an invalid value is entered
 
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
+                value = this.keyboard.readLine(); // get next line typed on keyboard
+                value = value.trim(); // trim off leading and trailing blanks
 
-            if (value.length() < 1) { //value is blank
-                System.out.println("\n*** You must enter a value ***");
-                continue;
+                if (value.length() < 1) { //value is blank
+                    ErrorView.display(this.getClass().getName(), "you must enter a value.");
+                    continue;
+                }
+
+                break; // end the loop
             }
-
-            break; // end the loop
+        } catch (Exception e) {
+            this.console.println("Error reading input: " + e.getMessage());
         }
 
         return value; // return the value entered

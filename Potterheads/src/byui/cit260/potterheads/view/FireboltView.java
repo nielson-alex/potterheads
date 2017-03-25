@@ -8,13 +8,16 @@ package byui.cit260.potterheads.view;
 
 import byui.cit260.potterheads.control.QuidditchControl;
 import byui.cit260.potterheads.exceptions.QuidditchControlException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import potterheads.Potterheads;
 
 /**
  *
  * @author Alex
  */
 public class FireboltView extends View {
+    protected final PrintWriter console = Potterheads.getOutFile();
 
     public FireboltView() {
         super("\nYou've chosen to to fly the Firebolt. This\n"
@@ -33,16 +36,16 @@ public class FireboltView extends View {
         boolean done = false;
 
         while (!done) {
-            String pressC = "\n*** Please press 'C' to continue or 'Q' to quit***";
+//            String pressC = "\n*** Please press 'C' to continue or 'Q' to quit***";
 
             if ("C".equals(value.toUpperCase())) {
                 try {
                     this.getInputs();
                 } catch (QuidditchControlException ne) {
-                    System.out.println(ne.getMessage());
+                    this.console.println(ne.getMessage());
                 }
             } else if (!("C".equals(value.toUpperCase())) && !("Q".equals(value.toUpperCase()))) {
-                System.out.println(pressC);
+                ErrorView.display(this.getClass().getName(), "Press 'C' to continue or 'Q' to quit");
             } else if ("Q".equals(value.toUpperCase())) {
                 return true;
             }
@@ -62,7 +65,7 @@ public class FireboltView extends View {
         double timeOnBroomDouble = 0;
 
         while (!done) {
-            System.out.println("\nFirst enter the speed you want to go in miles per"
+            this.console.println("\nFirst enter the speed you want to go in miles per"
                     + " hour.");
 
             fireboltSpeed = keyboard.nextLine();
@@ -73,8 +76,7 @@ public class FireboltView extends View {
                 try {
                     fireboltSpeedDouble = Double.parseDouble(fireboltSpeed);
                 } catch (NumberFormatException nf) {
-                    System.out.println("\nYou must enter a valid number." + "\n Try again "
-                            + "or press 'Q' to quit.");
+                    ErrorView.display(this.getClass().getName(), "you must enter a value.");
                     continue;
                 }
             }
@@ -82,7 +84,7 @@ public class FireboltView extends View {
         }
 
         while (!done) {
-            System.out.println("\nNext enter the amount of time you want to fly in seconds.");
+            this.console.println("\nNext enter the amount of time you want to fly in seconds.");
 
             timeOnBroom = keyboard.nextLine();
 
@@ -92,8 +94,7 @@ public class FireboltView extends View {
                 try {
                     timeOnBroomDouble = Double.parseDouble(timeOnBroom);
                 } catch (NumberFormatException nf) {
-                    System.out.println("\nYou must enter a valid number." + "\n Try again "
-                            + "or press 'Q' to quit.");
+                    ErrorView.display(this.getClass().getName(), "you must enter a value.");
                     continue;
                 }
             }

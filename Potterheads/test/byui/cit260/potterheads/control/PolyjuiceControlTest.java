@@ -5,14 +5,17 @@
  */
 package byui.cit260.potterheads.control;
 
+import java.io.PrintWriter;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import potterheads.Potterheads;
 
 /**
  *
  * @author alex
  */
 public class PolyjuiceControlTest {
+    protected final PrintWriter console = Potterheads.getOutFile();
 
     public PolyjuiceControlTest() {
     }
@@ -22,14 +25,14 @@ public class PolyjuiceControlTest {
      */
     @Test
     public void testCalcTimeTransformed() {
-        System.out.println("calcTimeTransformed");
+        this.console.println("calcTimeTransformed");
 
         /**
          * ***********************
          * Test Case #1
          ************************
          */
-        System.out.println("\tTest case #1");
+        this.console.println("\tTest case #1");
 
         // input values for test case 1
         double weight = 180.0;
@@ -51,7 +54,7 @@ public class PolyjuiceControlTest {
          * Test Case #2
          ************************
          */
-        System.out.println("\tTest case #2");
+        this.console.println("\tTest case #2");
         // input values for test case 1
         weight = 145.0;
         ounces = 10.0;
@@ -69,7 +72,7 @@ public class PolyjuiceControlTest {
          * Test Case #3
          ************************
          */
-        System.out.println("\tTest case #3");
+        this.console.println("\tTest case #3");
         // input values for test case 1
         weight = 400.0;
         ounces = 2.0;
@@ -87,7 +90,7 @@ public class PolyjuiceControlTest {
          * Test Case #4
          ************************
          */
-        System.out.println("\tTest case #4");
+        this.console.println("\tTest case #4");
         // input values for test case 1
         weight = 50.0;
         ounces = 0.0;
@@ -105,7 +108,7 @@ public class PolyjuiceControlTest {
          * Test Case #5
          ************************
          */
-        System.out.println("\tTest case #5");
+        this.console.println("\tTest case #5");
         // input values for test case 1
         weight = 90.0;
         ounces = 4.0;
@@ -123,7 +126,7 @@ public class PolyjuiceControlTest {
          * Test Case #6
          ************************
          */
-        System.out.println("\tTest case #6");
+        this.console.println("\tTest case #6");
         // input values for test case 1
         weight = 300.0;
         ounces = 1.0;
@@ -141,7 +144,7 @@ public class PolyjuiceControlTest {
          * Test Case #7
          ************************
          */
-        System.out.println("\tTest case #7");
+        this.console.println("\tTest case #7");
         // input values for test case 1
         weight = 300.0;
         ounces = 5.0;

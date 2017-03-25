@@ -5,14 +5,17 @@
  */
 package byui.cit260.potterheads.control;
 
+import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import java.util.Scanner;
+import potterheads.Potterheads;
 
 /**
  *
  * @author alex
  */
 public class PolyjuiceControl {
+    protected final PrintWriter console = Potterheads.getOutFile();
 
     DecimalFormat df = new DecimalFormat("#.00");
 
@@ -38,7 +41,7 @@ public class PolyjuiceControl {
 
         double timeTransformed = (ozOfPotion * weight) / 60;
 
-        System.out.println("\nYou exchanged have brewed enough polyjuice potion to\n"
+        this.console.println("\nYou exchanged have brewed enough polyjuice potion to\n"
                 + "remain transformed for " + df.format(timeTransformed)
                 + " minutes.");
 

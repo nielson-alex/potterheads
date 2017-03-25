@@ -7,6 +7,7 @@ package byui.cit260.potterheads.view;
 
 import java.util.Scanner;
 import byui.cit260.potterheads.control.GameControl;
+import java.io.PrintWriter;
 import potterheads.Potterheads;
 
 /**
@@ -14,12 +15,18 @@ import potterheads.Potterheads;
  * @author aleecrook
  */
 public class MainMenuView extends View {
+    protected final PrintWriter console = Potterheads.getOutFile();
 
     public MainMenuView() {
-        super("\nN - New game\n"
+        super("\n"
+                + "---------------------------------\n"
+                + "|            Main Menu           |\n"
+                + "---------------------------------\n"
+                + "N - New game\n"
                 + "L - Load existing game\n"
                 + "H - Help menu\n"
                 + "G - Gameplay menu\n"
+                + "S - Save game\n"
                 + "Q - Quit");
     }
 
@@ -40,11 +47,14 @@ public class MainMenuView extends View {
             case "G":
                 this.displayGameMenu();
                 break;
+            case "S":
+                this.saveGame();
+                break;
             case "Q":
                 this.quitGame();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), "Invalid selection, try again.");
                 break;
         }
         return false;
@@ -58,7 +68,7 @@ public class MainMenuView extends View {
 
         GameControl.createNewGame(Potterheads.getPlayer());
 //        } catch(Exception e) {
-//            System.out.println(e.getMessage());
+//            this.console.println(e.getMessage());
 //        }
 
         //display game menu
@@ -68,7 +78,18 @@ public class MainMenuView extends View {
 
     // case "L"
     private void displayExistingGame() {
-        System.out.println("\n*** displayExistingGame() function called ***");
+        this.console.println("\nEnter the file path for the file of the game you want to load: ");
+        
+        String filePath = this.getInput();
+        
+        try {
+            GameControl.getSavedGame(filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuview", ex.getMessage());
+        }
+        
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
 
     }
 
@@ -80,12 +101,26 @@ public class MainMenuView extends View {
 
     // case "G"
     private void displayGameMenu() {
-        System.out.println("\n*** displayGameMenu() function called ***");
+        this.console.println("\n*** displayGameMenu() function called ***");
     }
 
-    // "case "Q"
+
+    // case "S"
+    private void saveGame() {
+        this.console.print("\nEnter the file path for the file where the game will be saved: ");
+        
+        String filePath = this.getInput();
+        
+        try {
+            GameControl.saveGame(Potterheads.getCurrentGame(), filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+    }
+    
+        // "case "Q"
     private void quitGame() {
-        System.out.println("\n*** quit game ***");
+        System.exit(0);
 
     }
 

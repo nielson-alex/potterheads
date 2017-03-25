@@ -14,23 +14,29 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import potterheads.Potterheads;
 import byui.cit260.potterheads.control.GameControl;
+import java.io.PrintWriter;
 
 /**
  *
  * @author aleecrook
  */
 public class GameMenuView extends View {
+    protected final PrintWriter console = Potterheads.getOutFile();
 
     public GameMenuView() {
         super("\nWe're still building our game. Select one of these\n"
                 + "options to test the views we're working on.\n\n"
+                + "----------------------------------\n"
+                + "|            Game Menu           |\n"
+                + "----------------------------------\n"
                 + "D - Diagon Alley\n"
                 + "P - Polyjuice Potion\n"
                 + "W - Quidditch Pitch\n"
                 + "I - View Inventory\n"
-                + "S - View Spells\n"
+                + "V - View Spells\n"
                 + "M - View Map\n"
                 + "G - Get Money\n"
+//                + "S - Save game\n"
                 + "Q - Quit");
     }
 
@@ -49,12 +55,12 @@ public class GameMenuView extends View {
                 this.openQuidditchView();
                 break;
             case "Q":
-                this.quitGameMenuView();
-                break;
+                return true;
+//                break;
             case "I":
                 this.viewInventory();
                 break;
-            case "S":
+            case "V":
                 this.viewSpells();
                 break;
             case "M":
@@ -64,7 +70,7 @@ public class GameMenuView extends View {
                 this.displayGetSpellView();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), "you must enter a value.");
                 break;
         }
         return false;
@@ -91,7 +97,7 @@ public class GameMenuView extends View {
 
 // "case "Q"
     private void quitGameMenuView() {
-        System.out.println("\n*** quit game ***");
+        this.console.println("\n*** quit game ***");
 
     }
 
@@ -103,12 +109,12 @@ public class GameMenuView extends View {
 
         ArrayList<InventoryItem> inventory = game.getTradeableInventory();
 
-        System.out.println("\n          List of Inventory Items");
+        this.console.println("\n          List of Inventory Items");
         line = new StringBuilder("                                                              ");
         line.insert(0, "NAME");
         line.insert(25, "DESCRIPTION");
         line.insert(50, "QUANTITY");
-        System.out.println(line.toString());
+        this.console.println(line.toString());
 
         //for each inventory item
         for (InventoryItem tradeableInventory : inventory) {
@@ -118,11 +124,11 @@ public class GameMenuView extends View {
             line.insert(50, tradeableInventory.getQuantityInStock());
 
             //Display the line
-            System.out.println(line.toString());
+            this.console.println(line.toString());
         }
 
         GameControl gameControl = new GameControl();
-        System.out.println("You have " + gameControl.getInventoryCount() + "/" + inventory.size() + " items.");
+        this.console.println("You have " + gameControl.getInventoryCount() + "/" + inventory.size() + " items.");
     }
 
     private void viewSpells() {
@@ -133,11 +139,11 @@ public class GameMenuView extends View {
 
         ArrayList<Spell> inventory = game.getSpellInventory();
 
-        System.out.println("\n          List of Spells Learned");
+        this.console.println("\n          List of Spells Learned");
         line = new StringBuilder("                                                              ");
         line.insert(0, "NAME");
         line.insert(25, "EFFECT");
-        System.out.println(line.toString());
+        this.console.println(line.toString());
 
         //for each inventory item
         for (Spell spellInventory : inventory) {
@@ -146,7 +152,7 @@ public class GameMenuView extends View {
             line.insert(25, spellInventory.getEffect());
 
             //Display the line
-            System.out.println(line.toString());
+            this.console.println(line.toString());
         }
     }
 
@@ -156,7 +162,7 @@ public class GameMenuView extends View {
         Map map = Potterheads.getCurrentGame().getMap();
         Location[][] locations = map.getLocations();
 
-        System.out.println("MAP");
+        this.console.println("MAP");
 
         line = new StringBuilder();
         StringBuilder hyphens = new StringBuilder();
@@ -169,8 +175,8 @@ public class GameMenuView extends View {
             hyphens.append("-----");
         }
 
-        System.out.println(line.toString());
-        System.out.println(hyphens.toString());
+        this.console.println(line.toString());
+        this.console.println(hyphens.toString());
 
         for (int rowIndex = 0; rowIndex < locations.length; rowIndex++) {
             line = new StringBuilder("");
@@ -184,8 +190,8 @@ public class GameMenuView extends View {
                 line.append(" ");
             }
             line.append("|");
-            System.out.println(line.toString());
-            System.out.println(hyphens.toString());
+            this.console.println(line.toString());
+            this.console.println(hyphens.toString());
         }
 
 //        StringBuilder line;

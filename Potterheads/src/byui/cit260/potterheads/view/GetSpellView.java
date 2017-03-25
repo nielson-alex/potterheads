@@ -11,6 +11,7 @@ import byui.cit260.potterheads.model.InventoryItem;
 import byui.cit260.potterheads.model.Player;
 import byui.cit260.potterheads.model.Spell;
 import byui.cit260.potterheads.model.Spell.SpellType;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import potterheads.Potterheads;
 
@@ -19,6 +20,7 @@ import potterheads.Potterheads;
  * @author Alex
  */
 public class GetSpellView extends View {
+    protected final PrintWriter console = Potterheads.getOutFile();
 
     public GetSpellView() {
         super("\nPress 'E' to add Expelliarmus or 'S' for Stupify");

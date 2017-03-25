@@ -10,14 +10,17 @@
 //deploy the system
 package byui.cit260.potterheads.control;
 
+import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import java.util.Scanner;
+import potterheads.Potterheads;
 
 /**
  *
  * @author alex
  */
 public class GringottsControl {
+    protected final PrintWriter console = Potterheads.getOutFile();
 
     DecimalFormat df = new DecimalFormat("#.00");
 
@@ -42,7 +45,7 @@ public class GringottsControl {
 
         double galleons = (dollars + (cents * .01)) * 0.735;
 
-        System.out.println("\nYou exchanged " + dollars + " dollars and " + cents
+        this.console.println("\nYou exchanged " + dollars + " dollars and " + cents
                 + " cents for " + df.format(galleons) + " galleons.");
 
         return galleons;

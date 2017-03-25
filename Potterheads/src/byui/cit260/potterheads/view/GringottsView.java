@@ -7,13 +7,17 @@
 package byui.cit260.potterheads.view;
 
 import byui.cit260.potterheads.control.GringottsControl;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import potterheads.Potterheads;
 
 /**
  *
  * @author Alex
  */
 public class GringottsView extends View {
+    protected final PrintWriter console = Potterheads.getOutFile();
+    
 
     public GringottsView() {
         super("\nYou enter Gringotts Bank, where an old troll behind the counter\n"
@@ -35,7 +39,7 @@ public class GringottsView extends View {
             if ("A".equals(value.toUpperCase())) {
                 this.convertUsdToGalleons(dollarsDouble, centsDouble);
             } else if (!("A".equals(value.toUpperCase())) && !("Q".equals(value.toUpperCase()))) {
-                System.out.println(pressA);
+                this.console.println(pressA);
             } else if ("Q".equals(value.toUpperCase())) {
                 return true;
             }
@@ -51,13 +55,13 @@ public class GringottsView extends View {
         String cents = ""; //value to be returned
 
         while (!done) {
-            System.out.println("\nFirst enter the number of dollars you want to convert\n"
+            this.console.println("\nFirst enter the number of dollars you want to convert\n"
                     + "(use a whole number):");
 
             dollars = keyboard.nextLine();
 
             if (dollars.length() < 1) {
-                System.out.println("\n*** Value cannot be blank ***");
+                ErrorView.display(this.getClass().getName(), "you must enter a value.");
                 continue;
             } else if ("Q".equals(dollars.toUpperCase())) {
                 return true;
@@ -67,13 +71,13 @@ public class GringottsView extends View {
 
         while (!done) {
 
-            System.out.println("\nNext enter the number of cents you want to convert\n"
+            this.console.println("\nNext enter the number of cents you want to convert\n"
                     + "(use a whole number):");
 
             cents = keyboard.nextLine();
 
             if (cents.length() < 1) {
-                System.out.println("\n*** Value cannot be blank ***");
+                ErrorView.display(this.getClass().getName(), "you must enter a value.");
                 continue;
             } else if ("Q".equals(cents.toUpperCase())) {
                 return true;

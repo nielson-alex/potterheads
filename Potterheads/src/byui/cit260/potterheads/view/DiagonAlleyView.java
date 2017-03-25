@@ -7,12 +7,15 @@ package byui.cit260.potterheads.view;
 
 import java.util.Scanner;
 import byui.cit260.potterheads.control.GringottsControl;
+import java.io.PrintWriter;
+import potterheads.Potterheads;
 
 /**
  *
  * @author aleecrook
  */
 public class DiagonAlleyView extends View {
+    protected final PrintWriter console = Potterheads.getOutFile();
 
     public DiagonAlleyView() {
         super("Select which location you would like to visit:\n\n"
@@ -54,7 +57,7 @@ public class DiagonAlleyView extends View {
                 break;
             default:
                 //Invalid Choice
-                System.out.println("That is not an option. Pick again.");
+                this.console.println("That is not an option. Pick again.");
         }
 
         return false;
@@ -62,7 +65,7 @@ public class DiagonAlleyView extends View {
     }
 
     private void leakyCauldron() {
-        System.out.println("The aroma of Butterbeer fills your nostrils. You are in the Leaky Cauldron.");
+        this.console.println("The aroma of Butterbeer fills your nostrils. You are in the Leaky Cauldron.");
     }
 
     private void gringotts() {
@@ -74,7 +77,7 @@ public class DiagonAlleyView extends View {
 //        while (error) {
 //            error = false;
 //
-//            System.out.println("A: Exchange Money\n"
+//            this.console.println("A: Exchange Money\n"
 //                    + "Q: Exit Gringotts");
 //
 //            String choice = this.getChoice();
@@ -83,10 +86,10 @@ public class DiagonAlleyView extends View {
 //                this.gringottsConversion();
 //            } else if (choice.toUpperCase().equals("Q")) {
 //                //Back to menu
-//                System.out.println("Thanks for visiting Gringotts.");
+//                this.console.println("Thanks for visiting Gringotts.");
 //            } else {
 //                error = true;
-//                System.out.println("That is not an option. Pick again.");
+//                this.console.println("That is not an option. Pick again.");
 //            }
 //
 //        }
@@ -95,22 +98,22 @@ public class DiagonAlleyView extends View {
     private void gringottsConversion() {
         GringottsControl control = new GringottsControl();
         Scanner input = new Scanner(System.in);
-        System.out.print("Enter the number of dollars(ex. 5): ");
+        this.console.print("Enter the number of dollars(ex. 5): ");
         double dollars = input.nextDouble();
-        System.out.print("Enter the number of cents with no decimal(ex. 45): ");
+        this.console.print("Enter the number of cents with no decimal(ex. 45): ");
         double cents = input.nextDouble();
-        System.out.println(control.convertUsdToGalleons(dollars, cents));
+        this.console.println(control.convertUsdToGalleons(dollars, cents));
     }
 
     private void ollivanders() {
-        System.out.println("The room is filled with boxes of wands. You are in Ollivanders.");
+        this.console.println("The room is filled with boxes of wands. You are in Ollivanders.");
     }
 
     private void knockturnAlley() {
-        System.out.println("You are surrounded by dark, dusty shops. You are in Knockturn Alley.");
+        this.console.println("You are surrounded by dark, dusty shops. You are in Knockturn Alley.");
     }
 
     private void flourishBlotts() {
-        System.out.println("Books are stacked around the room. You are in Flourish and Blotts.");
+        this.console.println("Books are stacked around the room. You are in Flourish and Blotts.");
     }
 }

@@ -5,14 +5,17 @@
  */
 package byui.cit260.potterheads.control;
 
+import java.io.PrintWriter;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import potterheads.Potterheads;
 
 /**
  *
  * @author alex
  */
 public class DiagonAlleyControlTest {
+    protected final PrintWriter console = Potterheads.getOutFile();
 
     public DiagonAlleyControlTest() {
     }
@@ -22,14 +25,14 @@ public class DiagonAlleyControlTest {
      */
     @Test
     public void testConvertUsdToGalleons() {
-        System.out.println("\tConvert USD to Galleons");
+        this.console.println("\tConvert USD to Galleons");
 
         /**
          * ***********************
          * Test Case #1
          ************************
          */
-        System.out.println("\tTest case #1");
+        this.console.println("\tTest case #1");
         // (dollars + (cents * 0.01)) * 0.735
         // input values for test case 1
         double dollars = 15.0;
@@ -51,7 +54,7 @@ public class DiagonAlleyControlTest {
          * Test Case #2
          ************************
          */
-        System.out.println("\tTest case #2");
+        this.console.println("\tTest case #2");
         // (dollars + (cents * 0.01)) * 0.735
         // input values for test case 2
         dollars = 2.0;
@@ -70,7 +73,7 @@ public class DiagonAlleyControlTest {
          * Test Case #3
          ************************
          */
-        System.out.println("\tTest case #3");
+        this.console.println("\tTest case #3");
 
         // input values for test case 3
         dollars = 900.0;
@@ -89,7 +92,7 @@ public class DiagonAlleyControlTest {
          * Test Case #4
          ************************
          */
-        System.out.println("\tTest case #4");
+        this.console.println("\tTest case #4");
 
         // input values for test case 4
         dollars = 375.0;
@@ -108,7 +111,7 @@ public class DiagonAlleyControlTest {
          * Test Case #5
          ************************
          */
-        System.out.println("\tTest case #5");
+        this.console.println("\tTest case #5");
 
         // input values for test case 5
         dollars = 50.0;
@@ -127,7 +130,7 @@ public class DiagonAlleyControlTest {
          * Test Case #6
          ************************
          */
-        System.out.println("\tTest case #6");
+        this.console.println("\tTest case #6");
 
         // input values for test case 6
         dollars = 123.0;
@@ -146,7 +149,7 @@ public class DiagonAlleyControlTest {
          * Test Case #7
          ************************
          */
-        System.out.println("\tTest case #7");
+        this.console.println("\tTest case #7");
 
         // input values for test case 7
         dollars = 5.0;

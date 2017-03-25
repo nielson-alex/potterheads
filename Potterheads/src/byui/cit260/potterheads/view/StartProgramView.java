@@ -10,14 +10,16 @@ package byui.cit260.potterheads.view;
 
 import byui.cit260.potterheads.control.GameControl;
 import byui.cit260.potterheads.model.Player;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import potterheads.Potterheads;
 
 /**
  *
  * @author Alexandra
  */
 public class StartProgramView extends View {
-
+    protected final PrintWriter console = Potterheads.getOutFile();
     private String promptMessage;
 
     public StartProgramView() {
@@ -56,15 +58,14 @@ public class StartProgramView extends View {
     @Override
     public boolean doAction(String value) {
         if (value.length() < 3) {
-            System.out.println("\nInvalid player name: "
-                    + "The name must be greater than one character in length.");
+            ErrorView.display(this.getClass().getName(), "Your name has to be at least 3 character long.");
             return false;
         }
 
         Player player = GameControl.createPlayer(value);
 
         if (player == null) { // if unsuccessful
-            System.out.println("\nError creating player.");
+            this.console.println("\nError creating player.");
             return false;
         }
 
@@ -74,7 +75,7 @@ public class StartProgramView extends View {
     }
 
     private void displayNextView(Player player) {
-        System.out.println("\nWelcome to the Game " + player.getName());
+        this.console.println("\nWelcome to the Game " + player.getName());
 
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.display();

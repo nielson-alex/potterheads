@@ -6,15 +6,18 @@
 package byui.cit260.potterheads.control;
 
 import byui.cit260.potterheads.exceptions.QuidditchControlException;
+import java.io.PrintWriter;
 import static java.lang.Double.NaN;
 import java.text.DecimalFormat;
 import java.util.Scanner;
+import potterheads.Potterheads;
 
 /**
  *
  * @author Alex
  */
 public class QuidditchControl {
+    protected final PrintWriter console = Potterheads.getOutFile();
 
     DecimalFormat df = new DecimalFormat("#.00");
 
@@ -43,7 +46,7 @@ public class QuidditchControl {
 
         double timeCatchingSnitchWithKitchenBroom = ((timeOnBroom / kitchenBroomSpeed) / 3) * 100;
 
-        System.out.println("\nIt took you " + df.format(timeCatchingSnitchWithKitchenBroom)
+        this.console.println("\nIt took you " + df.format(timeCatchingSnitchWithKitchenBroom)
                 + " seconds to catch the snitch on the kitchen broom.");
 
         return timeCatchingSnitchWithKitchenBroom;
@@ -70,7 +73,7 @@ public class QuidditchControl {
 
         double timeCatchingSnitchWithNimbus = ((timeOnBroom / nimbusSpeed) / 3) * 100;
 
-        System.out.println("\nIt took you " + df.format(timeCatchingSnitchWithNimbus)
+        this.console.println("\nIt took you " + df.format(timeCatchingSnitchWithNimbus)
                 + " seconds to catch the snitch on the Nimbus 2000.");
 
         return timeCatchingSnitchWithNimbus;
@@ -100,7 +103,7 @@ public class QuidditchControl {
 
         double timeCatchingSnitchWithFirebolt = ((timeOnBroom / fireboltSpeed) / 3) * 100;
 
-        System.out.println("\nIt took you " + df.format(timeCatchingSnitchWithFirebolt)
+        this.console.println("\nIt took you " + df.format(timeCatchingSnitchWithFirebolt)
                 + " seconds to catch the snitch on the Firebolt.");
 
         return timeCatchingSnitchWithFirebolt;
