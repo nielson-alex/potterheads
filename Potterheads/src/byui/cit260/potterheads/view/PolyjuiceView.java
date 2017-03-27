@@ -32,12 +32,10 @@ public class PolyjuiceView extends View {
         double ozOfPotionDouble = 0;
 
         while (!done) {
-            String pressC = "\n*** press 'C' to continue or 'Q' to go back ***";
-
             if ("C".equals(value.toUpperCase())) {
                 this.calcTimeTransformed(weightDouble, ozOfPotionDouble);
             } else if (!("C".equals(value.toUpperCase())) && !("Q".equals(value.toUpperCase()))) {
-                this.console.println(pressC);
+                ErrorView.display(this.getClass().getName(), "Press 'C' to continue or 'Q' to go back.");
             } else if ("Q".equals(value.toUpperCase())) {
                 return true;
             }
@@ -66,7 +64,7 @@ public class PolyjuiceView extends View {
                 try {
                     weightDouble = Double.parseDouble(weight);
                 } catch (NumberFormatException nf) {
-                    ErrorView.display(this.getClass().getName(), "you must enter a value.");
+                    ErrorView.display(this.getClass().getName(), "You must enter a valid number.");
                     continue;
                 }
             }
@@ -90,7 +88,7 @@ public class PolyjuiceView extends View {
                 try {
                     ozOfPotionDouble = Double.parseDouble(ozOfPotion);
                 } catch (NumberFormatException nf) {
-                    ErrorView.display(this.getClass().getName(), "you must enter a value.");
+                    ErrorView.display(this.getClass().getName(), "You must enter a valid number.");
                     continue;
                 }
             }

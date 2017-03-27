@@ -77,7 +77,7 @@ public class KitchenBroomView extends View {
                 try {
                     kitchenBroomSpeedDouble = Double.parseDouble(kitchenBroomSpeed);
                 } catch (NumberFormatException nf) {
-                    ErrorView.display(this.getClass().getName(), "you must enter a value.");
+                    ErrorView.display(this.getClass().getName(), "You must enter a valid number.");
                     continue;
                 }
             }
@@ -95,7 +95,7 @@ public class KitchenBroomView extends View {
                 try {
                     timeOnBroomDouble = Double.parseDouble(timeOnBroom);
                 } catch (NumberFormatException nf) {
-                    ErrorView.display(this.getClass().getName(), "you must enter a value.");
+                    ErrorView.display(this.getClass().getName(), "You must enter a valid number.");
                     continue;
                 }
             }

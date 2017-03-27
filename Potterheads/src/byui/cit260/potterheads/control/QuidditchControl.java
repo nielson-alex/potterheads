@@ -6,9 +6,11 @@
 package byui.cit260.potterheads.control;
 
 import byui.cit260.potterheads.exceptions.QuidditchControlException;
+import byui.cit260.potterheads.model.Spell;
 import java.io.PrintWriter;
 import static java.lang.Double.NaN;
 import java.text.DecimalFormat;
+import java.util.Arrays;
 import java.util.Scanner;
 import potterheads.Potterheads;
 
@@ -48,11 +50,37 @@ public class QuidditchControl {
 
         this.console.println("\nIt took you " + df.format(timeCatchingSnitchWithKitchenBroom)
                 + " seconds to catch the snitch on the kitchen broom.");
-
+        
+        
+        Spell expelliarmus = new Spell(Spell.SpellType.expelliarmus);
+        
+        if (timeCatchingSnitchWithKitchenBroom >= 200 && timeCatchingSnitchWithKitchenBroom <= 300 ) {
+            if ((Potterheads.getPlayer().getSpells()).contains(expelliarmus)) {
+                this.console.println("\nYou've already learned expelliarmus, but good job\n"
+                        + "catching the snitch!");
+            } else { 
+                Potterheads.getPlayer().getSpells().add(expelliarmus);
+                this.console.println("\nCongratulations! For catching the snitch in in under " + 
+                        df.format(timeCatchingSnitchWithKitchenBroom) + " seconds, Cedric Diggery decided\n"
+                                + "to teach you expelliarmus!");
+            }
+        } else {
+            this.console.println("\nYou caught the snitch in " + df.format(timeCatchingSnitchWithKitchenBroom) + 
+                    "seconds. That's a good time, but not quite what Cedric was looking for. Try again!");
+        }
+    
+        
+        
         return timeCatchingSnitchWithKitchenBroom;
-
-        // ((50 / 55) / 3 ) * 100 = 30.3
-        // ((50 / 89.9) / 3 ) * 100 = 18.54
+        // minimum speed = 10
+        // maximum speed = 60
+        // minimum time = 60
+        // maximum time = 60
+        // equation: ((time on broom / speed) / 3 ) * 100 = timeToCatchSnitch
+        // minimum ranges
+        //      ((60 / 10) / 3 ) * 100 = 200.0
+        // maximum ranges 
+        //      ((360 / 40) / 3 ) * 100 = 300.0
     }
 
     public double calcNimbusTime(double nimbusSpeed, double timeOnBroom)
@@ -72,16 +100,40 @@ public class QuidditchControl {
         }
 
         double timeCatchingSnitchWithNimbus = ((timeOnBroom / nimbusSpeed) / 3) * 100;
-
+        
+        Spell expelliarmus = new Spell(Spell.SpellType.expelliarmus);
+        
         this.console.println("\nIt took you " + df.format(timeCatchingSnitchWithNimbus)
                 + " seconds to catch the snitch on the Nimbus 2000.");
+        
+        if (timeCatchingSnitchWithNimbus >= 75 && timeCatchingSnitchWithNimbus <= 115 ) {
+            if ((Potterheads.getPlayer().getSpells()).contains(expelliarmus)) {
+                this.console.println("\nYou've already learned expelliarmus, but good job\n"
+                        + "catching the snitch!");
+            } else { 
+                Potterheads.getPlayer().getSpells().add(expelliarmus);
+                this.console.println("\nCongratulations! For catching the snitch in in under " + 
+                        df.format(timeCatchingSnitchWithNimbus) + " seconds, Cedric Diggery decided\n"
+                                + "to teach you expelliarmus!");
+            }
+        } else {
+            this.console.println("\nYou caught the snitch in " + df.format(timeCatchingSnitchWithNimbus) + 
+                    "seconds. That's a good time, but not quite what Cedric was looking for. Try again!");
+        }
 
         return timeCatchingSnitchWithNimbus;
 
     }
     //  ((timeOnBroom/nimbusSpeed) / 3) * 100)
-    // ((50/90) / 3) * 100 = 18.52;
-    // ((119.9) / 3) * 100 = 13.9
+    // minimum speed = 50
+    // maximum speed = 90
+    // minimum time = 60
+    // maximum time = 360
+    // equation: ((time on broom / speed) / 3 ) * 100 = timeToCatchSnitch
+    // minimum ranges
+    //      ((60 / 50) / 3 ) * 100 = 40.0
+    // maximum ranges 
+    //      ((360 / 90) / 3 ) * 100 = 133.33
 
     public double calcFireboltTime(double fireboltSpeed, double timeOnBroom)
             throws QuidditchControlException {
@@ -105,9 +157,33 @@ public class QuidditchControl {
 
         this.console.println("\nIt took you " + df.format(timeCatchingSnitchWithFirebolt)
                 + " seconds to catch the snitch on the Firebolt.");
+        
+        Spell expelliarmus = new Spell(Spell.SpellType.expelliarmus);
 
+        if (timeCatchingSnitchWithFirebolt >= 75 && timeCatchingSnitchWithFirebolt <= 115 ) {
+            if ((Potterheads.getPlayer().getSpells()).contains(expelliarmus)) {
+                this.console.println("\nYou've already learned expelliarmus, but good job\n"
+                        + "catching the snitch!");
+            } else { 
+                Potterheads.getPlayer().getSpells().add(expelliarmus);
+                this.console.println("\nCongratulations! For catching the snitch in in under " + 
+                        df.format(timeCatchingSnitchWithFirebolt) + " seconds, Cedric Diggery decided\n"
+                                + "to teach you expelliarmus!");
+            }
+        } else {
+            this.console.println("\nYou caught the snitch in " + df.format(timeCatchingSnitchWithFirebolt) + 
+                    "seconds. That's a good time, but not quite what Cedric was looking for. Try again!");
+        }
+        
         return timeCatchingSnitchWithFirebolt;
     }
-// ((50/150) / 3) * 100 = 11.11
-// ((50/120) / 3) * 100 = 13.89
+    // minimum speed = 100
+    // maximum speed = 150
+    // minimum time = 60
+    // maximum time = 360
+    // equation: ((time on broom / speed) / 3 ) * 100 = timeToCatchSnitch
+    // minimum ranges
+    //      ((60 / 100) / 3 ) * 100 = 20.0
+    // maximum ranges 
+    //      ((360 / 150) / 3 ) * 100 = 80.0
 }

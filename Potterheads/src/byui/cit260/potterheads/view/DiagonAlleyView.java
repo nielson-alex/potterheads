@@ -54,10 +54,10 @@ public class DiagonAlleyView extends View {
                 break;
             case "Q":
                 //Back to Main Menu
-                break;
+                return true;
             default:
                 //Invalid Choice
-                this.console.println("That is not an option. Pick again.");
+                ErrorView.display(this.getClass().getName(), "Invalid selection. Choose one of the items from the list.");
         }
 
         return false;

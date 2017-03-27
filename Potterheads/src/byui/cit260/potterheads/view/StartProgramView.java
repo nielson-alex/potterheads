@@ -20,7 +20,6 @@ import potterheads.Potterheads;
  */
 public class StartProgramView extends View {
     protected final PrintWriter console = Potterheads.getOutFile();
-    private String promptMessage;
 
     public StartProgramView() {
         super("\n_____________________________________________________________________________________________________________________________ \n"

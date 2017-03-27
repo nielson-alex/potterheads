@@ -35,7 +35,7 @@ public class FireboltView extends View {
         value = value.toUpperCase();
         boolean done = false;
 
-        while (!done) {
+//        while (!done) {
 //            String pressC = "\n*** Please press 'C' to continue or 'Q' to quit***";
 
             if ("C".equals(value.toUpperCase())) {
@@ -48,9 +48,11 @@ public class FireboltView extends View {
                 ErrorView.display(this.getClass().getName(), "Press 'C' to continue or 'Q' to quit");
             } else if ("Q".equals(value.toUpperCase())) {
                 return true;
+            } else if ("".equals(value.toUpperCase())) {
+                ErrorView.display(this.getClass().getName(), "Must enter a valid value.");
             }
-            break;
-        }
+//            break;
+//        }
         return false;
     }
 
@@ -76,7 +78,7 @@ public class FireboltView extends View {
                 try {
                     fireboltSpeedDouble = Double.parseDouble(fireboltSpeed);
                 } catch (NumberFormatException nf) {
-                    ErrorView.display(this.getClass().getName(), "you must enter a value.");
+                    ErrorView.display(this.getClass().getName(), "You must enter a valid number.");
                     continue;
                 }
             }
@@ -94,7 +96,7 @@ public class FireboltView extends View {
                 try {
                     timeOnBroomDouble = Double.parseDouble(timeOnBroom);
                 } catch (NumberFormatException nf) {
-                    ErrorView.display(this.getClass().getName(), "you must enter a value.");
+                    ErrorView.display(this.getClass().getName(), "You must enter a valid number.");
                     continue;
                 }
             }

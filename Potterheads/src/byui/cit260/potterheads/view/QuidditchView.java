@@ -53,7 +53,7 @@ public class QuidditchView extends View {
                 return true;
 //                break;
             default:
-                ErrorView.display(this.getClass().getName(), "you must enter a value.");
+                ErrorView.display(this.getClass().getName(), "Invalid selection. Choose one of the items from the list.");
                 break;
         }
         return false;

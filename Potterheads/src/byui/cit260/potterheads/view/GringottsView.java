@@ -16,13 +16,13 @@ import potterheads.Potterheads;
  * @author Alex
  */
 public class GringottsView extends View {
+
     protected final PrintWriter console = Potterheads.getOutFile();
-    
 
     public GringottsView() {
         super("\nYou enter Gringotts Bank, where an old troll behind the counter\n"
                 + "asks you if you would like to make any currency exchanges.\n\n"
-                + "A: Exchange Money:\n"
+                + "E: Exchange Money:\n"
                 + "Q: Exit;");
     }
 
@@ -34,12 +34,11 @@ public class GringottsView extends View {
         double centsDouble = 0;
 
         while (!done) {
-            String pressA = "\n*** press 'A' to exchange currency or 'Q' to quit ***";
 
-            if ("A".equals(value.toUpperCase())) {
+            if ("E".equals(value.toUpperCase())) {
                 this.convertUsdToGalleons(dollarsDouble, centsDouble);
-            } else if (!("A".equals(value.toUpperCase())) && !("Q".equals(value.toUpperCase()))) {
-                this.console.println(pressA);
+            } else if (!("E".equals(value.toUpperCase())) && !("Q".equals(value.toUpperCase()))) {
+                ErrorView.display(this.getClass().getName(), "Press 'E' to exchange money or 'Q' to quit.");
             } else if ("Q".equals(value.toUpperCase())) {
                 return true;
             }
@@ -61,12 +60,19 @@ public class GringottsView extends View {
             dollars = keyboard.nextLine();
 
             if (dollars.length() < 1) {
-                ErrorView.display(this.getClass().getName(), "you must enter a value.");
+                ErrorView.display(this.getClass().getName(), "You must enter a value.");
                 continue;
             } else if ("Q".equals(dollars.toUpperCase())) {
                 return true;
+            } else {
+                try {
+                    dollarsDouble = Double.parseDouble(dollars);
+                } catch (NumberFormatException nf) {
+                    ErrorView.display(this.getClass().getName(), "You must enter a valid number.");
+                    continue;
+                }
+                break;
             }
-            break;
         }
 
         while (!done) {
@@ -77,16 +83,18 @@ public class GringottsView extends View {
             cents = keyboard.nextLine();
 
             if (cents.length() < 1) {
-                ErrorView.display(this.getClass().getName(), "you must enter a value.");
+                ErrorView.display(this.getClass().getName(), "You must enter a value.");
                 continue;
-            } else if ("Q".equals(cents.toUpperCase())) {
-                return true;
+            } else {
+                try {
+                    centsDouble = Double.parseDouble(cents);
+                } catch (NumberFormatException nf) {
+                    ErrorView.display(this.getClass().getName(), "You must enter a valid number.");
+                    continue;
+                }
             }
             break;
         }
-
-        dollarsDouble = Double.parseDouble(dollars);
-        centsDouble = Double.parseDouble(cents);
 
         GringottsControl diagonAlleyControl = new GringottsControl();
         diagonAlleyControl.convertUsdToGalleons(dollarsDouble, centsDouble);

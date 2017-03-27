@@ -29,13 +29,9 @@ public class GameMenuView extends View {
                 + "----------------------------------\n"
                 + "|            Game Menu           |\n"
                 + "----------------------------------\n"
-                + "D - Diagon Alley\n"
-                + "P - Polyjuice Potion\n"
-                + "W - Quidditch Pitch\n"
                 + "I - View Inventory\n"
                 + "V - View Spells\n"
                 + "M - View Map\n"
-                + "G - Get Money\n"
 //                + "S - Save game\n"
                 + "Q - Quit");
     }
@@ -45,15 +41,6 @@ public class GameMenuView extends View {
         choice = choice.toUpperCase();
 
         switch (choice) {
-            case "D":
-                this.openDiagonAlleyView();
-                break;
-            case "P":
-                this.openPolyjuiceView();
-                break;
-            case "W":
-                this.openQuidditchView();
-                break;
             case "Q":
                 return true;
 //                break;
@@ -70,35 +57,10 @@ public class GameMenuView extends View {
                 this.displayGetSpellView();
                 break;
             default:
-                ErrorView.display(this.getClass().getName(), "you must enter a value.");
+                ErrorView.display(this.getClass().getName(), "Invalid selection. Choose one of the items from the list.");
                 break;
         }
         return false;
-
-    }
-
-    // case "D"
-    private void openDiagonAlleyView() {
-        DiagonAlleyView diagonAlleyView = new DiagonAlleyView();
-        diagonAlleyView.display();
-    }
-
-    // case "P"
-    private void openPolyjuiceView() {
-        PolyjuiceView polyjuiceView = new PolyjuiceView();
-        polyjuiceView.display();
-    }
-
-    // case "W"
-    private void openQuidditchView() {
-        QuidditchView quidditchView = new QuidditchView();
-        quidditchView.display();
-    }
-
-// "case "Q"
-    private void quitGameMenuView() {
-        this.console.println("\n*** quit game ***");
-
     }
 
     private void viewInventory() {
@@ -157,48 +119,16 @@ public class GameMenuView extends View {
     }
 
     private void displayMap() {
-        StringBuilder line;
-
-        Map map = Potterheads.getCurrentGame().getMap();
-        Location[][] locations = map.getLocations();
-
-        this.console.println("MAP");
-
-        line = new StringBuilder();
-        StringBuilder hyphens = new StringBuilder();
-        line.append("  ");
-        hyphens.append("  ");
-
-        for (int i = 1; i <= locations.length; i++) {
-            line.append(i);
-            line.append("    ");
-            hyphens.append("-----");
+        MapView mapView = new MapView();
+        mapView.display();
+        
+        boolean validAction = false;
+        while (!validAction) {
+            validAction = mapView.doAction(mapView.getInput());
         }
+        
 
-        this.console.println(line.toString());
-        this.console.println(hyphens.toString());
 
-        for (int rowIndex = 0; rowIndex < locations.length; rowIndex++) {
-            line = new StringBuilder("");
-            line.append(rowIndex + 1);
-
-            Location[] row = locations[rowIndex];
-
-            for (Location column : row) {
-                line.append("| ");
-                line.append(column.getScene().getMapSymbol());
-                line.append(" ");
-            }
-            line.append("|");
-            this.console.println(line.toString());
-            this.console.println(hyphens.toString());
-        }
-
-//        StringBuilder line;
-//        
-//        int[][] locations = Map.getLocations();
-//        
-//        for (Location)
     }
 
     private void displayGetSpellView() {
