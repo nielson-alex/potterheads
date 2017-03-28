@@ -39,6 +39,7 @@ public class GameMenuView extends View {
                 + "I - View Inventory\n"
                 + "V - View Spells\n"
                 + "M - View Map\n"
+                + "R - Print Spells report\n"
 //                + "S - Save game\n"
                 + "Q - Quit");
     }
@@ -68,6 +69,10 @@ public class GameMenuView extends View {
                 break;
             case "L":
                 this.location();
+                break;
+            case "R":
+                SpellReportView spellReport = new SpellReportView();
+                spellReport.display();
                 break;
             default:
                 ErrorView.display(this.getClass().getName(), "Invalid selection. Choose one of the items from the list.");
