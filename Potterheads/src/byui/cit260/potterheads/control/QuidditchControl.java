@@ -6,6 +6,7 @@
 package byui.cit260.potterheads.control;
 
 import byui.cit260.potterheads.exceptions.QuidditchControlException;
+import byui.cit260.potterheads.model.InventoryItem;
 import byui.cit260.potterheads.model.Spell;
 import java.io.PrintWriter;
 import static java.lang.Double.NaN;
@@ -52,14 +53,14 @@ public class QuidditchControl {
                 + " seconds to catch the snitch on the kitchen broom.");
         
         
-        Spell expelliarmus = new Spell(Spell.SpellType.expelliarmus);
+        InventoryItem snitch = new InventoryItem(InventoryItem.InventoryItemType.snitch);
         
         if (timeCatchingSnitchWithKitchenBroom >= 200 && timeCatchingSnitchWithKitchenBroom <= 300 ) {
-            if ((Potterheads.getPlayer().getSpells()).contains(expelliarmus)) {
+            if ((Potterheads.getPlayer().getInventoryItems()).contains(snitch)) {
                 this.console.println("\nYou've already learned expelliarmus, but good job\n"
                         + "catching the snitch!");
             } else { 
-                Potterheads.getPlayer().getSpells().add(expelliarmus);
+                Potterheads.getPlayer().getInventoryItems().add(snitch);
                 this.console.println("\nCongratulations! For catching the snitch in in under " + 
                         df.format(timeCatchingSnitchWithKitchenBroom) + " seconds, Cedric Diggery decided\n"
                                 + "to teach you expelliarmus!");
@@ -101,17 +102,17 @@ public class QuidditchControl {
 
         double timeCatchingSnitchWithNimbus = ((timeOnBroom / nimbusSpeed) / 3) * 100;
         
-        Spell expelliarmus = new Spell(Spell.SpellType.expelliarmus);
-        
         this.console.println("\nIt took you " + df.format(timeCatchingSnitchWithNimbus)
                 + " seconds to catch the snitch on the Nimbus 2000.");
         
+        InventoryItem snitch = new InventoryItem(InventoryItem.InventoryItemType.snitch);
+        
         if (timeCatchingSnitchWithNimbus >= 75 && timeCatchingSnitchWithNimbus <= 115 ) {
-            if ((Potterheads.getPlayer().getSpells()).contains(expelliarmus)) {
+            if ((Potterheads.getPlayer().getInventoryItems()).contains(snitch)) {
                 this.console.println("\nYou've already learned expelliarmus, but good job\n"
                         + "catching the snitch!");
             } else { 
-                Potterheads.getPlayer().getSpells().add(expelliarmus);
+                Potterheads.getPlayer().getInventoryItems().add(snitch);
                 this.console.println("\nCongratulations! For catching the snitch in in under " + 
                         df.format(timeCatchingSnitchWithNimbus) + " seconds, Cedric Diggery decided\n"
                                 + "to teach you expelliarmus!");
@@ -158,14 +159,14 @@ public class QuidditchControl {
         this.console.println("\nIt took you " + df.format(timeCatchingSnitchWithFirebolt)
                 + " seconds to catch the snitch on the Firebolt.");
         
-        Spell expelliarmus = new Spell(Spell.SpellType.expelliarmus);
-
-        if (timeCatchingSnitchWithFirebolt >= 75 && timeCatchingSnitchWithFirebolt <= 115 ) {
-            if ((Potterheads.getPlayer().getSpells()).contains(expelliarmus)) {
+        InventoryItem snitch = new InventoryItem(InventoryItem.InventoryItemType.snitch);
+        
+        if (timeCatchingSnitchWithFirebolt >= 30 && timeCatchingSnitchWithFirebolt <= 60 ) {
+            if ((Potterheads.getPlayer().getInventoryItems()).contains(snitch)) {
                 this.console.println("\nYou've already learned expelliarmus, but good job\n"
                         + "catching the snitch!");
             } else { 
-                Potterheads.getPlayer().getSpells().add(expelliarmus);
+                Potterheads.getPlayer().getInventoryItems().add(snitch);
                 this.console.println("\nCongratulations! For catching the snitch in in under " + 
                         df.format(timeCatchingSnitchWithFirebolt) + " seconds, Cedric Diggery decided\n"
                                 + "to teach you expelliarmus!");

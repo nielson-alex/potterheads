@@ -18,7 +18,7 @@ public class Player implements Serializable {
 
     private String name;
     private Point coordinates;
-    private ArrayList<Spell> spells;
+    public ArrayList<Spell> spells;
     private ArrayList<InventoryItem> inventoryItems;
 
     // constructor Function

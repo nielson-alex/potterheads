@@ -39,6 +39,8 @@ public class GameControl {
         Game game = new Game();
         Potterheads.setCurrentGame(game);
 
+        ArrayList<Spell> inventory = game.getSpellInventory();
+
         game.setPlayer(player);
 
         //create the inventory list and save inthe game
@@ -66,6 +68,17 @@ public class GameControl {
             ObjectOutputStream output = new ObjectOutputStream(fops);
             
             output.writeObject(game);
+        } catch (Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+    }
+    
+    public static void print(ArrayList<InventoryItem> tradeableInventoryList, String filepath) 
+            throws GameControlException {
+        try (FileOutputStream fops = new FileOutputStream(filepath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(tradeableInventoryList);
         } catch (Exception e) {
             throw new GameControlException(e.getMessage());
         }

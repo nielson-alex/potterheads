@@ -30,6 +30,7 @@ public class Game implements Serializable {
     //Create cardinalities of many
     private ArrayList<InventoryItem> tradeableInventory = new ArrayList<>();
     private ArrayList<Spell> spellInventory = new ArrayList<>();
+    private ArrayList<Scene> sceneType = new ArrayList<>();
 
     //Create cardinalities of many
     //    private InventoryItems inventoryItems;
@@ -110,18 +111,27 @@ public class Game implements Serializable {
         this.character = character;
     }
 
+    public ArrayList<Scene> getSceneType() {
+        return sceneType;
+    }
+
+    public void setSceneType(ArrayList<Scene> sceneType) {
+        this.sceneType = sceneType;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 67 * hash + this.numberOfPlayers;
-        hash = 67 * hash + Objects.hashCode(this.diagonAlley);
-        hash = 67 * hash + Objects.hashCode(this.polyjuice);
-        hash = 67 * hash + Objects.hashCode(this.quidditch);
-        hash = 67 * hash + Objects.hashCode(this.map);
-        hash = 67 * hash + Objects.hashCode(this.player);
-        hash = 67 * hash + Objects.hashCode(this.tradeableInventory);
-        hash = 67 * hash + Objects.hashCode(this.spellInventory);
-        hash = 67 * hash + Arrays.deepHashCode(this.character);
+        hash = 37 * hash + this.numberOfPlayers;
+        hash = 37 * hash + Objects.hashCode(this.diagonAlley);
+        hash = 37 * hash + Objects.hashCode(this.polyjuice);
+        hash = 37 * hash + Objects.hashCode(this.quidditch);
+        hash = 37 * hash + Objects.hashCode(this.map);
+        hash = 37 * hash + Objects.hashCode(this.player);
+        hash = 37 * hash + Objects.hashCode(this.tradeableInventory);
+        hash = 37 * hash + Objects.hashCode(this.spellInventory);
+        hash = 37 * hash + Objects.hashCode(this.sceneType);
+        hash = 37 * hash + Arrays.deepHashCode(this.character);
         return hash;
     }
 
@@ -161,6 +171,9 @@ public class Game implements Serializable {
         if (!Objects.equals(this.spellInventory, other.spellInventory)) {
             return false;
         }
+        if (!Objects.equals(this.sceneType, other.sceneType)) {
+            return false;
+        }
         if (!Arrays.deepEquals(this.character, other.character)) {
             return false;
         }
@@ -169,7 +182,7 @@ public class Game implements Serializable {
 
     @Override
     public String toString() {
-        return "Game{" + "numberOfPlayers=" + numberOfPlayers + ", diagonAlley=" + diagonAlley + ", polyjuice=" + polyjuice + ", quidditch=" + quidditch + ", map=" + map + ", player=" + player + ", tradeableInventory=" + tradeableInventory + ", spellInventory=" + spellInventory + ", character=" + character + '}';
+        return "Game{" + "numberOfPlayers=" + numberOfPlayers + ", diagonAlley=" + diagonAlley + ", polyjuice=" + polyjuice + ", quidditch=" + quidditch + ", map=" + map + ", player=" + player + ", tradeableInventory=" + tradeableInventory + ", spellInventory=" + spellInventory + ", sceneType=" + sceneType + ", character=" + character + '}';
     }
 
 }

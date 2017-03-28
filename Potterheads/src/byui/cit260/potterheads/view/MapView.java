@@ -89,19 +89,19 @@ public class MapView extends View {
         value = value.toUpperCase();
         
         switch (value) {
-            case "DA":
+            case "1":
                 DiagonAlleyView diagonAlleyView = new DiagonAlleyView();
                 diagonAlleyView.display();
                 break;
-            case "PJ":
+            case "2":
                 PolyjuiceView polyjuiceView = new PolyjuiceView();
                 polyjuiceView.display();
                 break;
-            case "QP":
+            case "3":
                 QuidditchView quidditchView = new QuidditchView();
                 quidditchView.display();
                 break;
-            case "HH":
+            case "4":
                 GetSpellView getSpellView = new GetSpellView();
                 getSpellView.display();
                 break;

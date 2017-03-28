@@ -79,7 +79,7 @@ public class GetSpellView extends View {
 //        InventoryItem[] inventory = game.getInventory();
 
         ArrayList<Spell> inventory = game.getSpellInventory();
-
+        
         this.console.println("\n          List of Spells Learned");
         line = new StringBuilder("                                                              ");
         line.insert(0, "NAME");
