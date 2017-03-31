@@ -69,41 +69,10 @@ public class DiagonAlleyView extends View {
     }
 
     private void gringotts() {
-
         GringottsView gringottsView = new GringottsView();
         gringottsView.display();
-
-//        boolean error = true;
-//        while (error) {
-//            error = false;
-//
-//            this.console.println("A: Exchange Money\n"
-//                    + "Q: Exit Gringotts");
-//
-//            String choice = this.getChoice();
-//            if (choice.toUpperCase().equals("A")) {
-//                //get conversion values
-//                this.gringottsConversion();
-//            } else if (choice.toUpperCase().equals("Q")) {
-//                //Back to menu
-//                this.console.println("Thanks for visiting Gringotts.");
-//            } else {
-//                error = true;
-//                this.console.println("That is not an option. Pick again.");
-//            }
-//
-//        }
     }
 
-    private void gringottsConversion() {
-        GringottsControl control = new GringottsControl();
-        Scanner input = new Scanner(System.in);
-        this.console.print("Enter the number of dollars(ex. 5): ");
-        double dollars = input.nextDouble();
-        this.console.print("Enter the number of cents with no decimal(ex. 45): ");
-        double cents = input.nextDouble();
-        this.console.println(control.convertUsdToGalleons(dollars, cents));
-    }
 
     private void ollivanders() {
         this.console.println("The room is filled with boxes of wands. You are in Ollivanders.");

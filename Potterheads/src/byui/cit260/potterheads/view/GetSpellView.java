@@ -23,12 +23,7 @@ public class GetSpellView extends View {
     protected final PrintWriter console = Potterheads.getOutFile();
 
     public GetSpellView() {
-        super("\nHagid greets you at the door to his shack.\n"
-                + "''ey there!' he greets you. 'I know bein' a new student can\n"
-                + "be tough, so how's about I teach you a spell, jus' ta give\n"
-                + "you the hang of it?' he asks. 'I only know a couple o' spells\n"
-                + "but if ya want, I can teach you expelliarmus or stupify. Which\n"
-                + "one sounds good to ya?'\n\n"
+        super("\n"
                 + "E - Learn expelliarmus\n"
                 + "S - Learn stupify\n\n"
                 + "(press 'Q' to return'");

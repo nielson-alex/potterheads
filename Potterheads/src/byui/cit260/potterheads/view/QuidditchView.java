@@ -20,19 +20,8 @@ public class QuidditchView extends View {
     protected final PrintWriter console = Potterheads.getOutFile();
 
     public QuidditchView() {
-        super("\n'Hey,'" + Potterheads.getPlayer().getName() + "!' You hear a voice\n"
-                + "call your name from across the quidditch pitch. You look up to see\n"
-                + "Cedric Diggery greeting you."
-                + "'So you want to try your hand at Quidditch? Well, I'm afraid that\n"
-                + "all of the positions on the team are already filled. I'll tell you\n"
-                + "what though, if you can can fly one of the brooms and catch the\n"
-                + "snitch in a certain amount of time, I'll let you keep it. How does\n"
-                + "that sound?' He asks.\n"
-                + "He gestures across the Hogwards quidditch field to the opposite wall, where\n"
-                + "you see a long rack containing dozens of different types of brooms.\n"
-                + "'You can choose to ride a Nimbus 2000 or a Firebolt. Or if you're feeling\n"
-                + "really confident, see you if you can catch the snith on a kitchen broom.'\n\n"
-                + "Pick a broom you would like to fly:.\n\n"
+        super("\n"
+                + "Pick a broom you would like to fly:\n\n"
                 + "N - Nimbus 2000\n"
                 + "F - Firebolt\n"
                 + "K - Kitchen Broom\n"

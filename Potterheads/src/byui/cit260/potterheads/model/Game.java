@@ -32,6 +32,7 @@ public class Game implements Serializable {
     private ArrayList<Spell> spellInventory = new ArrayList<>();
     private ArrayList<Scene> sceneType = new ArrayList<>();
 
+
     //Create cardinalities of many
     //    private InventoryItems inventoryItems;
     private Character[] character;

@@ -11,6 +11,7 @@ package byui.cit260.potterheads.view;
  */
 import java.util.Scanner;
 import byui.cit260.potterheads.control.PolyjuiceControl;
+import byui.cit260.potterheads.exceptions.PolyjuiceControlException;
 import java.io.PrintWriter;
 import potterheads.Potterheads;
 
@@ -18,64 +19,39 @@ public class PolyjuiceView extends View {
     protected final PrintWriter console = Potterheads.getOutFile();
 
     public PolyjuiceView() {
-        super("\nYou're in the potions laboratory where you have access to all of\n"
-                + "the potions. Would like to brew the polyjuice potion now?\n"
-                + "asks you if you would like to make any currency exchanges.\n\n"
+        super("\nEnter your weight in pounds: \n"
                 + "(press 'C' to continue or 'Q' to go back");
     }
 
     @Override
-    public boolean doAction(String value) {
+    public boolean doAction(String value) 
+        throws NumberFormatException {
         value = value.toUpperCase();
         boolean done = false;
+        
+        Scanner keyboard = new Scanner(System.in);
+        String weight = value;
+        String ozOfPotion = ""; //value to be returned
         double weightDouble = 0;
         double ozOfPotionDouble = 0;
 
         while (!done) {
-            if ("C".equals(value.toUpperCase())) {
-                this.calcTimeTransformed(weightDouble, ozOfPotionDouble);
-            } else if (!("C".equals(value.toUpperCase())) && !("Q".equals(value.toUpperCase()))) {
-                ErrorView.display(this.getClass().getName(), "Press 'C' to continue or 'Q' to go back.");
-            } else if ("Q".equals(value.toUpperCase())) {
-                return true;
-            }
-            break;
-        }
-        return false;
-    }
-
-    private boolean calcTimeTransformed(double weightDouble, double ozOfPotionDouble) {
-        boolean done = false;
-        Scanner keyboard = new Scanner(System.in);
-        String weight = "";
-        String ozOfPotion = ""; //value to be returned
-
-        while (!done) {
-            this.console.println("\nFirst enter your weight:\n");
-
-            weight = keyboard.nextLine();
-
-            if (weight.length() < 1) {
-                ErrorView.display(this.getClass().getName(), "you must enter a value.");
-                continue;
-            } else if ("Q".equals(weight.toUpperCase())) {
+            if ("Q".equals(weight.toUpperCase())) {
                 return true;
             } else {
                 try {
                     weightDouble = Double.parseDouble(weight);
                 } catch (NumberFormatException nf) {
                     ErrorView.display(this.getClass().getName(), "You must enter a valid number.");
-                    continue;
+                    return false;
                 }
+            
             }
             break;
         }
 
         while (!done) {
-
-            this.console.println("\nNext enter the number of fluid ounces of polyjuice\n"
-                    + "potion you that you want to brew (remember that your flask\n"
-                    + "can only hold up 5 ounces of liquid):");
+            this.console.println("\nNow enter the volume of potion you want to make in ounces:\n");
 
             ozOfPotion = keyboard.nextLine();
 
@@ -95,6 +71,17 @@ public class PolyjuiceView extends View {
             break;
         }
 
+        try {
+            this.calcPotionBrewed(weightDouble, ozOfPotionDouble);
+        } catch (PolyjuiceControlException ex) {
+            this.console.println(ex.getMessage());
+        }
+        
+        return true;
+    }
+        
+    private boolean calcPotionBrewed(double weightDouble, double ozOfPotionDouble) 
+        throws PolyjuiceControlException {
         PolyjuiceControl polyjuiceControl = new PolyjuiceControl();
         polyjuiceControl.calcTimeTransformed(weightDouble, ozOfPotionDouble);
 

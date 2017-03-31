@@ -10,6 +10,8 @@ import byui.cit260.potterheads.control.QuidditchControl;
 import byui.cit260.potterheads.exceptions.QuidditchControlException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import potterheads.Potterheads;
 
 /**
@@ -17,6 +19,7 @@ import potterheads.Potterheads;
  * @author Alex
  */
 public class NimbusView extends View {
+
     protected final PrintWriter console = Potterheads.getOutFile();
 
     public NimbusView() {
@@ -25,69 +28,48 @@ public class NimbusView extends View {
                 + "of 50 miles per hour and a maximum speed of 90 miles per hour.\n"
                 + "The goal is try to catch the golden\n"
                 + "snitch between 1 and 3 minutes. Good luck!\n\n"
-                + "(press 'C' to continue or 'Q' to quit)");
+                + "First, enter the speed that you want to fly in miles per hour:\n"
+                + "(press 'Q' to quit)");
     }
 
     @Override
-    public boolean doAction(String value) {
+    public boolean doAction(String value)
+            throws NumberFormatException {
+
         value = value.toUpperCase();
-        boolean done = false;
 
-        while (!done) {
-//            String pressC = "\n*** Please press 'C' to continue or 'Q' to quit***";
-
-            if ("C".equals(value.toUpperCase())) {
-                try {
-                    this.getInputs();
-                } catch (QuidditchControlException ne) {
-                    this.console.println(ne.getMessage());
-                }
-            } else if (!("C".equals(value.toUpperCase())) && !("Q".equals(value.toUpperCase()))) {
-                ErrorView.display(this.getClass().getName(), "Press 'C' to continue or 'Q' to quit.");
-            } else if ("Q".equals(value.toUpperCase())) {
-                return true;
-            }
-            break;
-        }
-        return false;
-    }
-
-    public void getInputs()
-            throws QuidditchControlException {
         boolean done = false;
         Scanner keyboard = new Scanner(System.in);
 
-        String nimbusSpeed = "";
+        String nimbusSpeed = value;
         double nimbusSpeedDouble = 0;
         String timeOnBroom = "";
         double timeOnBroomDouble = 0;
 
         while (!done) {
-            this.console.println("\nFirst enter the speed you want to go in miles per"
-                    + " hour.");
-
-            nimbusSpeed = keyboard.nextLine();
+//            String pressC = "\n*** Please press 'C' to continue or 'Q' to quit***";
 
             if ("Q".equals(nimbusSpeed.toUpperCase())) {
-                return;
+                return true;
             } else {
                 try {
                     nimbusSpeedDouble = Double.parseDouble(nimbusSpeed);
                 } catch (NumberFormatException nf) {
                     ErrorView.display(this.getClass().getName(), "You must enter a valid number.");
-                    continue;
+                    return false;
                 }
             }
             break;
         }
 
         while (!done) {
-            this.console.println("\nNext enter the amount of time you want to fly in seconds.");
+            this.console.println("\nNext, enter the amount of time you want to fly (in seconds): "
+                    + " hour.");
 
             timeOnBroom = keyboard.nextLine();
 
             if ("Q".equals(timeOnBroom.toUpperCase())) {
-                return;
+                return true;
             } else {
                 try {
                     timeOnBroomDouble = Double.parseDouble(timeOnBroom);
@@ -97,9 +79,14 @@ public class NimbusView extends View {
                 }
             }
             break;
-
         }
-        this.calculateQuidditchControl(nimbusSpeedDouble, timeOnBroomDouble);
+
+        try {
+            this.calculateQuidditchControl(nimbusSpeedDouble, timeOnBroomDouble);
+        } catch (QuidditchControlException ex) {
+            this.console.println(ex.getMessage());
+        }
+        return true;
     }
 
     private boolean calculateQuidditchControl(double nimbusSpeedDouble, double timeOnBroomDouble)

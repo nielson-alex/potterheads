@@ -10,6 +10,8 @@
 //deploy the system
 package byui.cit260.potterheads.control;
 
+import byui.cit260.potterheads.exceptions.GringottsControlException;
+import byui.cit260.potterheads.exceptions.PolyjuiceControlException;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import java.util.Scanner;
@@ -19,28 +21,29 @@ import potterheads.Potterheads;
  *
  * @author alex
  */
-public class GringottsControl {
+public class GringottsControl extends Exception {
     protected final PrintWriter console = Potterheads.getOutFile();
 
     DecimalFormat df = new DecimalFormat("#.00");
 
     Scanner inFile;
 
-    public double convertUsdToGalleons(double dollars, double cents) {
+    public double convertUsdToGalleons(double dollars, double cents) 
+            throws GringottsControlException {
         if (dollars < 5) {
-            return -1;
+            throw new GringottsControlException("\nYou need to exchange at least 5 USD.");
         }
 
         if (dollars > 500) {
-            return -2;
+            throw new GringottsControlException("\nYou don't have that much money.");
         }
 
-        if (cents <= 0) {
-            return -3;
+        if (cents < 0) {
+            throw new GringottsControlException("\nYou can't exchange negative cents.");
         }
 
         if (cents >= 100) {
-            return -4;
+            throw new GringottsControlException("\nThat would just another dollar.");
         }
 
         double galleons = (dollars + (cents * .01)) * 0.735;

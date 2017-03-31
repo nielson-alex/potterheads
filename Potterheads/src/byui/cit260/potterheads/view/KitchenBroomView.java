@@ -19,6 +19,7 @@ import potterheads.Potterheads;
  * @author Alex
  */
 public class KitchenBroomView extends View {
+
     protected final PrintWriter console = Potterheads.getOutFile();
 
     public KitchenBroomView() {
@@ -35,10 +36,11 @@ public class KitchenBroomView extends View {
     }
 
     @Override
-    public boolean doAction(String value) 
-        throws NumberFormatException {
+    public boolean doAction(String value)
+            throws NumberFormatException {
+
         value = value.toUpperCase();
-        
+
         boolean done = false;
         Scanner keyboard = new Scanner(System.in);
 
@@ -84,7 +86,7 @@ public class KitchenBroomView extends View {
         } catch (QuidditchControlException ex) {
             this.console.println(ex.getMessage());
         }
-        return false;
+        return true;
     }
 
     private boolean calculateQuidditchControl(double kitchenBroomSpeedDouble, double timeOnBroomDouble)

@@ -5,6 +5,8 @@
  */
 package byui.cit260.potterheads.control;
 
+import byui.cit260.potterheads.exceptions.PolyjuiceControlException;
+import byui.cit260.potterheads.exceptions.QuidditchControlException;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import java.util.Scanner;
@@ -21,22 +23,23 @@ public class PolyjuiceControl {
 
     Scanner inFile;
 
-    public double calcTimeTransformed(double weight, double ozOfPotion) {
+    public double calcTimeTransformed(double weight, double ozOfPotion) 
+            throws PolyjuiceControlException {
 
         if (weight < 90) {
-            return -1;
+            throw new PolyjuiceControlException("\nYou need to weight at least 90 pounds for this to work.");
         }
 
         if (weight > 300) {
-            return -2;
+            throw new PolyjuiceControlException("\nYour flask can only hold 5 ounces and 5 ounces of potion won't accomodate that weight.");
         }
 
         if (ozOfPotion < 1) {
-            return -3;
+            throw new PolyjuiceControlException("\nYou need at least one ounce of potion for this to work.");
         }
 
         if (ozOfPotion > 5) {
-            return -4;
+            throw new PolyjuiceControlException("\nYour flask won't hold that much.");
         }
 
         double timeTransformed = (ozOfPotion * weight) / 60;

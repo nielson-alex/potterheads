@@ -19,12 +19,35 @@ public class Scene implements Serializable {
     private String mapSymbol;
 
     public enum SceneType {
-        start,
-        finish,
-        puzzle,
-        character,
-        item,
-        unknown;
+    /*01*/  start, //Hogwarts Great Hall
+            unknown,
+            puzzle,
+            character,
+            item,
+    /*02*/
+    /*03*/  knockTurnAlley,
+    /*04*/
+    /*05*/
+    /*06*/  quidditchPitch,  
+    /*07*/  leakyCauldron,
+    /*08*/    
+    /*09*/  dumbledoresOffice,
+    /*10*/  
+    /*11*/  flourishAndBlotts,
+    /*12*/  polyjuice,
+    /*13*/
+    /*14*/  gringottsBank,
+    /*15*/
+    /*16*/  darkArtsClassroom,
+    /*17*/
+    /*18*/
+    /*19*/  diagonAlley,
+    /*20*/
+    /*21*/  ollivanders,
+    /*22*/
+    /*23*/  hagridsHouse,
+    /*24*/
+    /*25*/  finish;
     }
 
     //constructor function

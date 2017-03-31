@@ -7,6 +7,9 @@ package byui.cit260.potterheads.view;
 
 import java.util.Scanner;
 import byui.cit260.potterheads.control.GameControl;
+import byui.cit260.potterheads.model.Location;
+import byui.cit260.potterheads.model.Scene;
+import java.awt.Point;
 import java.io.PrintWriter;
 import potterheads.Potterheads;
 
@@ -70,6 +73,10 @@ public class MainMenuView extends View {
 //        } catch(Exception e) {
 //            this.console.println(e.getMessage());
 //        }
+        Point loc = Potterheads.getPlayer().getCoordinates();
+        Location[][] map = Potterheads.getCurrentGame().getMap().getLocations();
+        Location location = map[loc.x][loc.y];
+        this.console.println(location.getScene().getDescription());
 
         //display game menu
         GameMenuView gameMenu = new GameMenuView();

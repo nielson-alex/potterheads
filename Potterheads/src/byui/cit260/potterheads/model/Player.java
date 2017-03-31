@@ -26,7 +26,11 @@ public class Player implements Serializable {
         this.name = name;
         this.spells = new ArrayList<>();
         this.inventoryItems = new ArrayList<>();
-        coordinates = new Point(1, 1);
+        coordinates = new Point(0, 0);
+    }
+
+    public void movePlayer(Point point) {
+        this.coordinates = point;
     }
 
     // Getter and setter functions
@@ -44,6 +48,10 @@ public class Player implements Serializable {
 
     public ArrayList<InventoryItem> getInventoryItems() {
         return this.inventoryItems;
+    }
+
+    public Point getCoordinates() {
+        return coordinates;
     }
 
     public boolean hasLearnedSpell(Spell.SpellType spellType) {
