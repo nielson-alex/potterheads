@@ -26,7 +26,9 @@ public class InventoryItem {
         americanMoney,
         gillyweed,
         firecrackers,
-        replacementWand;
+        replacementWand,
+        gun,
+        chocolateFrogs;
     }
 
     //constructor function
@@ -38,28 +40,28 @@ public class InventoryItem {
 
         switch (inventoryItemType) {
             case snitch:
-                this.name = "Expelliarmus";
+                this.name = "Golden Snitch";
                 this.description = "Disarms the enemy";
                 this.quantityInStock = 0;
                 break;
             case timeTurner:
-                this.name = "Stupify";
-                this.description = "Stuns the enemy";
+                this.name = "Time Turner";
+                this.description = "Hermione has been asking for one of these";
                 this.quantityInStock = 0;
                 break;
             case maraudersMap:
-                this.name = "petrificusTotalus";
-                this.description = "Slashes the enemy";
+                this.name = "Marauder's Map";
+                this.description = "Fred and George would make better use of this";
                 this.quantityInStock = 0;
                 break;
             case invisibilityCloak:
-                this.name = "Sectumsempra";
-                this.description = "Does something";
+                this.name = "Invisibility Cloak";
+                this.description = "Harry must have lost this! Better get it back to him";
                 this.quantityInStock = 0;
                 break;
             case americanMoney:
-                this.name = "Wingardium Leviosa";
-                this.description = "Makes objects float";
+                this.name = "American Money";
+                this.description = "How do we get this working?";
                 this.quantityInStock = 0;
                 break;
             case gillyweed:
@@ -75,6 +77,16 @@ public class InventoryItem {
             case replacementWand:
                 this.name = "Replacement Wand";
                 this.description = "Ron might need this";
+                this.quantityInStock = 0;
+                break;
+            case gun:
+                this.name = "Gun";
+                this.description = "In case the duel with Malfoy gets messy";
+                this.quantityInStock = 0;
+                break;
+            case chocolateFrogs:
+                this.name = "Chocolate Frogs";
+                this.description = "Who likes chocolate frogs?";
                 this.quantityInStock = 0;
                 break;
         }
@@ -144,7 +156,8 @@ public class InventoryItem {
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
-        return true;
+        boolean areSameType = Objects.equals(this.type, other.type);
+        return areSameType;
     }
 
     // toString()

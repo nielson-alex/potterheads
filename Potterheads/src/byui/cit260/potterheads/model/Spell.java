@@ -22,7 +22,8 @@ public class Spell {
         stupify,
         sectumsempra,
         petrificusTotalus,
-        wingardiumLeviosa;
+        wingardiumLeviosa,
+        nox;
     }
 
     //constructor function
@@ -52,6 +53,10 @@ public class Spell {
             case wingardiumLeviosa:
                 this.name = "Wingardium Leviosa";
                 this.effect = "Makes objects float";
+                break;
+            case nox:
+                this.name = "Nox";
+                this.effect = "Turns out the lights";
                 break;
         }
     }

@@ -20,6 +20,8 @@ public class Player implements Serializable {
     private Point coordinates;
     public ArrayList<Spell> spells;
     private ArrayList<InventoryItem> inventoryItems;
+    private double money;
+    private double galleons;
 
     // constructor Function
     public Player() {
@@ -27,6 +29,8 @@ public class Player implements Serializable {
         this.spells = new ArrayList<>();
         this.inventoryItems = new ArrayList<>();
         coordinates = new Point(0, 0);
+        this.money = 0;
+        this.galleons = 0;
     }
 
     public void movePlayer(Point point) {
@@ -52,6 +56,22 @@ public class Player implements Serializable {
 
     public Point getCoordinates() {
         return coordinates;
+    }
+
+    public double getMoney() {
+        return money;
+    }
+
+    public void setMoney(double money) {
+        this.money = money;
+    }
+    
+    public double getGalleons() {
+        return galleons;
+    }
+
+    public void setGalleons(double galleons) {
+        this.galleons = galleons;
     }
 
     public boolean hasLearnedSpell(Spell.SpellType spellType) {
@@ -81,8 +101,12 @@ public class Player implements Serializable {
     // equals() and hashcode
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.name);
+        int hash = 3;
+        hash = 29 * hash + Objects.hashCode(this.name);
+        hash = 29 * hash + Objects.hashCode(this.coordinates);
+        hash = 29 * hash + Objects.hashCode(this.spells);
+        hash = 29 * hash + Objects.hashCode(this.inventoryItems);
+        hash = 29 * hash + (int) (Double.doubleToLongBits(this.money) ^ (Double.doubleToLongBits(this.money) >>> 32));
         return hash;
     }
 
@@ -98,11 +122,25 @@ public class Player implements Serializable {
             return false;
         }
         final Player other = (Player) obj;
+        if (Double.doubleToLongBits(this.money) != Double.doubleToLongBits(other.money)) {
+            return false;
+        }
         if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.coordinates, other.coordinates)) {
+            return false;
+        }
+        if (!Objects.equals(this.spells, other.spells)) {
+            return false;
+        }
+        if (!Objects.equals(this.inventoryItems, other.inventoryItems)) {
             return false;
         }
         return true;
     }
+
+
 
     // toString();
     @Override

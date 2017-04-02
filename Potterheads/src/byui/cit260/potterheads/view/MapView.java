@@ -102,7 +102,7 @@ public class MapView extends View {
                 quidditchView.display();
                 break;
             case "4":
-                GetSpellView getSpellView = new GetSpellView();
+                HagridsHouseView getSpellView = new HagridsHouseView();
                 getSpellView.display();
                 break;
             case "Q":

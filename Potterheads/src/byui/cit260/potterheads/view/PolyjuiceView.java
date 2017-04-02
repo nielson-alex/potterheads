@@ -83,7 +83,12 @@ public class PolyjuiceView extends View {
     private boolean calcPotionBrewed(double weightDouble, double ozOfPotionDouble) 
         throws PolyjuiceControlException {
         PolyjuiceControl polyjuiceControl = new PolyjuiceControl();
-        polyjuiceControl.calcTimeTransformed(weightDouble, ozOfPotionDouble);
+        
+        try {
+            polyjuiceControl.calcTimeTransformed(weightDouble, ozOfPotionDouble);
+        } catch (PolyjuiceControlException ne) {
+            this.console.println(ne.getMessage());
+        }
 
         // return to previous view;
         return true;

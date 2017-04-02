@@ -17,9 +17,8 @@ import byui.cit260.potterheads.model.Player;
 import byui.cit260.potterheads.model.Scene;
 import byui.cit260.potterheads.model.Scene.SceneType;
 import byui.cit260.potterheads.model.Spell;
-import byui.cit260.potterheads.model.Spell.SpellType;
 import byui.cit260.potterheads.view.GameMenuView;
-import byui.cit260.potterheads.view.GetSpellView;
+import byui.cit260.potterheads.view.HagridsHouseView;
 import java.util.ArrayList;
 import potterheads.Potterheads;
 import byui.cit260.potterheads.model.TradeableItem;
@@ -109,30 +108,30 @@ public class GameControl {
     public static ArrayList<InventoryItem> createTradeableInventoryList() {      
         ArrayList<InventoryItem> tradeableInventory = potterheads.Potterheads.getPlayer().getInventoryItems();
 
-//            ----------SPELLS-----------
-        InventoryItem snitch = new InventoryItem(InventoryItemType.snitch);
-        tradeableInventory.add(snitch);
-
-        InventoryItem timeTurner = new InventoryItem(InventoryItemType.timeTurner);
-        tradeableInventory.add(timeTurner);
-
-        InventoryItem maraudersMap = new InventoryItem(InventoryItemType.maraudersMap);
-        tradeableInventory.add(maraudersMap);
-
-        InventoryItem invisibilityCloak = new InventoryItem(InventoryItemType.invisibilityCloak);
-        tradeableInventory.add(invisibilityCloak);
-
-        InventoryItem americanMoney = new InventoryItem(InventoryItemType.americanMoney);
-        tradeableInventory.add(americanMoney);
-
-        InventoryItem gillyweed = new InventoryItem(InventoryItemType.gillyweed);
-        tradeableInventory.add(gillyweed);
-
-        InventoryItem firecrackers = new InventoryItem(InventoryItemType.firecrackers);
-        tradeableInventory.add(firecrackers);
-
-        InventoryItem replacementWand = new InventoryItem(InventoryItemType.replacementWand);
-        tradeableInventory.add(replacementWand);
+//            ----------ITEMS-----------
+//        InventoryItem snitch = new InventoryItem(InventoryItemType.snitch);
+//        tradeableInventory.add(snitch);
+//
+//        InventoryItem timeTurner = new InventoryItem(InventoryItemType.timeTurner);
+//        tradeableInventory.add(timeTurner);
+//
+//        InventoryItem maraudersMap = new InventoryItem(InventoryItemType.maraudersMap);
+//        tradeableInventory.add(maraudersMap);
+//
+//        InventoryItem invisibilityCloak = new InventoryItem(InventoryItemType.invisibilityCloak);
+//        tradeableInventory.add(invisibilityCloak);
+//
+//        InventoryItem americanMoney = new InventoryItem(InventoryItemType.americanMoney);
+//        tradeableInventory.add(americanMoney);
+//
+//        InventoryItem gillyweed = new InventoryItem(InventoryItemType.gillyweed);
+//        tradeableInventory.add(gillyweed);
+//
+//        InventoryItem firecrackers = new InventoryItem(InventoryItemType.firecrackers);
+//        tradeableInventory.add(firecrackers);
+//
+//        InventoryItem replacementWand = new InventoryItem(InventoryItemType.replacementWand);
+//        tradeableInventory.add(replacementWand);
 
         return tradeableInventory;
     }
@@ -194,12 +193,14 @@ public class GameControl {
 
 
         Scene unknownScene = new Scene();
-        unknownScene.setDescription("***not yet defined***");
+        unknownScene.setDescription("You don't have enough wizarding cred to go here yet.");
         unknownScene.setMapSymbol("??");
         unknownScene.setBlocked(false);
         scenes[SceneType.unknown.ordinal()] = unknownScene;
         
-        // #5
+        // #2
+        
+        
         
         // #3
         Scene knockTurnAlley = new Scene();
@@ -212,7 +213,12 @@ public class GameControl {
         // #4
         
         // #5
-        
+        Scene libraryScene = new Scene();
+        unknownScene.setDescription("You enter the library and see dozens of students\n"
+                + "studying for exams and practicing spells.");
+        unknownScene.setMapSymbol("LI");
+        unknownScene.setBlocked(false);
+        scenes[SceneType.unknown.ordinal()] = unknownScene;
         
         // #6
         Scene quidditchPitch = new Scene();
@@ -236,7 +242,7 @@ public class GameControl {
         // #7
         Scene leakyCauldron = new Scene();
         leakyCauldron.setDescription(
-                "Congratulations, you beat the game.");
+                "\nYou see all sorts of sketchy figures here. .");
         leakyCauldron.setMapSymbol("LC");
         knockTurnAlley.setBlocked(false);
         scenes[SceneType.leakyCauldron.ordinal()] = leakyCauldron;
@@ -246,7 +252,10 @@ public class GameControl {
         // #9
         Scene dumbledoresOffice = new Scene();
         dumbledoresOffice.setDescription(
-                "\n \n");
+                "\nYou enter Dumbledore's office. Books of magical spells line the\n"
+                        + "shelves on all the walls of his room. His pet phoenix sits\n"
+                        + "sleeping in its cage, and you spot the headmaster himself\n"
+                        + "busy at work behind his enormous ornate desk.");
         dumbledoresOffice.setMapSymbol("DO");
         dumbledoresOffice.setBlocked(false);
         scenes[SceneType.dumbledoresOffice.ordinal()] = dumbledoresOffice;
@@ -274,10 +283,14 @@ public class GameControl {
         // #13
         
         // #14
+        Player player = Potterheads.getPlayer();
+        double money = player.getMoney();
+        
         Scene gringottsBank = new Scene();
         gringottsBank.setDescription(
                 "You enter Gringotts Bank, where an old troll behind the counter\n" +
-                "asks you if you would like to make any currency exchanges.");
+                "asks you if you would like to make any currency exchanges. You have\n"
+                        + money + " dollars to exchange.");
         gringottsBank.setMapSymbol("GG");
         gringottsBank.setBlocked(false);
         scenes[SceneType.gringottsBank.ordinal()] = gringottsBank;
@@ -295,6 +308,13 @@ public class GameControl {
         // #17
         
         // #18
+        Scene darkDungeon = new Scene();
+        darkDungeon.setDescription("\nEverything is pitch black. You don't have a\n"
+                + "lantern or any matches. If only there was some way to light the\n"
+                + "room up...");
+        darkDungeon.setMapSymbol("DD");
+        darkDungeon.setBlocked(false);
+        scenes[SceneType.darkDungeon.ordinal()] = darkDungeon;
         
         // #19
         Scene diagonAlley = new Scene();
@@ -320,11 +340,13 @@ public class GameControl {
         Scene hagridsHouse = new Scene();
         hagridsHouse.setDescription(
                 "\nHagid greets you at the door to his shack.\n"
-                + "''ey there!' he greets you. 'I know bein' a new student can\n"
-                + "be tough, so how's about I teach you a spell, jus' ta give\n"
-                + "you the hang of it?' he asks. 'I only know a couple o' spells\n"
-                + "but if ya want, I can teach you expelliarmus or stupify. Which\n"
-                + "one sounds good to ya?'\n");
+                + "''ey there!' he greets you. 'You mus' be that new American\n"
+                + "student e'rywone keeps goin' on about! M'names Hagrid, it's\n"
+                + "a pleasure to meet a non-Muggle from the western hemisphere, we\n"
+                + "sure don' get many of ya 'round here.' He leads you into his living\n\n"
+                + "'Oh!' he says, as if he just remembered something. 'I got somethin'\n"
+                + "for ya. I live my life at Hogwarts, so I don' got much need for\n"
+                + "this. Consider it a house welcome gift from Hogwarts.\n");
         hagridsHouse.setMapSymbol("HH");
         hagridsHouse.setBlocked(false);
         scenes[SceneType.hagridsHouse.ordinal()] = hagridsHouse;

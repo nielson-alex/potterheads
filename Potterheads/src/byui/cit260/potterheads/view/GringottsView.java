@@ -8,6 +8,7 @@ package byui.cit260.potterheads.view;
 
 import byui.cit260.potterheads.control.GringottsControl;
 import byui.cit260.potterheads.exceptions.GringottsControlException;
+import byui.cit260.potterheads.model.Player;
 import java.io.PrintWriter;
 import java.util.Scanner;
 import potterheads.Potterheads;
@@ -19,9 +20,10 @@ import potterheads.Potterheads;
 public class GringottsView extends View {
 
     protected final PrintWriter console = Potterheads.getOutFile();
-
+    
+    
     public GringottsView() {
-        super("\nEnter the number of dollars you want to exchagne:\n\n"
+        super("\nEnter the number of dollars you want to exchange:\n\n"
                 + "(press 'Q' to quit)");
     }
 
@@ -30,6 +32,9 @@ public class GringottsView extends View {
         value = value.toUpperCase();
         boolean done = false;
         Scanner keyboard = new Scanner(System.in);
+        
+        Player player = Potterheads.getPlayer();
+        double money = player.getMoney();
         
         String dollars = value;
         String cents = ""; //value to be returned
@@ -64,7 +69,7 @@ public class GringottsView extends View {
                 return true;
             } else {
                 try {
-                    centsDouble = Double.parseDouble(cents);
+                    centsDouble = (Double.parseDouble(cents) * .01);
                 } catch (NumberFormatException nf) {
                     ErrorView.display(this.getClass().getName(), "You must enter a valid number.");
                     continue;

@@ -12,6 +12,7 @@ package byui.cit260.potterheads.control;
 
 import byui.cit260.potterheads.exceptions.GringottsControlException;
 import byui.cit260.potterheads.exceptions.PolyjuiceControlException;
+import byui.cit260.potterheads.model.Player;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import java.util.Scanner;
@@ -23,7 +24,13 @@ import potterheads.Potterheads;
  */
 public class GringottsControl extends Exception {
     protected final PrintWriter console = Potterheads.getOutFile();
+    
+    Player player = Potterheads.getPlayer();
+    double money = player.getMoney();
+    
+    double dollars = money;
 
+    
     DecimalFormat df = new DecimalFormat("#.00");
 
     Scanner inFile;
@@ -34,7 +41,7 @@ public class GringottsControl extends Exception {
             throw new GringottsControlException("\nYou need to exchange at least 5 USD.");
         }
 
-        if (dollars > 500) {
+        if (dollars > player.getMoney()) {
             throw new GringottsControlException("\nYou don't have that much money.");
         }
 
@@ -46,10 +53,13 @@ public class GringottsControl extends Exception {
             throw new GringottsControlException("\nThat would just another dollar.");
         }
 
-        double galleons = (dollars + (cents * .01)) * 0.735;
-
-        this.console.println("\nYou exchanged " + dollars + " dollars and " + cents
+        double galleons = ((dollars + cents) * 0.735);
+        player.setMoney(player.getMoney() - (dollars + cents));
+        
+        this.console.println("\nYou exchanged " + dollars + " dollars and " + (cents * 100)
                 + " cents for " + df.format(galleons) + " galleons.");
+        
+        player.setGalleons(player.getGalleons() + galleons);
 
         return galleons;
     }

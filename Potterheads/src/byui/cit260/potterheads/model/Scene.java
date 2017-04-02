@@ -40,7 +40,7 @@ public class Scene implements Serializable {
     /*15*/
     /*16*/  darkArtsClassroom,
     /*17*/
-    /*18*/
+    /*18*/  darkDungeon,
     /*19*/  diagonAlley,
     /*20*/
     /*21*/  ollivanders,

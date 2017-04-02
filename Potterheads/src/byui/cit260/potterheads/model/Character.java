@@ -5,7 +5,6 @@
  */
 package byui.cit260.potterheads.model;
 
-import byui.cit260.potterheads.model.Spell.SpellType;
 import java.awt.Point;
 import java.io.Serializable;
 import java.util.ArrayList;
