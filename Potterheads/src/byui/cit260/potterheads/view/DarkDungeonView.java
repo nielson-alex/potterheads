@@ -30,7 +30,7 @@ public class DarkDungeonView extends View {
         boolean done = false;
         StringBuilder line;
         value = value.toUpperCase();
-        
+
         while (!done) {
             if ("Y".equals(value.toUpperCase())) {
                 this.getNext();
@@ -44,112 +44,115 @@ public class DarkDungeonView extends View {
 //            Game game = Potterheads.getCurrentGame();
 //    //        InventoryItem[] inventory = game.getInventory();
         }
-    return true;
+        return true;
     }
-    
+
     public boolean getNext() {
         Game game = Potterheads.getCurrentGame();
         ArrayList<Spell> learnedSpells = game.getSpellInventory();
         StringBuilder line;
         boolean done = false;
-        
+
         while (!done) {
-        
+
 //        InventoryItem[] inventory = game.getInventory();
-        this.console.println("\n    List of Spells Learned    ");
-        line = new StringBuilder("                                                              ");
-        line.insert(0, "NAME");
-        line.insert(25, "EFFECT");
-        this.console.println(line.toString());
-        
-        if ((learnedSpells.isEmpty())) {
-            this.console.println("\nYou haven't learned any spells yet.\n"
-                    + "(Press 'Q' to quit");
-        } else {
-            for (Spell spellInventory : learnedSpells) {
-                line = new StringBuilder("                                                  ");
-                line.insert(0, spellInventory.getName());
-                line.insert(25, spellInventory.getEffect());
+            this.console.println("\n    List of Spells Learned    ");
+            line = new StringBuilder("                                                              ");
+            line.insert(0, "NAME");
+            line.insert(25, "EFFECT");
+            this.console.println(line.toString());
 
-                //Display the line
-                this.console.println("\n" + "Type the name of the\n"
-                        + "spell would you would like to use:\n\n" + line.toString() + "\n\n"
-                                + "(press 'Q' to quit)");
-            }
-        }
-        
-        boolean valid = false; //value to be returned
-        String choice = null; // initialize to not valid
+            if ((learnedSpells.isEmpty())) {
+                this.console.println("\nYou haven't learned any spells yet.\n"
+                        + "(Press 'Q' to quit");
+            } else {
+                for (Spell spellInventory : learnedSpells) {
+                    line = new StringBuilder("                                                  ");
+                    line.insert(0, spellInventory.getName());
+                    line.insert(25, spellInventory.getEffect());
 
-        try {
-            while (!valid) { // loop while an invalid value is entered
-
-                choice = this.keyboard.readLine(); // get next line typed on keyboard
-                choice = choice.trim(); // trim off leading and trailing blanks
-
-                if (choice.length() < 1) { //value is blank
-                    ErrorView.display(this.getClass().getName(), "you must enter a value.");
-                    continue;
+                    //Display the line
+                    this.console.println(line.toString());
                 }
-                break; // end the loop
             }
-        } catch (Exception e) {
-            this.console.println("Error reading input: " + e.getMessage());
-        }
-            
-        choice = choice.toUpperCase();
 
-//        this.chooseSpell(choice);
-        
-//        return false;      
-//    }
-//    
-//    public boolean chooseSpell(String choice) {
-        Player player = Potterheads.getPlayer();
-//        InventoryItem[] inventory = game.getInventory();
-        ArrayList<Spell> spellInventory = player.getSpells();
-        Spell expelliarmus = new Spell(Spell.SpellType.expelliarmus);
+            this.console.println("\nType the name of the spell you want to use.");
 
-        switch (choice) {
-            case "EXPELLIARMUS" :
-                    if (!((Potterheads.getCurrentGame().getSpellInventory().contains(expelliarmus)))) {
-                        this.console.println("\nYou haven't learned this spell yet.");
+            boolean valid = false; //value to be returned
+            String choice = null; // initialize to not valid
 
-                    } else {
-                        this.console.println("\nYou use expelliarmus and the room lights up\n"
-                                + "immediately. You see an old dungeon that seems to have\n"
-                                + "gone unvisited in several months, maybe even years. Over\n"
-                                + "in the corner of the room, a piece of paper catches your eye.\n"
-                                + "You wander over and pick it up only to discover that it's\n"
-                                + "the Marauder's Map. You hold onto it. This map could come\n"
-                                + "in handy in the future.");
+            try {
+                while (!valid) { // loop while an invalid value is entered
 
-                        InventoryItem maraudersMap = new InventoryItem(InventoryItemType.maraudersMap);
-                        Potterheads.getPlayer().getInventoryItems().add(maraudersMap);
+                    choice = this.keyboard.readLine(); // get next line typed on keyboard
+                    choice = choice.trim(); // trim off leading and trailing blanks
 
-                        this.showAcquiredItem();
+                    if (choice.length() < 1) { //value is blank
+                        ErrorView.display(this.getClass().getName(), "you must enter a value.");
+                        continue;
                     }
-                return true;
-            case "STUPIFY":
-                this.console.println("\nNothing happened.");
-                break;
-            case "SECTUMSEMPRA":
-                this.console.println("\nNothing happened.");
-                break;
-            case "PETRIFICUS TOTALUS":
-                this.console.println("\nNothing happened.");
-                break;
-            case "WINGARDIUM LEVIOSA":
-                this.console.println("\nNothing happened.");
-                break;
-            case "Q":
-                return true;
-            default: 
-                ErrorView.display(this.getClass().getName(), "Invalid selection. Choose one of the items from the list.");
-                break;
+                    break; // end the loop
+                }
+            } catch (Exception e) {
+                this.console.println("Error reading input: " + e.getMessage());
             }
-            
-        } 
+
+            choice = choice.toUpperCase();
+
+            Player player = Potterheads.getPlayer();
+
+            ArrayList<Spell> spellInventory = player.getSpells();
+            Spell lumos = new Spell(Spell.SpellType.lumos);
+
+            switch (choice) {
+                case "LUMOS":
+                    if (!((Potterheads.getCurrentGame().getSpellInventory().contains(lumos)))) {
+                        this.console.println("\nYou haven't learned this spell yet.");
+                    } else {
+                        if (!player.isHasClearedDarkRoom()) {
+                            this.console.println("\nYou use lumos and the room lights up\n"
+                                    + "immediately. You see an old dungeon that seems to have\n"
+                                    + "gone unvisited in several months, maybe even years. Over\n"
+                                    + "in the corner of the room, an object catches your eye.\n"
+                                    + "You wander over and pick it up only to discover that it's\n"
+                                    + "an ornate walking stick. You hold onto it. This walking stick might\n"
+                                    + "belong to someone.");
+
+                            player.setHasClearedDarkRoom(true);
+                            Potterheads.getPlayer().getInventoryItems().add(new InventoryItem(InventoryItemType.walkingStick));
+                            this.showAcquiredItem();
+
+                        } else {
+                            this.console.println("\nYou use lumos and the room lights up\n"
+                                    + "immediately. You see an old dungeon that seems to have\n"
+                                    + "gone unvisited in several months, maybe even years. It's empty now.");
+                        }
+                    }
+                    return true;
+
+                case "STUPIFY":
+                    this.console.println("\nNothing happened.");
+                    break;
+                case "SECTUMSEMPRA":
+                    this.console.println("\nNothing happened.");
+                    break;
+                case "PETRIFICUS TOTALUS":
+                    this.console.println("\nNothing happened.");
+                    break;
+                case "WINGARDIUM LEVIOSA":
+                    this.console.println("\nNothing happened.");
+                    break;
+                case "EXPELLIARMUS":
+                    this.console.println("\nNothing happened.");
+                    break;
+                case "Q":
+                    return true;
+                default:
+                    ErrorView.display(this.getClass().getName(), "Invalid selection. Choose one of the items from the list.");
+                    break;
+            }
+
+        }
         return false;
     }
 
@@ -174,7 +177,7 @@ public class DarkDungeonView extends View {
             line.insert(25, tradeableInventory.getDescription());
 
             //Display the line
-            this.console.println(line.toString() + "\n\n");
+            this.console.println(line.toString());
         }
         return true;
     }

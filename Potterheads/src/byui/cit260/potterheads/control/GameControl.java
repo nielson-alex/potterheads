@@ -165,7 +165,10 @@ public class GameControl {
         // #1
         Scene startingScene = new Scene();
         startingScene.setDescription(
-                "Welcome to the game! You find yourself...(rest of text goes here)");
+                "\nYou find yourself in the great hall of Hogwarts Castle. This\n"
+                        + "is your default location. Fred and George were playing some tricks on the students\n"
+                        + "and created a spell that automatically apparates the new students back here when they're\n"
+                        + "done completing a task. Being such a new student, you're stuck in this loop.");
         startingScene.setMapSymbol("GH");
         startingScene.setBlocked(false);
         scenes[SceneType.start.ordinal()] = startingScene;
@@ -199,26 +202,49 @@ public class GameControl {
         scenes[SceneType.unknown.ordinal()] = unknownScene;
         
         // #2
-        
+        Scene dumbledoresOffice = new Scene();
+        dumbledoresOffice.setDescription(
+                "\nYou enter Dumbledore's office. Books of magical spells line the\n"
+                        + "shelves on all the walls of his room. His pet phoenix sits\n"
+                        + "sleeping in its cage, and you spot the headmaster himself\n"
+                        + "busy at work behind his enormous ornate desk.");
+        dumbledoresOffice.setMapSymbol("DO");
+        dumbledoresOffice.setBlocked(false);
+        scenes[SceneType.dumbledoresOffice.ordinal()] = dumbledoresOffice;
         
         
         // #3
         Scene knockTurnAlley = new Scene();
         knockTurnAlley.setDescription(
-                "Congratulations, you beat the game.");
+                "\nYou enter the alley. Even though it's the middle of the day, the\n"
+                        + "alley is dark and foreboding. You feel uneasy and are eager\n"
+                        + "to leave as soon as you can.");
         knockTurnAlley.setMapSymbol("KA");
         knockTurnAlley.setBlocked(false);
         scenes[SceneType.knockTurnAlley.ordinal()] = knockTurnAlley;
         
         // #4
+        Scene hagridsHouse = new Scene();
+        hagridsHouse.setDescription(
+                "\nHagid greets you at the door to his shack.\n"
+                + "''ey there!' he greets you. 'You mus' be that new American\n"
+                + "student e'rywone keeps goin' on about! M'names Hagrid, it's\n"
+                + "a pleasure to meet a non-Muggle from the western hemisphere, we\n"
+                + "sure don' get many of ya 'round here.' He leads you into his living\n\n"
+                + "'Oh!' he says, as if he just remembered something. 'I got somethin'\n"
+                + "for ya. I live my life at Hogwarts, so I don' got much need for\n"
+                + "this. Consider it a house welcome gift from Hogwarts.\n");
+        hagridsHouse.setMapSymbol("HH");
+        hagridsHouse.setBlocked(false);
+        scenes[SceneType.hagridsHouse.ordinal()] = hagridsHouse;
         
         // #5
         Scene libraryScene = new Scene();
-        unknownScene.setDescription("You enter the library and see dozens of students\n"
+        libraryScene.setDescription("You enter the library and see dozens of students\n"
                 + "studying for exams and practicing spells.");
-        unknownScene.setMapSymbol("LI");
-        unknownScene.setBlocked(false);
-        scenes[SceneType.unknown.ordinal()] = unknownScene;
+        libraryScene.setMapSymbol("LI");
+        libraryScene.setBlocked(false);
+        scenes[SceneType.libraryScene.ordinal()] = libraryScene;
         
         // #6
         Scene quidditchPitch = new Scene();
@@ -248,19 +274,28 @@ public class GameControl {
         scenes[SceneType.leakyCauldron.ordinal()] = leakyCauldron;
         
         // #8
+        Scene ollivanders = new Scene();
+        ollivanders.setDescription(
+                "\n \n");
+        ollivanders.setMapSymbol("OL");
+        ollivanders.setBlocked(false);
+        scenes[SceneType.ollivanders.ordinal()] = ollivanders;
         
         // #9
-        Scene dumbledoresOffice = new Scene();
-        dumbledoresOffice.setDescription(
-                "\nYou enter Dumbledore's office. Books of magical spells line the\n"
-                        + "shelves on all the walls of his room. His pet phoenix sits\n"
-                        + "sleeping in its cage, and you spot the headmaster himself\n"
-                        + "busy at work behind his enormous ornate desk.");
-        dumbledoresOffice.setMapSymbol("DO");
-        dumbledoresOffice.setBlocked(false);
-        scenes[SceneType.dumbledoresOffice.ordinal()] = dumbledoresOffice;
+        Scene darkArtsClassroom = new Scene();
+        darkArtsClassroom.setDescription(
+                "\n \n");
+        darkArtsClassroom.setMapSymbol("DO");
+        darkArtsClassroom.setBlocked(false);
+        scenes[SceneType.darkArtsClassroom.ordinal()] = darkArtsClassroom;
         
         // #10
+        Scene forestScene = new Scene();
+        forestScene.setDescription(
+                "You.");
+        forestScene.setMapSymbol("FF");
+        forestScene.setBlocked(false);
+        scenes[SceneType.forestScene.ordinal()] = forestScene;
         
         // #11
         Scene flourishAndBlotts = new Scene();
@@ -281,6 +316,12 @@ public class GameControl {
         scenes[SceneType.polyjuice.ordinal()] = polyjuice;
         
         // #13
+        Scene diagonAlley = new Scene();
+        diagonAlley.setDescription(
+                "\n \n");
+        diagonAlley.setMapSymbol("DA");
+        diagonAlley.setBlocked(false);
+        scenes[SceneType.diagonAlley.ordinal()] = diagonAlley;
         
         // #14
         Player player = Potterheads.getPlayer();
@@ -296,18 +337,6 @@ public class GameControl {
         scenes[SceneType.gringottsBank.ordinal()] = gringottsBank;
         
         // #15
-        
-        // #16
-        Scene darkArtsClassroom = new Scene();
-        darkArtsClassroom.setDescription(
-                "\n \n");
-        darkArtsClassroom.setMapSymbol("DO");
-        darkArtsClassroom.setBlocked(false);
-        scenes[SceneType.darkArtsClassroom.ordinal()] = darkArtsClassroom;
-        
-        // #17
-        
-        // #18
         Scene darkDungeon = new Scene();
         darkDungeon.setDescription("\nEverything is pitch black. You don't have a\n"
                 + "lantern or any matches. If only there was some way to light the\n"
@@ -316,50 +345,33 @@ public class GameControl {
         darkDungeon.setBlocked(false);
         scenes[SceneType.darkDungeon.ordinal()] = darkDungeon;
         
-        // #19
-        Scene diagonAlley = new Scene();
-        diagonAlley.setDescription(
-                "\n \n");
-        diagonAlley.setMapSymbol("DA");
-        diagonAlley.setBlocked(false);
-        scenes[SceneType.diagonAlley.ordinal()] = diagonAlley;
-        
-        // #20
-        
-        // #21
-        Scene ollivanders = new Scene();
-        ollivanders.setDescription(
-                "\n \n");
-        ollivanders.setMapSymbol("OL");
-        ollivanders.setBlocked(false);
-        scenes[SceneType.ollivanders.ordinal()] = ollivanders;
-        
-        // #22
-        
-        // #23
-        Scene hagridsHouse = new Scene();
-        hagridsHouse.setDescription(
-                "\nHagid greets you at the door to his shack.\n"
-                + "''ey there!' he greets you. 'You mus' be that new American\n"
-                + "student e'rywone keeps goin' on about! M'names Hagrid, it's\n"
-                + "a pleasure to meet a non-Muggle from the western hemisphere, we\n"
-                + "sure don' get many of ya 'round here.' He leads you into his living\n\n"
-                + "'Oh!' he says, as if he just remembered something. 'I got somethin'\n"
-                + "for ya. I live my life at Hogwarts, so I don' got much need for\n"
-                + "this. Consider it a house welcome gift from Hogwarts.\n");
-        hagridsHouse.setMapSymbol("HH");
-        hagridsHouse.setBlocked(false);
-        scenes[SceneType.hagridsHouse.ordinal()] = hagridsHouse;
-
-        // #24
-        
-        // #25
+        // #16
         Scene finishScene = new Scene();
         finishScene.setDescription(
                 "Congratulations, you beat the game.");
         finishScene.setMapSymbol("FN");
         finishScene.setBlocked(false);
         scenes[SceneType.finish.ordinal()] = finishScene;
+        
+        
+        // #17
+        
+        // #18
+        
+        // #19
+        
+        // #20
+        
+        // #21
+        
+        // #22
+        
+        // #23
+        
+        // #24
+        
+        // #25
+        
         
         return scenes;
     }
@@ -369,30 +381,30 @@ public class GameControl {
         
         //start point
         locations[0][0].setScene(scenes[SceneType.start.ordinal()]);            // #01 Hogwarts castle great hall
-        locations[0][1].setScene(scenes[SceneType.character.ordinal()]);        // #02 
+        locations[0][1].setScene(scenes[SceneType.dumbledoresOffice.ordinal()]);// #02 Dumbledore's Office
         locations[0][2].setScene(scenes[SceneType.knockTurnAlley.ordinal()]);   // #03 Knockturn Alley
-        locations[0][3].setScene(scenes[SceneType.item.ordinal()]);             // #04
-        locations[0][4].setScene(scenes[SceneType.unknown.ordinal()]);          // #05
-        locations[1][0].setScene(scenes[SceneType.quidditchPitch.ordinal()]);   // #06 quidditchPitch
-        locations[1][1].setScene(scenes[SceneType.leakyCauldron.ordinal()]);    // #07 leakyCauldron
-        locations[1][2].setScene(scenes[SceneType.unknown.ordinal()]);          // #08
-        locations[1][3].setScene(scenes[SceneType.dumbledoresOffice.ordinal()]);// #09 dumbledoresOffice
-        locations[1][4].setScene(scenes[SceneType.unknown.ordinal()]);          // #10
-        locations[2][0].setScene(scenes[SceneType.flourishAndBlotts.ordinal()]);// #11 flourishAndBotts
-        locations[2][1].setScene(scenes[SceneType.polyjuice.ordinal()]);        // #12 Polyjuice Potion lab
-        locations[2][2].setScene(scenes[SceneType.unknown.ordinal()]);          // #13
-        locations[2][3].setScene(scenes[SceneType.gringottsBank.ordinal()]);    // #14 gringottsBank
-        locations[2][4].setScene(scenes[SceneType.unknown.ordinal()]);          // #15
-        locations[3][0].setScene(scenes[SceneType.darkArtsClassroom.ordinal()]);// #16 darkArtsClassroom
+        locations[0][3].setScene(scenes[SceneType.hagridsHouse.ordinal()]);     // #04 Hagrid's House
+        locations[0][4].setScene(scenes[SceneType.libraryScene.ordinal()]);     // #05 Libary
+        locations[1][0].setScene(scenes[SceneType.quidditchPitch.ordinal()]);   // #06 Quidditch Pitch
+        locations[1][1].setScene(scenes[SceneType.leakyCauldron.ordinal()]);    // #07 The Leaky Cauldron
+        locations[1][2].setScene(scenes[SceneType.ollivanders.ordinal()]);      // #08 Ollivander's
+        locations[1][3].setScene(scenes[SceneType.darkArtsClassroom.ordinal()]);// #09 Defense Against the Dark Arts Classroom
+        locations[1][4].setScene(scenes[SceneType.forestScene.ordinal()]);      // #10 Forest Scene
+        locations[2][0].setScene(scenes[SceneType.flourishAndBlotts.ordinal()]);// #11 Flourish And Blotts
+        locations[2][1].setScene(scenes[SceneType.polyjuice.ordinal()]);        // #12 Polyjuice Potion Lab
+        locations[2][2].setScene(scenes[SceneType.diagonAlley.ordinal()]);      // #13 Diagon Alley
+        locations[2][3].setScene(scenes[SceneType.gringottsBank.ordinal()]);    // #14 Gringotts Bank
+        locations[2][4].setScene(scenes[SceneType.darkDungeon.ordinal()]);      // #15 Dark Dungeon
+        locations[3][0].setScene(scenes[SceneType.finish.ordinal()]);           // #16 Duel with Malfoy
         locations[3][1].setScene(scenes[SceneType.unknown.ordinal()]);          // #17
         locations[3][2].setScene(scenes[SceneType.unknown.ordinal()]);          // #18
-        locations[3][3].setScene(scenes[SceneType.diagonAlley.ordinal()]);      // #19 Diagon Alley
+        locations[3][3].setScene(scenes[SceneType.unknown.ordinal()]);          // #19 
         locations[3][4].setScene(scenes[SceneType.unknown.ordinal()]);          // #20 
-        locations[4][0].setScene(scenes[SceneType.ollivanders.ordinal()]);      // #21 ollivanders
+        locations[4][0].setScene(scenes[SceneType.unknown.ordinal()]);          // #21
         locations[4][1].setScene(scenes[SceneType.unknown.ordinal()]);          // #22
-        locations[4][2].setScene(scenes[SceneType.hagridsHouse.ordinal()]);     // #23 Hagrid's House
+        locations[4][2].setScene(scenes[SceneType.unknown.ordinal()]);          // #23 
         locations[4][3].setScene(scenes[SceneType.unknown.ordinal()]);          // #24
-        locations[4][4].setScene(scenes[SceneType.finish.ordinal()]);           // #25 Finish
+        locations[4][4].setScene(scenes[SceneType.unknown.ordinal()]);           // #25
     }
 
     public int getInventoryCount() {

@@ -22,6 +22,8 @@ public class Player implements Serializable {
     private ArrayList<InventoryItem> inventoryItems;
     private double money;
     private double galleons;
+    private boolean hasClearedDarkRoom;
+    private boolean hasReceivedMoney;
 
     // constructor Function
     public Player() {
@@ -31,6 +33,8 @@ public class Player implements Serializable {
         coordinates = new Point(0, 0);
         this.money = 0;
         this.galleons = 0;
+        this.hasClearedDarkRoom = false;
+        this.hasReceivedMoney = false;
     }
 
     public void movePlayer(Point point) {
@@ -72,6 +76,22 @@ public class Player implements Serializable {
 
     public void setGalleons(double galleons) {
         this.galleons = galleons;
+    }
+
+    public boolean isHasClearedDarkRoom() {
+        return hasClearedDarkRoom;
+    }
+
+    public void setHasClearedDarkRoom(boolean hasClearedDarkRoom) {
+        this.hasClearedDarkRoom = hasClearedDarkRoom;
+    }
+
+    public boolean isHasReceivedMoney() {
+        return hasReceivedMoney;
+    }
+
+    public void setHasReceivedMoney(boolean hasReceivedMoney) {
+        this.hasReceivedMoney = hasReceivedMoney;
     }
 
     public boolean hasLearnedSpell(Spell.SpellType spellType) {
@@ -146,5 +166,9 @@ public class Player implements Serializable {
     @Override
     public String toString() {
         return "Player{" + "name=" + name + '}';
+    }
+
+    public boolean setHasClearedDarkRoom() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

@@ -23,7 +23,9 @@ public class Spell {
         sectumsempra,
         petrificusTotalus,
         wingardiumLeviosa,
-        nox;
+        lumos,
+        nox,
+        avadaKedavra;
     }
 
     //constructor function
@@ -54,9 +56,17 @@ public class Spell {
                 this.name = "Wingardium Leviosa";
                 this.effect = "Makes objects float";
                 break;
+            case lumos:
+                this.name = "Lumos";
+                this.effect = "Turns on the lights";
+                break;
             case nox:
                 this.name = "Nox";
                 this.effect = "Turns out the lights";
+                break;
+            case avadaKedavra:
+                this.name = "Avada Kedavra";
+                this.effect = "Kills a body";
                 break;
         }
     }

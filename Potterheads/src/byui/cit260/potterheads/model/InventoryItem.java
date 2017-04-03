@@ -27,7 +27,8 @@ public class InventoryItem {
         gillyweed,
         firecrackers,
         replacementWand,
-        gun,
+        taser,
+        walkingStick,
         chocolateFrogs;
     }
 
@@ -79,9 +80,14 @@ public class InventoryItem {
                 this.description = "Ron might need this";
                 this.quantityInStock = 0;
                 break;
-            case gun:
-                this.name = "Gun";
-                this.description = "In case the duel with Malfoy gets messy";
+            case taser:
+                this.name = "Taser";
+                this.description = "In case a magical duel isn't going your way";
+                this.quantityInStock = 0;
+                break;
+            case walkingStick:
+                this.name = "Walking Stick";
+                this.description = "Lucius Malfoy's walking stick";
                 this.quantityInStock = 0;
                 break;
             case chocolateFrogs:

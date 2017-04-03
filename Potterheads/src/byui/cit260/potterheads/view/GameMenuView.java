@@ -88,10 +88,7 @@ public class GameMenuView extends View {
 
     private void viewInventory() {
         StringBuilder line;
-
         Game game = Potterheads.getCurrentGame();
-//        InventoryItem[] inventory = game.getInventory();
-
         ArrayList<InventoryItem> inventory = game.getTradeableInventory();
 
         this.console.println("\n          Items");
@@ -196,19 +193,19 @@ public class GameMenuView extends View {
         Scanner keyboard = new Scanner(System.in);
         
         this.console.println("\nChoose where you would like to go on the map:\n"
-                + " 1. Hogwarts Great Hall      2. \n"                              //0,0   0,1
-                + " 3. Knockturn Alley          4. \n"                              //0,2   0,3
+                + " 1. Hogwarts Great Hall      2. Dumbledore's Office\n"           //0,0   0,1
+                + " 3. Knockturn Alley          4. Hagrid's House\n"                //0,2   0,3
                 + " 5. Library                  6. Quidditch Pitch\n"               //0,4   1,0
-                + " 7. The Leaky Cauldron       8. \n"                              //1,1   1,2
-                + " 9. Dumbledore's Office     10. \n"                              //1,3   1,4
+                + " 7. The Leaky Cauldron       8. Ollivander's\n"                  //1,1   1,2
+                + " 9. Dark Arts Room          10. Forest\n"                        //1,3   1,4
                 + "11. Flourish and Blott's    12. Polyjuice Potion Lab\n"          //2,0   2,1
-                + "13.                         14. Gringotts Bank\n"                //2,2   2,3
-                + "15.                         16. Defense agst Dark Arts Room\n"   //2,4   3,0
-                + "17.                         18. Dungeon room\n"                  //3,1   3,2
-                + "19. Diagon Alley            20. \n"                              //3,3   3,4
-                + "21. Ollivander's            22. \n"                              //4,0   4,1
-                + "23. Hagrid's House          24. Basilisk Den\n"                  //4,2   4,3
-                + "25.\n\n"                                                         //4,4
+                + "13. Diagon Alley            14. Gringotts Bank\n"                //2,2   2,3
+                + "15  Dungeon room            16. Duel Room\n"                     //2,4   3,0
+                + "17. ??                      18. ??\n"                            //3,1   3,2
+                + "19. ??                      20. ??\n"                            //3,3   3,4
+                + "21. ??                      22. ??\n"                            //4,0   4,1
+                + "23. ??                      24. ??\n"                            //4,2   4,3
+                + "25. ??\n\n"                                                       //4,4
                 + "Q - quit");
        
         String selection = keyboard.nextLine();
@@ -221,58 +218,68 @@ public class GameMenuView extends View {
                 // print out new location
                 this.printSceneDesc();
                 break;
-            case "2":
+            case "2": //Dumbledore's Office
                 Potterheads.getPlayer().movePlayer(new Point(0,1));
                 this.printSceneDesc();
                 
+                DumbledoresOfficeView dumbledoresOfficeView = new DumbledoresOfficeView();
+                dumbledoresOfficeView.display();
                 break;
-            case "3": //knockturnAlley
+            case "3": //Knockturn Alley
                 Potterheads.getPlayer().movePlayer(new Point(0,2));
                 this.printSceneDesc();
                 
+                KnockturnAlleyView knockturnAlleyView = new KnockturnAlleyView();
+                knockturnAlleyView.display();
                 break;
-            case "4":
+            case "4": //Hagrid's House
                 Potterheads.getPlayer().movePlayer(new Point(0,3));
                 this.printSceneDesc();
                 
+                HagridsHouseView getSpellView = new HagridsHouseView();
+                getSpellView.display();
                 break;
-            case "5":
+            case "5": //Library
                 Potterheads.getPlayer().movePlayer(new Point(0,4));
                 this.printSceneDesc();
                 
 //                LibraryView libraryView = new LibraryView();
 //                libraryView.display();
                 break;
-            case "6": //quidditchPitch
+            case "6": //Quidditch Pitch
                 Potterheads.getPlayer().movePlayer(new Point(1,0));
                 this.printSceneDesc();
 
                 QuidditchView quidditchView = new QuidditchView();
                 quidditchView.display();
                 break;
-            case "7": //leakyCauldron
+            case "7": //The Leaky Cauldron
                 Potterheads.getPlayer().movePlayer(new Point(1,1));
                 this.printSceneDesc();
                 
 //                LeakyCauldronView leakyCauldronView = new LeakyCauldronView();
 //                leakyCauldronView.display();
                 break;
-            case "8":
+            case "8": //Ollivander's
                 Potterheads.getPlayer().movePlayer(new Point(1,2));
                 this.printSceneDesc();
                 
+                OllivandersView ollivandersView = new OllivandersView();
+                ollivandersView.display();
                 break;
-            case "9": //dumbledoresOffice
+            case "9": //Defense Against the Dark Arts
                 Potterheads.getPlayer().movePlayer(new Point(1,3));
                 this.printSceneDesc();
                 
-                DumbledoresOfficeView dumbledoresOfficeView = new DumbledoresOfficeView();
-                dumbledoresOfficeView.display();
+                //DarkArtsClassroomView darkArtsClassroomView = new DarkArtsClassroomView();
+                //darkArtsClassroomView.display();
                 break;
-            case "10": 
+            case "10": //Forest
                 Potterheads.getPlayer().movePlayer(new Point(1,4));
                 this.printSceneDesc();
                 
+//                ForestView forestView = new ForestView();
+//                forestView.display();
                 break;
             case "11": //flourishAndBlotts
                 Potterheads.getPlayer().movePlayer(new Point(2,0));
@@ -288,10 +295,12 @@ public class GameMenuView extends View {
                 PolyjuiceView polyjuiceView = new PolyjuiceView();
                 polyjuiceView.display();
                 break;
-            case "13":
+            case "13": //Diagon Alley
                 Potterheads.getPlayer().movePlayer(new Point(2,2));
                 this.printSceneDesc();
                 
+                DiagonAlleyView diagonAlleyView = new DiagonAlleyView();
+                diagonAlleyView.display();
                 break;
             case "14": //gringottsBank
                 Potterheads.getPlayer().movePlayer(new Point(2,3));
@@ -300,76 +309,57 @@ public class GameMenuView extends View {
                 GringottsView gringottsView = new GringottsView();
                 gringottsView.display();
                 break;
-            case "15":
+            case "15": //Dark Dungeon
                 Potterheads.getPlayer().movePlayer(new Point(2,4));
                 this.printSceneDesc();
                 
+                DarkDungeonView darkDungeonView = new DarkDungeonView();
+                darkDungeonView.display();
                 break;
-            case "16": //darkArtsClassroom
+            case "16": //Duel with Malfoy
                 Potterheads.getPlayer().movePlayer(new Point(3,0));
                 this.printSceneDesc();
                 
-//                DarkArtsClassroomView darkArtsClassroomView = new DarkArtsClassroomView();
-//                darkArtsClassroomView.display();
+                DuelView duelView = new DuelView();
+                duelView.display();
                 break;
             case "17":
                 Potterheads.getPlayer().movePlayer(new Point(3,1));
                 this.printSceneDesc();
                 
                 break;
-            case "18": //darkDungeon
+            case "18":
                 Potterheads.getPlayer().movePlayer(new Point(3,2));
                 this.printSceneDesc();
-                
-                DarkDungeonView darkDungeonView = new DarkDungeonView();
-                darkDungeonView.display();
                 break;
-            case "19": //diagonAlley
+            case "19":
                 Potterheads.getPlayer().movePlayer(new Point(3,3));
                 this.printSceneDesc();
-                
-                DiagonAlleyView diagonAlleyView = new DiagonAlleyView();
-                diagonAlleyView.display();
                 break;
             case "20":
                 Potterheads.getPlayer().movePlayer(new Point(3,4));
                 this.printSceneDesc();
-                
                 break;
             case "21": //Ollivanders
                 Potterheads.getPlayer().movePlayer(new Point(4,0));
                 this.printSceneDesc();
-                
-                OllivandersView ollivandersView = new OllivandersView();
-                ollivandersView.display();
                 break;
             case "22":
                 Potterheads.getPlayer().movePlayer(new Point(4,1));
                 this.printSceneDesc();
-                
                 break;
             case "23": //Hagrid's House
                 Potterheads.getPlayer().movePlayer(new Point(4,2));
                 this.printSceneDesc();
-                
-                HagridsHouseView getSpellView = new HagridsHouseView();
-                getSpellView.display();
                 break;
             case "24": //basiliskDen
                 Potterheads.getPlayer().movePlayer(new Point(4,3));
                 this.printSceneDesc();
-                
-//                BasiliskDenView basiliskDenView = new BasiliskDenView();
-//                basiliskDenView.display();
                 break;
             case "25": //Finish
                 Potterheads.getPlayer().movePlayer(new Point(4,4));
                 this.printSceneDesc();
-                
-                DuelView duelView = new DuelView();
-                duelView.display();
                 break;
-            
             case "Q":
                 return;
             default:

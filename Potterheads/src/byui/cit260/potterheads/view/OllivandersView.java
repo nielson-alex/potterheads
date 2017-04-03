@@ -17,7 +17,8 @@ public class OllivandersView extends View {
     
     public OllivandersView() {
         super("\nWhat would you like to buy?\n\n"
-                + "G - Gun              ʛ367.50\n"
+                + "T - Taser            ʛ367.50\n"
+                + "W - Backup Wand      ʛ250.00\n"
                 + "F - Firecrackers     ʛ33.08\n"
                 + "C - Chocolate Frogs  ʛ15.00\n"
                 + "Q - Quit");
@@ -27,19 +28,43 @@ public class OllivandersView extends View {
     public boolean doAction(String value) {
         value = value.toUpperCase();
         
-        InventoryItem gun = new InventoryItem(InventoryItemType.gun);
+        InventoryItem replacementWand = new InventoryItem(InventoryItemType.replacementWand);
         InventoryItem firecrackers = new InventoryItem(InventoryItemType.firecrackers);
         InventoryItem chocolateFrogs = new InventoryItem(InventoryItemType.chocolateFrogs);
         
         Player player = potterheads.Potterheads.getPlayer();
         
         switch(value) {
-            case "G":
-                if (!(player.getInventoryItems().contains(gun))) {
-                    if (player.getGalleons() >= 367.50) {
-                        player.setGalleons(player.getGalleons() - 376.50);
-                        player.getInventoryItems().add(gun);
-                        this.console.println("\nCongratulations! You have purchased " + gun.getName());
+            case "T":
+                boolean hasTaser = false;
+                
+                for (InventoryItem item : player.getInventoryItems()) {
+                    if (item.getType() == InventoryItemType.taser) {
+                        hasTaser = true;
+                    }
+                }
+                
+                if (!(hasTaser == true)) {
+                    if (player.getGalleons() >= 367.5) {
+                        player.setGalleons(player.getGalleons() - 376.5);
+                        player.getInventoryItems().add(new InventoryItem(InventoryItemType.taser));
+                        this.console.println("\nCongratulations! You have purchased a backup wand!\n"
+                                    + "Yours seems pretty reliable, but this might come in handy regardless.");
+                    } else {
+                        this.console.println("\nSorry, you don't have enough money.");
+                    }
+                } else {
+                    this.console.println("\nYou already have this item.");
+                }
+                break;
+                
+            case "W":
+                if (!(player.getInventoryItems().contains(replacementWand))) {
+                    if (player.getGalleons() >= 250) {
+                        player.setGalleons(player.getGalleons() - 250);
+                        player.getInventoryItems().add(replacementWand);
+                        this.console.println("\nCongratulations! You have purchased a backup wand!\n"
+                                + "Yours seems pretty reliable, but this might come in handy regardless.");
                     } else {
                         this.console.println("\nSorry, you don't have enough money.");
                     }

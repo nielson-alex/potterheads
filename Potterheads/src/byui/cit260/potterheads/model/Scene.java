@@ -24,30 +24,30 @@ public class Scene implements Serializable {
             puzzle,
             character,
             item,
-    /*02*/
+    /*02*/  dumbledoresOffice,
     /*03*/  knockTurnAlley,
-    /*04*/
-    /*05*/
+    /*04*/  hagridsHouse,
+    /*05*/  libraryScene,
     /*06*/  quidditchPitch,  
     /*07*/  leakyCauldron,
-    /*08*/    
-    /*09*/  dumbledoresOffice,
-    /*10*/  
+    /*08*/  ollivanders,  
+    /*09*/  darkArtsClassroom,
+    /*10*/  forestScene,
     /*11*/  flourishAndBlotts,
     /*12*/  polyjuice,
-    /*13*/
+    /*13*/  diagonAlley,
     /*14*/  gringottsBank,
-    /*15*/
-    /*16*/  darkArtsClassroom,
+    /*15*/  darkDungeon,
+    /*16*/  finish;
     /*17*/
-    /*18*/  darkDungeon,
-    /*19*/  diagonAlley,
+    /*18*/  
+    /*19*/  
     /*20*/
-    /*21*/  ollivanders,
+    /*21*/  
     /*22*/
-    /*23*/  hagridsHouse,
+    /*23*/  
     /*24*/
-    /*25*/  finish;
+    /*25*/  
     }
 
     //constructor function
