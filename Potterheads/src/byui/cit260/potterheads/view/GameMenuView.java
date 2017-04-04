@@ -69,9 +69,9 @@ public class GameMenuView extends View {
             case "G":
                 this.displayGetSpellView();
                 break;
-            case "P":
-                this.print();
-                break;
+//            case "P":
+//                this.print();
+//                break;
             case "L":
                 this.location();
                 break;
@@ -376,17 +376,17 @@ public class GameMenuView extends View {
         this.console.println(location.getScene().getDescription());
     }
 
-    private void print() {
-        this.console.print("\nEnter the file path for the file where the game will be saved: ");
-        
-        String filePath = this.getInput();
-        
-        try {
-            GameControl.print(Potterheads.getPlayer().getInventoryItems(), filePath);
-        } catch (Exception ex) {
-            ErrorView.display("MainMenuView", ex.getMessage());
-        }
-    }
+//    private void print() {
+//        this.console.print("\nEnter the file path for the file where the game will be saved: ");
+//        
+//        String filePath = this.getInput();
+//        
+//        try {
+//            GameControl.print(Potterheads.getPlayer().getInventoryItems(), filePath);
+//        } catch (Exception ex) {
+//            ErrorView.display("MainMenuView", ex.getMessage());
+//        }
+//    }
    
 
     }
