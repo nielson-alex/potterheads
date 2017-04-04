@@ -79,6 +79,10 @@ public class GameMenuView extends View {
                 SpellReportView spellReport = new SpellReportView();
                 spellReport.display();
                 break;
+            case "B":
+                HouseQuizView sortingQuiz = new HouseQuizView();
+                sortingQuiz.display();
+                break;
             default:
                 ErrorView.display(this.getClass().getName(), "Invalid selection. Choose one of the items from the list.");
                 break;
