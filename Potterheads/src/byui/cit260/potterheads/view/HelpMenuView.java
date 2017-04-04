@@ -51,7 +51,9 @@ public class HelpMenuView extends View {
 
     // case "H"
     private void displayHowToPlay() {
-        this.console.println("\n *** displayHowToPlay() function called ***");
+        this.console.println("Upon discovering you are a wizard you need to make it official by going to Diagon Alley to get your school supplies\n"
+                + "You are then ready to test your wizarding skills by attending Hogwarts school of witchcraft and wizardry.\n"
+                + "Start by exploring the map and receiving spells and objects from each of the characters you see in the game.");
     }
 
     // case "M"
