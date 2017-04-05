@@ -23,8 +23,6 @@ public class Location implements Serializable {
     private Scene scene;
 
     //Create cardinality of many
-    ArrayList<Item> inventoryItems = new ArrayList<>();
-    ArrayList<Character> characters = new ArrayList<>();
     ArrayList<Scene> scenes = new ArrayList<>();
 
     // constructor function

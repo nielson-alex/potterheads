@@ -5,20 +5,14 @@
  */
 package byui.cit260.potterheads.view;
 
-import byui.cit260.potterheads.exceptions.GameControlException;
 import byui.cit260.potterheads.model.Game;
 import byui.cit260.potterheads.model.Spell;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import potterheads.Potterheads;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import potterheads.Potterheads;
 
 /**
@@ -62,12 +56,12 @@ public class SpellReportView extends View {
 
 //============SAVE TO ANY DIRECTORY YOU WANT PLUS FILE NAME.TXT==================
         String filePath = keyboard.nextLine();
-        
+
         FileWriter out = null;
         StringBuilder line;
         Game game = Potterheads.getCurrentGame();
         ArrayList<Spell> inventory = game.getSpellInventory();
-        
+
         this.console.println("\n          List of Spells Learned");
         line = new StringBuilder("                                                              ");
         line.insert(0, "NAME");
@@ -83,17 +77,16 @@ public class SpellReportView extends View {
             //Display the line
             this.console.println(line.toString());
         }
-        
+
         try (FileOutputStream fops = new FileOutputStream(filePath)) {
             ObjectOutputStream output = new ObjectOutputStream(fops);
-            
+
             output.writeObject(line);
         } catch (Exception e) {
             this.console.println(e.getMessage());
         }
-        
-        this.console.println("\nYou have successfully saved the file " + filePath);
 
+        this.console.println("\nYou have successfully saved the file " + filePath);
 
 // ============SAVE TO POTTERHEADS PROJECT FILE AND CHOOSE FILE NAME=============
 //        FileWriter out = null;
@@ -144,7 +137,6 @@ public class SpellReportView extends View {
 //        }
 //        
 //        this.console.println("\nYou have successfully saved the file " + fileLocation);
-
         return;
 
 //        =============IGNORE================

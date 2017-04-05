@@ -5,8 +5,6 @@
  */
 package byui.cit260.potterheads.view;
 
-import java.util.Scanner;
-import byui.cit260.potterheads.control.GringottsControl;
 import java.io.PrintWriter;
 import potterheads.Potterheads;
 
@@ -15,6 +13,7 @@ import potterheads.Potterheads;
  * @author aleecrook
  */
 public class DiagonAlleyView extends View {
+
     protected final PrintWriter console = Potterheads.getOutFile();
 
     public DiagonAlleyView() {
@@ -72,7 +71,6 @@ public class DiagonAlleyView extends View {
         GringottsView gringottsView = new GringottsView();
         gringottsView.display();
     }
-
 
     private void ollivanders() {
         this.console.println("The room is filled with boxes of wands. You are in Ollivanders.");

@@ -7,11 +7,8 @@ package byui.cit260.potterheads.control;
 
 import byui.cit260.potterheads.exceptions.QuidditchControlException;
 import byui.cit260.potterheads.model.InventoryItem;
-import byui.cit260.potterheads.model.Spell;
 import java.io.PrintWriter;
-import static java.lang.Double.NaN;
 import java.text.DecimalFormat;
-import java.util.Arrays;
 import java.util.Scanner;
 import potterheads.Potterheads;
 
@@ -20,6 +17,7 @@ import potterheads.Potterheads;
  * @author Alex
  */
 public class QuidditchControl {
+
     protected final PrintWriter console = Potterheads.getOutFile();
 
     DecimalFormat df = new DecimalFormat("#.00");
@@ -51,27 +49,24 @@ public class QuidditchControl {
 
         this.console.println("\nIt took you " + df.format(timeCatchingSnitchWithKitchenBroom)
                 + " seconds to catch the snitch on the kitchen broom.");
-        
-        
+
         InventoryItem snitch = new InventoryItem(InventoryItem.InventoryItemType.snitch);
-        
-        if (timeCatchingSnitchWithKitchenBroom >= 200 && timeCatchingSnitchWithKitchenBroom <= 300 ) {
+
+        if (timeCatchingSnitchWithKitchenBroom >= 200 && timeCatchingSnitchWithKitchenBroom <= 300) {
             if ((Potterheads.getPlayer().getInventoryItems()).contains(snitch)) {
                 this.console.println("\nYou've already learned expelliarmus, but good job\n"
                         + "catching the snitch!");
-            } else { 
+            } else {
                 Potterheads.getPlayer().getInventoryItems().add(snitch);
-                this.console.println("\nCongratulations! For catching the snitch in in under " + 
-                        df.format(timeCatchingSnitchWithKitchenBroom) + " seconds, Cedric Diggery decided\n"
-                                + "to teach you expelliarmus!");
+                this.console.println("\nCongratulations! For catching the snitch in in under "
+                        + df.format(timeCatchingSnitchWithKitchenBroom) + " seconds, Cedric Diggery decided\n"
+                        + "to teach you expelliarmus!");
             }
         } else {
-            this.console.println("\nYou caught the snitch in " + df.format(timeCatchingSnitchWithKitchenBroom) + 
-                    "seconds. That's a good time, but not quite what Cedric was looking for. Try again!");
+            this.console.println("\nYou caught the snitch in " + df.format(timeCatchingSnitchWithKitchenBroom)
+                    + "seconds. That's a good time, but not quite what Cedric was looking for. Try again!");
         }
-    
-        
-        
+
         return timeCatchingSnitchWithKitchenBroom;
         // minimum speed = 10
         // maximum speed = 60
@@ -101,25 +96,25 @@ public class QuidditchControl {
         }
 
         double timeCatchingSnitchWithNimbus = ((timeOnBroom / nimbusSpeed) / 3) * 100;
-        
+
         this.console.println("\nIt took you " + df.format(timeCatchingSnitchWithNimbus)
                 + " seconds to catch the snitch on the Nimbus 2000.");
-        
+
         InventoryItem snitch = new InventoryItem(InventoryItem.InventoryItemType.snitch);
-        
-        if (timeCatchingSnitchWithNimbus >= 75 && timeCatchingSnitchWithNimbus <= 115 ) {
+
+        if (timeCatchingSnitchWithNimbus >= 75 && timeCatchingSnitchWithNimbus <= 115) {
             if ((Potterheads.getPlayer().getInventoryItems()).contains(snitch)) {
                 this.console.println("\nYou've already learned expelliarmus, but good job\n"
                         + "catching the snitch!");
-            } else { 
+            } else {
                 Potterheads.getPlayer().getInventoryItems().add(snitch);
-                this.console.println("\nCongratulations! For catching the snitch in in under " + 
-                        df.format(timeCatchingSnitchWithNimbus) + " seconds, Cedric Diggery decided\n"
-                                + "to teach you expelliarmus!");
+                this.console.println("\nCongratulations! For catching the snitch in in under "
+                        + df.format(timeCatchingSnitchWithNimbus) + " seconds, Cedric Diggery decided\n"
+                        + "to teach you expelliarmus!");
             }
         } else {
-            this.console.println("\nYou caught the snitch in " + df.format(timeCatchingSnitchWithNimbus) + 
-                    "seconds. That's a good time, but not quite what Cedric was looking for. Try again!");
+            this.console.println("\nYou caught the snitch in " + df.format(timeCatchingSnitchWithNimbus)
+                    + "seconds. That's a good time, but not quite what Cedric was looking for. Try again!");
         }
 
         return timeCatchingSnitchWithNimbus;
@@ -158,24 +153,24 @@ public class QuidditchControl {
 
         this.console.println("\nIt took you " + df.format(timeCatchingSnitchWithFirebolt)
                 + " seconds to catch the snitch on the Firebolt.");
-        
+
         InventoryItem snitch = new InventoryItem(InventoryItem.InventoryItemType.snitch);
-        
-        if (timeCatchingSnitchWithFirebolt >= 30 && timeCatchingSnitchWithFirebolt <= 60 ) {
+
+        if (timeCatchingSnitchWithFirebolt >= 30 && timeCatchingSnitchWithFirebolt <= 60) {
             if ((Potterheads.getPlayer().getInventoryItems()).contains(snitch)) {
                 this.console.println("\nYou've already learned expelliarmus, but good job\n"
                         + "catching the snitch!");
-            } else { 
+            } else {
                 Potterheads.getPlayer().getInventoryItems().add(snitch);
-                this.console.println("\nCongratulations! For catching the snitch in in under " + 
-                        df.format(timeCatchingSnitchWithFirebolt) + " seconds, Cedric Diggery decided\n"
-                                + "to teach you expelliarmus!");
+                this.console.println("\nCongratulations! For catching the snitch in in under "
+                        + df.format(timeCatchingSnitchWithFirebolt) + " seconds, Cedric Diggery decided\n"
+                        + "to teach you expelliarmus!");
             }
         } else {
-            this.console.println("\nYou caught the snitch in " + df.format(timeCatchingSnitchWithFirebolt) + 
-                    "seconds. That's a good time, but not quite what Cedric was looking for. Try again!");
+            this.console.println("\nYou caught the snitch in " + df.format(timeCatchingSnitchWithFirebolt)
+                    + "seconds. That's a good time, but not quite what Cedric was looking for. Try again!");
         }
-        
+
         return timeCatchingSnitchWithFirebolt;
     }
     // minimum speed = 100

@@ -5,17 +5,10 @@
  */
 package byui.cit260.potterheads.view;
 
-import byui.cit260.potterheads.control.GameControl;
-import byui.cit260.potterheads.model.Game;
-import byui.cit260.potterheads.model.InventoryItem;
 import byui.cit260.potterheads.model.Player;
-import byui.cit260.potterheads.model.Spell;
-import byui.cit260.potterheads.model.Spell.SpellType;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import potterheads.Potterheads;
-import static sun.audio.AudioPlayer.player;
 
 /**
  *
@@ -36,28 +29,28 @@ public class HagridsHouseView extends View {
         value = value.toUpperCase();
 
         boolean done = false;
-        
+
         while (!done) {
-            
+
             if ("Y".equals(value.toUpperCase())) {
                 if (!player.isHasReceivedMoney()) {
-                potterheads.Potterheads.getPlayer().setMoney(500);
+                    potterheads.Potterheads.getPlayer().setMoney(500);
 
-                this.console.println("\n'Five hunnerd dollars is a lot, I hear. But\n"
-                        + "don't ya worry, I dun't got much need for money and it's not\n"
-                        + "worth the effort of taking it down the bank. Go ahead, it's\n"
-                        + "yers!");
+                    this.console.println("\n'Five hunnerd dollars is a lot, I hear. But\n"
+                            + "don't ya worry, I dun't got much need for money and it's not\n"
+                            + "worth the effort of taking it down the bank. Go ahead, it's\n"
+                            + "yers!");
 
-                DecimalFormat df = new DecimalFormat("#.00");
+                    DecimalFormat df = new DecimalFormat("#.00");
 
-                double money = player.getMoney();
-                double galleons = player.getGalleons();
-                player.setHasReceivedMoney(true);
+                    double money = player.getMoney();
+                    double galleons = player.getGalleons();
+                    player.setHasReceivedMoney(true);
 
-                this.console.println("\nYou have $" + df.format(money) + " dollars.\n"
-                        + "and ʛ" + df.format(galleons) + " galleons.");
+                    this.console.println("\nYou have $" + df.format(money) + " dollars.\n"
+                            + "and ʛ" + df.format(galleons) + " galleons.");
 
-                return true;
+                    return true;
                 } else {
                     this.console.println("\nYou dirty mooch, you've already taken\n"
                             + "Hagrid's money.");
@@ -67,7 +60,6 @@ public class HagridsHouseView extends View {
                 return true;
             }
         }
-
         return true;
     }
 }

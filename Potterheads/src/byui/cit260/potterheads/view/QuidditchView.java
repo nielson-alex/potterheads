@@ -5,12 +5,9 @@
  */
 package byui.cit260.potterheads.view;
 
-import byui.cit260.potterheads.control.QuidditchControl;
 import java.io.PrintWriter;
-import java.util.Scanner;
 import potterheads.Potterheads;
 
-// Step 4
 /**
  *
  * @author alex
@@ -75,5 +72,4 @@ public class QuidditchView extends View {
 //    private void quitQuidditchView() {
 //        return;
 //    }
-
 }

@@ -66,15 +66,6 @@ public class Polyjuice implements Serializable {
             return false;
         }
         final Polyjuice other = (Polyjuice) obj;
-        if (Double.doubleToLongBits(this.weight) != Double.doubleToLongBits(other.weight)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.timeTransformed) != Double.doubleToLongBits(other.timeTransformed)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.ounces) != Double.doubleToLongBits(other.ounces)) {
-            return false;
-        }
         return true;
     }
 

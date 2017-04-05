@@ -5,9 +5,7 @@
  */
 package byui.cit260.potterheads.view;
 
-import byui.cit260.potterheads.control.GameControl;
 import java.io.PrintWriter;
-import java.util.Scanner;
 import potterheads.Potterheads;
 
 /**
@@ -15,6 +13,7 @@ import potterheads.Potterheads;
  * @author aleecrook
  */
 public class HelpMenuView extends View {
+
     protected final PrintWriter console = Potterheads.getOutFile();
 
     public HelpMenuView() {

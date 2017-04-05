@@ -7,13 +7,13 @@ package byui.cit260.potterheads.view;
 
 import java.io.BufferedReader;
 import java.io.PrintWriter;
-import java.util.Scanner;
 import potterheads.Potterheads;
 
 /**
  *
  * @author Alex
  */
+
 public abstract class View implements ViewInterface {
 
     protected String message;

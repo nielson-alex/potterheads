@@ -13,8 +13,9 @@ import byui.cit260.potterheads.model.Player;
  *
  * @author Alex
  */
+
 public class OllivandersView extends View {
-    
+
     public OllivandersView() {
         super("\nWhat would you like to buy?\n\n"
                 + "T - Taser            ʛ367.50\n"
@@ -23,33 +24,33 @@ public class OllivandersView extends View {
                 + "C - Chocolate Frogs  ʛ15.00\n"
                 + "Q - Quit");
     }
-    
+
     @Override
     public boolean doAction(String value) {
         value = value.toUpperCase();
-        
+
         InventoryItem replacementWand = new InventoryItem(InventoryItemType.replacementWand);
         InventoryItem firecrackers = new InventoryItem(InventoryItemType.firecrackers);
         InventoryItem chocolateFrogs = new InventoryItem(InventoryItemType.chocolateFrogs);
-        
+
         Player player = potterheads.Potterheads.getPlayer();
-        
-        switch(value) {
+
+        switch (value) {
             case "T":
                 boolean hasTaser = false;
-                
+
                 for (InventoryItem item : player.getInventoryItems()) {
                     if (item.getType() == InventoryItemType.taser) {
                         hasTaser = true;
                     }
                 }
-                
+
                 if (!(hasTaser == true)) {
                     if (player.getGalleons() >= 367.5) {
                         player.setGalleons(player.getGalleons() - 376.5);
                         player.getInventoryItems().add(new InventoryItem(InventoryItemType.taser));
                         this.console.println("\nCongratulations! You have purchased a backup wand!\n"
-                                    + "Yours seems pretty reliable, but this might come in handy regardless.");
+                                + "Yours seems pretty reliable, but this might come in handy regardless.");
                     } else {
                         this.console.println("\nSorry, you don't have enough money.");
                     }
@@ -57,7 +58,7 @@ public class OllivandersView extends View {
                     this.console.println("\nYou already have this item.");
                 }
                 break;
-                
+
             case "W":
                 if (!(player.getInventoryItems().contains(replacementWand))) {
                     if (player.getGalleons() >= 250) {
@@ -72,7 +73,7 @@ public class OllivandersView extends View {
                     this.console.println("\nYou already have this item.");
                 }
                 break;
-            case "F": 
+            case "F":
                 if (!(player.getInventoryItems().contains(firecrackers))) {
                     if (player.getGalleons() >= 33.08) {
                         player.setGalleons(player.getGalleons() - 33.08);
@@ -85,7 +86,7 @@ public class OllivandersView extends View {
                     this.console.println("\nYou already have this item.");
                 }
                 break;
-            case "C": 
+            case "C":
                 if (!(player.getInventoryItems().contains(chocolateFrogs))) {
                     if (player.getGalleons() >= 15.0) {
                         player.setGalleons(player.getGalleons() - 15.0);
@@ -103,4 +104,3 @@ public class OllivandersView extends View {
         return false;
     }
 }
-

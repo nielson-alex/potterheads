@@ -5,6 +5,7 @@
  */
 package byui.cit260.potterheads.control;
 
+import byui.cit260.potterheads.exceptions.GringottsControlException;
 import java.io.PrintWriter;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -24,7 +25,7 @@ public class DiagonAlleyControlTest {
      * Test of convertUsdToGalleons method, of class GringottsControl.
      */
     @Test
-    public void testConvertUsdToGalleons() {
+    public void testConvertUsdToGalleons() throws GringottsControlException {
         this.console.println("\tConvert USD to Galleons");
 
         /**

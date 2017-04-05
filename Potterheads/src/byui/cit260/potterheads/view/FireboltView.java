@@ -10,8 +10,6 @@ import byui.cit260.potterheads.control.QuidditchControl;
 import byui.cit260.potterheads.exceptions.QuidditchControlException;
 import java.io.PrintWriter;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import potterheads.Potterheads;
 
 /**
@@ -43,12 +41,12 @@ public class FireboltView extends View {
 
         String fireboltSpeed = value;
         double fireboltSpeedDouble = 0;
-        String timeOnBroom = "";
+        String timeOnBroom = null;
         double timeOnBroomDouble = 0;
 
         while (!done) {
             if ("Q".equals(fireboltSpeed.toUpperCase())) {
-                return true; 
+                return true;
             } else {
                 try {
                     fireboltSpeedDouble = Double.parseDouble(fireboltSpeed);
@@ -92,7 +90,6 @@ public class FireboltView extends View {
         QuidditchControl quidditchControl = new QuidditchControl();
         quidditchControl.calcFireboltTime(fireboltSpeedDouble, timeOnBroomDouble);
 
-        // return to previous view;
         return true;
     }
 }

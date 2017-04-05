@@ -8,7 +8,6 @@ package byui.cit260.potterheads.view;
 import byui.cit260.potterheads.model.Game;
 import byui.cit260.potterheads.model.InventoryItem;
 import byui.cit260.potterheads.model.InventoryItem.InventoryItemType;
-import static byui.cit260.potterheads.model.Item.expelliarmus;
 import byui.cit260.potterheads.model.Player;
 import byui.cit260.potterheads.model.Spell;
 import java.util.ArrayList;

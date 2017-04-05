@@ -88,21 +88,6 @@ public class Quidditch implements Serializable {
             return false;
         }
         final Quidditch other = (Quidditch) obj;
-        if (Double.doubleToLongBits(this.nimbusSpeed) != Double.doubleToLongBits(other.nimbusSpeed)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.fireboltSpeed) != Double.doubleToLongBits(other.fireboltSpeed)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.kitchenBroomSpeed) != Double.doubleToLongBits(other.kitchenBroomSpeed)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.timeOnBroom) != Double.doubleToLongBits(other.timeOnBroom)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.snitchSpeed) != Double.doubleToLongBits(other.snitchSpeed)) {
-            return false;
-        }
         return true;
     }
 

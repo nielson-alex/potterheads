@@ -5,25 +5,13 @@
  */
 package potterheads;
 
-import byui.cit260.potterheads.model.Character;
-import byui.cit260.potterheads.model.CharacterScene;
-import byui.cit260.potterheads.model.DiagonAlley;
 import byui.cit260.potterheads.model.Game;
-//import byui.cit260.potterheads.model.Item;
-import byui.cit260.potterheads.model.ItemScene;
-import byui.cit260.potterheads.model.Location;
-import byui.cit260.potterheads.model.Map;
 import byui.cit260.potterheads.model.Player;
-import byui.cit260.potterheads.model.Polyjuice;
-import byui.cit260.potterheads.model.PuzzleScene;
-import byui.cit260.potterheads.model.Quidditch;
-import byui.cit260.potterheads.model.Scene;
 import byui.cit260.potterheads.view.StartProgramView;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.logging.Logger;
 
 /**
  *
@@ -40,7 +28,7 @@ public class Potterheads {
 
     private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
-    
+
     private static PrintWriter logFile = null;
 
     /**
@@ -53,32 +41,33 @@ public class Potterheads {
             Potterheads.inFile = new BufferedReader(new InputStreamReader(System.in));
 
             Potterheads.outFile = new PrintWriter(System.out, true);
-            
+
             // open log file
             String filePath = "log.txt";
             Potterheads.logFile = new PrintWriter(filePath);
 
             StartProgramView startProgramView = new StartProgramView();
             startProgramView.display();
-            return;
+
         } catch (Throwable e) {
             System.out.println("Exception: " + e.toString() + "\nCause: " + e.getCause()
                     + "\nMessage: " + e.getMessage());
 
             e.printStackTrace();
-        }
-        
-        finally {
+        } finally {
             try {
-                if (Potterheads.inFile != null)
-                Potterheads.inFile.close();
-                
-                if (Potterheads.outFile != null) 
-                Potterheads.outFile.close();
-                
-                if (Potterheads.logFile != null)
-                Potterheads.logFile.close();
-                
+                if (Potterheads.inFile != null) {
+                    Potterheads.inFile.close();
+                }
+
+                if (Potterheads.outFile != null) {
+                    Potterheads.outFile.close();
+                }
+
+                if (Potterheads.logFile != null) {
+                    Potterheads.logFile.close();
+                }
+
             } catch (IOException ex) {
                 System.out.println("Error closing files");
                 return;
@@ -117,11 +106,11 @@ public class Potterheads {
     public static void setInFile(BufferedReader inFile) {
         Potterheads.inFile = inFile;
     }
-    
+
     public static PrintWriter getLogFile() {
         return logFile;
     }
-    
+
     public static void setLogFile(PrintWriter logFile) {
         Potterheads.logFile = logFile;
     }

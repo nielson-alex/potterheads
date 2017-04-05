@@ -10,6 +10,7 @@ package byui.cit260.potterheads.exceptions;
  * @author Alex
  */
 public class GameControlException extends Exception {
+
     public GameControlException() {
     }
 

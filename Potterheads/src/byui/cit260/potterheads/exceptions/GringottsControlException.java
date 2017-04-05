@@ -10,7 +10,7 @@ package byui.cit260.potterheads.exceptions;
  * @author Alex
  */
 public class GringottsControlException extends Exception {
-    
+
     public GringottsControlException() {
     }
 

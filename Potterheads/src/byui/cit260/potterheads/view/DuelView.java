@@ -10,7 +10,6 @@ import byui.cit260.potterheads.model.InventoryItem;
 import static byui.cit260.potterheads.model.InventoryItem.InventoryItemType.taser;
 import byui.cit260.potterheads.model.Player;
 import byui.cit260.potterheads.model.Spell;
-import byui.cit260.potterheads.model.Spell.SpellType;
 import java.util.ArrayList;
 import java.util.Scanner;
 import potterheads.Potterheads;
@@ -20,7 +19,7 @@ import potterheads.Potterheads;
  * @author Alex
  */
 public class DuelView extends View {
-    
+
     public DuelView() {
         super("\n'Scared, Potter?' Malfoy taunts you, unaware that you're not\n"
                 + "Harry Potter.\n"
@@ -29,11 +28,11 @@ public class DuelView extends View {
                 + "S - Spell\n"
                 + "Q - Quit");
     }
-    
+
     @Override
     public boolean doAction(String value) {
         value = value.toUpperCase();
-        
+
         switch (value) {
             case "I":
                 this.useItem();
@@ -43,19 +42,19 @@ public class DuelView extends View {
                 break;
             case "Q":
                 return true;
-            default: 
+            default:
                 this.console.println("\nEnter a valid selection");
                 break;
         }
-        
+
         return false;
     }
 
     private boolean useItem() {
         this.console.println("\nWhat item do you want to use?");
-        
+
         Scanner keyboard = new Scanner(System.in);
-        
+
         StringBuilder line;
 
         Game game = Potterheads.getCurrentGame();
@@ -79,21 +78,20 @@ public class DuelView extends View {
             //Display the line
             this.console.println(line.toString());
         }
-        
+
         String choice = keyboard.nextLine();
         choice = choice.toUpperCase();
-        
-        
+
         switch (choice) {
             case "TASER":
-                if (!(player.getInventoryItems().contains(new InventoryItem(taser)))) {                    
+                if (!(player.getInventoryItems().contains(new InventoryItem(taser)))) {
                     this.console.println("\nYou don't even have this.");
                 } else {
                     this.console.println("\n'Avada Kedavra!' you scream as you shoot Malfoy.\n"
                             + "Holy cow, you're a psycho.\n"
                             + "You go to Azkaban for the rest of your life.\n\n"
                             + "Game over.");
-                    
+
                     CheatEndingView cheatEndingView = new CheatEndingView();
                     cheatEndingView.displayCheatEndingView();
                 }
@@ -109,7 +107,7 @@ public class DuelView extends View {
         Scanner keyboard = new Scanner(System.in);
         StringBuilder line;
         Player player = potterheads.Potterheads.getPlayer();
-        
+
         this.console.println("\nWhat spell do you want to use?");
 
         Game game = Potterheads.getCurrentGame();
@@ -130,22 +128,21 @@ public class DuelView extends View {
             //Display the line
             this.console.println(line.toString());
         }
-        
+
         String choice = keyboard.nextLine();
         choice = choice.toUpperCase();
-        
-        
+
         switch (choice) {
             case "AVADA KEDAVRA":
                 boolean hasAvadaKedavra = false;
-                
+
                 for (Spell spell : player.getSpells()) {
                     if (spell.getType() == Spell.SpellType.avadaKedavra) {
                         hasAvadaKedavra = true;
                     }
                 }
-                
-                if (!(hasAvadaKedavra == false)) {                    
+
+                if (!(hasAvadaKedavra == false)) {
                     this.console.println("\nYou straight up murdered Malfoy. You go to\n"
                             + "Azkaban for the rest of your life.");
                     BadEndingView badEndingView = new BadEndingView();

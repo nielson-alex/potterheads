@@ -9,9 +9,7 @@ import byui.cit260.potterheads.model.Game;
 import byui.cit260.potterheads.model.Player;
 import byui.cit260.potterheads.model.Spell;
 import byui.cit260.potterheads.model.Spell.SpellType;
-import static byui.cit260.potterheads.model.Spell.SpellType.expelliarmus;
 import java.util.ArrayList;
-import java.util.Scanner;
 import potterheads.Potterheads;
 
 /**
@@ -44,22 +42,22 @@ class DumbledoresOfficeView extends View {
         switch (value) {
             case "E":
                 boolean hasExpelliarmus = false;
-                
+
                 for (Spell spell : player.getSpells()) {
                     if (spell.getType() == SpellType.expelliarmus) {
                         hasExpelliarmus = true;
                     }
                 }
-                
+
                 if (hasExpelliarmus == true) {
-                        this.console.println("\n'Oh, it seems you've already learned this one.'\n");
+                    this.console.println("\n'Oh, it seems you've already learned this one.'\n");
                 } else {
                     this.console.println("\nDumbledore works with you for a few minutes.\n"
                             + "He teaches you the incantation and the movements of the wand.\n"
                             + "Before you know it, you've mastered the spell " + Spell.SpellType.expelliarmus.name() + "!\n"
                             + "'Congratulations!");
                     player.getSpells().add(new Spell(SpellType.expelliarmus));
-                    
+
                     StringBuilder line;
 
                     Game game = Potterheads.getCurrentGame();
@@ -100,7 +98,7 @@ class DumbledoresOfficeView extends View {
                             + "Before you know it, you've mastered the spell " + Spell.SpellType.nox.name() + "!\n"
                             + "'Congratulations!");
                     player.getSpells().add(new Spell(SpellType.nox));
-                    
+
                     StringBuilder line;
 
                     Game game = Potterheads.getCurrentGame();

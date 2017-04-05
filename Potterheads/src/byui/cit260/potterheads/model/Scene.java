@@ -19,35 +19,35 @@ public class Scene implements Serializable {
     private String mapSymbol;
 
     public enum SceneType {
-    /*01*/  start, //Hogwarts Great Hall
-            unknown,
-            puzzle,
-            character,
-            item,
-    /*02*/  dumbledoresOffice,
-    /*03*/  knockTurnAlley,
-    /*04*/  hagridsHouse,
-    /*05*/  libraryScene,
-    /*06*/  quidditchPitch,  
-    /*07*/  leakyCauldron,
-    /*08*/  ollivanders,  
-    /*09*/  darkArtsClassroom,
-    /*10*/  forestScene,
-    /*11*/  flourishAndBlotts,
-    /*12*/  polyjuice,
-    /*13*/  diagonAlley,
-    /*14*/  gringottsBank,
-    /*15*/  darkDungeon,
-    /*16*/  finish;
-    /*17*/
-    /*18*/  
-    /*19*/  
-    /*20*/
-    /*21*/  
-    /*22*/
-    /*23*/  
-    /*24*/
-    /*25*/  
+        /*01*/ start, //Hogwarts Great Hall
+        unknown,
+        puzzle,
+        character,
+        item,
+        /*02*/ dumbledoresOffice,
+        /*03*/ knockTurnAlley,
+        /*04*/ hagridsHouse,
+        /*05*/ libraryScene,
+        /*06*/ quidditchPitch,
+        /*07*/ leakyCauldron,
+        /*08*/ ollivanders,
+        /*09*/ darkArtsClassroom,
+        /*10*/ forestScene,
+        /*11*/ flourishAndBlotts,
+        /*12*/ polyjuice,
+        /*13*/ diagonAlley,
+        /*14*/ gringottsBank,
+        /*15*/ darkDungeon,
+        /*16*/ finish;
+        /*17*/
+ /*18*/
+ /*19*/
+ /*20*/
+ /*21*/
+ /*22*/
+ /*23*/
+ /*24*/
+ /*25*/
     }
 
     //constructor function
@@ -101,15 +101,6 @@ public class Scene implements Serializable {
             return false;
         }
         final Scene other = (Scene) obj;
-        if (this.blocked != other.blocked) {
-            return false;
-        }
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        if (!Objects.equals(this.mapSymbol, other.mapSymbol)) {
-            return false;
-        }
         return true;
     }
 

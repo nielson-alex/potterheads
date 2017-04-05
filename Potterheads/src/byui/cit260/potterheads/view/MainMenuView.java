@@ -5,10 +5,8 @@
  */
 package byui.cit260.potterheads.view;
 
-import java.util.Scanner;
 import byui.cit260.potterheads.control.GameControl;
 import byui.cit260.potterheads.model.Location;
-import byui.cit260.potterheads.model.Scene;
 import java.awt.Point;
 import java.io.PrintWriter;
 import potterheads.Potterheads;
@@ -18,6 +16,7 @@ import potterheads.Potterheads;
  * @author aleecrook
  */
 public class MainMenuView extends View {
+
     protected final PrintWriter console = Potterheads.getOutFile();
 
     public MainMenuView() {
@@ -86,15 +85,15 @@ public class MainMenuView extends View {
     // case "L"
     private void displayExistingGame() {
         this.console.println("\nEnter the file path for the file of the game you want to load: ");
-        
+
         String filePath = this.getInput();
-        
+
         try {
             GameControl.getSavedGame(filePath);
         } catch (Exception ex) {
             ErrorView.display("MainMenuview", ex.getMessage());
         }
-        
+
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
 
@@ -111,21 +110,20 @@ public class MainMenuView extends View {
         this.console.println("\n*** displayGameMenu() function called ***");
     }
 
-
     // case "S"
     private void saveGame() {
         this.console.print("\nEnter the file path for the file where the game will be saved: ");
-        
+
         String filePath = this.getInput();
-        
+
         try {
             GameControl.saveGame(Potterheads.getCurrentGame(), filePath);
         } catch (Exception ex) {
             ErrorView.display("MainMenuView", ex.getMessage());
         }
     }
-    
-        // "case "Q"
+
+    // "case "Q"
     private void quitGame() {
         System.exit(0);
 

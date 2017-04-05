@@ -10,8 +10,6 @@ import byui.cit260.potterheads.control.QuidditchControl;
 import byui.cit260.potterheads.exceptions.QuidditchControlException;
 import java.io.PrintWriter;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import potterheads.Potterheads;
 
 /**

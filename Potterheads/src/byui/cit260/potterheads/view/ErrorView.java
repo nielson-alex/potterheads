@@ -13,17 +13,17 @@ import potterheads.Potterheads;
  * @author Alex
  */
 public class ErrorView {
-    
-    private static final PrintWriter errorFile = Potterheads.getOutFile();
-    private static final PrintWriter logFile = Potterheads.getLogFile();
-    
+
+    private static final PrintWriter ERRORFILE = Potterheads.getOutFile();
+    private static final PrintWriter LOGFILE = Potterheads.getLogFile();
+
     public static void display(String className, String errorMessage) {
-        errorFile.println(
-                    "--------------------------------------------------------------"
-                +   "\n- Error = " + errorMessage 
-                +   "\n-------------------------------------------------------------");
-        
+        ERRORFILE.println(
+                "--------------------------------------------------------------"
+                + "\n- Error = " + errorMessage
+                + "\n-------------------------------------------------------------");
+
         // log error
-        logFile.println(className +  " - " + errorMessage);
+        LOGFILE.println(className + " - " + errorMessage);
     }
 }

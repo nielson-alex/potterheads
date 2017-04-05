@@ -15,6 +15,7 @@ import potterheads.Potterheads;
  * @author Alexandra
  */
 public class Map implements Serializable {
+
     protected final PrintWriter console = Potterheads.getOutFile();
 
 //    public Map() {

@@ -7,7 +7,6 @@ package byui.cit260.potterheads.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -18,12 +17,8 @@ public class Game implements Serializable {
 
     //class instance variables
     private int numberOfPlayers;
-//    private InventoryItem[] inventory;
 
     //Create cardinalities of One
-    private DiagonAlley diagonAlley;
-    private Polyjuice polyjuice;
-    private Quidditch quidditch;
     private Map map;
     private Player player;
 
@@ -31,11 +26,6 @@ public class Game implements Serializable {
     private ArrayList<InventoryItem> tradeableInventory = new ArrayList<>();
     private ArrayList<Spell> spellInventory = new ArrayList<>();
     private ArrayList<Scene> sceneType = new ArrayList<>();
-
-
-    //Create cardinalities of many
-    //    private InventoryItems inventoryItems;
-    private Character[] character;
 
     public Game() {
     }
@@ -46,30 +36,6 @@ public class Game implements Serializable {
 
     public void setNumberOfPlayers(int numberOfPlayers) {
         this.numberOfPlayers = numberOfPlayers;
-    }
-
-    public DiagonAlley getDiagonAlley() {
-        return diagonAlley;
-    }
-
-    public void setDiagonAlley(DiagonAlley diagonAlley) {
-        this.diagonAlley = diagonAlley;
-    }
-
-    public Polyjuice getPolyjuice() {
-        return polyjuice;
-    }
-
-    public void setPolyjuice(Polyjuice polyjuice) {
-        this.polyjuice = polyjuice;
-    }
-
-    public Quidditch getQuidditch() {
-        return quidditch;
-    }
-
-    public void setQuidditch(Quidditch quidditch) {
-        this.quidditch = quidditch;
     }
 
     public Map getMap() {
@@ -104,14 +70,6 @@ public class Game implements Serializable {
         this.spellInventory = spellInventory;
     }
 
-    public Character[] getCharacter() {
-        return character;
-    }
-
-    public void setCharacter(Character[] character) {
-        this.character = character;
-    }
-
     public ArrayList<Scene> getSceneType() {
         return sceneType;
     }
@@ -124,15 +82,11 @@ public class Game implements Serializable {
     public int hashCode() {
         int hash = 7;
         hash = 37 * hash + this.numberOfPlayers;
-        hash = 37 * hash + Objects.hashCode(this.diagonAlley);
-        hash = 37 * hash + Objects.hashCode(this.polyjuice);
-        hash = 37 * hash + Objects.hashCode(this.quidditch);
         hash = 37 * hash + Objects.hashCode(this.map);
         hash = 37 * hash + Objects.hashCode(this.player);
         hash = 37 * hash + Objects.hashCode(this.tradeableInventory);
         hash = 37 * hash + Objects.hashCode(this.spellInventory);
         hash = 37 * hash + Objects.hashCode(this.sceneType);
-        hash = 37 * hash + Arrays.deepHashCode(this.character);
         return hash;
     }
 
@@ -151,15 +105,6 @@ public class Game implements Serializable {
         if (this.numberOfPlayers != other.numberOfPlayers) {
             return false;
         }
-        if (!Objects.equals(this.diagonAlley, other.diagonAlley)) {
-            return false;
-        }
-        if (!Objects.equals(this.polyjuice, other.polyjuice)) {
-            return false;
-        }
-        if (!Objects.equals(this.quidditch, other.quidditch)) {
-            return false;
-        }
         if (!Objects.equals(this.map, other.map)) {
             return false;
         }
@@ -175,15 +120,12 @@ public class Game implements Serializable {
         if (!Objects.equals(this.sceneType, other.sceneType)) {
             return false;
         }
-        if (!Arrays.deepEquals(this.character, other.character)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Game{" + "numberOfPlayers=" + numberOfPlayers + ", diagonAlley=" + diagonAlley + ", polyjuice=" + polyjuice + ", quidditch=" + quidditch + ", map=" + map + ", player=" + player + ", tradeableInventory=" + tradeableInventory + ", spellInventory=" + spellInventory + ", sceneType=" + sceneType + ", character=" + character + '}';
+        return "Game{" + "numberOfPlayers=" + numberOfPlayers + ", map=" + map + ", player=" + player + ", tradeableInventory=" + tradeableInventory + ", spellInventory=" + spellInventory + ", sceneType=" + sceneType + '}';
     }
 
 }

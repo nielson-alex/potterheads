@@ -1,17 +1,8 @@
-/*
-/* Welcome screen:
-/*The end user enters the command to start the program/game. The computer displays the
-/*banner screen including the title of the game. The computer also requests for the user to input
-/*their desired name. The user enters their name and the computer displays a welcome message,
-/*along with a brief description of the game and the Main Menu. An error message is displayed if
-/*the user enters an invalid name or command.
- */
 package byui.cit260.potterheads.view;
 
 import byui.cit260.potterheads.control.GameControl;
 import byui.cit260.potterheads.model.Player;
 import java.io.PrintWriter;
-import java.util.Scanner;
 import potterheads.Potterheads;
 
 /**
@@ -19,6 +10,7 @@ import potterheads.Potterheads;
  * @author Alexandra
  */
 public class StartProgramView extends View {
+
     protected final PrintWriter console = Potterheads.getOutFile();
 
     public StartProgramView() {
@@ -78,6 +70,5 @@ public class StartProgramView extends View {
 
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.display();
-
     }
 }

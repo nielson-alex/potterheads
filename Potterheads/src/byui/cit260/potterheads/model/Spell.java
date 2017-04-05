@@ -115,12 +115,6 @@ public class Spell {
             return false;
         }
         final Spell other = (Spell) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.effect, other.effect)) {
-            return false;
-        }
         return true;
     }
 

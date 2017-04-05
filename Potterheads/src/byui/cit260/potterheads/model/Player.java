@@ -27,7 +27,6 @@ public class Player implements Serializable {
 
     // constructor Function
     public Player() {
-        this.name = name;
         this.spells = new ArrayList<>();
         this.inventoryItems = new ArrayList<>();
         coordinates = new Point(0, 0);
@@ -69,7 +68,7 @@ public class Player implements Serializable {
     public void setMoney(double money) {
         this.money = money;
     }
-    
+
     public double getGalleons() {
         return galleons;
     }
@@ -142,25 +141,8 @@ public class Player implements Serializable {
             return false;
         }
         final Player other = (Player) obj;
-        if (Double.doubleToLongBits(this.money) != Double.doubleToLongBits(other.money)) {
-            return false;
-        }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.coordinates, other.coordinates)) {
-            return false;
-        }
-        if (!Objects.equals(this.spells, other.spells)) {
-            return false;
-        }
-        if (!Objects.equals(this.inventoryItems, other.inventoryItems)) {
-            return false;
-        }
         return true;
     }
-
-
 
     // toString();
     @Override

@@ -9,24 +9,19 @@ import byui.cit260.potterheads.exceptions.GameControlException;
 import byui.cit260.potterheads.exceptions.MapControlException;
 import byui.cit260.potterheads.model.Game;
 import byui.cit260.potterheads.model.InventoryItem;
-import byui.cit260.potterheads.model.InventoryItem.InventoryItemType;
-import byui.cit260.potterheads.model.Item;
 import byui.cit260.potterheads.model.Location;
 import byui.cit260.potterheads.model.Map;
 import byui.cit260.potterheads.model.Player;
 import byui.cit260.potterheads.model.Scene;
 import byui.cit260.potterheads.model.Scene.SceneType;
 import byui.cit260.potterheads.model.Spell;
-import byui.cit260.potterheads.view.GameMenuView;
-import byui.cit260.potterheads.view.HagridsHouseView;
 import java.util.ArrayList;
 import potterheads.Potterheads;
-import byui.cit260.potterheads.model.TradeableItem;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import static java.lang.System.console;
+
 
 public class GameControl {
 
@@ -111,27 +106,7 @@ public class GameControl {
 //            ----------ITEMS-----------
 //        InventoryItem snitch = new InventoryItem(InventoryItemType.snitch);
 //        tradeableInventory.add(snitch);
-//
-//        InventoryItem timeTurner = new InventoryItem(InventoryItemType.timeTurner);
-//        tradeableInventory.add(timeTurner);
-//
-//        InventoryItem maraudersMap = new InventoryItem(InventoryItemType.maraudersMap);
-//        tradeableInventory.add(maraudersMap);
-//
-//        InventoryItem invisibilityCloak = new InventoryItem(InventoryItemType.invisibilityCloak);
-//        tradeableInventory.add(invisibilityCloak);
-//
-//        InventoryItem americanMoney = new InventoryItem(InventoryItemType.americanMoney);
-//        tradeableInventory.add(americanMoney);
-//
-//        InventoryItem gillyweed = new InventoryItem(InventoryItemType.gillyweed);
-//        tradeableInventory.add(gillyweed);
-//
-//        InventoryItem firecrackers = new InventoryItem(InventoryItemType.firecrackers);
-//        tradeableInventory.add(firecrackers);
-//
-//        InventoryItem replacementWand = new InventoryItem(InventoryItemType.replacementWand);
-//        tradeableInventory.add(replacementWand);
+
 
         return tradeableInventory;
     }
@@ -186,14 +161,6 @@ public class GameControl {
         characterScene.setMapSymbol("CH");
         characterScene.setBlocked(false);
         scenes[SceneType.character.ordinal()] = characterScene;
-
-  
-        Scene itemScene = new Scene();
-        itemScene.setDescription("***These scenes have items***");
-        itemScene.setMapSymbol("IT");
-        itemScene.setBlocked(false);
-        scenes[SceneType.item.ordinal()] = itemScene;
-
 
         Scene unknownScene = new Scene();
         unknownScene.setDescription("You don't have enough wizarding cred to go here yet.");
@@ -352,7 +319,6 @@ public class GameControl {
         finishScene.setMapSymbol("FN");
         finishScene.setBlocked(false);
         scenes[SceneType.finish.ordinal()] = finishScene;
-        
         
         // #17
         

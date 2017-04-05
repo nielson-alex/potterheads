@@ -6,7 +6,6 @@
 package byui.cit260.potterheads.control;
 
 import byui.cit260.potterheads.exceptions.PolyjuiceControlException;
-import byui.cit260.potterheads.exceptions.QuidditchControlException;
 import byui.cit260.potterheads.model.InventoryItem;
 import byui.cit260.potterheads.model.Player;
 import java.io.PrintWriter;
@@ -19,13 +18,14 @@ import potterheads.Potterheads;
  * @author alex
  */
 public class PolyjuiceControl {
+
     protected final PrintWriter console = Potterheads.getOutFile();
 
     DecimalFormat df = new DecimalFormat("#.00");
 
     Scanner inFile;
 
-    public double calcTimeTransformed(double weight, double ozOfPotion) 
+    public double calcTimeTransformed(double weight, double ozOfPotion)
             throws PolyjuiceControlException {
 
         if (weight < 90) {
@@ -49,10 +49,10 @@ public class PolyjuiceControl {
         this.console.println("\nYou exchanged have brewed enough polyjuice potion to\n"
                 + "remain transformed for " + df.format(timeTransformed)
                 + " minutes.");
-        
+
         Player player = Potterheads.getPlayer();
         InventoryItem timeTurner = new InventoryItem(InventoryItem.InventoryItemType.timeTurner);
-        
+
         if (timeTransformed >= 7.5) {
             if (!(player.getInventoryItems().contains(timeTurner))) {
                 this.console.println("\nThe potion worked! You look just like Hermione now.\n"
@@ -63,14 +63,14 @@ public class PolyjuiceControl {
                 this.console.println("\nYou've already got the time turner, kid.");
             }
         } else {
-            this.console.println("\nYou've only brewed enough potion to last " + 
-                    df.format(timeTransformed) + " minutes.\n"
-                            + "That's not enough time to reach McGonogal before you change back.\n"
-                            + "You wait for the effects of the potion to wear off so you can try again.");
+            this.console.println("\nYou've only brewed enough potion to last "
+                    + df.format(timeTransformed) + " minutes.\n"
+                    + "That's not enough time to reach McGonogal before you change back.\n"
+                    + "You wait for the effects of the potion to wear off so you can try again.");
         }
 
         return timeTransformed;
-        
+
         //minimum weight = 90
         //maximum weight = 300
         //minimum ounces = 1

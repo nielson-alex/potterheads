@@ -10,16 +10,15 @@ import byui.cit260.potterheads.model.Map;
 import java.io.PrintWriter;
 import potterheads.Potterheads;
 
-
-
 /**
  *
  * @author Alex
  */
 public class MapView extends View {
+
     protected final PrintWriter console = Potterheads.getOutFile();
     StringBuilder line;
-    
+
     public MapView() {
         super("Map");
     }
@@ -28,7 +27,7 @@ public class MapView extends View {
     public void display() {
         Map map = Potterheads.getCurrentGame().getMap();
         Location[][] locations = map.getLocations();
-        
+
         line = new StringBuilder();
         StringBuilder hyphens = new StringBuilder();
         line.append("  ");
@@ -58,7 +57,7 @@ public class MapView extends View {
             this.console.println(line.toString());
             this.console.println(hyphens.toString());
         }
-        
+
         this.console.println("\nChoose where you would like to go on the map:\n"
                 + "1. Diagon Alley             2. Polyjuice Potion Lab\n"
                 + "3. Quidditch Pitch          4. Hagrid's House\n"
@@ -75,7 +74,6 @@ public class MapView extends View {
                 + "25.\n\n"
                 + "Q - quit");
 
-        
         String input = this.getInput();
         boolean done = this.doAction(input);
 //        boolean done = this.doAction(this.getInput());
@@ -83,11 +81,11 @@ public class MapView extends View {
             this.display();
         }
     }
-    
+
     @Override
     public boolean doAction(String value) {
         value = value.toUpperCase();
-        
+
         switch (value) {
             case "1":
                 DiagonAlleyView diagonAlleyView = new DiagonAlleyView();

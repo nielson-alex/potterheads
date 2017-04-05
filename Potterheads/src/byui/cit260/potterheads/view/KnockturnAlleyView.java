@@ -12,7 +12,6 @@ import byui.cit260.potterheads.model.Player;
 import byui.cit260.potterheads.model.Spell;
 import byui.cit260.potterheads.model.Spell.SpellType;
 import java.util.ArrayList;
-import java.util.Scanner;
 import potterheads.Potterheads;
 
 /**

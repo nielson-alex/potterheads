@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-// step 2 Alex
 package byui.cit260.potterheads.view;
 
 import byui.cit260.potterheads.control.GringottsControl;
@@ -20,8 +19,7 @@ import potterheads.Potterheads;
 public class GringottsView extends View {
 
     protected final PrintWriter console = Potterheads.getOutFile();
-    
-    
+
     public GringottsView() {
         super("\nEnter the number of dollars you want to exchange:\n\n"
                 + "(press 'Q' to quit)");
@@ -32,10 +30,10 @@ public class GringottsView extends View {
         value = value.toUpperCase();
         boolean done = false;
         Scanner keyboard = new Scanner(System.in);
-        
+
         Player player = Potterheads.getPlayer();
         double money = player.getMoney();
-        
+
         String dollars = value;
         String cents = ""; //value to be returned
         double dollarsDouble = 0;
@@ -83,16 +81,15 @@ public class GringottsView extends View {
         } catch (GringottsControlException ex) {
             this.console.println(ex.getMessage());
         }
-            return true;
+        return true;
     }
-    
-    private boolean convertCurrency(double dollarsDouble, double centsDouble) 
-        throws GringottsControlException {
-    
+
+    private boolean convertCurrency(double dollarsDouble, double centsDouble)
+            throws GringottsControlException {
+
         GringottsControl gringottsControl = new GringottsControl();
         gringottsControl.convertUsdToGalleons(dollarsDouble, centsDouble);
 
-        // return to previous view;
         return true;
     }
 }

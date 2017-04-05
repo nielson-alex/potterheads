@@ -9,6 +9,7 @@ package byui.cit260.potterheads.view;
  *
  * @author aleecrook
  */
+
 import java.util.Scanner;
 import byui.cit260.potterheads.control.PolyjuiceControl;
 import byui.cit260.potterheads.exceptions.PolyjuiceControlException;
@@ -16,6 +17,7 @@ import java.io.PrintWriter;
 import potterheads.Potterheads;
 
 public class PolyjuiceView extends View {
+
     protected final PrintWriter console = Potterheads.getOutFile();
 
     public PolyjuiceView() {
@@ -24,11 +26,11 @@ public class PolyjuiceView extends View {
     }
 
     @Override
-    public boolean doAction(String value) 
-        throws NumberFormatException {
+    public boolean doAction(String value)
+            throws NumberFormatException {
         value = value.toUpperCase();
         boolean done = false;
-        
+
         Scanner keyboard = new Scanner(System.in);
         String weight = value;
         String ozOfPotion = ""; //value to be returned
@@ -45,7 +47,7 @@ public class PolyjuiceView extends View {
                     ErrorView.display(this.getClass().getName(), "You must enter a valid number.");
                     return false;
                 }
-            
+
             }
             break;
         }
@@ -76,14 +78,14 @@ public class PolyjuiceView extends View {
         } catch (PolyjuiceControlException ex) {
             this.console.println(ex.getMessage());
         }
-        
+
         return true;
     }
-        
-    private boolean calcPotionBrewed(double weightDouble, double ozOfPotionDouble) 
-        throws PolyjuiceControlException {
+
+    private boolean calcPotionBrewed(double weightDouble, double ozOfPotionDouble)
+            throws PolyjuiceControlException {
         PolyjuiceControl polyjuiceControl = new PolyjuiceControl();
-        
+
         try {
             polyjuiceControl.calcTimeTransformed(weightDouble, ozOfPotionDouble);
         } catch (PolyjuiceControlException ne) {
