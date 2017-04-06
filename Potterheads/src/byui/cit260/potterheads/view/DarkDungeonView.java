@@ -118,6 +118,7 @@ public class DarkDungeonView extends View {
                                     + "belong to someone.");
 
                             player.setHasClearedDarkRoom(true);
+                            
                             Potterheads.getPlayer().getInventoryItems().add(new InventoryItem(InventoryItemType.walkingStick));
                             this.showAcquiredItem();
 

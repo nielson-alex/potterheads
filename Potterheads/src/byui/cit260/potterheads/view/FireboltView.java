@@ -84,7 +84,7 @@ public class FireboltView extends View {
         }
 
         /*
-        
+        Catching a custom runtime error
         */
         try {
             this.calculateQuidditchControl(fireboltSpeedDouble, timeOnBroomDouble);

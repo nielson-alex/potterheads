@@ -6,7 +6,6 @@
 package byui.cit260.potterheads.view;
 
 import byui.cit260.potterheads.model.Game;
-import byui.cit260.potterheads.model.Player;
 import byui.cit260.potterheads.model.Spell;
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -23,7 +22,7 @@ public class SpellReportView extends View {
     protected final PrintWriter console = Potterheads.getOutFile();
 
     public SpellReportView() {
-        super("P - Print Menu\n"
+        super("P - Print Collected Spells\n"
                 + "Q - Back to Main Menu");
     }
 
@@ -48,6 +47,102 @@ public class SpellReportView extends View {
 
     public void printReport() {
         Scanner keyboard = new Scanner(System.in);
+        /*
+This isn't the most attractive block of code, but it works, which I think is 
+the important part. I wanted this to save an external file containing a list of 
+all the spells that the player has learned thus far but the out.Write didn't want
+to cooperate with the StringBuilder so I had to reverto a more primitive approach.
+         */
+        FileWriter out = null;
+        this.console.println("Enter the name of the file you want to save your report to.");
+
+        String fileName = (keyboard.nextLine() + ".txt");
+        String fileLocation = ("C:\\Users\\Alex\\Documents\\W2017_CIT 260\\Printed Reports\\" + fileName);
+
+        Game game = Potterheads.getCurrentGame();
+        ArrayList<Spell> inventory = game.getSpellInventory();
+
+        String expelliarmusName = "";
+        String expelliarmusDesc = "";
+        String lumosName = "";
+        String lumosDesc = "";
+        String noxName = "";
+        String noxDesc = "";
+        String avadaKedavraName = "";
+        String avadaKedavraDesc = "";
+        String space = "                   ";
+
+//        this.console.println("\n          List of Spells Learned");
+//        line = new StringBuilder("                                                              ");
+//        line.insert(0, "NAME");
+//        line.insert(25, "EFFECT");
+//        this.console.println(line.toString());
+        //for each inventory item
+        for (Spell spellInventory : inventory) {
+
+            if (spellInventory.getName() == "Expelliarmus") {
+                expelliarmusName = spellInventory.getName();
+                expelliarmusDesc = spellInventory.getEffect();
+            }
+
+            if (spellInventory.getName() == "Lumos") {
+                lumosName = spellInventory.getName();
+                lumosDesc = spellInventory.getEffect();
+            }
+
+            if (spellInventory.getName() == "Nox") {
+                noxName = spellInventory.getName();
+                noxDesc = spellInventory.getEffect();
+            }
+
+            if (spellInventory.getName() == "Avada Kedavra") {
+                avadaKedavraName = spellInventory.getName();
+                avadaKedavraDesc = spellInventory.getEffect();
+            }
+
+//            this.console.println(expelliarmusName + "\n" + lumosName);
+//            this.console.println(spellInventory.getName() + spellInventory.getEffect());
+//            new StringBuilder("                                                  ");
+//            line.insert(0, spellInventory.getName());
+//            line.insert(25, spellInventory.getEffect());
+            //Display the line
+//            this.console.println(line.toString());
+        }
+
+        try {
+            out = new FileWriter(fileLocation);
+
+            out.write("Spells Report\n\n");
+            out.write(System.getProperty("line.separator"));
+            out.write(System.getProperty("line.separator"));
+            out.write("NAME" + space + " " + "EFFECT");
+            out.write(System.getProperty("line.separator"));
+//            out.write(player.getName().toString());
+            out.write(expelliarmusName + "            " + expelliarmusDesc);
+            out.write(System.getProperty("line.separator"));
+            out.write(lumosName + space + lumosDesc);
+            out.write(System.getProperty("line.separator"));
+            out.write(noxName + space + " " + noxDesc);
+            out.write(System.getProperty("line.separator"));
+            out.write(avadaKedavraName + space + "  " + avadaKedavraDesc);
+
+        } catch (Exception e) {
+            this.console.println(e.getMessage());
+        } finally {
+            try {
+                if (out != null) {
+                    out.close();
+                }
+            } catch (Exception e) {
+                this.console.println(e.getMessage());
+            }
+
+        }
+
+        this.console.println("\nYou have successfully saved the file " + fileLocation);
+        return;
+    }
+}
 
 //============SAVE TO ANY DIRECTORY YOU WANT PLUS FILE NAME.TXT==================
 //        this.console.println("\nEnter the name of the filepath you want to save the report to.\n"
@@ -86,57 +181,6 @@ public class SpellReportView extends View {
 //
 //        this.console.println("\nYou have successfully saved the file " + filePath);
 // ============SAVE TO POTTERHEADS PROJECT FILE AND CHOOSE FILE NAME=============
-        FileWriter out = null;
-        StringBuilder line;
-        this.console.println("Enter the name of the file you want to save your report to.");
-
-        String fileName = (keyboard.nextLine() + ".txt");
-        String fileLocation = ("C:\\Users\\Alex\\Documents\\W2017_CIT 260\\Printed Reports\\" + fileName);
-
-        Player player = potterheads.Potterheads.getPlayer();
-        Game game = Potterheads.getCurrentGame();
-        ArrayList<Spell> inventory = game.getSpellInventory();
-        ArrayList<String> printable = new ArrayList<>();
-
-        this.console.println("\n          List of Spells Learned");
-        line = new StringBuilder("                                                              ");
-        line.insert(0, "NAME");
-        line.insert(25, "EFFECT");
-        this.console.println(line.toString());
-
-        //for each inventory item
-        for (Spell spellInventory : inventory) {
-            try {
-                out = new FileWriter(fileLocation);
-
-                out.write("Last spell learned: ");
-
-                out.write(spellInventory.getName());
-
-            } catch (Exception e) {
-                this.console.println(e.getMessage());
-            } finally {
-                try {
-                    if (out != null) {
-                        out.close();
-                    }
-                } catch (Exception e) {
-                    this.console.println(e.getMessage());
-                }
-
-            }
-//            this.console.println(spellInventory.getName() + spellInventory.getEffect());
-//            lined
-////            new StringBuilder("                                                  ");
-//            line.
-//            line.insert(25, spellInventory.getEffect());
-//
-//            //Display the line
-//            this.console.println(line.toString());
-        }
-
-        this.console.println("\nYou have successfully saved the file " + fileLocation);
-
 //        =============IGNORE================
 //        this.console.println("Enter the name of the file you want to save your report to.");
 //
@@ -184,5 +228,4 @@ public class SpellReportView extends View {
 //                }
 //            }
 //        }
-    }
-}
+

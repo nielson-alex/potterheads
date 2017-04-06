@@ -370,6 +370,13 @@ public class GameMenuView extends View {
         this.console.println(location.getScene().getDescription());
     }
 
+    /*
+    Unfortunately, the game we built didn't use any arrays. I tried for a while
+    and was unable to find an organic way to incoporate any new arrays into the 
+    game that would be meaningful in any way or contribute to gameplay. Instead,
+    I opted to provide a little information about the game's development and show
+    what characters we neglected to include in the game
+    */
     private void unusedCharacters() {
         this.console.println("\nSee what characters we didn't use in this game.\n"
                 + "1\n"

@@ -43,6 +43,14 @@ class DumbledoresOfficeView extends View {
             case "E":
                 boolean hasExpelliarmus = false;
 
+                /*
+                Before the player can learn the spell expelliarmus, we want to check
+                to make sure that they haven't already learned it. This is done
+                by using a quick for-each loop which checks to see if the currently iterating Spell 
+                object type matches SpellType.expelliarmus. If it does, then we let them know 
+                thaty've already learned the spell (line 60), if not, then it adds the
+                spell to their spell inventory
+                */
                 for (Spell spell : player.getSpells()) {
                     if (spell.getType() == SpellType.expelliarmus) {
                         hasExpelliarmus = true;
