@@ -6,10 +6,9 @@
 package byui.cit260.potterheads.view;
 
 import byui.cit260.potterheads.model.Game;
+import byui.cit260.potterheads.model.Player;
 import byui.cit260.potterheads.model.Spell;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
-import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -50,50 +49,14 @@ public class SpellReportView extends View {
     public void printReport() {
         Scanner keyboard = new Scanner(System.in);
 
-        this.console.println("\nEnter the name of the filepath you want to save the report to.\n"
-                + "Followed by the name you want to name the file with the extension '.txt.'\n"
-                + "(example: 'spells_list.txt')");
-
 //============SAVE TO ANY DIRECTORY YOU WANT PLUS FILE NAME.TXT==================
-        String filePath = keyboard.nextLine();
-
-        FileWriter out = null;
-        StringBuilder line;
-        Game game = Potterheads.getCurrentGame();
-        ArrayList<Spell> inventory = game.getSpellInventory();
-
-        this.console.println("\n          List of Spells Learned");
-        line = new StringBuilder("                                                              ");
-        line.insert(0, "NAME");
-        line.insert(25, "EFFECT");
-        this.console.println(line.toString());
-
-        //for each inventory item
-        for (Spell spellInventory : inventory) {
-            line = new StringBuilder("                                                  ");
-            line.insert(0, spellInventory.getName());
-            line.insert(25, spellInventory.getEffect());
-
-            //Display the line
-            this.console.println(line.toString());
-        }
-
-        try (FileOutputStream fops = new FileOutputStream(filePath)) {
-            ObjectOutputStream output = new ObjectOutputStream(fops);
-
-            output.writeObject(line);
-        } catch (Exception e) {
-            this.console.println(e.getMessage());
-        }
-
-        this.console.println("\nYou have successfully saved the file " + filePath);
-
-// ============SAVE TO POTTERHEADS PROJECT FILE AND CHOOSE FILE NAME=============
+//        this.console.println("\nEnter the name of the filepath you want to save the report to.\n"
+//                + "Followed by the name you want to name the file with the extension '.txt.'\n"
+//                + "(example: 'spells_list.txt')");
+//        String filePath = keyboard.nextLine();
+//
 //        FileWriter out = null;
 //        StringBuilder line;
-//        this.console.println("Enter the name of the file you want to save your report to.");
-//
-//        String fileLocation = keyboard.nextLine();
 //        Game game = Potterheads.getCurrentGame();
 //        ArrayList<Spell> inventory = game.getSpellInventory();
 //
@@ -113,31 +76,66 @@ public class SpellReportView extends View {
 //            this.console.println(line.toString());
 //        }
 //
-//        try {
+//        try (FileOutputStream fops = new FileOutputStream(filePath)) {
+//            ObjectOutputStream output = new ObjectOutputStream(fops);
 //
-//            out = new FileWriter(fileLocation);
-//
-////            out.write("Big ol' string".getBytes());
-//            out.write("Spells Report\n\n");
-//            out.write("\n\n");
-//            out.write(line.toString());
-//
-//            out.flush();
+//            output.writeObject(line);
 //        } catch (Exception e) {
 //            this.console.println(e.getMessage());
-//        } finally {
-//            try {
-//                if (out != null) {
-//                    out.close();
-//                }
-//            } catch (Exception e) {
-//                this.console.println(e.getMessage());
-//            }
-//
 //        }
-//        
-//        this.console.println("\nYou have successfully saved the file " + fileLocation);
-        return;
+//
+//        this.console.println("\nYou have successfully saved the file " + filePath);
+// ============SAVE TO POTTERHEADS PROJECT FILE AND CHOOSE FILE NAME=============
+        FileWriter out = null;
+        StringBuilder line;
+        this.console.println("Enter the name of the file you want to save your report to.");
+
+        String fileName = (keyboard.nextLine() + ".txt");
+        String fileLocation = ("C:\\Users\\Alex\\Documents\\W2017_CIT 260\\Printed Reports\\" + fileName);
+
+        Player player = potterheads.Potterheads.getPlayer();
+        Game game = Potterheads.getCurrentGame();
+        ArrayList<Spell> inventory = game.getSpellInventory();
+        ArrayList<String> printable = new ArrayList<>();
+
+        this.console.println("\n          List of Spells Learned");
+        line = new StringBuilder("                                                              ");
+        line.insert(0, "NAME");
+        line.insert(25, "EFFECT");
+        this.console.println(line.toString());
+
+        //for each inventory item
+        for (Spell spellInventory : inventory) {
+            try {
+                out = new FileWriter(fileLocation);
+
+                out.write("Last spell learned: ");
+
+                out.write(spellInventory.getName());
+
+            } catch (Exception e) {
+                this.console.println(e.getMessage());
+            } finally {
+                try {
+                    if (out != null) {
+                        out.close();
+                    }
+                } catch (Exception e) {
+                    this.console.println(e.getMessage());
+                }
+
+            }
+//            this.console.println(spellInventory.getName() + spellInventory.getEffect());
+//            lined
+////            new StringBuilder("                                                  ");
+//            line.
+//            line.insert(25, spellInventory.getEffect());
+//
+//            //Display the line
+//            this.console.println(line.toString());
+        }
+
+        this.console.println("\nYou have successfully saved the file " + fileLocation);
 
 //        =============IGNORE================
 //        this.console.println("Enter the name of the file you want to save your report to.");

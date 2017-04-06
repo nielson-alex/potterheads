@@ -27,6 +27,15 @@ public class QuidditchControl {
     public double calcKitchenBroomTime(double kitchenBroomSpeed, double timeOnBroom)
             throws QuidditchControlException {
 
+        /*
+        For the purposes of the game, the minimum speed of the kitchen broom is
+        not permitted to go under 10 miles per hour or over 40 miles per hour. 
+        Since the player is providing their own input, they have an infinite range
+        of numerical values to apply. In order to make sure that the user's input
+        falls within the range the game specifies, the two methods below throw
+        the QuidditchControlExcpetion class to inform them that they're entered
+        a value that's invalid.
+        */
         if (kitchenBroomSpeed < 10) {
             throw new QuidditchControlException("\nRemember, the speed has to be at least 10 miles per hour.");
         }
@@ -42,8 +51,6 @@ public class QuidditchControl {
         if (timeOnBroom > 360) {
             throw new QuidditchControlException("\nYou can't ride for more than three minutes.");
         }
-
-        double snitchSpeed = 50;
 
         double timeCatchingSnitchWithKitchenBroom = ((timeOnBroom / kitchenBroomSpeed) / 3) * 100;
 
@@ -131,8 +138,18 @@ public class QuidditchControl {
     // maximum ranges 
     //      ((360 / 90) / 3 ) * 100 = 133.33
 
+    
+    /*
+    calcFireboltTime (C) throws QuidditchControlException...
+    */
     public double calcFireboltTime(double fireboltSpeed, double timeOnBroom)
             throws QuidditchControlException {
+        /*
+        If a method that throws the exception receives input from the user that 
+        doesn't fall within the parameters set by the game, then the exception
+        gets propagated from calcFireboltTime (C) to calcQuidditchControl (B) back
+        up to doAction (A)
+        */
         if (fireboltSpeed < 100) {
             throw new QuidditchControlException("\nThe Firebolt's minimum speed is 100 mph.");
         }

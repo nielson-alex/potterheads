@@ -33,9 +33,10 @@ public class GameMenuView extends View {
                 + "----------------------------------\n"
                 + "I - View Inventory\n"
                 + "S - View Spells\n"
+                + "U - Unused Characters\n"
                 + "M - View Map\n"
                 + "C - View Cash\n"
-                + "P - Print Spells report\n"
+                + "P - Print Spells Report\n"
                 + "H - House Quiz View\n"
                 + "Q - Quit");
     }
@@ -52,6 +53,9 @@ public class GameMenuView extends View {
                 break;
             case "S":
                 this.viewSpells();
+                break;
+            case "U":
+                this.unusedCharacters();
                 break;
             case "M":
                 this.displayMap();
@@ -110,7 +114,7 @@ public class GameMenuView extends View {
         StringBuilder line;
 
         Game game = Potterheads.getCurrentGame();
-//        InventoryItem[] inventory = game.getInventory();
+        //        InventoryItem[] inventory = game.getInventory();
 
         ArrayList<Spell> inventory = game.getSpellInventory();
 
@@ -129,6 +133,7 @@ public class GameMenuView extends View {
             //Display the line
             this.console.println(line.toString());
         }
+        return;
     }
 
     private void displayMap() {
@@ -231,6 +236,14 @@ public class GameMenuView extends View {
                 Potterheads.getPlayer().movePlayer(new Point(1, 0));
                 this.printSceneDesc();
 
+                /*
+                Unlike the player, we can create a non-static instance of the
+                QuidditchView because we won't need to reference specific, changing
+                attributes within that class. When the player is done with the QuidditchView,
+                they simply return to the previous view, so it's easier to create 
+                a new instanc each time, since no permanent changes need to be made
+                to the QuidditchView class
+                 */
                 QuidditchView quidditchView = new QuidditchView();
                 quidditchView.display();
                 break;
@@ -355,5 +368,47 @@ public class GameMenuView extends View {
         Location location = map[loc.x][loc.y];
 
         this.console.println(location.getScene().getDescription());
+    }
+
+    private void unusedCharacters() {
+        this.console.println("\nSee what characters we didn't use in this game.\n"
+                + "1\n"
+                + "2\n"
+                + "3\n"
+                + "4\n"
+                + "5\n"
+                + "6\n"
+                + "Q - Quit");
+
+        String unusedCharacters[] = {"Harry", "Hermione", "Ron", "Snape", "Lupin", "Neville"};
+        Scanner keyboard = new Scanner(System.in);
+        String choice = keyboard.nextLine();
+        choice = choice.toUpperCase();
+
+        switch (choice) {
+            case "1":
+                this.console.println(unusedCharacters[0]);
+                return;
+            case "2":
+                this.console.println(unusedCharacters[1]);
+                return;
+            case "3":
+                this.console.println(unusedCharacters[2]);
+                return;
+            case "4":
+                this.console.println(unusedCharacters[3]);
+                return;
+            case "5":
+                this.console.println(unusedCharacters[4]);
+                return;
+            case "6":
+                this.console.println(unusedCharacters[5]);
+                return;
+            case "Q":
+                return;
+            default:
+                this.console.println("\nEnter a valid selection.");
+                break;
+        }
     }
 }

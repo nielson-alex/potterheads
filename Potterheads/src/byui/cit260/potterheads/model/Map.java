@@ -41,6 +41,13 @@ public class Map implements Serializable {
                 location.setVisited(false);
 
                 //assign the Location object to the current position in the array
+                
+                /* 
+                    We use an array here because for both rows and columns, the
+                    data type always remains the same: int. Both rows and columns
+                    have a fixed length of 5 (as seen in GameControl Map map = new Map(5, 5))
+                    and that length will not change at any point in the game. 
+                */
                 locations[row][column] = location;
             }
         }

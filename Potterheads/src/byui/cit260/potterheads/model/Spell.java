@@ -17,6 +17,11 @@ public class Spell {
     private String effect;
     private SpellType type;
 
+    /*
+    You use an enum when you want to specify a type of object. Here, the spells
+    listed below are all objects of the Spell class with different types assigned
+    to them
+    */
     public enum SpellType {
         expelliarmus,
         stupify,
@@ -65,16 +70,17 @@ public class Spell {
                 this.effect = "Turns out the lights";
                 break;
             case avadaKedavra:
-                this.name = "Avada Kedavra";
+                
                 this.effect = "Kills a body";
                 break;
         }
     }
 
-//    public Spell(String name, String effect) {
-//        this.name = name;
-//        this.effect = effect;
-//    }
+    public Spell(String name, String effect) {
+        this.name = name;
+        this.effect = effect;
+    }
+    
     public SpellType getType() {
         return type;
     }
@@ -86,7 +92,7 @@ public class Spell {
     public void setName(String name) {
         this.name = name;
     }
-
+    
     public String getEffect() {
         return effect;
     }
@@ -97,9 +103,10 @@ public class Spell {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 61 * hash + Objects.hashCode(this.name);
-        hash = 61 * hash + Objects.hashCode(this.effect);
+        int hash = 7;
+        hash = 67 * hash + Objects.hashCode(this.name);
+        hash = 67 * hash + Objects.hashCode(this.effect);
+        hash = 67 * hash + Objects.hashCode(this.type);
         return hash;
     }
 
@@ -115,6 +122,15 @@ public class Spell {
             return false;
         }
         final Spell other = (Spell) obj;
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        if (!Objects.equals(this.effect, other.effect)) {
+            return false;
+        }
+        if (this.type != other.type) {
+            return false;
+        }
         return true;
     }
 

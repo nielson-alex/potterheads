@@ -18,6 +18,12 @@ public class Player implements Serializable {
 
     private String name;
     private Point coordinates;
+    
+    /*
+    We use an ArrayList<> for spells and inventoryItems because these lists 
+    are variable in length. Throughout the game it's possible to add new items
+    to the ArrayList and remove items from them
+    */
     public ArrayList<Spell> spells;
     private ArrayList<InventoryItem> inventoryItems;
     private double money;

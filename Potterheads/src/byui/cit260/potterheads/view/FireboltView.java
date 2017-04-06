@@ -33,6 +33,7 @@ public class FireboltView extends View {
     }
 
     @Override
+    // DoAction (A) calls calculateQuidditchControl (B)...
     public boolean doAction(String value) {
         value = value.toUpperCase();
         boolean done = false;
@@ -68,6 +69,12 @@ public class FireboltView extends View {
             } else {
                 try {
                     timeOnBroomDouble = Double.parseDouble(timeOnBroom);
+                    /*
+                    Here, if the player enters a value that's not a number, then 
+                    the program catches the error with the NumberFormatException 
+                    class and propagates it up the custom exception class ErrorView,
+                    inserting a custom String for the text of the error message.
+                    */
                 } catch (NumberFormatException nf) {
                     ErrorView.display(this.getClass().getName(), "You must enter a valid number.");
                     continue;
@@ -76,6 +83,9 @@ public class FireboltView extends View {
             break;
         }
 
+        /*
+        
+        */
         try {
             this.calculateQuidditchControl(fireboltSpeedDouble, timeOnBroomDouble);
         } catch (QuidditchControlException ex) {
@@ -85,6 +95,9 @@ public class FireboltView extends View {
         return true;
     }
 
+    /*
+    calculateQuidditchControl (B) calls calcFireboltTime (C)...
+    */
     private boolean calculateQuidditchControl(double fireboltSpeedDouble, double timeOnBroomDouble)
             throws QuidditchControlException {
         QuidditchControl quidditchControl = new QuidditchControl();

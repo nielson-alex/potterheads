@@ -20,8 +20,7 @@ public class GringottsControl extends Exception {
 
     protected final PrintWriter console = Potterheads.getOutFile();
 
-    Player player = Potterheads.getPlayer();
-    double money = player.getMoney();
+    double money = potterheads.Potterheads.getPlayer().getMoney();
 
     double dollars = money;
 
@@ -31,11 +30,20 @@ public class GringottsControl extends Exception {
 
     public double convertUsdToGalleons(double dollars, double cents)
             throws GringottsControlException {
+        
+        /*
+        To throw a custom runtime error, you need to first create a custom
+        exception class. In this case, we created the GringottsControlException
+        which can be seen on line 32, thrown within the method signature. When
+        the player inputs a value that doesn't fall within the parameters set 
+        by the program, then it throws a new exception error and displays a 
+        custom message.
+        */
         if (dollars < 5) {
             throw new GringottsControlException("\nYou need to exchange at least 5 USD.");
         }
 
-        if (dollars > player.getMoney()) {
+        if (dollars > potterheads.Potterheads.getPlayer().getMoney()) {
             throw new GringottsControlException("\nYou don't have that much money.");
         }
 
@@ -44,16 +52,16 @@ public class GringottsControl extends Exception {
         }
 
         if (cents >= 100) {
-            throw new GringottsControlException("\nThat would just another dollar.");
+            throw new GringottsControlException("\nThat would just be another dollar.");
         }
 
         double galleons = ((dollars + cents) * 0.735);
-        player.setMoney(player.getMoney() - (dollars + cents));
+        potterheads.Potterheads.getPlayer().setMoney(potterheads.Potterheads.getPlayer().getMoney() - (dollars + cents));
 
         this.console.println("\nYou exchanged " + dollars + " dollars and " + (cents * 100)
                 + " cents for " + df.format(galleons) + " galleons.");
 
-        player.setGalleons(player.getGalleons() + galleons);
+        potterheads.Potterheads.getPlayer().setGalleons(potterheads.Potterheads.getPlayer().getGalleons() + galleons);
 
         return galleons;
     }

@@ -25,6 +25,19 @@ public class HagridsHouseView extends View {
 
     @Override
     public boolean doAction(String value) {
+        /*
+        The player is a static variable. There is only player in each game and it
+        wouldn't make sense to create new instances of the player because there are
+        parts of the game that need to access specific attributes or variables that
+        are part of the variable class. For example, in one part of the game, you 
+        can receive money from Hagrid and then go to the bank to conver the money 
+        into Harry Potter currency, which you can then take to the store to purchase
+        items.
+        
+        (go to line 50)
+        */
+
+        
         Player player = potterheads.Potterheads.getPlayer();
         value = value.toUpperCase();
 
@@ -34,6 +47,12 @@ public class HagridsHouseView extends View {
 
             if ("Y".equals(value.toUpperCase())) {
                 if (!player.isHasReceivedMoney()) {
+                    /*
+                    It's necessary to reference the static player class because if we were to
+                    create a new instance of the player to add $500, then we would
+                    have a player instance with no money and a player instance with
+                    $500.
+                    */
                     potterheads.Potterheads.getPlayer().setMoney(500);
 
                     this.console.println("\n'Five hunnerd dollars is a lot, I hear. But\n"
